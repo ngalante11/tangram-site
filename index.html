@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tangram — Your Personal Lesson Personalization Engine</title>
+<meta name="description" content="Pick your standard. Pick your framework. Tell it about your students. Get a differentiated, observation-ready lesson plan in under 3 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=League+Spartan:wght@400;600;700;800&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Work Sans', sans-serif;
+  color: #333;
+  background: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Brand Tokens ── */
+:root {
+  --grape: #401F7D;
+  --orchid: #B14FC5;
+  --amethyst: #88229D;
+  --pacific: #5FD0FF;
+  --mint: #3FDE9D;
+  --slate: #333333;
+  --stone: #EAEAEE;
+  --grape-dark: #2E1559;
+  --orchid-light: rgba(177, 79, 197, 0.12);
+  --shadow-orchid: 0 4px 24px rgba(177, 79, 197, 0.25);
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 { font-family: 'Alata', sans-serif; color: var(--grape); }
+.hero-headline { font-family: 'League Spartan', sans-serif; }
+.cta-btn { font-family: 'League Spartan', sans-serif; }
+
+/* ── Layout ── */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+section { position: relative; }
+
+/* ── Geometric Decorations (CSS tangram shapes) ── */
+.geo-triangle {
+  position: absolute;
+  width: 0; height: 0;
+  border-style: solid;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+.geo-1 { border-width: 0 0 300px 300px; border-color: transparent transparent var(--grape) transparent; top: -40px; right: -60px; }
+.geo-2 { border-width: 200px 200px 0 0; border-color: var(--orchid) transparent transparent transparent; bottom: -20px; left: -80px; }
+.geo-3 { border-width: 0 160px 160px 0; border-color: transparent var(--amethyst) transparent transparent; top: 60px; left: 10%; }
+.geo-4 { border-width: 240px 0 0 240px; border-color: transparent transparent transparent var(--grape); bottom: 40px; right: 5%; }
+.geo-square {
+  position: absolute;
+  width: 80px; height: 80px;
+  background: var(--orchid);
+  opacity: 0.05;
+  transform: rotate(15deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Navigation ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(234,234,238,0.8);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(64,31,125,0.08); }
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-logo { height: 36px; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--slate);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--orchid); }
+.nav-cta {
+  display: inline-block;
+  background: var(--orchid);
+  color: #fff !important;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-family: 'League Spartan', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  text-decoration: none;
+  box-shadow: var(--shadow-orchid);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.02em;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(177,79,197,0.35); }
+
+/* ── Hero ── */
+.hero {
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(175deg, #fff 0%, #faf6ff 40%, #f3ebff 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orchid-light);
+  border: 1px solid rgba(177,79,197,0.2);
+  border-radius: 100px;
+  padding: 6px 16px 6px 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--amethyst);
+  margin-bottom: 24px;
+  animation: fadeInUp 0.6s ease-out both;
+}
+.hero-badge img { height: 24px; width: 24px; border-radius: 4px; }
+.hero-headline {
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--grape);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+.hero-headline em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--orchid), var(--amethyst));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 19px;
+  line-height: 1.65;
+  color: #555;
+  margin-bottom: 36px;
+  max-width: 560px;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orchid);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  text-decoration: none;
+  box-shadow: var(--shadow-orchid);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.02em;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(177,79,197,0.4); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--grape);
+  padding: 16px 28px;
+  border-radius: 10px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border: 2px solid var(--stone);
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.btn-secondary:hover { border-color: var(--orchid); color: var(--orchid); }
+.hero-proof {
+  margin-top: 40px;
+  font-size: 13px;
+  color: #888;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+.hero-proof span { color: var(--orchid); font-weight: 600; }
+
+/* ── How It Works Strip ── */
+.how-strip {
+  background: var(--grape);
+  padding: 56px 0;
+  position: relative;
+  overflow: hidden;
+}
+.how-strip::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border: 40px solid rgba(177,79,197,0.15);
+  border-radius: 0;
+  transform: rotate(20deg);
+}
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+  z-index: 2;
+}
+.how-step {
+  text-align: center;
+  position: relative;
+}
+.how-step::after {
+  content: '→';
+  position: absolute;
+  right: -20px;
+  top: 28px;
+  font-size: 24px;
+  color: rgba(255,255,255,0.25);
+}
+.how-step:last-child::after { display: none; }
+.how-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(177,79,197,0.25);
+  color: #fff;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.how-label {
+  font-family: 'Alata', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.how-detail {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+/* ── Director vs Editor ── */
+.compare {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.compare-tag {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orchid);
+  margin-bottom: 12px;
+}
+.compare h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.compare-sub {
+  font-size: 17px;
+  color: #666;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.compare-card {
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.compare-card.them {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+}
+.compare-card.us {
+  background: linear-gradient(145deg, var(--grape-dark), var(--grape));
+  border: 1px solid rgba(177,79,197,0.3);
+  box-shadow: 0 12px 40px rgba(64,31,125,0.2);
+}
+.compare-card.us * { color: #fff; }
+.card-label {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  opacity: 0.6;
+}
+.card-brand {
+  font-family: 'Alata', sans-serif;
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+.card-brand.them { color: #666; }
+.card-brand.us { color: #fff; }
+.card-price {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  opacity: 0.7;
+}
+.card-role {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.card-role.them { color: #888; }
+.card-role.us { color: var(--mint); }
+.card-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+.card-list { list-style: none; }
+.card-list li {
+  font-size: 14px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(128,128,128,0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-list li .icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.them .icon { background: #e0e0e0; color: #999; }
+.us .icon { background: rgba(63,222,157,0.2); color: var(--mint); }
+
+/* ── Pullquote ── */
+.pullquote-section {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #f8f4fc, #f0e8ff);
+}
+.pullquote {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.pullquote blockquote {
+  font-family: 'Alata', sans-serif;
+  font-size: clamp(22px, 3.5vw, 32px);
+  color: var(--grape);
+  line-height: 1.4;
+  position: relative;
+}
+.pullquote blockquote em {
+  font-style: normal;
+  color: var(--orchid);
+}
+
+/* ── Features Grid ── */
+.features {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.features-tag {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orchid);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.features h2 {
+  text-align: center;
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 48px;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--stone);
+  border-radius: 16px;
+  padding: 32px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(64,31,125,0.08);
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--orchid), var(--amethyst));
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.feature-card:hover::before { opacity: 1; }
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.fi-grape { background: rgba(64,31,125,0.08); color: var(--grape); }
+.fi-orchid { background: var(--orchid-light); color: var(--orchid); }
+.fi-pacific { background: rgba(95,208,255,0.12); color: #0099cc; }
+.fi-mint { background: rgba(63,222,157,0.12); color: #1a9960; }
+.fi-amethyst { background: rgba(136,34,157,0.1); color: var(--amethyst); }
+.feature-card h3 {
+  font-family: 'Alata', sans-serif;
+  font-size: 17px;
+  margin-bottom: 8px;
+  color: var(--grape);
+}
+.feature-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #666;
+}
+
+/* ── Credibility ── */
+.credibility {
+  padding: 80px 0;
+  background: var(--grape);
+  position: relative;
+  overflow: hidden;
+}
+.credibility::before {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 300px; height: 300px;
+  border: 50px solid rgba(177,79,197,0.1);
+  transform: rotate(-15deg);
+}
+.cred-tag {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pacific);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.credibility h2 {
+  text-align: center;
+  font-size: clamp(24px, 3.5vw, 36px);
+  color: #fff;
+  margin-bottom: 48px;
+}
+.cred-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+.cred-stat {
+  text-align: center;
+  padding: 24px;
+}
+.cred-num {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--mint);
+  margin-bottom: 4px;
+}
+.cred-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+}
+.cred-tagline {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Pricing ── */
+.pricing {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff 0%, #faf8ff 100%);
+}
+.pricing-tag {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orchid);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.pricing h2 {
+  text-align: center;
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 8px;
+}
+.pricing-sub {
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 48px;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.price-card {
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+}
+.price-card.free {
+  background: #fff;
+  border: 1px solid var(--stone);
+}
+.price-card.pro {
+  background: linear-gradient(145deg, var(--grape-dark), var(--grape));
+  border: 1px solid rgba(177,79,197,0.3);
+  box-shadow: 0 12px 40px rgba(64,31,125,0.2);
+}
+.price-card.pro * { color: #fff; }
+.price-badge {
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  background: var(--mint);
+  color: var(--grape) !important;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 100px;
+}
+.price-name {
+  font-family: 'Alata', sans-serif;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.price-amount {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.price-amount .big {
+  font-size: 48px;
+  line-height: 1;
+}
+.price-amount .period { font-size: 16px; opacity: 0.6; font-weight: 400; }
+.price-annual {
+  font-size: 13px;
+  opacity: 0.6;
+  margin-bottom: 24px;
+}
+.price-list { list-style: none; margin-bottom: 32px; }
+.price-list li {
+  font-size: 14px;
+  padding: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.price-list .check { flex-shrink: 0; margin-top: 2px; }
+.free .check { color: var(--orchid); }
+.pro .check { color: var(--mint); }
+.price-list .limit {
+  font-size: 12px;
+  opacity: 0.5;
+  margin-left: 4px;
+}
+.price-btn-free {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid var(--stone);
+  color: var(--grape);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.price-btn-free:hover { border-color: var(--orchid); color: var(--orchid); }
+.price-btn-pro {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background: var(--orchid);
+  border: 2px solid var(--orchid);
+  color: #fff !important;
+  cursor: pointer;
+  box-shadow: var(--shadow-orchid);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.price-btn-pro:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(177,79,197,0.4); }
+
+/* ── Final CTA ── */
+.final-cta {
+  padding: 80px 0;
+  text-align: center;
+  background: linear-gradient(135deg, #f8f4fc, #f0e8ff);
+  position: relative;
+  overflow: hidden;
+}
+.final-cta h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.final-cta p {
+  font-size: 17px;
+  color: #666;
+  margin-bottom: 32px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.final-cta .btn-primary { font-size: 18px; padding: 18px 40px; }
+
+/* ── Footer ── */
+footer {
+  padding: 40px 0;
+  background: var(--grape-dark);
+  text-align: center;
+}
+.footer-logo { height: 28px; margin-bottom: 12px; opacity: 0.7; }
+footer p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+footer a:hover { color: var(--orchid); }
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .how-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .how-step::after { display: none; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .cred-grid { grid-template-columns: repeat(3, 1fr); }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+}
+@media (max-width: 600px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero { padding: 120px 0 60px; }
+  .hero-headline { font-size: 36px; }
+  .how-grid { grid-template-columns: 1fr 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .cred-grid { grid-template-columns: 1fr; }
+  .cred-num { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <img src="data:image/jpeg;base64,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aLVBRW/qLX0FOwb93p6bUbHHu4D4+/fff5rzhn0onLedWmf32+n1Svt9093SenGUQ5hhttvMPEPnj1Mwfslb2e3+vl6ELz5n12u0fWHIsvswMlPislLBOwE/FGdse37El4P338lbek8Nb006i3XDLpNLVWytiFbSVfglrHPDdu7dw0kNcNb82D6qR9n60i9Yzl9yvNO4tyC4zeLHK0gui16/63K1rXh7XyR1r018pn8bhY1SZnwkesebtOAW6mxuUzV+U8Kah4fq8OTXJ3odODfQu9Fo+zJJNQWfJMaqyPebNc3xuA8tO7dvTkxx/morpB04uduz2rkyF8s1vxnlSWnxB8LvEJfzb9mv8A+52v2qYxaGSw+0Zk9KIpG0d6omVbHcTxMjdE9/Lf+IpaKVx2w0nfTe/5/CTqImsOyoiL5rEREQalpuNNdaCOsoZDJTyFwa7iW74uLT2PqCttckxbHL7GaKhfFeLcP74ytqHVgMJhk8TwhEwOPF4c5jgQARo7J2p/p/V3mtx+5XqudJUVb2+BTQCTbH+A0sL299fmSB7t/Qt+iC2C9W42v8R97i9yL/D8bfw8ufh6+/Lt91ILjf8AZ3ef4d/CBLq3e5fiHhc/j/E/D1x3/wAnifmf6lNilyafJIqmSC5RTSVtPM2UVQFLFR+G3xYXRh2i/lzH6SSS0g6CDpK1p66lp6ylpJpmMqarl4MZ838Rt2vsFzGC25MygrIXw3ialbXwyzSOqjHV1cG5PEjaPFLWkfl92FnIbAAIWW32zLw0CB1wpz7xcTD75VCQxsdCBTc/iOwHfLvrvv6kOnTysggkmlPGONpe468gBsquuzewMnpYnVcjfeYYJ2SGnk8MMmJERe/jxZyI0ORC18Zo5xilZTvo7tBWPiLJG3Cp8Z0kvh6cWu5uHEn7DfyVdsGE1dXU00d697pqCO0WyGWnjczjUSw8y5jzou008f0kA78yg6giIgIiICIiAiIgIiICIiD4QCCCOxWOkpoaSmjp6WGOGCJoYyONoa1oHkAB5BZUQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERB/9k=" alt="Tangram by Mosaic IP" class="nav-logo">
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#credibility">About</a>
+      <a href="#signup" class="nav-cta">Try Free →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="geo-triangle geo-1"></div>
+  <div class="geo-triangle geo-2"></div>
+  <div class="geo-square" style="top:20%;right:12%"></div>
+  <div class="geo-square" style="bottom:15%;right:25%;width:50px;height:50px;transform:rotate(40deg)"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <img src="data:image/jpeg;base64,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" alt="T" style="border-radius:4px">
+        By the founders of Mosaic IP
+      </div>
+      <h1 class="hero-headline">
+        Your personal<br>lesson <em>personalization</em><br>engine.
+      </h1>
+      <p class="hero-sub">
+        Pick your standard. Pick your framework. Tell it about your students. Get a differentiated, observation-ready lesson plan in under 3 minutes.
+      </p>
+      <div class="hero-actions">
+        <a href="#signup" class="btn-primary">Try Tangram Free →</a>
+        <a href="#compare" class="btn-secondary">See how it works</a>
+      </div>
+      <p class="hero-proof">
+        <span>$7.99/mo</span> when you're ready &nbsp;·&nbsp; No district approval needed &nbsp;·&nbsp; <span>38% less</span> than the leading AI tool
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ HOW IT WORKS STRIP ════════ -->
+<section class="how-strip" id="compare">
+  <div class="container">
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-label">Pick your standard</div>
+        <div class="how-detail">Full state standards with learning progressions</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-label">Pick your framework</div>
+        <div class="how-detail">Danielson, Marzano, UbD, state-specific</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-label">Tell it about your students</div>
+        <div class="how-detail">IEPs, ELLs, reading levels, MTSS tiers</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <div class="how-label">Get your lesson</div>
+        <div class="how-detail">Differentiated, observation-ready, yours</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ DIRECTOR vs EDITOR ════════ -->
+<section class="compare" id="distinction">
+  <div class="geo-triangle geo-3"></div>
+  <div class="container">
+    <div class="compare-tag">The key distinction</div>
+    <h2>Director, not editor.</h2>
+    <p class="compare-sub">
+      Other AI tools generate a lesson for you to fix. Tangram generates a lesson that's already yours. Your 20% input produces 100% personalized output.
+    </p>
+    <div class="compare-grid">
+      <!-- THEM -->
+      <div class="compare-card them">
+        <div class="card-label">The editor model</div>
+        <div class="card-brand them">Other AI Tools</div>
+        <div class="card-price">$10–$13/month · Generic output</div>
+        <div class="card-role them">Teacher as Editor</div>
+        <div class="card-desc">AI generates 80%. Teacher fixes 20%. You start with generic output and edit it into something usable.</div>
+        <ul class="card-list">
+          <li><span class="icon">✗</span> 80+ disconnected tools</li>
+          <li><span class="icon">✗</span> No pedagogical framework</li>
+          <li><span class="icon">✗</span> No student context</li>
+          <li><span class="icon">✗</span> Generic output to edit</li>
+          <li><span class="icon">✗</span> No learning progressions</li>
+        </ul>
+      </div>
+      <!-- US -->
+      <div class="compare-card us">
+        <div class="card-label">The director model</div>
+        <div class="card-brand us">Tangram</div>
+        <div class="card-price">$7.99/month · Self-funded</div>
+        <div class="card-role us">Teacher as Director</div>
+        <div class="card-desc">Teacher provides 20%. AI builds 100% personalized. Output is tailored from the start — no editing, no correcting.</div>
+        <ul class="card-list">
+          <li><span class="icon">✓</span> One guided workflow</li>
+          <li><span class="icon">✓</span> Danielson, Marzano, UbD aligned</li>
+          <li><span class="icon">✓</span> IEPs, ELLs, MTSS integrated</li>
+          <li><span class="icon">✓</span> Observation-ready from start</li>
+          <li><span class="icon">✓</span> Full learning progressions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PULLQUOTE ════════ -->
+<section class="pullquote-section">
+  <div class="container">
+    <div class="pullquote">
+      <blockquote>
+        "Other AI tools give you a lesson to fix.<br><em>Tangram gives you a lesson that's already yours.</em>"
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FEATURES ════════ -->
+<section class="features" id="features">
+  <div class="geo-triangle geo-4"></div>
+  <div class="container">
+    <div class="features-tag">What makes it different</div>
+    <h2>Four layers. One system. Your class.</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon fi-grape">📐</div>
+        <h3>Deep Standards Alignment</h3>
+        <p>Full state standards with backward and forward learning progressions. See where students have been and where they're going.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-orchid">📋</div>
+        <h3>Framework Mapping</h3>
+        <p>Danielson, Marzano, Understanding by Design, and state-specific frameworks. Your lesson speaks your evaluator's language.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-pacific">👥</div>
+        <h3>Student-Level Differentiation</h3>
+        <p>Readiness, interest, learning profiles, IEPs, ELLs, MTSS tiers. Tangram knows your students — not just your subject.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-mint">✓</div>
+        <h3>Observation-Ready Output</h3>
+        <p>Complete 5E lessons with flow that a real instructional coach would approve. Not a list of suggestions — a plan.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-amethyst">📚</div>
+        <h3>Lesson Sequences</h3>
+        <p>Group related lessons into Sequences anchored to shared standards and assessments. Organize the way you actually teach.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon fi-grape">⏱</div>
+        <h3>Under 3 Minutes</h3>
+        <p>From standard selection to finished plan. Not a first draft to fix — a personalized lesson ready for your classroom.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CREDIBILITY ════════ -->
+<section class="credibility" id="credibility">
+  <div class="container">
+    <div class="cred-tag">Built by educators, not just engineers</div>
+    <h2>Founder credibility that can't be bought or faked.</h2>
+    <div class="cred-grid">
+      <div class="cred-stat">
+        <div class="cred-num">650+</div>
+        <div class="cred-label">Districts coached<br>across the country</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">3,500+</div>
+        <div class="cred-label">Teachers trained<br>during the pandemic</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">$2M</div>
+        <div class="cred-label">NYSED evaluation<br>contract led</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">Co-Author</div>
+        <div class="cred-label">NY State virtual<br>schools handbook</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">3,500+</div>
+        <div class="cred-label">Existing Mosaic IP<br>users across 4 states</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">Director</div>
+        <div class="cred-label">University graduate<br>program in education</div>
+      </div>
+    </div>
+    <p class="cred-tagline">
+      Most AI edtech founders are technologists. Tangram's founders are the people who would evaluate whether the output is actually good.
+    </p>
+  </div>
+</section>
+
+<!-- ════════ PRICING ════════ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-tag">Simple pricing</div>
+    <h2>Less than a takeout lunch.</h2>
+    <p class="pricing-sub">Free to start. $7.99/month when you're ready. No district approval needed.</p>
+    <div class="pricing-grid">
+      <!-- FREE -->
+      <div class="price-card free">
+        <div class="price-name">Tangram Free</div>
+        <div class="price-amount"><span class="big">$0</span> <span class="period">/ month</span></div>
+        <div class="price-annual">Free forever</div>
+        <ul class="price-list">
+          <li><span class="check">✓</span> 5 lesson plans per month</li>
+          <li><span class="check">✓</span> 1 pedagogical framework</li>
+          <li><span class="check">✓</span> Current-grade progressions</li>
+          <li><span class="check">✓</span> Differentiation preview</li>
+          <li><span class="check">✓</span> 10 saved lessons</li>
+          <li><span class="check">✓</span> 2 Lesson Sequences</li>
+          <li><span class="check">✓</span> PDF exports <span class="limit">(watermarked)</span></li>
+        </ul>
+        <a href="#signup" class="price-btn-free">Get Started Free</a>
+      </div>
+      <!-- PRO -->
+      <div class="price-card pro">
+        <div class="price-badge">Save $26/yr</div>
+        <div class="price-name" style="color:#fff">Tangram Pro</div>
+        <div class="price-amount"><span class="big">$7.99</span> <span class="period">/ month</span></div>
+        <div class="price-annual">$69.99/year ($5.83/mo)</div>
+        <ul class="price-list">
+          <li><span class="check">✓</span> <strong>Unlimited</strong> lesson plans</li>
+          <li><span class="check">✓</span> <strong>All</strong> frameworks (Danielson, Marzano, UbD)</li>
+          <li><span class="check">✓</span> Full backward/forward progressions</li>
+          <li><span class="check">✓</span> Complete differentiation engine</li>
+          <li><span class="check">✓</span> Unlimited saved lessons</li>
+          <li><span class="check">✓</span> <strong>Unlimited</strong> Sequences + assessment tracking</li>
+          <li><span class="check">✓</span> Clean exports — no watermark</li>
+          <li><span class="check">✓</span> Student Grouping AI</li>
+        </ul>
+        <a href="#signup" class="price-btn-pro">Start 14-Day Free Trial →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FINAL CTA ════════ -->
+<section class="final-cta" id="signup">
+  <div class="container">
+    <h2>Other AI tools generate lessons <em style="font-style:normal;color:var(--orchid)">for</em> a class.<br>Tangram generates lessons for <em style="font-style:normal;color:var(--orchid)">your</em> class.</h2>
+    <p>Free to start. Your first lesson plan in under 3 minutes. No credit card required.</p>
+    <a href="#" class="btn-primary" style="font-size:18px;padding:18px 40px;">Try Tangram Free →</a>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="container">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAAAAAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACWAJYDASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAQFBgcIAgMB/8QANxAAAQMDAwEGBQEGBwAAAAAAAQACAwQFEQYSITEHE0FRYXEUFSKBkbIyQnKhsdEIIzZSdJLh/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAECAwUE/8QALBEAAgIBAgQEBQUAAAAAAAAAAAECEQMSIQQxQdETI6HxUnGRscEiYYHh8P/aAAwDAQACEQMRAD8A/VCIiAIiIAiIgCIiAiIgCIiAiIgCIiAiIgCIiAiIgCIiAiIgCIiAiIgCIiAIiIAiIgCIiAiIgCIiAiIgCIiAiIgCIiAiIgCIiAiIgCIiAiIgCKLdTi2VhHB7l/6SuRS0F/q7RPUWSAzSMGA6WfY0cZJ5648l6+H4VZouUpaUjfFhWRNt0dnRfmTT2l9Z3CSpcC6paDveTWfUCc9BnnOOi6B2IuqBcr1HUum7yNkbSyQnLTudkYPQrXNwKxRk9dtdDfLwaxxclO6Otoquw3yjvbKt1C/cKad0D/ceI9D4LO/XenslvNbU22qOJ1C/cKad0D/dj0Pu5ewtxeIzuY/LTPRIeNJdJKSi8MzVcn34LcCI90hhbxZe/y4vfHdIYW8WXv8uL3zLkr/Yx+OXoW4ER7pDC3iy9/lxe+e6Qwt4svf5cXvmXJX+xj8cvQtwIj3SGFvFl7/Li98yts+nXDtyy7HQXWJXf09lZGm68mTxyV/tZlGiyTxFFZBOu21ZfA7j6jPeHbasvgdx9RnvHnJ3e1mfKXe0ooPNw5pBtl+u8VupaasjarISGvT+h0Gvp5KqLZ0xp66UO11dGRFI+Smrh3MkbORO/2p7xKZ3UfWll/2Feq9UJxjadw+SKLMOxzulsfUdxtrVda5ElRzM9+BysXJOlq8nNsKIAbLbZWtOXl3Gyy2VmHLy7gADWawAAAAAAAADOGsJcXx4zSmhzavyOPdP5d9X7yElKXrDcYjvQof1eTQ6jSbMeh0+k2Y9CpauPDyo9Ak67DS5mjVy4eVHoEnXYaXKfiW98FPxHe+AACvIAAAAAAAAAAAAAAABmLWG4w19Ch/V5Mymaw/GF+Ch/V5MlVERVVckTlOo0mzHodPpNmPQqWrlw9n9Ak67DTBlvVprm1OkmqiiTONtulXdc67uPZ0GpCn4lvfBS6+SldlAAFeQgAAAAAAAAAAAAAADMGsU9sekBz3uRrUooVVV8ryJXK4uqVWOPNsP8A27y/sbUxpovw5jC6JX3uKrfOkbY07FUujbkmeW8nLvqc/wBoHA3gtf8A815eafiFNdcYyzlFitalWq15Eg1UuMmr+7ZfaRmtzhsE6LsNYNu77lY4KqOqfC6BVlqHSJuVVFXeXpah3JXa2+N9vbj4EKySlLKAAIhrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/2Q==" alt="Tangram by Mosaic IP" class="footer-logo"><br>
+    <p>Tangram is a product of Mosaic Instructional Planning &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a href="#">Privacy</a></p>
+    <p style="margin-top:8px">© 2026 Mosaic Instructional Planning LLC</p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll shadow
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Intersection Observer for fade-in on scroll
+const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.how-step, .compare-card, .feature-card, .cred-stat, .price-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+  observer.observe(el);
+});
+
+// Stagger siblings
+document.querySelectorAll('.how-grid, .features-grid, .cred-grid, .compare-grid, .pricing-grid').forEach(grid => {
+  const children = grid.children;
+  Array.from(children).forEach((child, i) => {
+    child.style.transitionDelay = `${i * 0.08}s`;
+  });
+});
+</script>
+</body>
+</html>
