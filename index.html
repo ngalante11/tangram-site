@@ -723,6 +723,21 @@ footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
 footer a:hover { color: var(--orchid); }
 
 /* ── Animations ── */
+.signup-form {
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 4px;
+}
+.signup-form input[type="email"] {
+  padding: 16px 20px; border: 2px solid rgba(177,79,197,0.25); border-radius: 12px;
+  font-size: 16px; font-family: 'Work Sans', sans-serif; background: #fff;
+  min-width: 280px; flex: 1; outline: none; transition: border-color 0.2s;
+}
+.signup-form input[type="email"]:focus { border-color: var(--orchid); }
+.signup-form input[type="email"]::placeholder { color: #999; }
+.signup-form .btn-primary { white-space: nowrap; flex-shrink: 0; }
+.final-cta .signup-form input[type="email"] { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.2); }
+.final-cta .signup-form input[type="email"]:focus { border-color: var(--orchid); }
+.final-cta .signup-form input[type="email"]::placeholder { color: rgba(255,255,255,0.5); }
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
@@ -782,7 +797,11 @@ footer a:hover { color: var(--orchid); }
         Pick your standard. Pick your framework. Tell it about your students. Get a differentiated, observation-ready lesson plan in under 3 minutes.
       </p>
       <div class="hero-actions">
-        <a href="#signup" class="btn-primary">Try Tangram Free →</a>
+        <form class="signup-form" data-kit-form>
+          <input type="email" name="email_address" placeholder="Enter your school email" required>
+          <button type="submit" class="btn-primary">Try Tangram Free →</button>
+        </form>
+        <p class="signup-msg" style="display:none;margin-top:8px;font-size:14px;color:var(--mint);font-weight:600;"></p>
         <a href="#compare" class="btn-secondary">See how it works</a>
       </div>
       <p class="hero-proof">
@@ -1003,7 +1022,11 @@ footer a:hover { color: var(--orchid); }
   <div class="container">
     <h2>Other AI tools generate lessons <em style="font-style:normal;color:var(--orchid)">for</em> a class.<br>Tangram generates lessons for <em style="font-style:normal;color:var(--orchid)">your</em> class.</h2>
     <p>Free to start. Your first lesson plan in under 3 minutes. No credit card required.</p>
-    <a href="#" class="btn-primary" style="font-size:18px;padding:18px 40px;">Try Tangram Free →</a>
+    <form class="signup-form" data-kit-form style="justify-content:center;">
+      <input type="email" name="email_address" placeholder="Enter your school email" required>
+      <button type="submit" class="btn-primary" style="font-size:18px;padding:18px 40px;">Try Tangram Free →</button>
+    </form>
+    <p class="signup-msg" style="display:none;margin-top:8px;font-size:14px;color:var(--mint);font-weight:600;"></p>
   </div>
 </section>
 
@@ -1046,6 +1069,44 @@ document.querySelectorAll('.how-grid, .features-grid, .cred-grid, .compare-grid,
   const children = grid.children;
   Array.from(children).forEach((child, i) => {
     child.style.transitionDelay = `${i * 0.08}s`;
+  });
+});
+// Kit form submission
+document.querySelectorAll('[data-kit-form]').forEach(form => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    const input = form.querySelector('input[name="email_address"]');
+    const msg = form.nextElementSibling;
+    const email = input.value.trim();
+    if (!email) return;
+
+    btn.textContent = 'Signing up...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://app.kit.com/forms/48d0462921/subscriptions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email_address: email })
+      });
+
+      if (res.ok || res.status === 200 || res.status === 201) {
+        input.style.display = 'none';
+        btn.style.display = 'none';
+        msg.style.display = 'block';
+        msg.textContent = "You're in! Check your email to get started.";
+      } else {
+        throw new Error('Signup failed');
+      }
+    } catch (err) {
+      btn.textContent = 'Try Tangram Free →';
+      btn.disabled = false;
+      msg.style.display = 'block';
+      msg.style.color = '#ff6b6b';
+      msg.textContent = 'Something went wrong. Please try again.';
+      setTimeout(() => { msg.style.display = 'none'; }, 3000);
+    }
   });
 });
 </script>
