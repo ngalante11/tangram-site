@@ -734,9 +734,9 @@ footer a:hover { color: var(--orchid); }
 .signup-form input[type="email"]:focus { border-color: var(--orchid); }
 .signup-form input[type="email"]::placeholder { color: #999; }
 .signup-form .btn-primary { white-space: nowrap; flex-shrink: 0; }
-.final-cta .signup-form input[type="email"] { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.2); }
-.final-cta .signup-form input[type="email"]:focus { border-color: var(--orchid); }
-.final-cta .signup-form input[type="email"]::placeholder { color: rgba(255,255,255,0.5); }
+.final-cta .signup-form input[type="email"] { background: rgba(255,255,255,0.95); color: var(--slate); border: 2px solid var(--orchid); }
+.final-cta .signup-form input[type="email"]:focus { border-color: var(--mint); }
+.final-cta .signup-form input[type="email"]::placeholder { color: #888; }
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
@@ -1085,10 +1085,10 @@ document.querySelectorAll('[data-kit-form]').forEach(form => {
     btn.disabled = true;
 
     try {
-      const res = await fetch('https://app.kit.com/forms/48d0462921/subscriptions', {
+      const res = await fetch('https://api.convertkit.com/v3/forms/9066827/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email_address: email })
+        body: JSON.stringify({ api_key: 'YpKmNf5Bh_apaowsIu9bDg', email: email })
       });
 
       if (res.ok || res.status === 200 || res.status === 201) {
