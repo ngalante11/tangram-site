@@ -465,6 +465,24 @@ body {
   margin-bottom: 32px;
 }
 
+/* ══════ SIGNUP FORMS ══════ */
+.signup-form {
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+}
+.signup-form input[type="email"] {
+  padding: 16px 20px; border: 2px solid var(--grape-10); border-radius: 10px;
+  font-size: 16px; font-family: 'Work Sans', sans-serif; background: var(--white);
+  min-width: 280px; flex: 1; outline: none; transition: border-color 0.2s;
+  color: var(--slate);
+}
+.signup-form input[type="email"]:focus { border-color: var(--orchid); }
+.signup-form input[type="email"]::placeholder { color: #999; }
+.signup-form button { border: none; cursor: pointer; }
+.final-cta .signup-form { justify-content: center; }
+.final-cta .signup-form input[type="email"] {
+  background: rgba(255,255,255,0.95); border-color: var(--stone);
+}
+
 /* ══════ FOOTER ══════ */
 footer {
   padding: 40px 0;
@@ -522,8 +540,11 @@ footer a:hover { text-decoration: underline; }
     <h1>Your lesson plans should know <em>your</em> students.</h1>
     <p class="hero-sub">Pick your standard. Pick your framework. Tell Tangram about your students. Get a differentiated, observation-ready lesson plan in under 3 minutes.</p>
     <div class="hero-actions">
-      <a href="#signup" class="btn-primary">Try Tangram Free →</a>
-      <a href="#how" class="btn-secondary">See How It Works</a>
+      <form class="signup-form" data-kit-form>
+        <input type="email" name="email_address" placeholder="Enter your school email" required>
+        <button type="submit" class="btn-primary">Try Tangram Free →</button>
+      </form>
+      <div class="signup-msg" style="display:none;font-weight:600;font-size:15px;color:var(--mint);"></div>
     </div>
     <div class="hero-proof">
       <span>3 free lessons to start</span>
@@ -775,7 +796,11 @@ footer a:hover { text-decoration: underline; }
   <div class="container">
     <h2>Your first 3 lessons are free.<br>Your next observation is covered.</h2>
     <p>3 core lessons. 12 personalized outputs. Under 3 minutes each. No credit card required.</p>
-    <a href="#" class="btn-primary" style="font-size:18px;padding:18px 40px;">Try Tangram Free →</a>
+    <form class="signup-form" data-kit-form>
+      <input type="email" name="email_address" placeholder="Enter your school email" required>
+      <button type="submit" class="btn-primary" style="font-size:16px;padding:16px 32px;">Try Tangram Free →</button>
+    </form>
+    <div class="signup-msg" style="display:none;margin-top:12px;font-weight:600;font-size:16px;color:var(--mint);"></div>
   </div>
 </section>
 
@@ -818,6 +843,62 @@ document.querySelectorAll('.how-grid, .features-grid, .cred-grid, .compare-grid,
   const children = grid.children;
   Array.from(children).forEach((child, i) => {
     child.style.transitionDelay = `${i * 0.08}s`;
+  });
+});
+// Kit (ConvertKit) form submission
+// IMPORTANT: Update FORM_ID below if 48d0462921 doesn't work.
+// Find your numeric form ID at: Kit → Forms → click your form → check the URL for a number
+const KIT_FORM_ID = '9066827';
+const KIT_API_KEY = 'YpKmNf5Bh_apaowsIu9bDg';
+
+document.querySelectorAll('[data-kit-form]').forEach(form => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    const input = form.querySelector('input[name="email_address"]');
+    const msg = form.parentElement.querySelector('.signup-msg');
+    const email = input.value.trim();
+    if (!email) return;
+
+    const originalText = btn.textContent;
+    btn.textContent = 'Signing up...';
+    btn.disabled = true;
+
+    try {
+      // Try Kit v3 API first
+      const res = await fetch(`https://api.convertkit.com/v3/forms/${KIT_FORM_ID}/subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify({ api_key: KIT_API_KEY, email: email })
+      });
+
+      if (!res.ok) {
+        // Fallback: try Kit's app endpoint
+        const res2 = await fetch(`https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email_address: email })
+        });
+        if (!res2.ok) throw new Error('Both endpoints failed');
+      }
+
+      input.style.display = 'none';
+      btn.style.display = 'none';
+      if (msg) {
+        msg.style.display = 'block';
+        msg.style.color = 'var(--mint)';
+        msg.textContent = "You're in! Check your email to get started.";
+      }
+    } catch (err) {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      if (msg) {
+        msg.style.display = 'block';
+        msg.style.color = '#ff6b6b';
+        msg.textContent = 'Something went wrong. Please try again.';
+        setTimeout(() => { msg.style.display = 'none'; }, 3000);
+      }
+    }
   });
 });
 </script>
