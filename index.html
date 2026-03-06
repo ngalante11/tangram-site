@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tangram – Lessons That Fit Every Class</title>
-<meta name="description" content="Build one lesson. Get versions tailored for each class you teach. Powered by an original methodology developed through 50+ years of combined experience in hundreds of districts.">
+<title>Tangram — Lessons That Fit Every Class</title>
+<meta name="description" content="Build one lesson with Tan. Get versions tailored for each class you teach. Powered by an original methodology developed through 50+ years of combined experience in hundreds of districts.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alata&family=Work+Sans:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap" rel="stylesheet">
@@ -33,9 +33,9 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle noise texture for premium tactile feel */
 body::before {
   content: '';
   position: fixed;
@@ -48,7 +48,7 @@ body::before {
 
 .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
 
-/* ══════ NAV ══════ */
+/* NAV */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: rgba(255,255,255,0.85);
@@ -64,30 +64,21 @@ body::before {
 }
 .nav-inner {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 16px 32px; max-width: 1180px; margin: 0 auto;
+  padding: 18px 32px; max-width: 1180px; margin: 0 auto;
 }
-.nav-brand {
-  display: flex; align-items: center;
-  text-decoration: none;
-}
-.nav-logo-img {
-  height: 100px;
-  width: auto;
-}
-.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-logo { height: 52px; display: flex; align-items: center; text-decoration: none; }
+.nav-logo-img { height: 52px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 40px; }
 .nav-links a {
   font-size: 14px; font-weight: 500; color: var(--slate);
   text-decoration: none; transition: color 0.3s;
+  letter-spacing: 0.01em;
 }
 .nav-links a:hover { color: var(--grape); }
-.nav-login {
-  color: var(--grape) !important;
-  font-weight: 600 !important;
-}
 .nav-cta {
   background: linear-gradient(135deg, var(--orchid) 0%, var(--amethyst) 100%);
   color: #fff !important;
-  padding: 10px 22px; border-radius: 10px; font-weight: 600;
+  padding: 12px 24px; border-radius: 10px; font-weight: 600;
   box-shadow: 0 4px 16px rgba(177,79,197,0.25);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -96,9 +87,9 @@ body::before {
   box-shadow: 0 6px 24px rgba(177,79,197,0.35);
 }
 
-/* ══════ HERO ══════ */
+/* HERO */
 .hero {
-  padding: 140px 0 80px;
+  padding: 160px 0 120px;
   background: linear-gradient(165deg, #FDFCFE 0%, #F9F7FC 40%, #F3EEF8 80%, #EDE6F3 100%);
   position: relative; overflow: hidden;
 }
@@ -106,7 +97,7 @@ body::before {
   content: '';
   position: absolute;
   width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(177,79,197,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(177,79,197,0.1) 0%, transparent 70%);
   top: -200px; right: -150px;
   animation: float 20s ease-in-out infinite;
 }
@@ -114,7 +105,7 @@ body::before {
   content: '';
   position: absolute;
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(95,208,255,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(95,208,255,0.08) 0%, transparent 70%);
   bottom: -100px; left: -100px;
   animation: float 25s ease-in-out infinite reverse;
 }
@@ -123,25 +114,23 @@ body::before {
   50% { transform: translate(30px, -30px) scale(1.05); }
 }
 
-.hero-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  position: relative; z-index: 1;
-}
-.hero-content { max-width: 560px; }
-.hero-eyebrow {
+.hero-content { max-width: 720px; position: relative; z-index: 1; }
+.hero-badge {
   display: inline-flex; align-items: center; gap: 10px;
   background: rgba(255,255,255,0.9);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(177,79,197,0.12);
-  padding: 8px 18px; border-radius: 100px;
+  padding: 10px 20px; border-radius: 100px;
   font-size: 13px; font-weight: 500; color: var(--grape);
-  margin-bottom: 24px;
+  margin-bottom: 32px; text-decoration: none;
   box-shadow: 0 2px 12px rgba(64,31,125,0.06);
+  transition: all 0.3s;
 }
-.hero-eyebrow::before {
+.hero-badge:hover {
+  border-color: rgba(177,79,197,0.25);
+  box-shadow: 0 4px 20px rgba(64,31,125,0.1);
+}
+.hero-badge::before {
   content: '';
   width: 8px; height: 8px;
   background: var(--mint);
@@ -154,10 +143,10 @@ body::before {
 }
 .hero h1 {
   font-family: 'League Spartan', sans-serif;
-  font-size: clamp(36px, 4.5vw, 54px);
+  font-size: clamp(40px, 5.5vw, 62px);
   font-weight: 800; line-height: 1.08;
   letter-spacing: -0.03em;
-  color: var(--grape); margin-bottom: 20px;
+  color: var(--grape); margin-bottom: 24px;
 }
 .hero h1 em {
   font-style: normal;
@@ -172,11 +161,11 @@ body::before {
   50% { background-position: 100% 50%; }
 }
 .hero-sub {
-  font-size: 17px; color: #555; margin-bottom: 32px;
-  line-height: 1.7;
+  font-size: 19px; color: #555; margin-bottom: 40px;
+  max-width: 580px; line-height: 1.75;
+  letter-spacing: 0.005em;
 }
-.hero-sub strong { color: var(--grape); font-weight: 600; }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
 .btn-primary {
   display: inline-flex; align-items: center; gap: 10px;
   background: linear-gradient(135deg, var(--orchid) 0%, var(--amethyst) 100%);
@@ -187,283 +176,96 @@ body::before {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative; overflow: hidden;
 }
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s;
+}
+.btn-primary:hover::before { left: 100%; }
 .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 36px rgba(177,79,197,0.4);
 }
-.btn-ghost {
+.btn-secondary {
   display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
   color: var(--grape);
-  padding: 16px 24px; border-radius: 12px;
+  padding: 16px 32px; border-radius: 12px;
   font-weight: 600; font-size: 16px; text-decoration: none;
+  border: 2px solid rgba(64,31,125,0.12);
   transition: all 0.3s;
 }
-.btn-ghost:hover { background: rgba(64,31,125,0.05); }
+.btn-secondary:hover {
+  background: var(--grape);
+  color: #fff;
+  border-color: var(--grape);
+}
 .hero-proof {
-  font-size: 13px; color: #888; line-height: 1.6;
+  display: flex; flex-wrap: wrap; gap: 8px 24px;
+  font-size: 14px; color: #666;
 }
 .hero-proof span { color: var(--grape); font-weight: 600; }
 
-/* ══════ PRODUCT PREVIEW (the money shot) ══════ */
-.product-preview {
-  position: relative;
-}
-.preview-window {
-  background: var(--white);
-  border-radius: 16px;
-  box-shadow: 0 24px 80px rgba(64,31,125,0.12), 0 0 0 1px rgba(64,31,125,0.06);
-  overflow: hidden;
-  position: relative;
-}
-.preview-topbar {
-  background: var(--grape-deep);
-  padding: 12px 20px;
-  display: flex; align-items: center; gap: 8px;
-}
-.preview-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-}
-.preview-dot:nth-child(1) { background: #ff5f57; }
-.preview-dot:nth-child(2) { background: #febc2e; }
-.preview-dot:nth-child(3) { background: #28c840; }
-.preview-url {
-  flex: 1; text-align: center;
-  font-size: 11px; color: rgba(255,255,255,0.4);
-  font-family: monospace;
-}
-.preview-body {
-  padding: 24px;
-}
-
-/* Lesson card simulation */
-.lesson-header {
-  display: flex; justify-content: space-between; align-items: flex-start;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(64,31,125,0.06);
-}
-.lesson-meta {}
-.lesson-standard {
-  font-size: 11px; font-weight: 600;
-  color: var(--orchid); letter-spacing: 0.05em;
-  text-transform: uppercase; margin-bottom: 4px;
-}
-.lesson-title {
-  font-family: 'Alata', sans-serif;
-  font-size: 16px; color: var(--grape);
-}
-.lesson-framework {
-  font-size: 10px; color: #999;
-  background: var(--stone);
-  padding: 3px 8px; border-radius: 4px;
-  margin-top: 8px; display: inline-block;
-}
-
-/* Tangram pieces mini visualization */
-.pieces-row {
-  display: flex; gap: 4px; margin-bottom: 20px;
-}
-.piece-mini {
-  height: 6px; border-radius: 3px; flex: 1;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.piece-mini.filled-1 { background: var(--grape); }
-.piece-mini.filled-2 { background: var(--orchid); }
-.piece-mini.filled-3 { background: var(--amethyst); }
-.piece-mini.filled-4 { background: var(--pacific); }
-.piece-mini.filled-5 { background: var(--mint); }
-.piece-mini.filled-6 { background: var(--orchid); }
-.piece-mini.filled-7 { background: var(--grape); }
-
-/* Class period tabs */
-.period-tabs {
-  display: flex; gap: 6px; margin-bottom: 16px;
-}
-.period-tab {
-  font-size: 11px; font-weight: 600;
-  padding: 6px 12px; border-radius: 8px;
-  color: #888; background: var(--stone);
-  cursor: pointer;
-  transition: all 0.3s;
-  white-space: nowrap;
-}
-.period-tab.active {
-  background: var(--grape);
-  color: #fff;
-}
-.period-tab .tab-badge {
-  display: inline-block;
-  font-size: 9px;
-  background: rgba(255,255,255,0.2);
-  padding: 1px 5px;
-  border-radius: 4px;
-  margin-left: 4px;
-}
-
-/* Adaptation preview cards */
-.adaptation-card {
-  background: var(--stone-warm);
-  border-radius: 12px;
-  padding: 16px;
-  position: relative;
-  overflow: hidden;
-  min-height: 140px;
-}
-.adaptation-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 4px; height: 100%;
-  background: var(--grape);
-  border-radius: 4px 0 0 4px;
-}
-.adapt-label {
-  font-size: 10px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--orchid); margin-bottom: 8px;
-}
-.adapt-tags {
-  display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px;
-}
-.adapt-tag {
-  font-size: 10px; font-weight: 500;
-  padding: 3px 8px; border-radius: 6px;
-}
-.adapt-tag.iep { background: #F3E5F5; color: #7B1FA2; }
-.adapt-tag.ell { background: #E0F7FA; color: #00838F; border: 1px solid #80DEEA; }
-.adapt-tag.honors { background: #EDE7F6; color: #5E35B1; }
-.adapt-tag.mtss { background: #F3E5F5; color: #88229D; }
-.adapt-tag.reading { background: #FCE4EC; color: #B14FC5; }
-.adapt-tag.gifted { background: #EAEAEE; color: #666; }
-.adapt-tag.plans504 { background: #F3E5F5; color: #7B1FA2; }
-.adapt-preview-text {
-  font-size: 12px; color: #666; line-height: 1.55;
-}
-.adapt-preview-text strong { color: var(--grape); }
-
-/* Animated swap between periods */
-.adaptation-card {
-  animation: fadeSlideIn 0.5s ease-out;
-}
-@keyframes fadeSlideIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.preview-footer {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(64,31,125,0.06);
-}
-.preview-cost {
-  font-size: 11px; color: var(--mint); font-weight: 600;
-}
-.preview-cost-note {
-  font-size: 10px; color: #aaa;
-}
-
-/* ══════ SOCIAL PROOF BAR ══════ */
-.proof-bar {
-  padding: 48px 0;
-  background: var(--white);
-  border-bottom: 1px solid rgba(64,31,125,0.04);
-}
-.proof-inner {
-  display: flex; justify-content: center; align-items: center;
-  gap: 48px; flex-wrap: wrap;
-}
-.proof-item {
-  text-align: center;
-}
-.proof-num {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 28px; font-weight: 700;
-  color: var(--grape);
-}
-.proof-label {
-  font-size: 13px; color: #888; margin-top: 2px;
-}
-
-/* ══════ THE MATH ══════ */
-.math-section {
-  padding: 100px 0;
+/* HOW IT WORKS */
+.how-strip {
   background: linear-gradient(135deg, var(--grape-deep) 0%, var(--grape) 50%, var(--amethyst) 100%);
+  padding: 80px 0;
   position: relative; overflow: hidden;
 }
-.math-section::before {
+.how-strip::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 40,0 0,40' fill='%23ffffff' fill-opacity='0.025'/%3E%3Cpolygon points='80,40 80,80 40,80' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
   background-size: 80px 80px;
 }
-.math-inner {
-  position: relative; z-index: 1;
-  max-width: 900px; margin: 0 auto;
-  text-align: center;
-}
-.math-inner h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700; color: #fff;
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-}
-.math-subtitle {
-  font-size: 18px; color: rgba(255,255,255,0.7);
-  margin-bottom: 56px; line-height: 1.7;
-}
-.math-grid {
+.how-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  position: relative; z-index: 1;
 }
-.math-card {
-  background: rgba(255,255,255,0.07);
+.how-step { text-align: center; color: #fff; }
+.how-num {
+  width: 56px; height: 56px;
+  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 36px 24px;
-  text-align: center;
-  transition: all 0.4s;
-}
-.math-card:hover {
-  background: rgba(255,255,255,0.12);
-  transform: translateY(-4px);
-}
-.math-num {
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
   font-family: 'League Spartan', sans-serif;
-  font-size: 48px; font-weight: 700;
-  background: linear-gradient(135deg, var(--pacific), var(--mint));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 4px;
+  font-size: 20px; font-weight: 700;
+  margin: 0 auto 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
-.math-label {
-  font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5;
-}
-.math-label strong { color: #fff; }
-.math-bottom {
-  margin-top: 48px;
+.how-label {
   font-family: 'Alata', sans-serif;
-  font-size: 20px; color: var(--pacific);
-  line-height: 1.5;
+  font-size: 17px; margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+.how-detail {
+  font-size: 14px; opacity: 0.7; line-height: 1.6;
 }
 
-/* ══════ HOW IT WORKS ══════ */
-.how-section {
-  padding: 100px 0;
+/* METHODOLOGY */
+.methodology {
+  padding: 140px 0;
   background: linear-gradient(180deg, var(--white) 0%, var(--stone-warm) 100%);
   position: relative; overflow: hidden;
 }
+.methodology-inner { max-width: 740px; }
+.methodology-content { max-width: 740px; }
 .section-tag {
-  display: inline-flex; align-items: center; gap: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 12px; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--orchid); margin-bottom: 16px;
+  color: var(--orchid);
+  margin-bottom: 16px;
 }
 .section-tag::before {
   content: '';
@@ -471,54 +273,46 @@ body::before {
   background: linear-gradient(90deg, var(--orchid), var(--amethyst));
   border-radius: 1px;
 }
-.how-header {
-  text-align: center; max-width: 640px;
-  margin: 0 auto 64px;
-}
-.how-header h2 {
+.methodology h2 {
   font-family: 'League Spartan', sans-serif;
   font-size: clamp(32px, 4vw, 46px);
-  font-weight: 700; color: var(--grape);
-  letter-spacing: -0.02em; margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape); margin-bottom: 28px;
+  line-height: 1.12;
 }
-.how-header p {
-  font-size: 17px; color: #666; line-height: 1.7;
+.methodology p {
+  font-size: 18px; color: #555; line-height: 1.8;
+  margin-bottom: 20px;
 }
-.how-steps {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+.methodology-list {
+  list-style: none;
+  margin-top: 36px;
 }
-.how-step {
-  text-align: center;
-  padding: 32px 20px;
-  background: var(--white);
-  border-radius: 20px;
-  border: 1px solid rgba(64,31,125,0.04);
-  transition: all 0.4s;
+.methodology-list li {
+  font-size: 16px; padding: 16px 0;
+  display: flex; align-items: flex-start; gap: 16px;
+  color: var(--slate);
+  border-bottom: 1px solid rgba(64,31,125,0.06);
 }
-.how-step:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(64,31,125,0.08);
-}
-.how-icon {
-  width: 60px; height: 60px;
-  border-radius: 16px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 28px; margin: 0 auto 16px;
-  background: linear-gradient(135deg, rgba(64,31,125,0.08), rgba(177,79,197,0.08));
-}
-.how-step h3 {
-  font-family: 'Alata', sans-serif;
-  font-size: 16px; color: var(--grape);
-  margin-bottom: 8px;
-}
-.how-step p {
-  font-size: 14px; color: #777; line-height: 1.6;
+.methodology-list li:last-child { border-bottom: none; }
+.methodology-list li::before {
+  content: '';
+  width: 22px; height: 22px;
+  min-width: 22px;
+  background: linear-gradient(135deg, var(--mint) 0%, #2fc98a 100%);
+  border-radius: 50%;
+  margin-top: 2px;
+  box-shadow: 0 4px 12px rgba(63,222,157,0.3);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* ══════ DIRECTOR vs EDITOR ══════ */
+/* COMPARE */
 .compare {
-  padding: 100px 0;
+  padding: 140px 0;
   background: linear-gradient(180deg, var(--stone-warm) 0%, #F9F7FC 50%, var(--white) 100%);
   position: relative; overflow: hidden;
 }
@@ -526,23 +320,28 @@ body::before {
 .compare-header {
   text-align: center;
   max-width: 660px;
-  margin: 0 auto 56px;
+  margin: 0 auto 64px;
 }
 .compare h2 {
   font-family: 'League Spartan', sans-serif;
-  font-size: clamp(32px, 4vw, 46px);
-  font-weight: 700; color: var(--grape);
-  letter-spacing: -0.02em; margin-bottom: 12px;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape); margin-bottom: 16px;
 }
-.compare-sub { font-size: 17px; color: #666; line-height: 1.7; }
+.compare-sub {
+  font-size: 18px;
+  color: #555; line-height: 1.7;
+}
 .compare-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
 }
 .compare-card {
-  border-radius: 24px; padding: 40px;
+  border-radius: 24px; padding: 44px;
   position: relative; overflow: hidden;
-  transition: transform 0.4s;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .compare-card:hover { transform: translateY(-6px); }
 .compare-card.them {
@@ -566,57 +365,106 @@ body::before {
 .card-label {
   font-size: 11px; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
-  opacity: 0.5; margin-bottom: 8px;
+  opacity: 0.5; margin-bottom: 12px;
 }
+.card-brand {
+  font-family: 'Alata', sans-serif; font-size: 22px;
+  margin-bottom: 4px;
+}
+.card-brand.them { color: #999; }
+.card-price { font-size: 14px; opacity: 0.5; margin-bottom: 24px; }
 .card-role {
   font-family: 'League Spartan', sans-serif;
-  font-size: 24px; font-weight: 700;
-  margin-bottom: 10px;
+  font-size: 26px; font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
 }
 .card-role.them { color: #666; }
 .card-desc {
-  font-size: 15px; line-height: 1.7; margin-bottom: 24px;
+  font-size: 15px; line-height: 1.7; margin-bottom: 28px;
   opacity: 0.85;
 }
 .card-list { list-style: none; }
 .card-list li {
-  font-size: 14px; padding: 8px 0;
-  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; padding: 10px 0;
+  display: flex; align-items: center; gap: 12px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .compare-card.them .card-list li {
   border-bottom-color: rgba(64,31,125,0.06);
 }
 .card-list li:last-child { border-bottom: none; }
-.card-list li::before { content: '✕'; font-weight: bold; color: #ccc; font-size: 11px; }
-.compare-card.us .card-list li::before { content: '✓'; color: var(--mint); font-size: 13px; }
+.card-list li::before {
+  content: '✕'; font-weight: bold; color: #ccc; font-size: 12px;
+}
+.compare-card.us .card-list li::before {
+  content: '✓'; color: var(--mint); font-size: 14px;
+}
 
-/* ══════ FEATURES ══════ */
-.features {
+/* PULLQUOTE */
+.pullquote {
   padding: 100px 0;
+  background: var(--white);
+  position: relative;
+}
+.pullquote-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.pullquote-mark {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 140px;
+  font-weight: 800;
+  color: var(--orchid);
+  opacity: 0.08;
+  position: absolute;
+  top: -50px; left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+}
+.pullquote blockquote {
+  font-family: 'Alata', sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--grape);
+  line-height: 1.5;
+  position: relative; z-index: 1;
+}
+.pullquote blockquote em {
+  font-style: normal;
+  color: var(--orchid);
+}
+
+/* FEATURES */
+.features {
+  padding: 140px 0;
   background: linear-gradient(180deg, var(--white) 0%, var(--stone-warm) 100%);
   position: relative; overflow: hidden;
 }
 .features-header {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 56px;
+  margin: 0 auto 64px;
 }
 .features h2 {
   font-family: 'League Spartan', sans-serif;
-  font-size: clamp(32px, 4vw, 46px);
-  font-weight: 700; color: var(--grape);
-  letter-spacing: -0.02em; margin-bottom: 12px;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape); margin-bottom: 16px;
 }
 .features-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 .feature-card {
   background: var(--white);
   border: 1px solid rgba(64,31,125,0.06);
-  border-radius: 20px; padding: 32px;
-  transition: all 0.4s;
+  border-radius: 20px;
+  padding: 36px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative; overflow: hidden;
 }
 .feature-card::before {
@@ -625,19 +473,31 @@ body::before {
   top: 0; left: 0; right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--orchid), var(--amethyst));
-  opacity: 0; transition: opacity 0.3s;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 60px rgba(64,31,125,0.12);
+  box-shadow: 0 20px 50px rgba(64,31,125,0.1);
   border-color: transparent;
 }
 .feature-card:hover::before { opacity: 1; }
 .feature-icon {
-  width: 48px; height: 48px;
-  border-radius: 14px;
+  width: 56px; height: 56px;
+  border-radius: 16px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 24px; margin-bottom: 16px;
+  font-size: 26px; margin-bottom: 20px;
+  position: relative;
+}
+.feature-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%; height: 100%;
+  border-radius: 16px;
+  background: inherit;
+  filter: blur(12px);
+  opacity: 0.4;
+  z-index: -1;
 }
 .fi-grape { background: linear-gradient(135deg, rgba(64,31,125,0.1), rgba(64,31,125,0.05)); }
 .fi-orchid { background: linear-gradient(135deg, rgba(177,79,197,0.1), rgba(177,79,197,0.05)); }
@@ -646,14 +506,15 @@ body::before {
 .fi-amethyst { background: linear-gradient(135deg, rgba(136,34,157,0.1), rgba(136,34,157,0.05)); }
 .feature-card h3 {
   font-family: 'Alata', sans-serif;
-  font-size: 17px; color: var(--grape);
-  margin-bottom: 8px;
+  font-size: 18px; color: var(--grape);
+  margin-bottom: 10px;
+  letter-spacing: 0.01em;
 }
 .feature-card p {
-  font-size: 14px; color: #666; line-height: 1.65;
+  font-size: 15px; color: #666; line-height: 1.7;
 }
 
-/* ══════ CREDIBILITY ══════ */
+/* CREDIBILITY */
 .credibility {
   padding: 100px 0;
   background: linear-gradient(135deg, var(--grape-deep) 0%, var(--grape) 50%, var(--amethyst) 100%);
@@ -666,27 +527,32 @@ body::before {
   background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 40,0 0,40' fill='%23ffffff' fill-opacity='0.025'/%3E%3Cpolygon points='80,40 80,80 40,80' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
   background-size: 80px 80px;
 }
-.cred-inner {
-  max-width: 800px; margin: 0 auto;
+.credibility .container { position: relative; z-index: 1; }
+.cred-header {
   text-align: center;
-  position: relative; z-index: 1;
+  margin-bottom: 56px;
 }
-.cred-inner h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 700; color: #fff;
+.cred-tag {
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--pacific);
   margin-bottom: 12px;
 }
-.cred-subtitle {
-  font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.7;
-  margin-bottom: 48px;
+.credibility h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
 }
 .cred-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 .cred-stat {
-  padding: 36px 20px;
+  text-align: center; color: #fff;
+  padding: 36px 24px;
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -699,58 +565,67 @@ body::before {
 }
 .cred-num {
   font-family: 'League Spartan', sans-serif;
-  font-size: clamp(36px, 4.5vw, 48px); font-weight: 700;
+  font-size: clamp(40px, 5vw, 54px);
+  font-weight: 700;
   background: linear-gradient(135deg, var(--pacific), var(--mint));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .cred-label {
-  font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.4;
+  font-size: 14px; opacity: 0.7; line-height: 1.4;
 }
 
-/* ══════ PRICING ══════ */
+/* PRICING */
 .pricing {
-  padding: 100px 0;
+  padding: 140px 0;
   background: linear-gradient(180deg, var(--stone-warm) 0%, var(--white) 50%, var(--stone-warm) 100%);
   position: relative; overflow: hidden;
 }
 .pricing-header {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 56px;
+  margin: 0 auto 64px;
 }
 .pricing h2 {
   font-family: 'League Spartan', sans-serif;
-  font-size: clamp(32px, 4vw, 46px);
-  font-weight: 700; color: var(--grape);
-  letter-spacing: -0.02em; margin-bottom: 12px;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape); margin-bottom: 12px;
 }
-.pricing-sub { font-size: 17px; color: #666; }
+.pricing-sub {
+  font-size: 18px; color: #555;
+}
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px; max-width: 1080px; margin: 0 auto;
+  gap: 24px; max-width: 1100px; margin: 0 auto;
 }
 .price-card {
   background: var(--white);
   border: 1px solid rgba(64,31,125,0.06);
-  border-radius: 20px; padding: 36px 24px;
-  text-align: center; position: relative;
-  transition: all 0.4s;
+  border-radius: 24px;
+  padding: 40px 28px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 .price-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 56px rgba(64,31,125,0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(64,31,125,0.12);
 }
 .price-card.recommended {
+  background: linear-gradient(180deg, var(--white) 0%, #FAF7FC 100%);
   border: 2px solid var(--orchid);
   box-shadow: 0 12px 40px rgba(177,79,197,0.15);
-  transform: scale(1.03); z-index: 2;
+  transform: scale(1.03);
+  z-index: 2;
 }
 .price-card.recommended:hover {
-  transform: scale(1.03) translateY(-6px);
+  transform: scale(1.03) translateY(-8px);
+  box-shadow: 0 28px 70px rgba(177,79,197,0.2);
 }
 .price-card.founding {
   background: linear-gradient(180deg, #F0FDF4 0%, var(--white) 100%);
@@ -758,11 +633,12 @@ body::before {
 }
 .price-badge {
   position: absolute;
-  top: -13px; left: 50%; transform: translateX(-50%);
+  top: -14px; left: 50%; transform: translateX(-50%);
   background: linear-gradient(135deg, var(--orchid), var(--amethyst));
   color: #fff;
-  font-size: 10px; font-weight: 700;
-  padding: 5px 16px; border-radius: 100px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 6px 18px; border-radius: 100px;
   white-space: nowrap;
   box-shadow: 0 4px 16px rgba(177,79,197,0.3);
 }
@@ -772,85 +648,79 @@ body::before {
 }
 .price-name {
   font-family: 'Alata', sans-serif;
-  font-size: 18px; color: var(--grape);
-  margin-bottom: 6px;
+  font-size: 20px; color: var(--grape);
+  margin-bottom: 8px;
 }
 .price-amount {
   font-family: 'League Spartan', sans-serif;
-  font-size: 42px; font-weight: 700;
-  color: var(--grape); line-height: 1.1;
+  font-size: 48px; font-weight: 700;
+  color: var(--grape);
+  line-height: 1.1;
 }
-.price-amount span { font-size: 16px; font-weight: 500; color: #888; }
+.price-amount span {
+  font-size: 18px; font-weight: 500; color: #888;
+}
 .price-annual {
-  font-size: 12px; color: #888; margin-bottom: 24px; margin-top: 4px;
+  font-size: 13px; color: #888; margin-bottom: 28px;
+  margin-top: 4px;
 }
 .price-features {
-  list-style: none; text-align: left; margin-bottom: 24px;
+  list-style: none;
+  text-align: left;
+  margin-bottom: 28px;
 }
 .price-features li {
-  font-size: 13px; padding: 10px 0;
+  font-size: 14px; padding: 12px 0;
   border-bottom: 1px solid rgba(64,31,125,0.06);
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 10px;
   color: #555;
 }
 .price-features li:last-child { border-bottom: none; }
-.price-features li::before { content: '✓'; color: var(--mint); font-weight: bold; font-size: 13px; }
+.price-features li::before {
+  content: '✓';
+  color: var(--mint);
+  font-weight: bold;
+  font-size: 14px;
+}
 .price-cta {
   display: block; width: 100%;
-  padding: 13px 20px; border-radius: 12px;
-  font-weight: 600; font-size: 14px;
-  text-decoration: none; transition: all 0.3s;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 600; font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s;
   border: 2px solid var(--grape);
-  color: var(--grape); background: transparent;
+  color: var(--grape);
+  background: transparent;
 }
-.price-cta:hover { background: var(--grape); color: #fff; }
+.price-cta:hover {
+  background: var(--grape);
+  color: #fff;
+}
 .price-card.recommended .price-cta {
   background: linear-gradient(135deg, var(--orchid), var(--amethyst));
-  border: none; color: #fff;
+  border: none;
+  color: #fff;
   box-shadow: 0 4px 20px rgba(177,79,197,0.3);
 }
+.price-card.recommended .price-cta:hover {
+  box-shadow: 0 8px 30px rgba(177,79,197,0.4);
+  transform: translateY(-2px);
+}
 .price-card.founding .price-cta {
-  background: var(--mint); border-color: var(--mint); color: var(--grape);
-}
-
-/* ══════ PULLQUOTE ══════ */
-.pullquote {
-  padding: 80px 0;
-  background: var(--white);
-  position: relative;
-}
-.pullquote-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-}
-.pullquote-mark {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 160px;
-  font-weight: 800;
-  color: var(--orchid);
-  opacity: 0.07;
-  position: absolute;
-  top: -60px; left: 50%;
-  transform: translateX(-50%);
-  line-height: 1;
-}
-.pullquote blockquote {
-  font-family: 'Alata', sans-serif;
-  font-size: clamp(22px, 3vw, 32px);
+  background: var(--mint);
+  border-color: var(--mint);
   color: var(--grape);
-  line-height: 1.5;
-  position: relative; z-index: 1;
 }
-.pullquote blockquote em {
-  font-style: normal;
-  color: var(--orchid);
+.price-card.founding .price-cta:hover {
+  background: #2fc98a;
+  border-color: #2fc98a;
+  transform: translateY(-2px);
 }
 
-/* ══════ FINAL CTA ══════ */
+/* FINAL CTA */
 .final-cta {
-  padding: 100px 0;
+  padding: 140px 0;
   text-align: center;
   background: linear-gradient(180deg, var(--stone-warm) 0%, #F3EEF8 100%);
   position: relative; overflow: hidden;
@@ -866,253 +736,196 @@ body::before {
 .final-cta .container { position: relative; z-index: 1; }
 .final-cta h2 {
   font-family: 'League Spartan', sans-serif;
-  font-size: clamp(32px, 4vw, 46px);
-  font-weight: 700; color: var(--grape);
-  letter-spacing: -0.02em; margin-bottom: 16px;
-  max-width: 700px; margin-left: auto; margin-right: auto;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape);
+  margin-bottom: 16px;
+  max-width: 750px;
+  margin-left: auto; margin-right: auto;
 }
 .final-cta p {
-  font-size: 17px; color: #666; margin-bottom: 36px;
+  font-size: 18px; color: #555;
+  margin-bottom: 40px;
 }
-.final-cta .btn-primary {
-  font-size: 18px; padding: 18px 40px;
+.final-cta-btn {
+  display: inline-block;
+  background: #B14FC5;
+  color: #fff;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 18px 48px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: background 0.2s, transform 0.2s;
 }
-.final-note {
-  font-size: 13px; color: #999; margin-top: 16px;
+.final-cta-btn:hover {
+  background: #88229D;
+  transform: translateY(-2px);
+}
+.kit-subtext {
+  font-size: 14px !important;
+  color: #888 !important;
+  margin-top: 20px !important;
 }
 
-/* ══════ FOOTER ══════ */
+/* FOOTER */
 footer {
-  padding: 48px 0;
+  padding: 60px 0;
   text-align: center;
   background: var(--grape-deep);
 }
-footer .footer-brand {
-  margin-bottom: 16px;
+.footer-logo { 
+  height: 52px; 
+  margin-bottom: 20px;
+  display: block;
+  text-decoration: none;
 }
-footer .footer-brand img {
-  height: 88px;
+.footer-logo-img {
+  height: 52px;
   width: auto;
-  filter: brightness(0) invert(1);
 }
-footer p { font-size: 13px; color: rgba(255,255,255,0.4); }
-footer a { color: var(--pacific); text-decoration: none; }
+footer p { font-size: 14px; color: rgba(255,255,255,0.5); }
+footer a { color: var(--pacific); text-decoration: none; transition: color 0.3s; }
 footer a:hover { color: var(--mint); }
 
-/* ══════ RESPONSIVE ══════ */
-@media (max-width: 960px) {
-  .hero-layout { grid-template-columns: 1fr; gap: 48px; }
-  .product-preview { max-width: 520px; }
-  .math-grid { grid-template-columns: repeat(3, 1fr); }
-  .how-steps { grid-template-columns: repeat(2, 1fr); }
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .how-grid { grid-template-columns: repeat(2, 1fr); }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
-  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   .cred-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   .price-card.recommended { transform: scale(1); }
-  .price-card.recommended:hover { transform: translateY(-6px); }
+  .price-card.recommended:hover { transform: translateY(-8px); }
 }
 @media (max-width: 640px) {
-  .container { padding: 0 20px; }
+  .container { padding: 0 24px; }
   .nav-links a:not(.nav-cta) { display: none; }
-  .hero { padding: 120px 0 60px; }
-  .hero h1 { font-size: 32px; }
-  .period-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .hero { padding: 140px 0 100px; }
+  .hero h1 { font-size: 36px; }
   .compare-grid { grid-template-columns: 1fr; }
-  .how-steps { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
   .features-grid { grid-template-columns: 1fr; }
-  .cred-grid { grid-template-columns: repeat(2, 1fr); }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
-  .math-grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
-  .proof-inner { gap: 32px; }
-  .hero-layout { gap: 36px; }
-  .how-section, .features, .pricing, .compare { padding: 72px 0; }
+  .cred-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .cred-stat { padding: 28px 16px; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .hero-proof { flex-direction: column; gap: 8px; }
+  .methodology, .features, .pricing, .compare { padding: 100px 0; }
   .pullquote { padding: 80px 0; }
-  .credibility { padding: 80px 0; }
 }
 </style>
 </head>
 <body>
 
-<!-- ════════ NAV ════════ -->
+<!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-brand"><img src="Tangram_Logo.svg" alt="Tangram by Mosaic IP" class="nav-logo-img"></a>
+    <a href="#" class="nav-logo">
+      <img src="Tangram_Logo.svg" alt="Tangram" class="nav-logo-img">
+    </a>
     <div class="nav-links">
       <a href="#how">How It Works</a>
+      <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
-      <a href="https://app.gettangram.com" class="nav-login">Log In</a>
       <a href="https://app.gettangram.com" class="nav-cta">Start Free →</a>
     </div>
   </div>
 </nav>
 
-<!-- ════════ HERO ════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-layout">
-      <div class="hero-content">
-        <div class="hero-eyebrow">Built by coaches who've trained 1,000s of teachers</div>
-        <h1>One lesson. Five periods. <em>Every student reached.</em></h1>
-        <p class="hero-sub">
-          Build a lesson with Tan — our AI planning partner. Then watch it <strong>adapt for each class you teach</strong>. Period 1 has 6 IEPs? Period 3 is heavy ELL? Tangram handles it. You direct. It delivers.
-        </p>
-        <div class="hero-actions">
-          <a href="https://app.gettangram.com" class="btn-primary">Try 3 Lessons Free →</a>
-          <a href="#demo" class="btn-ghost">↓ See it work</a>
-        </div>
-        <p class="hero-proof">
-          No credit card · <span>From $4.99/mo</span> after trial · Cancel anytime
-        </p>
-      </div>
-
-      <!-- PRODUCT PREVIEW — the money shot -->
-      <div class="product-preview">
-        <div class="preview-window">
-          <div class="preview-topbar">
-            <div class="preview-dot"></div>
-            <div class="preview-dot"></div>
-            <div class="preview-dot"></div>
-          </div>
-          <div class="preview-body">
-            <div class="lesson-header">
-              <div class="lesson-meta">
-                <div class="lesson-standard">RI.7.2 · Reading Informational</div>
-                <div class="lesson-title">Central Idea & Supporting Evidence</div>
-                <div class="lesson-framework">Danielson 3c · UbD Stage 2</div>
-              </div>
-            </div>
-
-            <div class="pieces-row">
-              <div class="piece-mini filled-1"></div>
-              <div class="piece-mini filled-2"></div>
-              <div class="piece-mini filled-3"></div>
-              <div class="piece-mini filled-4"></div>
-              <div class="piece-mini filled-5"></div>
-              <div class="piece-mini filled-6"></div>
-              <div class="piece-mini filled-7"></div>
-            </div>
-
-            <div class="period-tabs" id="periodTabs">
-              <div class="period-tab active" data-period="0">Period 1 <span class="tab-badge">4 ELL</span></div>
-              <div class="period-tab" data-period="1">Period 3 <span class="tab-badge">8 ELL</span></div>
-              <div class="period-tab" data-period="2">Period 5 <span class="tab-badge">Honors</span></div>
-            </div>
-
-            <div id="adaptationContainer">
-              <!-- Populated by JS -->
-            </div>
-
-            <div class="preview-footer">
-              <div>
-                <div class="preview-cost">$0 per adapted copy</div>
-                <div class="preview-cost-note">Rule-based personalization — no extra AI cost</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════ SOCIAL PROOF BAR ════════ -->
-<section class="proof-bar">
-  <div class="container">
-    <div class="proof-inner">
-      <div class="proof-item">
-        <div class="proof-num">100s</div>
-        <div class="proof-label">districts coached</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num">1,000s</div>
-        <div class="proof-label">teachers trained</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num">50+ yrs</div>
-        <div class="proof-label">combined experience</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num">15 yrs</div>
-        <div class="proof-label">NYC DOE partner</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════ THE MATH ════════ -->
-<section class="math-section" id="demo">
-  <div class="container">
-    <div class="math-inner">
-      <h2>150 students. 5 class periods. 1 workflow.</h2>
-      <p class="math-subtitle">
-        A typical secondary teacher serves 150–200+ students across 5–7 periods daily. Each period has different needs. Tangram is the only tool that accounts for this.
+    <div class="hero-content">
+      <a href="https://www.mosaicip.com" class="hero-badge" target="_blank">
+        Built by the founders of Mosaic IP
+      </a>
+      <h1>
+        Every class is different.<br>Now your lessons <em>can be too.</em>
+      </h1>
+      <p class="hero-sub">
+        Build one lesson with Tan — our AI planning partner powered by a methodology our founders developed through research and practice in hundreds of districts. Then watch it adapt for each class you teach.
       </p>
-      <div class="math-grid">
-        <div class="math-card">
-          <div class="math-num">1</div>
-          <div class="math-label"><strong>lesson built</strong><br>with Tan's guided workflow</div>
-        </div>
-        <div class="math-card">
-          <div class="math-num">5</div>
-          <div class="math-label"><strong>adapted copies</strong><br>one per class period, $0 each</div>
-        </div>
-        <div class="math-card">
-          <div class="math-num">150+</div>
-          <div class="math-label"><strong>students reached</strong><br>IEPs, ELLs, MTSS — integrated</div>
-        </div>
+      <div class="hero-actions">
+        <a href="https://app.gettangram.com" class="btn-primary">Start Free →</a>
+        <a href="#how" class="btn-secondary">See How It Works</a>
       </div>
-      <p class="math-bottom">Other tools give you one lesson to fix five times.<br>Tangram gives you five lessons that are already right.</p>
+      <p class="hero-proof">
+        <span>From $4.99/mo</span> after free trial · No credit card to start · <span>Cancel anytime</span>
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ════════ HOW IT WORKS ════════ -->
-<section class="how-section" id="how">
+<!-- HOW IT WORKS -->
+<section class="how-strip" id="how">
   <div class="container">
-    <div class="how-header">
-      <div class="section-tag">How It Works</div>
-      <h2>Four steps. Every class covered.</h2>
-      <p>No 80-tool menu. No prompt engineering. One guided workflow built on real pedagogy.</p>
-    </div>
-    <div class="how-steps">
+    <div class="how-grid">
       <div class="how-step">
-        <div class="how-icon">📝</div>
-        <h3>Start where you are</h3>
-        <p>Topic, objective, standard, curriculum — six ways to begin building.</p>
+        <div class="how-num">1</div>
+        <div class="how-label">Start where you are</div>
+        <div class="how-detail">Topic, objective, standard, curriculum — six ways to begin</div>
       </div>
       <div class="how-step">
-        <div class="how-icon">🧩</div>
-        <h3>Build with Tan</h3>
-        <p>Seven guided pieces — each shaped by our original methodology.</p>
+        <div class="how-num">2</div>
+        <div class="how-label">Build with Tan</div>
+        <div class="how-detail">Seven guided pieces — each one shaped by our original methodology</div>
       </div>
       <div class="how-step">
-        <div class="how-icon">👥</div>
-        <h3>Add your students</h3>
-        <p>IEPs, ELLs, reading levels — tell Tan who's in each class.</p>
+        <div class="how-num">3</div>
+        <div class="how-label">Add your students</div>
+        <div class="how-detail">IEPs, ELLs, reading levels — tell Tan who's in each class</div>
       </div>
       <div class="how-step">
-        <div class="how-icon">✨</div>
-        <h3>Teach with confidence</h3>
-        <p>Each class gets a lesson built for the students in it.</p>
+        <div class="how-num">4</div>
+        <div class="how-label">Teach with confidence</div>
+        <div class="how-detail">Each class gets a lesson built for the students in it</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ DIRECTOR vs EDITOR ════════ -->
+<!-- METHODOLOGY -->
+<section class="methodology" id="methodology">
+  <div class="container">
+    <div class="methodology-inner">
+      <div class="methodology-content">
+        <div class="section-tag">Why Tan Is Different</div>
+        <h2>Not just another AI generator. Your methodology partner.</h2>
+        <p>
+          Tan isn't trained on the internet — or on a patchwork of other people's frameworks. It's powered by an original methodology our founders developed through 50+ years of combined experience, refined across hundreds of districts and thousands of teachers coached.
+        </p>
+        <p>
+          We didn't curate best practices. We built something new — a way of planning that works because we've tested it, taught it, and watched it transform classrooms from the inside.
+        </p>
+        <ul class="methodology-list">
+          <li>Developed by practitioners who've worked from their own classrooms to state policy</li>
+          <li>Works with Danielson, Marzano, and UbD — but stands on its own</li>
+          <li>Battle-tested structures that survive observation season</li>
+          <li>The coaching we'd give you in person — now built into every lesson</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
 <section class="compare" id="distinction">
   <div class="container">
     <div class="compare-header">
       <div class="section-tag">The Difference</div>
       <h2>You direct. Tangram delivers.</h2>
       <p class="compare-sub">
-        Other tools make you fix the same generic output for every class. Tangram builds stronger lessons from the start — then adapts them automatically.
+        Other tools make you fix the same generic output for every class. Tangram builds stronger lessons from the start — using methodology we developed — then adapts them automatically.
       </p>
     </div>
     <div class="compare-grid">
       <div class="compare-card them">
         <div class="card-content">
-          <div class="card-label">Other AI tools</div>
+          <div class="card-label">How other tools work</div>
+          <div class="card-brand them">Generic AI</div>
+          <div class="card-price">$10–$13/month</div>
           <div class="card-role them">You edit. Repeatedly.</div>
           <div class="card-desc">Get one generic lesson. Manually adjust it for every class. Hope it holds up.</div>
           <ul class="card-list">
@@ -1125,13 +938,15 @@ footer a:hover { color: var(--mint); }
       </div>
       <div class="compare-card us">
         <div class="card-content">
-          <div class="card-label">Tangram</div>
+          <div class="card-label">How Tangram works</div>
+          <div class="card-brand">Tangram</div>
+          <div class="card-price">From $4.99/month</div>
           <div class="card-role">You direct. It adapts.</div>
           <div class="card-desc">Build one strong lesson with our original methodology. Get versions for every class you teach.</div>
           <ul class="card-list">
             <li>One guided workflow</li>
             <li>Danielson, Marzano, UbD built in</li>
-            <li>Adapts for each class period</li>
+            <li>Adapts for each class</li>
             <li>IEPs, ELLs, MTSS integrated</li>
           </ul>
         </div>
@@ -1140,7 +955,19 @@ footer a:hover { color: var(--mint); }
   </div>
 </section>
 
-<!-- ════════ FEATURES ════════ -->
+<!-- PULLQUOTE -->
+<section class="pullquote">
+  <div class="container">
+    <div class="pullquote-inner">
+      <div class="pullquote-mark">"</div>
+      <blockquote>
+        Other tools give you a lesson for a class. Tangram gives you a lesson for <em>your</em> class — built on a methodology we created, not borrowed.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
 <section class="features" id="features">
   <div class="container">
     <div class="features-header">
@@ -1176,61 +1003,47 @@ footer a:hover { color: var(--mint); }
       <div class="feature-card">
         <div class="feature-icon fi-grape">⚡</div>
         <h3>Our Coaching, Built In</h3>
-        <p>Strategies we developed through decades of practice — the moves we'd give you in person.</p>
+        <p>Every piece includes strategies we developed through decades of practice — the same moves we'd give you in person.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ CREDIBILITY ════════ -->
-<section class="credibility">
+<!-- CREDIBILITY -->
+<section class="credibility" id="credibility">
   <div class="container">
-    <div class="cred-inner">
+    <div class="cred-header">
+      <div class="cred-tag">From the Classroom to State Policy</div>
       <h2>We didn't just study teaching. We did the work.</h2>
-      <p class="cred-subtitle">
-        Tangram is built by instructional coaches who've sat in the coaching chair, co-authored state policy, and trained thousands of teachers. Not by technologists guessing what classrooms need.
-      </p>
-      <div class="cred-grid">
-        <div class="cred-stat">
-          <div class="cred-num">100s</div>
-          <div class="cred-label">Districts coached</div>
-        </div>
-        <div class="cred-stat">
-          <div class="cred-num">1,000s</div>
-          <div class="cred-label">Teachers trained</div>
-        </div>
-        <div class="cred-stat">
-          <div class="cred-num">50+</div>
-          <div class="cred-label">Years combined experience</div>
-        </div>
-        <div class="cred-stat">
-          <div class="cred-num">15 yrs</div>
-          <div class="cred-label">NYC DOE partner</div>
-        </div>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-stat">
+        <div class="cred-num">50+</div>
+        <div class="cred-label">Years combined experience</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">100s</div>
+        <div class="cred-label">of districts coached</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">1000s</div>
+        <div class="cred-label">of teachers trained</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">15 yrs</div>
+        <div class="cred-label">NYC DOE partner</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ PULLQUOTE ════════ -->
-<section class="pullquote">
-  <div class="container">
-    <div class="pullquote-inner">
-      <div class="pullquote-mark">"</div>
-      <blockquote>
-        Other tools give you a lesson for a class. Tangram gives you a lesson for <em>your</em> class — built on a methodology we created, not borrowed.
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- ════════ PRICING ════════ -->
+<!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="container">
     <div class="pricing-header">
       <div class="section-tag">Simple Pricing</div>
       <h2>Try it free. Upgrade when you're ready.</h2>
-      <p class="pricing-sub">3 free lessons. No credit card. See what real methodology feels like.</p>
+      <p class="pricing-sub">3 free lessons. No credit card. See what a real methodology feels like.</p>
     </div>
     <div class="pricing-grid">
       <div class="price-card">
@@ -1241,7 +1054,7 @@ footer a:hover { color: var(--mint); }
           <li>10 lessons/month</li>
           <li>All 7 pieces</li>
           <li>All frameworks</li>
-          <li>Tailored class copies</li>
+          <li>Tailored versions</li>
         </ul>
         <a href="https://app.gettangram.com" class="price-cta">Get Started</a>
       </div>
@@ -1252,10 +1065,9 @@ footer a:hover { color: var(--mint); }
         <div class="price-annual">$69.99/year</div>
         <ul class="price-features">
           <li>25 lessons/month</li>
-          <li>All 7 pieces</li>
+          <li>Priority support</li>
           <li>All frameworks</li>
-          <li>Tailored class copies</li>
-          <li>Collaboration (up to 3)</li>
+          <li>Tailored versions</li>
         </ul>
         <a href="https://app.gettangram.com" class="price-cta">Get Started</a>
       </div>
@@ -1265,23 +1077,22 @@ footer a:hover { color: var(--mint); }
         <div class="price-annual">$89.99/year</div>
         <ul class="price-features">
           <li>Unlimited lessons</li>
-          <li>All 7 pieces</li>
-          <li>All frameworks</li>
-          <li>Tailored class copies</li>
-          <li>Unlimited collaboration</li>
+          <li>Early features</li>
+          <li>Advanced analytics</li>
+          <li>Tailored versions</li>
         </ul>
         <a href="https://app.gettangram.com" class="price-cta">Get Started</a>
       </div>
       <div class="price-card founding">
-        <div class="price-badge urgent">Limited — 500 spots</div>
+        <div class="price-badge urgent">First 500 Only</div>
         <div class="price-name">Founding Member</div>
         <div class="price-amount">$5.99<span>/mo</span></div>
-        <div class="price-annual">$49.99/year · Locked for life</div>
+        <div class="price-annual">$49.99/year — locked forever</div>
         <ul class="price-features">
           <li>25 lessons/month</li>
-          <li>All Standard features</li>
+          <li>Price never increases</li>
           <li>Early feature access</li>
-          <li>Direct feedback channel</li>
+          <li>Direct feedback line</li>
         </ul>
         <a href="https://app.gettangram.com" class="price-cta">Claim Your Spot</a>
       </div>
@@ -1289,23 +1100,23 @@ footer a:hover { color: var(--mint); }
   </div>
 </section>
 
-<!-- ════════ FINAL CTA ════════ -->
-<section class="final-cta">
+<!-- FINAL CTA -->
+<section class="final-cta" id="signup">
   <div class="container">
-    <h2>Every class is different.<br>Now your lessons can be too.</h2>
-    <p>3 free lessons. No credit card. See what changes when the tool actually knows your students.</p>
-    <a href="https://app.gettangram.com" class="btn-primary">Start Building Free →</a>
-    <p class="final-note">From $4.99/month after your trial · Cancel anytime</p>
+    <h2>Your students aren't generic. Your lessons shouldn't be either.</h2>
+    <p>3 free lessons. No credit card. See what a real methodology feels like.</p>
+    <a href="https://app.gettangram.com" class="final-cta-btn">Start Free →</a>
+    <p class="kit-subtext">150 students. 5 class periods. 1 workflow. Zero compromises.</p>
   </div>
 </section>
 
-<!-- ════════ FOOTER ════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-brand"><img src="Tangram_Logo.svg" alt="Tangram by Mosaic IP"></div>
-    <p style="margin-bottom:8px">
-      <a href="#">Terms</a> · <a href="#">Privacy</a>
-    </p>
+    <a href="#" class="footer-logo">
+      <img src="Tangram_Logo.svg" alt="Tangram" class="footer-logo-img">
+    </a>
+    <p style="margin-bottom:8px">Tangram by Mosaic Instructional Planning · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
     <p>© 2026 Mosaic IP LLC</p>
   </div>
 </footer>
@@ -1317,109 +1128,54 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 });
 
-// Period tab switching with adaptation preview
-const periods = [
-  {
-    label: 'Period 1',
-    tags: [
-      { text: '4 ELL (Entering–Emerging–Transitioning)', cls: 'ell' },
-      { text: '2 IEPs', cls: 'iep' },
-      { text: '4 504 Plans', cls: 'plans504' },
-      { text: 'Mixed reading levels', cls: 'reading' },
-      { text: '1 Gifted', cls: 'gifted' }
-    ],
-    adaptLabel: 'Adapted for Period 1 — ELL-heavy, mixed proficiency, IEP support needed, gifted enrichment',
-    text: '<strong>Hook adjusted:</strong> Graphic organizer scaffold added before close reading. Vocabulary pre-taught with visual supports. <strong>Independent practice:</strong> Chunked passages with annotation prompts. Extended time built into pacing. <strong>Assessment:</strong> Modified rubric aligned to IEP goals.'
-  },
-  {
-    label: 'Period 3',
-    tags: [
-      { text: '8 ELL (Entering–Emerging)', cls: 'ell' },
-      { text: '2 IEPs', cls: 'iep' },
-      { text: 'Mixed reading levels', cls: 'reading' }
-    ],
-    adaptLabel: 'Adapted for Period 3 — ELL-heavy, mixed proficiency',
-    text: '<strong>Hook adjusted:</strong> Bilingual anchor chart + sentence stems provided. SIOP-aligned vocabulary routine with L1 cognate connections. <strong>Exploration:</strong> Partner reading with strategic ELL-proficient pairing. <strong>Assessment:</strong> Dual-modality response options (written + oral).'
-  },
-  {
-    label: 'Period 5',
-    tags: [
-      { text: 'Honors', cls: 'honors' },
-      { text: '2 Gifted', cls: 'gifted' },
-      { text: 'Above grade level', cls: 'reading' }
-    ],
-    adaptLabel: 'Adapted for Period 5 — Honors, above grade level',
-    text: '<strong>Hook adjusted:</strong> Socratic seminar opening with author\'s craft lens. Vocabulary extended to include academic discourse terms. <strong>Exploration:</strong> Independent source analysis with cross-text synthesis task. <strong>Assessment:</strong> Extended analytical writing with evidence integration.'
-  }
-];
-
-const container = document.getElementById('adaptationContainer');
-const tabs = document.querySelectorAll('.period-tab');
-let currentPeriod = 0;
-let autoInterval;
-
-function renderPeriod(index) {
-  const p = periods[index];
-  container.innerHTML = `
-    <div class="adaptation-card">
-      <div class="adapt-label">${p.adaptLabel}</div>
-      <div class="adapt-tags">
-        ${p.tags.map(t => `<span class="adapt-tag ${t.cls}">${t.text}</span>`).join('')}
-      </div>
-      <div class="adapt-preview-text">${p.text}</div>
-    </div>
-  `;
-  tabs.forEach((tab, i) => {
-    tab.classList.toggle('active', i === index);
-  });
-}
-
-function startAutoRotate() {
-  autoInterval = setInterval(() => {
-    currentPeriod = (currentPeriod + 1) % periods.length;
-    renderPeriod(currentPeriod);
-  }, 4000);
-}
-
-tabs.forEach((tab, i) => {
-  tab.addEventListener('click', () => {
-    currentPeriod = i;
-    renderPeriod(i);
-    clearInterval(autoInterval);
-    startAutoRotate();
-  });
-});
-
-renderPeriod(0);
-startAutoRotate();
-
 // Intersection Observer for scroll animations
-const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -60px 0px' };
+const observerOptions = { 
+  threshold: 0.15, 
+  rootMargin: '0px 0px -60px 0px' 
+};
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+      entry.target.style.transform = entry.target.dataset.transform || 'translateY(0)';
       observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-document.querySelectorAll('.how-step, .compare-card, .feature-card, .cred-stat, .price-card, .math-card, .proof-item').forEach((el, i) => {
+// Animate elements on scroll
+document.querySelectorAll('.how-step, .compare-card, .feature-card, .cred-stat, .price-card').forEach((el, i) => {
   el.style.opacity = '0';
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = `opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${(i % 4) * 0.1}s, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${(i % 4) * 0.1}s`;
+  el.style.transform = 'translateY(40px)';
+  el.style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
   observer.observe(el);
 });
 
-// Pullquote fade-in
-const pullquoteEl = document.querySelector('.pullquote-inner');
-if (pullquoteEl) {
-  pullquoteEl.style.opacity = '0';
-  pullquoteEl.style.transform = 'translateY(30px)';
-  pullquoteEl.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-  observer.observe(pullquoteEl);
-}
+// Stagger animations within grids
+document.querySelectorAll('.how-grid, .features-grid, .cred-grid, .compare-grid, .pricing-grid').forEach(grid => {
+  Array.from(grid.children).forEach((child, i) => {
+    child.style.transitionDelay = `${i * 0.1}s`;
+  });
+});
+
+// Methodology section animation
+const methodologyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      methodologyObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.methodology-content, .pullquote-inner').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(40px)';
+  el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+  methodologyObserver.observe(el);
+});
 </script>
 </body>
 </html>
