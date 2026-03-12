@@ -209,6 +209,136 @@ body::before {
 }
 .hero-proof span { color: var(--grape); font-weight: 600; }
 
+/* HERO LAYOUT */
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-content { max-width: 560px; }
+
+/* PRODUCT PREVIEW */
+.product-preview { position: relative; }
+.preview-window {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(64,31,125,0.12), 0 0 0 1px rgba(64,31,125,0.06);
+  overflow: hidden;
+}
+.preview-topbar {
+  background: var(--grape-deep);
+  padding: 12px 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.preview-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+.preview-dot:nth-child(1) { background: #ff5f57; }
+.preview-dot:nth-child(2) { background: #febc2e; }
+.preview-dot:nth-child(3) { background: #28c840; }
+.preview-body { padding: 24px; }
+.lesson-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 20px; padding-bottom: 16px;
+  border-bottom: 1px solid rgba(64,31,125,0.06);
+}
+.lesson-standard {
+  font-size: 11px; font-weight: 600;
+  color: var(--orchid); letter-spacing: 0.05em;
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.lesson-title {
+  font-family: 'Alata', sans-serif;
+  font-size: 16px; color: var(--grape);
+}
+.lesson-framework {
+  font-size: 10px; color: #999;
+  background: var(--stone);
+  padding: 3px 8px; border-radius: 4px;
+  margin-top: 8px; display: inline-block;
+}
+.pieces-row { display: flex; gap: 4px; margin-bottom: 20px; }
+.piece-mini {
+  height: 6px; border-radius: 3px; flex: 1;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.piece-mini.filled-1 { background: var(--grape); }
+.piece-mini.filled-2 { background: var(--orchid); }
+.piece-mini.filled-3 { background: var(--amethyst); }
+.piece-mini.filled-4 { background: var(--pacific); }
+.piece-mini.filled-5 { background: var(--mint); }
+.piece-mini.filled-6 { background: var(--orchid); }
+.piece-mini.filled-7 { background: var(--grape); }
+
+/* Period tabs */
+.period-tabs { display: flex; gap: 6px; margin-bottom: 16px; }
+.period-tab {
+  font-size: 11px; font-weight: 600;
+  padding: 6px 12px; border-radius: 8px;
+  color: #888; background: var(--stone);
+  cursor: pointer; transition: all 0.3s;
+  white-space: nowrap;
+}
+.period-tab.active { background: var(--grape); color: #fff; }
+.period-tab .tab-badge {
+  display: inline-block; font-size: 9px;
+  background: rgba(255,255,255,0.2);
+  padding: 1px 5px; border-radius: 4px; margin-left: 4px;
+}
+
+/* Adaptation cards */
+.adaptation-card {
+  background: var(--stone-warm);
+  border-radius: 12px; padding: 16px;
+  position: relative; overflow: hidden;
+  min-height: 140px;
+  animation: fadeSlideIn 0.5s ease-out;
+}
+.adaptation-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--grape);
+  border-radius: 4px 0 0 4px;
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.adapt-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--orchid); margin-bottom: 8px;
+}
+.adapt-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.adapt-tag {
+  font-size: 10px; font-weight: 500;
+  padding: 3px 8px; border-radius: 6px;
+}
+.adapt-tag.iep { background: #F3E5F5; color: #7B1FA2; }
+.adapt-tag.ell { background: #E0F7FA; color: #00838F; border: 1px solid #80DEEA; }
+.adapt-tag.honors { background: #EDE7F6; color: #5E35B1; }
+.adapt-tag.reading { background: #FCE4EC; color: #B14FC5; }
+.adapt-tag.gifted { background: #EAEAEE; color: #666; }
+.adapt-tag.plans504 { background: #F3E5F5; color: #7B1FA2; }
+.adapt-preview-text { font-size: 12px; color: #666; line-height: 1.55; }
+.adapt-preview-text strong { color: var(--grape); }
+.preview-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 16px; padding-top: 12px;
+  border-top: 1px solid rgba(64,31,125,0.06);
+}
+.preview-cost { font-size: 11px; color: var(--mint); font-weight: 600; }
+.preview-cost-note { font-size: 10px; color: #aaa; }
+
+@media (max-width: 900px) {
+  .hero-layout { grid-template-columns: 1fr; gap: 40px; }
+  .product-preview { display: none; }
+}
+
 /* HOW IT WORKS */
 .how-strip {
   background: linear-gradient(135deg, var(--grape-deep) 0%, var(--grape) 50%, var(--amethyst) 100%);
@@ -838,23 +968,67 @@ footer a:hover { color: var(--mint); }
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-content">
-      <a href="https://www.mosaicip.com" class="hero-badge" target="_blank">
-        Built by the founders of Mosaic IP
-      </a>
-      <h1>
-        Every class is different.<br>Now your lessons <em>can be too.</em>
-      </h1>
-      <p class="hero-sub">
-        Build one lesson with Tan — our AI planning partner powered by a methodology our founders developed through research and practice in hundreds of districts. Then watch it adapt for each class you teach.
-      </p>
-      <div class="hero-actions">
-        <a href="https://app.gettangram.com/auth" class="btn-primary">Start Free →</a>
-        <a href="#how" class="btn-secondary">See How It Works</a>
+    <div class="hero-layout">
+      <div class="hero-content">
+        <a href="https://www.mosaicip.com" class="hero-badge" target="_blank">
+          Built by the founders of Mosaic IP
+        </a>
+        <h1>
+          Every class is different.<br>Now your lessons <em>can be too.</em>
+        </h1>
+        <p class="hero-sub">
+          Build one lesson with Tan — our AI planning partner powered by a methodology our founders developed through research and practice in hundreds of districts. Then watch it adapt for each class you teach.
+        </p>
+        <div class="hero-actions">
+          <a href="https://app.gettangram.com/auth" class="btn-primary">Start Free →</a>
+          <a href="#how" class="btn-secondary">See How It Works</a>
+        </div>
+        <p class="hero-proof">
+          <span>From $4.99/mo</span> after free trial · No credit card to start · <span>Cancel anytime</span>
+        </p>
       </div>
-      <p class="hero-proof">
-        <span>From $4.99/mo</span> after free trial · No credit card to start · <span>Cancel anytime</span>
-      </p>
+
+      <!-- PRODUCT PREVIEW -->
+      <div class="product-preview">
+        <div class="preview-window">
+          <div class="preview-topbar">
+            <div class="preview-dot"></div>
+            <div class="preview-dot"></div>
+            <div class="preview-dot"></div>
+          </div>
+          <div class="preview-body">
+            <div class="lesson-header">
+              <div class="lesson-meta">
+                <div class="lesson-standard">RI.7.2 · Reading Informational</div>
+                <div class="lesson-title">Central Idea & Supporting Evidence</div>
+                <div class="lesson-framework">Danielson 3c · UbD Stage 2</div>
+              </div>
+            </div>
+            <div class="pieces-row">
+              <div class="piece-mini filled-1"></div>
+              <div class="piece-mini filled-2"></div>
+              <div class="piece-mini filled-3"></div>
+              <div class="piece-mini filled-4"></div>
+              <div class="piece-mini filled-5"></div>
+              <div class="piece-mini filled-6"></div>
+              <div class="piece-mini filled-7"></div>
+            </div>
+            <div class="period-tabs" id="periodTabs">
+              <div class="period-tab active" data-period="0">Period 1 <span class="tab-badge">4 ELL</span></div>
+              <div class="period-tab" data-period="1">Period 3 <span class="tab-badge">8 ELL</span></div>
+              <div class="period-tab" data-period="2">Period 5 <span class="tab-badge">Honors</span></div>
+            </div>
+            <div id="adaptationContainer"></div>
+            <div class="preview-footer">
+              <div>
+                <div class="preview-cost">$0 per adapted copy</div>
+                <div class="preview-cost-note">Rule-based personalization — no extra AI cost</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1123,7 +1297,80 @@ footer a:hover { color: var(--mint); }
 </footer>
 
 <script>
-// Nav scroll effect
+// Period tab switching with adaptation preview
+const periods = [
+  {
+    label: 'Period 1',
+    tags: [
+      { text: '4 ELL (Entering–Emerging–Transitioning)', cls: 'ell' },
+      { text: '2 IEPs', cls: 'iep' },
+      { text: '4 504 Plans', cls: 'plans504' },
+      { text: 'Mixed reading levels', cls: 'reading' },
+      { text: '1 Gifted', cls: 'gifted' }
+    ],
+    adaptLabel: 'Adapted for Period 1 — ELL-heavy, mixed proficiency, IEP support needed, gifted enrichment',
+    text: '<strong>Hook adjusted:</strong> Graphic organizer scaffold added before close reading. Vocabulary pre-taught with visual supports. <strong>Independent practice:</strong> Chunked passages with annotation prompts. Extended time built into pacing. <strong>Assessment:</strong> Modified rubric aligned to IEP goals.'
+  },
+  {
+    label: 'Period 3',
+    tags: [
+      { text: '8 ELL (Entering–Emerging)', cls: 'ell' },
+      { text: '2 IEPs', cls: 'iep' },
+      { text: 'Mixed reading levels', cls: 'reading' }
+    ],
+    adaptLabel: 'Adapted for Period 3 — ELL-heavy, mixed proficiency',
+    text: '<strong>Hook adjusted:</strong> Bilingual anchor chart + sentence stems provided. SIOP-aligned vocabulary routine with L1 cognate connections. <strong>Exploration:</strong> Partner reading with strategic ELL-proficient pairing. <strong>Assessment:</strong> Dual-modality response options (written + oral).'
+  },
+  {
+    label: 'Period 5',
+    tags: [
+      { text: 'Honors', cls: 'honors' },
+      { text: '2 Gifted', cls: 'gifted' },
+      { text: 'Above grade level', cls: 'reading' }
+    ],
+    adaptLabel: 'Adapted for Period 5 — Honors, above grade level',
+    text: '<strong>Hook adjusted:</strong> Socratic seminar opening with author\'s craft lens. Vocabulary extended to include academic discourse terms. <strong>Exploration:</strong> Independent source analysis with cross-text synthesis task. <strong>Assessment:</strong> Extended analytical writing with evidence integration.'
+  }
+];
+
+const adaptContainer = document.getElementById('adaptationContainer');
+const periodTabs = document.querySelectorAll('.period-tab');
+let currentPeriod = 0;
+let autoInterval;
+
+function renderPeriod(index) {
+  const p = periods[index];
+  adaptContainer.innerHTML = `
+    <div class="adaptation-card">
+      <div class="adapt-label">${p.adaptLabel}</div>
+      <div class="adapt-tags">
+        ${p.tags.map(t => `<span class="adapt-tag ${t.cls}">${t.text}</span>`).join('')}
+      </div>
+      <div class="adapt-preview-text">${p.text}</div>
+    </div>
+  `;
+  periodTabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+}
+
+function startAutoRotate() {
+  autoInterval = setInterval(() => {
+    currentPeriod = (currentPeriod + 1) % periods.length;
+    renderPeriod(currentPeriod);
+  }, 4000);
+}
+
+periodTabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => {
+    currentPeriod = i;
+    renderPeriod(i);
+    clearInterval(autoInterval);
+    startAutoRotate();
+  });
+});
+
+renderPeriod(0);
+startAutoRotate();
+
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
