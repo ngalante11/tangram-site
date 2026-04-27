@@ -43,8 +43,8 @@ body {
   display: flex; justify-content: space-between; align-items: center;
   padding: 18px 32px; max-width: 1180px; margin: 0 auto;
 }
-.nav-logo { height: 64px; display: flex; align-items: center; text-decoration: none; }
-.nav-logo-img { height: 64px; width: auto; }
+.nav-logo { height: 44px; display: flex; align-items: center; text-decoration: none; }
+.nav-logo-img { height: 44px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a {
   font-size: 14px; font-weight: 500; color: var(--slate);
@@ -147,7 +147,7 @@ footer a:hover { color: var(--mint); }
 <nav class="nav">
   <div class="nav-inner">
     <a href="https://gettangram.com" class="nav-logo">
-      <img src="https://gettangram.com/Tangram_Logo.svg" alt="Tangram" class="nav-logo-img">
+      <img src="https://gettangram.com/logo.svg" alt="Tangram" class="nav-logo-img" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-family:Alata;font-size:24px;color:#401F7D;\'>Tangram</span>';">
     </a>
     <div class="nav-links">
       <a href="https://gettangram.com">Home</a>
@@ -160,7 +160,7 @@ footer a:hover { color: var(--mint); }
 <div class="legal-container">
   <div class="legal-header">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last Updated: March 6, 2026</p>
+    <p class="updated">Last Updated: April 27, 2026</p>
   </div>
 
   <p class="legal-intro">
@@ -186,7 +186,7 @@ footer a:hover { color: var(--mint); }
     <p>We use cookies and similar technologies to maintain your session, remember your preferences, and analyze usage patterns. You can control cookies through your browser settings, but disabling certain cookies may limit your ability to use the Platform.</p>
     
     <h3>1.6 Communications</h3>
-    <p>When you contact us at <a href="mailto:team@gettangram.com">team@gettangram.com</a>, we retain the content of your communications for support and record-keeping purposes.</p>
+    <p>When you contact us at team@gettangram.com, we retain the content of your communications for support and record-keeping purposes.</p>
   </div>
 
   <div class="legal-section">
@@ -259,35 +259,67 @@ footer a:hover { color: var(--mint); }
     <h2>9. Your Rights and Choices</h2>
     
     <h3>9.1 Access and Correction</h3>
-    <p>You may access and update your account information at any time through your account settings or by contacting <a href="mailto:team@gettangram.com">team@gettangram.com</a>.</p>
+    <p>You may access and update your account information at any time through your account settings or by contacting team@gettangram.com.</p>
     
     <h3>9.2 Data Deletion</h3>
-    <p>You may request deletion of your account and associated personal data by contacting <a href="mailto:team@gettangram.com">team@gettangram.com</a>. We will process your request within 30 days.</p>
+    <p>You may request deletion of your account and associated personal data by contacting team@gettangram.com. We will process your request within 30 days.</p>
     
     <h3>9.3 Email Opt-Out</h3>
-    <p>You may opt out of marketing emails at any time by clicking the unsubscribe link in any marketing email or by contacting <a href="mailto:team@gettangram.com">team@gettangram.com</a>. Transactional emails (billing receipts, security alerts, account notifications) will continue regardless of your marketing preferences.</p>
+    <p>You may opt out of marketing emails at any time by clicking the unsubscribe link in any marketing email or by contacting team@gettangram.com. Transactional emails (billing receipts, security alerts, account notifications) will continue regardless of your marketing preferences.</p>
     
     <h3>9.4 Cookies</h3>
     <p>You may control cookies through your browser settings. Disabling certain cookies may limit the functionality of the Platform.</p>
     
     <h3>9.5 State-Specific Rights</h3>
-    <p>If you are a resident of California, Virginia, Colorado, Connecticut, or other states with comprehensive privacy laws, you may have additional rights regarding your personal information, including the right to know what information we collect, the right to delete your information, and the right to opt out of certain data sharing. Contact us at <a href="mailto:team@gettangram.com">team@gettangram.com</a> to exercise any applicable rights.</p>
+    <p>If you are a resident of California, Virginia, Colorado, Connecticut, or other states with comprehensive privacy laws, you may have additional rights regarding your personal information, including the right to know what information we collect, the right to delete your information, and the right to opt out of certain data sharing. Contact us at team@gettangram.com to exercise any applicable rights.</p>
   </div>
 
   <div class="legal-section">
-    <h2>10. Changes to This Policy</h2>
+    <h2>10. Google API Services &amp; User Data</h2>
+    <p>Tangram integrates with Google APIs to enable sign-in, document export, and calendar features. Our use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+
+    <h3>10.1 Data Accessed</h3>
+    <p>When you connect your Google account, Tangram accesses the following data depending on the features you use:</p>
+    <ul>
+      <li><strong>Google Sign-In (openid, email, profile):</strong> Your Google account name and email address, used solely to create or authenticate your Tangram account.</li>
+      <li><strong>Google Drive — Docs &amp; Slides Export (drive.file):</strong> Write access to create and save lesson documents and slide presentations in your Google Drive on your behalf. Tangram only creates new files; it does not read, modify, or delete any existing files in your Drive.</li>
+      <li><strong>Google Calendar (calendar.events):</strong> Read and write access to create lesson-linked calendar events in your Google Calendar. Tangram does not read, modify, or delete events it did not create.</li>
+    </ul>
+
+    <h3>10.2 Data Usage</h3>
+    <p>Google user data is used exclusively to provide the specific feature you requested — authentication, file export, or calendar event creation. Tangram does not analyze, profile, combine with third-party data, or otherwise process Google user data for any purpose beyond completing the specific action you initiated. We do not use Google user data for advertising of any kind.</p>
+
+    <h3>10.3 Data Sharing</h3>
+    <p>Google user data is not shared with any third party. It is not sold, transferred, or disclosed to any entity outside of Tangram's infrastructure. The only exception is where required by law or to protect the rights and safety of Tangram or its users, in which case we will provide notice where permitted.</p>
+
+    <h3>10.4 Data Storage &amp; Protection</h3>
+    <p>OAuth access tokens are stored securely in encrypted, server-side sessions. We do not persist the contents of your Google Drive or Google Calendar beyond what is necessary to complete a requested action. All data in transit between Tangram and Google's APIs is encrypted via TLS/SSL. Access to OAuth credentials is restricted to authorized Tangram services only.</p>
+
+    <h3>10.5 Data Retention &amp; Deletion</h3>
+    <p>OAuth access tokens are session-scoped and not retained beyond your active authenticated session. Refresh tokens, if held, are deleted immediately upon account disconnection or account deletion. If you delete your Tangram account, all associated Google OAuth credentials are revoked and removed within 30 days. To request deletion of your account and associated data, email <a href="mailto:team@gettangram.com">team@gettangram.com</a>. You may also revoke Tangram's access to your Google account at any time via your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions page</a>.</p>
+
+    <h3>10.6 AI/ML Training Disclosure</h3>
+    <p>Tangram does not use data obtained through Google APIs — including data accessed via Google Drive, Google Calendar, or Google Sign-In — to develop, improve, or train generalized artificial intelligence or machine learning models. Google user data is used solely to fulfill the specific in-app feature requested by the user.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>11. Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. Material changes will be communicated via email to registered users and posted on our website at least thirty (30) days before taking effect.</p>
-    <p>Your continued use of the Service after the effective date of any changes constitutes your acceptance of the revised Privacy Policy.</p>
+    <p>Your continued use of the Service after the effective date of an updated Privacy Policy constitutes your acceptance of the changes.</p>
   </div>
 
   <div class="legal-section">
-    <h2>11. Contact Us</h2>
-    <p>Questions about this Privacy Policy or our data practices may be directed to:</p>
-    <p><strong>Mosaic Instructional Planning LLC</strong><br>
-    Email: <a href="mailto:team@gettangram.com">team@gettangram.com</a></p>
+    <h2>12. Contact Us</h2>
+    <p>If you have questions about this Privacy Policy, your data, or your rights, contact us at:</p>
+    <p><strong>Email:</strong> team@gettangram.com</p>
+    <p><strong>Mosaic Instructional Planning LLC</strong></p>
   </div>
+</div>
 
-</main>
+<footer>
+  <p style="margin-bottom:8px">Tangram by Mosaic Instructional Planning · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
+  <p>© 2026 Mosaic IP LLC</p>
+</footer>
 
 </body>
 </html>
