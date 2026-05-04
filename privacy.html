@@ -160,7 +160,7 @@ footer a:hover { color: var(--mint); }
 <div class="legal-container">
   <div class="legal-header">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last Updated: March 6, 2026</p>
+    <p class="updated">Last Updated: May 4, 2026</p>
   </div>
 
   <p class="legal-intro">
@@ -169,22 +169,22 @@ footer a:hover { color: var(--mint); }
 
   <div class="legal-section">
     <h2>1. Information We Collect</h2>
-    
+
     <h3>1.1 Account Information</h3>
     <p>When you create an account, we collect your name, email address, school or district affiliation (optional), grade level(s) taught, and subject area(s). If you sign in using a third-party service such as Google, we receive your name and email address from that provider.</p>
-    
+
     <h3>1.2 Payment Information</h3>
     <p>When you purchase a subscription, payment is processed by Stripe, Inc. ("Stripe"). Tangram does not directly collect, store, or process your credit card number or financial account information. Stripe handles all payment data in accordance with PCI-DSS standards. We receive from Stripe your subscription status, billing history, and a tokenized payment reference.</p>
-    
+
     <h3>1.3 Lesson and Instructional Data</h3>
     <p>When you use the Platform, we collect the information you provide to build lessons, including selected standards, pedagogical frameworks, class-level student context (such as "8 ELLs in Period 3" or "4 students with IEPs"), lesson modifications, and other instructional inputs. The Platform is designed so that Teachers provide class-level context rather than individually identifiable student information. We strongly discourage the input of individual student names, identification numbers, or other personally identifiable student records.</p>
-    
+
     <h3>1.4 Usage Data</h3>
     <p>We automatically collect information about your use of the Services, including IP address, browser type, operating system, device information, pages visited, features used, lesson creation and sharing activity, timestamps, and referring URLs.</p>
-    
+
     <h3>1.5 Cookies and Similar Technologies</h3>
     <p>We use cookies and similar technologies to maintain your session, remember your preferences, and analyze usage patterns. You can control cookies through your browser settings, but disabling certain cookies may limit your ability to use the Platform.</p>
-    
+
     <h3>1.6 Communications</h3>
     <p>When you contact us at team@gettangram.com, we retain the content of your communications for support and record-keeping purposes.</p>
   </div>
@@ -235,11 +235,11 @@ footer a:hover { color: var(--mint); }
 
   <div class="legal-section">
     <h2>6. Student Data, FERPA, and COPPA</h2>
-    
+
     <h3>6.1 FERPA Compliance</h3>
     <p>Tangram is designed so that Teachers input class-level context rather than individual student records. We do not require or request individually identifiable student information such as student names, student ID numbers, Social Security numbers, or other information that would constitute "education records" under the Family Educational Rights and Privacy Act (FERPA).</p>
     <p>To the extent that any information submitted to the Platform constitutes education records under FERPA, Tangram will treat such information in accordance with FERPA requirements and will act as a "school official" with a "legitimate educational interest" as defined by FERPA. We will not disclose education records except as permitted by FERPA or as directed by the applicable Educational Institution.</p>
-    
+
     <h3>6.2 COPPA Compliance</h3>
     <p>The Platform is designed for use by adult educators and administrators. The Platform is not directed at children under 13, and we do not knowingly collect personal information from children under 13 in compliance with the Children's Online Privacy Protection Act (COPPA). If we become aware that we have collected personal information from a child under 13, we will take steps to delete such information promptly.</p>
   </div>
@@ -258,31 +258,59 @@ footer a:hover { color: var(--mint); }
 
   <div class="legal-section">
     <h2>9. Your Rights and Choices</h2>
-    
+
     <h3>9.1 Access and Correction</h3>
     <p>You may access and update your account information at any time through your account settings or by contacting team@gettangram.com.</p>
-    
+
     <h3>9.2 Data Deletion</h3>
     <p>You may request deletion of your account and associated personal data by contacting team@gettangram.com. We will process your request within 30 days.</p>
-    
+
     <h3>9.3 Email Opt-Out</h3>
     <p>You may opt out of marketing emails at any time by clicking the unsubscribe link in any marketing email or by contacting team@gettangram.com. Transactional emails (billing receipts, security alerts, account notifications) will continue regardless of your marketing preferences.</p>
-    
+
     <h3>9.4 Cookies</h3>
     <p>You may control cookies through your browser settings. Disabling certain cookies may limit the functionality of the Platform.</p>
-    
+
     <h3>9.5 State-Specific Rights</h3>
     <p>If you are a resident of California, Virginia, Colorado, Connecticut, or other states with comprehensive privacy laws, you may have additional rights regarding your personal information, including the right to know what information we collect, the right to delete your information, and the right to opt out of certain data sharing. Contact us at team@gettangram.com to exercise any applicable rights.</p>
   </div>
 
   <div class="legal-section">
-    <h2>10. Changes to This Policy</h2>
+    <h2>10. Google API Services</h2>
+    <p>Tangram integrates with Google APIs to enable account sign-in, lesson export to Google Docs and Google Slides, and Google Calendar integration. This section describes specifically how we access, use, store, and share data obtained through Google API Services, in compliance with the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>.</p>
+
+    <h3>10.1 Data Accessed</h3>
+    <p>Tangram requests the following Google OAuth scopes:</p>
+    <ul>
+      <li><strong>openid, email, profile</strong> — Used for account authentication. We receive your name and email address to create and identify your Tangram account.</li>
+      <li><strong>drive.file</strong> — Used to export lessons to Google Docs or Google Slides. This scope permits Tangram to create and edit only the files it creates on your behalf. Tangram cannot access, read, or modify any existing files in your Google Drive.</li>
+      <li><strong>calendar.events</strong> — Used to add lesson planning events to your Google Calendar when you choose to use that feature. Tangram can only create and manage events it generates; it cannot read or modify existing calendar events.</li>
+    </ul>
+
+    <h3>10.2 Data Usage</h3>
+    <p>Google account data (name and email) is used solely to authenticate your Tangram account and personalize your experience. Lesson content exported via the drive.file scope is written directly to Google Drive at your direction and is not stored separately by Tangram beyond what already exists in your Tangram account. Calendar events created via the calendar.events scope are generated at your request and contain only the lesson planning information you choose to add.</p>
+
+    <h3>10.3 Data Sharing</h3>
+    <p>Data obtained through Google API Services is not shared with any third party except as necessary to operate the Service (e.g., our hosting provider, Railway). We do not share Google user data with advertisers, data brokers, or any party for marketing purposes. We do not allow any employee or contractor to read Google user data unless required to provide the Service or for security purposes, and only where the user has given explicit permission.</p>
+
+    <h3>10.4 Data Storage and Protection</h3>
+    <p>Your Google account information (name and email) is stored in our Railway-hosted PostgreSQL database, protected by encryption in transit (TLS) and access controls. OAuth tokens required to interact with Google Drive and Google Calendar are stored securely and used only to fulfill the specific actions you initiate within the Platform.</p>
+
+    <h3>10.5 Data Retention and Deletion</h3>
+    <p>Google account data is retained for as long as your Tangram account is active. OAuth tokens are refreshed as needed and revoked upon account deletion or when you disconnect your Google account. To revoke Tangram's access to your Google account at any time, visit <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>. To request full account deletion, contact team@gettangram.com and we will process your request within 30 days.</p>
+
+    <h3>10.6 No Use for AI Training</h3>
+    <p>Tangram does not use any data obtained through Google API Services to train AI or machine learning models. Google user data is used exclusively to provide and improve the features you have explicitly enabled within the Platform.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>11. Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. Material changes will be communicated via email to registered users and posted on our website at least thirty (30) days before taking effect.</p>
     <p>Your continued use of the Service after the effective date of an updated Privacy Policy constitutes your acceptance of the changes.</p>
   </div>
 
   <div class="legal-section">
-    <h2>11. Contact Us</h2>
+    <h2>12. Contact Us</h2>
     <p>If you have questions about this Privacy Policy, your data, or your rights, contact us at:</p>
     <p><strong>Email:</strong> team@gettangram.com</p>
     <p><strong>Mosaic Instructional Planning LLC</strong></p>
