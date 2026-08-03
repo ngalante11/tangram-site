@@ -23,16 +23,19 @@ gen-ed teachers.**
 4. **Fri — Queue & ship:** schedule into connected tools.
 5. **Following Mon — Measure:** log results, feed the next brief.
 
-## What's live vs. blocked
+## The real channel stack (what we actually have)
 
-Content production runs now. **Publishing/sending is blocked until these are connected
-and you approve go-live:**
+No Klaviyo/HubSpot/Ahrefs/social scheduler. Here's how each channel actually ships:
 
-- **Email:** Klaviyo *or* HubSpot (need one authenticated + a list to send to)
-- **Social scheduling:** whichever scheduler you use (or native)
-- **SEO data:** Ahrefs (for live keyword/rank tracking; drafts don't require it)
+| Channel | How it goes live | Status |
+|---|---|---|
+| **Blog** | Convert the markdown posts to on-brand HTML pages, add to the Vercel site (`/blog/`), push → auto-deploys. **No external service needed — fully in our control.** | Ready to publish |
+| **Social graphics** | **Canva** (connected) — routine auto-drafts branded designs; Nicole exports. | Live |
+| **Social posting** | No scheduler → **native/manual**. Machine prepares a copy-paste-ready queue + the Canva graphic per post. | Manual |
+| **Email** | No ESP yet. Sequences stay drafted and ready. When there's a list, pick a **free-tier ESP** (e.g. MailerLite/Mailchimp free) and we load them. | Parked |
+| **SEO data** | No Ahrefs → use free signals (Google autocomplete, Search Console once verified). Drafts don't need it. | Free-tier |
 
-Until then, treat every asset here as a ready-to-flip-live draft.
+Everything here is a ready-to-flip-live draft until Nicole approves go-live.
 
 ## Guardrails baked in
 
