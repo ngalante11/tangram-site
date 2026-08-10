@@ -1482,7 +1482,7 @@ footer a:hover { color: var(--mint); }
           <span class="tg-amount">Free</span>
         </div>
         <p class="tg-note">30 days of full access</p>
-        <a href="#" class="tg-cta">Start Free</a>
+        <a href="https://app.gettangram.com/signup" class="tg-cta">Start Free</a>
         <ul class="tg-feats">
           <li>Every feature unlocked for 30 days</li>
           <li>Build real, differentiated lessons</li>
@@ -1500,7 +1500,9 @@ footer a:hover { color: var(--mint); }
           <span class="tg-per" data-monthly="/mo" data-annual="/mo">/mo</span>
         </div>
         <p class="tg-note" data-monthly="Billed monthly" data-annual="$39.99 billed annually">Billed monthly</p>
-        <a href="#" class="tg-cta">Choose Accelerate</a>
+        <a href="https://app.gettangram.com/signup?plan=accelerate"
+           data-base-href="https://app.gettangram.com/signup?plan=accelerate"
+           class="tg-cta">Choose Accelerate</a>
         <ul class="tg-feats">
           <li><strong>5 lessons</strong> per month</li>
           <li>Chat with Tan</li>
@@ -1520,13 +1522,15 @@ footer a:hover { color: var(--mint); }
           <span class="tg-per" data-monthly="/mo" data-annual="/mo">/mo</span>
         </div>
         <p class="tg-note" data-monthly="Billed monthly" data-annual="$79.99 billed annually">Billed monthly</p>
-        <a href="#" class="tg-cta tg-cta-green">Choose Elevate</a>
+        <a href="https://app.gettangram.com/signup?plan=elevate"
+           data-base-href="https://app.gettangram.com/signup?plan=elevate"
+           class="tg-cta tg-cta-green">Choose Elevate</a>
         <ul class="tg-feats">
           <li><strong>Unlimited</strong> lessons</li>
           <li>Everything in Accelerate</li>
           <li>Language translation for families</li>
           <li>Google Classroom outputs</li>
-          <li>Extensive reporting &amp; analytics</li>
+          <li>Shared libraries &amp; one-click lesson sharing</li>
           <li>Your personal media library</li>
           <li>Access to all live trainings</li>
           <li>Priority feature requests</li>
@@ -1568,8 +1572,13 @@ footer a:hover { color: var(--mint); }
       root.querySelectorAll('[data-'+plan+']').forEach(function(el){
         el.textContent=el.getAttribute('data-'+plan);
       });
+      root.querySelectorAll('a[data-base-href]').forEach(function(a){
+        var base=a.getAttribute('data-base-href');
+        a.href = base + (base.indexOf('?')>-1?'&':'?') + 'billing=' + plan;
+      });
     }
     btns.forEach(function(b){b.addEventListener('click',function(){setPlan(b.dataset.plan);});});
+    setPlan('monthly');
   })();
   </script>
 </section>
