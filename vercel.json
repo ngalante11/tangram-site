@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/sarah",
+      "destination": "https://app.gettangram.com/signup?ref=sarah",
+      "permanent": false
+    },
+    {
+      "source": "/brandy",
+      "destination": "https://app.gettangram.com/signup?ref=brandy",
+      "permanent": false
+    }
+  ]
+}
