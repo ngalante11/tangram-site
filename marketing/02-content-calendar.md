@@ -25,12 +25,12 @@ Status key: `draft` = written, in repo · `queued` = scheduled in tool · `live`
 
 | Day | Channel | Asset | Pillar | Status |
 |---|---|---|---|---|
-| Mon | Blog | *Why AI Lesson Planners Give You Generic Junk (and What to Do Instead)* | ② | plan |
-| Mon | IG/TikTok | Carousel: "Generic AI vs. Tangram — same prompt, different results" | ② ① | plan |
+| Mon | Blog | *Why AI Lesson Planners Give You Generic Junk (and What to Do Instead)* | ② | `draft` → `blog/03` |
+| Mon | IG/TikTok | Carousel: "Generic AI vs. Tangram — same prompt, different results" | ② ① | `draft` → `social/` |
 | Tue | Email | **Trial-conversion #1** (methodology story) fires day 2 of trial | ② | `draft` → `email/` |
 | Wed | IG/TikTok | Teacher testimonial-style (ONLY when we have a real one) OR founder story | ② | plan |
 | Wed | Pinterest | Pin week-1 + week-2 blog posts + a free planning template | ④ | plan |
-| Thu | Blog | *ELL Lesson Modifications: A Section-by-Section Guide* | ④ | plan |
+| Thu | Blog | *ELL Lesson Modifications: A Section-by-Section Guide* | ④ | `draft` → `blog/04` |
 | Fri | IG/TikTok | "Observation season is coming" — how observation-ready planning saves you | ③ | plan |
 
 ## WEEK 3 — "Get Your Time Back" (emotional + urgency)
