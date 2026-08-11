@@ -12,12 +12,12 @@ Status key: `draft` = written, in repo · `queued` = scheduled in tool · `live`
 
 | Day | Channel | Asset | Pillar | Status |
 |---|---|---|---|---|
-| Mon | Blog | *How to Differentiate One Lesson for a Mixed-Ability Class (Without Rewriting It 5 Times)* | ① ④ | `draft` → `blog/` |
+| Mon | Blog | *How to Differentiate One Lesson for a Mixed-Ability Class (Without Rewriting It 5 Times)* | ① ④ | `live` → `blog/01` |
 | Mon | IG/TikTok | Hook: "POV: it's 9pm Sunday and you have to plan the same lesson 5 different ways" | ① | `draft` → `social/` |
 | Tue | Email | **Welcome #1** fires on trial start | ③ | `draft` → `email/` |
 | Wed | IG/TikTok | Screen-capture: build 1 lesson → watch it split into Period 1 / 3 / 5 | ① ④ | `draft` |
 | Wed | FB groups | Value post: "The 3-column trick for planning a mixed-ability class" (soft mention) | ④ | `draft` |
-| Thu | Blog | *Danielson Domain 3 Lesson Examples Your Evaluator Will Actually Recognize* | ③ | `draft` → `blog/` |
+| Thu | Blog | *Danielson Domain 3 Lesson Examples Your Evaluator Will Actually Recognize* | ③ | `live` → `blog/02` |
 | Fri | IG/TikTok | "Not trained on the internet" — the methodology explainer (talking head) | ② | `draft` |
 | Fri | Email | Broadcast: back-to-school "plan once" pitch to any existing list | ① | plan |
 
@@ -25,23 +25,23 @@ Status key: `draft` = written, in repo · `queued` = scheduled in tool · `live`
 
 | Day | Channel | Asset | Pillar | Status |
 |---|---|---|---|---|
-| Mon | Blog | *Why AI Lesson Planners Give You Generic Junk (and What to Do Instead)* | ② | `draft` → `blog/03` |
+| Mon | Blog | *Why AI Lesson Planners Give You Generic Junk (and What to Do Instead)* | ② | `live` → `blog/03` |
 | Mon | IG/TikTok | Carousel: "Generic AI vs. Tangram — same prompt, different results" | ② ① | `draft` → `social/` |
 | Tue | Email | **Trial-conversion #1** (methodology story) fires day 2 of trial | ② | `draft` → `email/` |
 | Wed | IG/TikTok | Teacher testimonial-style (ONLY when we have a real one) OR founder story | ② | plan |
 | Wed | Pinterest | Pin week-1 + week-2 blog posts + a free planning template | ④ | plan |
-| Thu | Blog | *ELL Lesson Modifications: A Section-by-Section Guide* | ④ | `draft` → `blog/04` |
+| Thu | Blog | *ELL Lesson Modifications: A Section-by-Section Guide* | ④ | `live` → `blog/04` |
 | Fri | IG/TikTok | "Observation season is coming" — how observation-ready planning saves you | ③ | plan |
 
 ## WEEK 3 — "Get Your Time Back" (emotional + urgency)
 
 | Day | Channel | Asset | Pillar | Status |
 |---|---|---|---|---|
-| Mon | Blog | *The Real Reason Lesson Planning Takes You All Weekend* | ① | plan |
+| Mon | Blog | *The Real Reason Lesson Planning Takes You All Weekend* | ① | `live` → `blog/05` |
 | Mon | IG/TikTok | "Things I stopped doing when I planned one lesson instead of five" | ① | plan |
 | Tue | Email | **Trial-conversion #2** (before free lessons run out) | ① ③ | plan |
 | Wed | IG/TikTok | UbD Stage 2 in 60 seconds (quick value) | ③ | plan |
-| Thu | Blog | *IEP Accommodations Built Into Your Lesson Plan (Not Bolted On)* | ④ | plan |
+| Thu | Blog | *IEP Accommodations Built Into Your Lesson Plan (Not Bolted On)* | ④ | `live` → `blog/06` |
 | Fri | Email | **Founding Member drive** — "first 500, locked forever" to non-payers | — | `draft` → `email/` |
 
 ## WEEK 4 — "Proof & Push" (convert)
