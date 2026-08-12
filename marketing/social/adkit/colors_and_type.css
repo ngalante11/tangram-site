@@ -1,0 +1,143 @@
+/* ============================================================
+   TANGRAM by Mosaic IP — Design System Foundations
+   colors_and_type.css
+   Source of truth: tangram-app/client/src/index.css (real product)
+   + Tangram Brand Guide v1.0 (Feb 2026)
+   ============================================================ */
+
+/* ---- Webfonts (all three brand faces + mono live on Google Fonts) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Work+Sans:wght@400;500;600;700&family=League+Spartan:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ============================================================
+     BRAND COLOR PALETTE  (hex + the HSL triplets used in-app)
+     ============================================================ */
+  --grape:        #401F7D;   /* 261 60% 31% — primary brand, headers, logo on light */
+  --grape-dark:   #2D1659;   /* 261 60% 13% — deep gradient end, footers */
+  --orchid:       #B14FC5;   /* 290 50% 54% — accent / primary action / CTA / active */
+  --orchid-light: #C97BD6;   /* 290 60% 68% — soft accent, light states */
+  --amethyst:     #88229D;   /* 290 64% 37% — tertiary, secondary accents */
+  --pacific:      #5FD0FF;   /* 198 100% 69% — links, data viz, bright moments */
+  --mint:         #3FDE9D;   /* 155 71% 56% — success, active, energy */
+  --slate:        #333333;   /* 0 0% 20% — body text, dark UI */
+  --stone:        #EAEAEE;   /* 240 10% 93% — backgrounds, dividers, subtle containers */
+  --stone-warm:   #F5F4F7;   /* warm off-white section background (marketing) */
+
+  /* ---- HSL channel tokens (mirror the app for alpha compositing) ---- */
+  --tangram-grape:        261 60% 31%;
+  --tangram-grape-dark:   261 60% 13%;
+  --tangram-orchid:       290 50% 54%;
+  --tangram-orchid-light: 290 60% 68%;
+  --tangram-amethyst:     290 64% 37%;
+  --tangram-pacific:      198 100% 69%;
+  --tangram-mint:         155 71% 56%;
+  --tangram-slate:        0 0% 20%;
+  --tangram-stone:        240 10% 93%;
+
+  /* ============================================================
+     SEMANTIC TOKENS  (light theme — the product default)
+     ============================================================ */
+  --background:            #FCFBFE;  /* 270 50% 99% — lavender-tinted near-white canvas */
+  --foreground:            #333333;  /* 0 0% 20% */
+  --card:                  #FFFFFF;
+  --card-foreground:       #333333;
+  --popover:               #FFFFFF;
+  --popover-foreground:    #333333;
+
+  --primary:               #B14FC5;  /* orchid — primary action */
+  --primary-foreground:    #FFFFFF;
+  --accent:                #401F7D;  /* grape — emphasis */
+  --accent-foreground:     #FFFFFF;
+  --secondary:             #EAEAEE;  /* stone */
+  --secondary-foreground:  #333333;
+  --muted:                 #EAEAEE;
+  --muted-foreground:      #737373;  /* 0 0% 45% */
+
+  --success:               #3FDE9D;
+  --success-foreground:    #FFFFFF;
+  --destructive:           #EF4444;  /* 0 84% 60% */
+  --destructive-foreground:#FFFFFF;
+
+  --border:                #DEDDE4;  /* 240 10% 88% */
+  --input:                 #DEDDE4;
+  --ring:                  #B14FC5;
+
+  /* ============================================================
+     TYPOGRAPHY
+     Alata      — display / headers (matches logo wordmark)
+     League Spartan — hero headlines, CTAs, punchy moments
+     Work Sans  — body, UI, long-form
+     JetBrains Mono — code / standards codes / data
+     ============================================================ */
+  --font-display: 'Alata', sans-serif;          /* H1–H3 */
+  --font-hero:    'League Spartan', sans-serif;  /* hero, buttons */
+  --font-sans:    'Work Sans', sans-serif;       /* body / UI */
+  --font-mono:    'JetBrains Mono', monospace;   /* code, codes */
+
+  /* ---- Type scale (semantic) ---- */
+  --hero:        800 clamp(40px, 5.5vw, 62px)/1.08 var(--font-hero);
+  --display-lg:  700 clamp(32px, 4vw, 48px)/1.12 var(--font-hero);  /* section H2 */
+  --h1:          400 clamp(30px, 4vw, 44px)/1.15 var(--font-display);
+  --h2:          400 clamp(24px, 2.4vw, 32px)/1.2 var(--font-display);
+  --h3:          400 20px/1.3 var(--font-display);
+  --body-lg:     400 18px/1.7 var(--font-sans);
+  --body:        400 15px/1.65 var(--font-sans);
+  --body-sm:     400 14px/1.6 var(--font-sans);
+  --caption:     500 12px/1.4 var(--font-sans);
+  --button:      700 15px/1 var(--font-hero);
+  --code:        400 14px/1.6 var(--font-mono);
+
+  /* Letter-spacing conventions */
+  --tracking-hero:  -0.03em;  /* League Spartan headlines */
+  --tracking-tight: -0.02em;  /* large display */
+  --tracking-label: 0.1em;    /* uppercase eyebrows / labels */
+
+  /* ============================================================
+     RADII  (app uses small/tight radii on controls, large on cards)
+     ============================================================ */
+  --radius-xs: 3px;    /* sm — chips, tiny tags */
+  --radius-sm: 6px;    /* md — buttons, inputs */
+  --radius-md: 9px;    /* lg — default control radius */
+  --radius-card-sm: 10px;
+  --radius-card: 16px; /* standard card */
+  --radius-card-lg: 24px;
+  --radius-card-xl: 28px;
+  --radius-pill: 100px;
+
+  /* ============================================================
+     ELEVATION  (grape-tinted shadows — never neutral grey)
+     ============================================================ */
+  --shadow-sm: 0 2px 8px rgba(45,22,89,0.04), 0 1px 2px rgba(45,22,89,0.03);
+  --shadow-md: 0 8px 32px rgba(45,22,89,0.06), 0 2px 8px rgba(45,22,89,0.03);
+  --shadow-lg: 0 20px 60px rgba(45,22,89,0.08), 0 8px 24px rgba(45,22,89,0.04);
+  --shadow-xl: 0 32px 80px rgba(45,22,89,0.10), 0 12px 40px rgba(45,22,89,0.06);
+  --shadow-glow: 0 0 80px rgba(177,79,197,0.08);
+  /* Orchid action-button glow */
+  --shadow-action: 0 6px 24px rgba(177,79,197,0.25), 0 2px 6px rgba(177,79,197,0.15);
+  --shadow-action-hover: 0 12px 40px rgba(177,79,197,0.35), 0 4px 12px rgba(177,79,197,0.20);
+
+  /* ============================================================
+     MOTION
+     ============================================================ */
+  --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 0.2s;
+  --dur: 0.4s;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS  (opt-in via class .ds-scope)
+   ============================================================ */
+.ds-scope { font: var(--body); color: var(--foreground); background: var(--background); }
+.ds-scope h1 { font: var(--h1); color: var(--grape); letter-spacing: var(--tracking-tight); }
+.ds-scope h2 { font: var(--h2); color: var(--grape); }
+.ds-scope h3 { font: var(--h3); color: var(--slate); }
+.ds-scope .hero-headline { font: var(--hero); color: var(--grape); letter-spacing: var(--tracking-hero); }
+.ds-scope .eyebrow {
+  font: var(--caption); text-transform: uppercase; letter-spacing: var(--tracking-label);
+  color: var(--orchid); font-weight: 600;
+}
+.ds-scope p { font: var(--body); color: var(--slate); }
+.ds-scope code { font: var(--code); background: var(--muted); padding: 2px 6px; border-radius: var(--radius-xs); }
+.ds-scope a { color: var(--orchid); text-decoration: none; }
+.ds-scope a:hover { color: var(--amethyst); }

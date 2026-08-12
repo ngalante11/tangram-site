@@ -1,0 +1,212 @@
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{ -webkit-font-smoothing:antialiased; }
+  body{
+    font-family:'Work Sans',sans-serif; color:#333;
+    background:#F4F1F8;
+    background-image:
+      radial-gradient(900px 600px at 12% -5%, rgba(177,79,197,.08), transparent 60%),
+      radial-gradient(800px 600px at 100% 0%, rgba(95,208,255,.06), transparent 55%);
+    background-attachment:fixed;
+  }
+
+  /* ============ KIT CHROME ============ */
+  .kit-head{ max-width:1280px; margin:0 auto; padding:46px 40px 10px; }
+  .kit-eyebrow{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#B14FC5; font-weight:500; }
+  .kit-title{ font-family:'League Spartan',sans-serif; font-weight:800; font-size:46px; letter-spacing:-.03em; color:#401F7D; line-height:1.04; margin-top:10px; }
+  .kit-desc{ font-size:16px; color:#5b5570; max-width:640px; margin-top:14px; line-height:1.65; }
+  .kit-meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+  .meta-chip{ display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:500; color:#401F7D;
+    background:rgba(255,255,255,.75); border:1px solid rgba(64,31,125,.10); padding:7px 14px; border-radius:100px; }
+  .meta-chip b{ font-weight:700; }
+  .meta-chip .dot{ width:7px; height:7px; border-radius:50%; background:#3FDE9D; }
+
+  /* tabs */
+  .tabs{ position:sticky; top:0; z-index:40; background:rgba(244,241,248,.86); backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(64,31,125,.08); margin-top:30px; }
+  .tabs-inner{ max-width:1280px; margin:0 auto; padding:0 40px; display:flex; gap:6px; }
+  .tab{ appearance:none; border:none; background:none; cursor:pointer; font-family:'Work Sans',sans-serif;
+    font-size:15px; font-weight:600; color:#8a83a0; padding:18px 4px; margin-right:24px; position:relative;
+    transition:color .25s var(--ease-luxury,ease); }
+  .tab:hover{ color:#401F7D; }
+  .tab.active{ color:#401F7D; }
+  .tab.active::after{ content:''; position:absolute; left:0; right:0; bottom:-1px; height:3px;
+    background:linear-gradient(90deg,#B14FC5,#88229D); border-radius:3px 3px 0 0; }
+  .tab .cnt{ font-family:'JetBrains Mono',monospace; font-size:11px; color:#B14FC5; margin-left:7px; }
+
+  .kit-body{ max-width:1280px; margin:0 auto; padding:38px 40px 120px; }
+
+  /* ============ CREATIVES GALLERY ============ */
+  .goal-group{ margin-bottom:54px; }
+  .goal-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:4px; }
+  .goal-name{ font-family:'Alata',sans-serif; font-size:23px; color:#401F7D; flex:none; white-space:nowrap; }
+  .goal-head{ flex-wrap:wrap; }
+  .goal-tag{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    color:#9a93ad; }
+  .goal-sub{ font-size:14.5px; color:#6c6682; margin-bottom:24px; max-width:680px; line-height:1.6; }
+
+  .concept-row{ display:flex; flex-wrap:wrap; gap:30px; }
+  .concept-block{ }
+  .concept-label{ display:flex; align-items:center; gap:10px; margin-bottom:11px; }
+  .concept-num{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#fff;
+    background:#401F7D; width:22px; height:22px; border-radius:6px; display:flex; align-items:center; justify-content:center; }
+  .concept-name{ font-size:13.5px; font-weight:600; color:#401F7D; }
+  .formats{ display:flex; gap:18px; align-items:flex-start; }
+  .fmt{ display:flex; flex-direction:column; gap:8px; }
+  .fmt-cap{ display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace;
+    font-size:10.5px; color:#9a93ad; letter-spacing:.04em; }
+  .fmt-cap .px{ color:#bdb7cc; }
+
+  .dl-btn{ appearance:none; border:1px solid rgba(64,31,125,.16); background:#fff; cursor:pointer;
+    font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#88229D; padding:4px 9px;
+    border-radius:7px; transition:all .18s ease; letter-spacing:.03em; white-space:nowrap; }
+  .dl-btn:hover{ background:#88229D; color:#fff; border-color:#88229D; }
+  .dl-btn:disabled{ opacity:.55; cursor:default; }
+
+  .export-bar{ display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    background:#fff; border:1px solid rgba(64,31,125,.08); border-radius:16px; padding:18px 24px; margin-bottom:40px;
+    box-shadow:0 4px 20px rgba(45,22,89,.04); }
+  .export-note{ font-size:13.5px; color:#6c6682; max-width:640px; line-height:1.55; }
+  .export-all{ appearance:none; border:none; cursor:pointer; flex:none;
+    font-family:'League Spartan',sans-serif; font-weight:700; font-size:15px; color:#fff;
+    background:linear-gradient(135deg,#B14FC5,#88229D); padding:13px 24px; border-radius:10px;
+    box-shadow:0 8px 26px rgba(177,79,197,.3); transition:all .25s var(--ease-luxury,ease); white-space:nowrap; }
+  .export-all:hover{ transform:translateY(-2px); box-shadow:0 12px 34px rgba(177,79,197,.4); }
+  .export-all:disabled{ opacity:.8; cursor:default; transform:none; }
+
+  /* ad frame: holds a scaled 1080-based ad */
+  .ad-frame{ position:relative; border-radius:18px; overflow:hidden;
+    box-shadow:0 20px 60px rgba(45,22,89,.14), 0 4px 14px rgba(45,22,89,.08), 0 0 0 1px rgba(64,31,125,.06);
+    background:#2D1659; }
+  .ad-scale{ transform-origin:top left; }
+
+  /* ============ THE AD CANVAS (authored at 1080-based scale) ============ */
+  .ad{ position:relative; overflow:hidden; color:#fff; font-family:'Work Sans',sans-serif;
+    display:flex; flex-direction:column; }
+  .ad.sq{ width:1080px; height:1080px; }
+  .ad.st{ width:1080px; height:1920px; }
+
+  /* backgrounds */
+  .ad-bg-grape{ background:linear-gradient(157deg,#401F7D 0%,#5a228f 42%,#88229D 74%,#B14FC5 116%); }
+  .ad-bg-deep{ background:linear-gradient(165deg,#2D1659 0%,#401F7D 78%); }
+  .ad-bg-light{ background:linear-gradient(160deg,#FDFCFE 0%,#F4ECF8 60%,#EBDFF3 100%); color:#333; }
+
+  /* triangle tile texture overlay */
+  .ad-tex{ position:absolute; inset:0; pointer-events:none; opacity:.5;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='%23ffffff' fill-opacity='0.035'><polygon points='0,0 60,0 0,60'/><polygon points='120,120 60,120 120,60'/><polygon points='60,60 120,60 60,120'/></g></svg>"); }
+  .ad-bg-light .ad-tex{ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='%23401F7D' fill-opacity='0.04'><polygon points='0,0 60,0 0,60'/><polygon points='120,120 60,120 120,60'/><polygon points='60,60 120,60 60,120'/></g></svg>"); }
+
+  /* soft blobs */
+  .ad-blob{ position:absolute; border-radius:50%; pointer-events:none; filter:blur(2px); }
+
+  /* decorative tangram shapes */
+  .tri{ position:absolute; width:0; height:0; }
+
+  /* content layer sits above texture/blobs */
+  .ad-in{ position:relative; z-index:3; display:flex; flex-direction:column; height:100%; }
+
+  /* shared ad type */
+  .ad-eyebrow{ display:inline-flex; align-items:center; gap:14px; font-family:'JetBrains Mono',monospace;
+    font-weight:500; letter-spacing:.16em; text-transform:uppercase; }
+  .ad-eyebrow::before{ content:''; width:34px; height:3px; border-radius:2px;
+    background:linear-gradient(90deg,#5FD0FF,#B14FC5); display:inline-block; }
+  .ad-h{ font-family:'League Spartan',sans-serif; font-weight:800; letter-spacing:-.035em; line-height:.98; }
+  .ad-h.alata{ font-family:'Alata',sans-serif; font-weight:400; letter-spacing:-.02em; line-height:1.04; }
+  .ad-sub{ line-height:1.5; font-weight:400; }
+  .grad-text{ background:linear-gradient(108deg,#5FD0FF 0%,#C97BD6 55%,#fff 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .mint-text{ color:#3FDE9D; }
+  .pacific-text{ color:#5FD0FF; }
+
+  /* CTA pill */
+  .ad-cta{ display:inline-flex; align-items:center; gap:16px; align-self:flex-start; flex:none; white-space:nowrap;
+    font-family:'League Spartan',sans-serif; font-weight:700; border-radius:100px; }
+  .ad-cta.on-dark{ background:#fff; color:#401F7D; box-shadow:0 14px 40px rgba(0,0,0,.18); }
+  .ad-cta.on-light{ background:linear-gradient(135deg,#B14FC5,#88229D); color:#fff; box-shadow:0 14px 44px rgba(177,79,197,.4); }
+  .ad-cta .arrow{ display:inline-flex; align-items:center; justify-content:center; border-radius:50%; }
+  .ad-cta.on-dark .arrow{ background:linear-gradient(135deg,#B14FC5,#88229D); color:#fff; }
+  .ad-cta.on-light .arrow{ background:rgba(255,255,255,.22); color:#fff; }
+
+  /* brand footer lockup inside ad */
+  .ad-foot{ display:flex; align-items:center; gap:16px; }
+  .ad-foot img{ display:block; }
+  .ad-url{ font-family:'League Spartan',sans-serif; font-weight:600; opacity:.9; }
+
+  .badge-live{ display:inline-flex; align-items:center; gap:12px; border-radius:100px;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); }
+  .badge-live .pdot{ border-radius:50%; background:#3FDE9D; }
+
+  /* photo treatment */
+  .ad-photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+  .ad-photo-veil{ position:absolute; inset:0; z-index:2; }
+
+  .tan-circle{ border-radius:50%; overflow:hidden; background:#EAF4FB;
+    box-shadow:0 20px 60px rgba(45,22,89,.35), inset 0 0 0 6px rgba(255,255,255,.85); flex:none; }
+  .tan-circle img{ width:118%; height:118%; object-fit:cover; transform:translate(-7.5%,-5%); }
+
+  .chat-bubble{ background:#fff; color:#333; border-radius:26px 26px 26px 8px;
+    box-shadow:0 18px 50px rgba(45,22,89,.18); font-family:'Work Sans',sans-serif; }
+  .chat-from{ font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.12em; color:#B14FC5; font-weight:500; }
+
+  .quote-mark{ font-family:'League Spartan',sans-serif; font-weight:800; line-height:.7; color:rgba(255,255,255,.16); }
+  .quote-mark.on-light{ color:rgba(64,31,125,.12); }
+
+  .stat-pill{ display:flex; flex-direction:column; gap:4px; }
+  .stat-num{ font-family:'League Spartan',sans-serif; font-weight:800; line-height:1; }
+  .stat-lab{ font-family:'Work Sans',sans-serif; font-weight:500; opacity:.7; }
+
+  /* ============ CALENDAR ============ */
+  .cal-intro{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:30px; }
+  .cal-legend{ display:flex; flex-wrap:wrap; gap:8px; }
+  .leg{ display:inline-flex; align-items:center; gap:8px; font-size:12px; color:#5b5570; font-weight:500;
+    background:#fff; border:1px solid rgba(64,31,125,.08); padding:6px 12px; border-radius:100px; }
+  .leg .sw{ width:10px; height:10px; border-radius:3px; }
+
+  .cal-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:46px; }
+  .cal-dow{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:#9a93ad; padding:0 4px 6px; }
+  .cal-cell{ background:#fff; border:1px solid rgba(64,31,125,.07); border-radius:14px; padding:12px;
+    min-height:118px; display:flex; flex-direction:column; gap:9px; box-shadow:0 2px 10px rgba(45,22,89,.03); }
+  .cal-cell.empty{ background:rgba(255,255,255,.4); box-shadow:none; border-style:dashed; }
+  .cal-date{ font-family:'JetBrains Mono',monospace; font-size:11px; color:#bdb7cc; }
+  .cal-post{ display:flex; gap:9px; align-items:center; }
+  .cal-thumb{ width:38px; height:38px; border-radius:7px; overflow:hidden; flex:none; box-shadow:0 2px 8px rgba(45,22,89,.16); }
+  .cal-thumb .ad-scale{ } 
+  .cal-post-meta{ min-width:0; }
+  .cal-post-fmt{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:#B14FC5; }
+  .cal-post-name{ font-size:12px; font-weight:600; color:#401F7D; line-height:1.2; margin-top:2px;
+    overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+
+  /* schedule list */
+  .sched-head{ font-family:'Alata',sans-serif; font-size:22px; color:#401F7D; margin-bottom:6px; }
+  .sched-sub{ font-size:14px; color:#6c6682; margin-bottom:24px; }
+  .post-card{ display:grid; grid-template-columns:148px 1fr; gap:26px; background:#fff;
+    border:1px solid rgba(64,31,125,.07); border-radius:20px; padding:22px; margin-bottom:16px;
+    box-shadow:0 4px 20px rgba(45,22,89,.04); }
+  .post-thumb-wrap{ display:flex; flex-direction:column; gap:8px; }
+  .post-thumb{ border-radius:11px; overflow:hidden; box-shadow:0 8px 26px rgba(45,22,89,.16); align-self:flex-start; }
+  .post-when{ font-family:'JetBrains Mono',monospace; font-size:11px; color:#9a93ad; }
+  .post-body{ min-width:0; }
+  .post-top{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:12px; }
+  .post-date{ font-family:'League Spartan',sans-serif; font-weight:700; font-size:17px; color:#401F7D; white-space:nowrap; }
+  .pill{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;
+    padding:4px 10px; border-radius:100px; font-weight:500; white-space:nowrap; }
+  .pill.fmt{ background:#F1E9F6; color:#88229D; }
+  .pill.plat{ background:#E7F6Fd; color:#2b8bc0; }
+  .pill.goal{ background:#EAEAEE; color:#5b5570; }
+  .post-caption{ font-size:14.5px; line-height:1.62; color:#3a3550; white-space:pre-wrap; }
+  .post-tags{ margin-top:12px; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:#B14FC5; line-height:1.7; word-spacing:2px; }
+  .copy-btn{ appearance:none; border:1px solid rgba(64,31,125,.14); background:#fff; cursor:pointer;
+    font-family:'Work Sans',sans-serif; font-size:12px; font-weight:600; color:#401F7D; padding:7px 14px;
+    border-radius:8px; display:inline-flex; align-items:center; gap:7px; transition:all .2s ease; margin-top:14px; }
+  .copy-btn:hover{ background:#401F7D; color:#fff; border-color:#401F7D; }
+  .copy-btn.done{ background:#3FDE9D; color:#fff; border-color:#3FDE9D; }
+
+  .note-banner{ display:flex; gap:14px; align-items:flex-start; background:#fff; border:1px solid rgba(64,31,125,.08);
+    border-left:4px solid #B14FC5; border-radius:12px; padding:16px 20px; margin-bottom:30px; font-size:13.5px; color:#5b5570; line-height:1.6; }
+  .note-banner b{ color:#401F7D; }
+
+  @media (max-width:760px){
+    .post-card{ grid-template-columns:1fr; }
+    .cal-grid{ grid-template-columns:repeat(2,1fr); }
+  }
