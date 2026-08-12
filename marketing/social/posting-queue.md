@@ -16,6 +16,10 @@ Reels/videos are scripts (see `week-1-2-pack.md`), not graphics.
 | Same prompt. Different results. (Comparison) | https://www.canva.com/d/v-78p6LUocfo-aB |
 | Costs less than lunch. (Cost stack) | https://www.canva.com/d/8uYWfCg6XHFkSFs |
 | Less than your morning latte (Cost, real photo) | https://www.canva.com/d/hiHQhALoEsfyniP |
+| Does it actually save time? (FAQ) | https://www.canva.com/d/1VBq_esYMBY-0R- |
+| Things I stopped doing (Value/Tip) | https://www.canva.com/d/5pL8-0hmZQVNK7Y |
+| One plan. Every framework. (Frameworks) | https://www.canva.com/d/E8MXUj4z6DGH8Ir |
+| Observation season is coming. (Hook) | https://www.canva.com/d/GGRImVzaRUT2bzR |
 
 ---
 
@@ -46,23 +50,26 @@ Caption: One build. A version for your ELLs, your IEPs, your honors kids. Same o
 **Wed — Cost stack: "Costs less than lunch."**
 Caption: The real math: a daily latte runs $100+/mo, lunch out $200+/mo. Tangram? $4.99. And it gives you your Sundays back. Link in bio.
 
-**Fri — (reel) "Observation season is coming"** — script in week-1-2-pack.md.
+**Fri — Observation hook: "Observation season is coming."**
+Caption: Observation season isn't the time to scramble. Plan observation-ready every day, and it's just… Tuesday. Danielson/Marzano/UbD built in. Link in bio.
 
 ## WEEK 4
-**Mon — (reel) Full workflow demo** — script in week-1-2-pack.md.
+**Mon — "Things I stopped doing"**
+Caption: Since I build one lesson instead of five: no more rewriting it 5×, no more 9pm Sundays, no more re-formatting for every class. 💜 Try 3 free → link in bio.
 
-**Wed — Comparison (repost/rotate) or new FAQ card** — *graphic to produce.*
+**Wed — FAQ: "Does it actually save time?"**
+Caption: The honest answer? Yes — because you build once, differentiation is automatic, and there's no generic output to re-edit. Try 3 free → link in bio.
 
-**Fri — Value/Tip variant: "3 ways to prep for an observation"** — *graphic to produce (clone Value/Tip).*
+**Fri — Frameworks: "One plan. Every framework."**
+Caption: Danielson, Marzano, Understanding by Design — whichever your school uses, plan it once and walk in observation-ready. Link in bio.
 
 ---
 
 ## Still to produce (next batch)
-- FAQ / objection-buster card ("but does it actually save time?")
-- "Things I stopped doing when I planned one lesson instead of five" (Value/Tip variant)
-- Observation-season hook (real classroom photo)
-- Framework comparison (Marzano vs Danielson vs UbD) — Comparison variant
 - Carousels (multi-slide) — parked
+- Reels/video: scripts live in `week-1-2-pack.md` (Sunday-night POV, screen-capture demo, founder story, workflow demo). These are talking-head/screen-record, not graphics.
+
+**12 static graphics now produced — Weeks 1–4 static slots are covered.**
 
 ## Standard hashtag set (rotate 8–12)
 `#teachersofinstagram #teachertok #lessonplanning #teacherlife #middleschoolteacher #differentiation #teachertips #newteacher #iteachtoo #backtoschool #teacherhacks #specialeducation #ellteacher #observationseason`
