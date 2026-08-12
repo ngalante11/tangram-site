@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="colors_and_type.css" rel="stylesheet">
+<link href="ad-styles.css" rel="stylesheet">
+<style>
+  html,body{ margin:0; padding:0; background:#2D1659; }
+  /* the .ad element renders at native 1080 base; no gallery chrome */
+  #root{ display:block; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="ads.jsx"></script>
+<script type="text/babel" data-presets="react">
+  const params = new URLSearchParams(location.search);
+  const id  = params.get('id')  || 'A';
+  const fmt = params.get('fmt') || 'sq';
+  // default "tweak" values (mirror the kit's defaults)
+  const t = {
+    gradient: params.get('grad') || 'royal',
+    highlight: params.get('hi') || 'mint',
+    headlineFont: params.get('font') || 'league',
+    ctaText: params.get('cta') || 'Start free',
+    textureOn: true,
+    shapesOn: true,
+  };
+  function mount(){
+    if(!window.renderAd){ return setTimeout(mount, 30); }
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(window.renderAd(id, fmt, t));
+    document.title = 'ad-' + id + '-' + fmt;
+  }
+  mount();
+</script>
+</body>
+</html>
