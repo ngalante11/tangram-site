@@ -1143,6 +1143,171 @@ footer a:hover { color: var(--mint); }
 </head>
 <body>
 
+<!-- ===== 00 · Top conversion banner (One Eleven Group, corrected) ===== -->
+<div class="oeg-banner">
+  <style>
+    .oeg-banner {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb);
+      background: linear-gradient(135deg, #2D1659 0%, #401F7D 45%, #88229D 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+
+      /* The banner sits in normal document flow and scrolls away with the
+         page. The nav is offset beneath it by the script at the bottom
+         of this file. Do not set position:fixed here — that reintroduces
+         the overlap this file exists to solve. */
+    }
+    .oeg-banner *, .oeg-banner *::before, .oeg-banner *::after { box-sizing: border-box; }
+
+    /* faint diagonal texture, same family as the site's purple strips */
+    .oeg-banner::before {
+      content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(115deg,
+        rgba(255,255,255,.05) 0 1px, rgba(255,255,255,0) 1px 26px);
+      pointer-events: none;
+    }
+
+    .oeg-banner__inner {
+      position: relative;
+      max-width: 1180px; margin: 0 auto; padding: 11px 32px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px 18px; flex-wrap: wrap; text-align: center;
+    }
+
+    .oeg-banner__items {
+      display: flex; align-items: center; flex-wrap: wrap;
+      justify-content: center; gap: 8px 14px;
+    }
+
+    .oeg-banner__lead {
+      font-family: var(--fh); font-size: 15px; font-weight: 800;
+      letter-spacing: .02em; text-transform: uppercase; color: #fff;
+    }
+
+    .oeg-banner__item {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 13px; font-weight: 500; letter-spacing: .02em;
+      color: rgba(255,255,255,.88);
+    }
+    .oeg-banner__item svg { flex: none; color: var(--green); }
+
+    .oeg-banner__sep {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,.34); flex: none;
+    }
+
+    .oeg-banner__cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      color: #fff; background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.26);
+      padding: 7px 16px; border-radius: 100px;
+      transition: background .16s ease, transform .16s ease;
+      white-space: nowrap;
+    }
+    .oeg-banner__cta:hover { background: rgba(255,255,255,.24); transform: translateY(-1px); }
+
+    @media (max-width: 860px) {
+      .oeg-banner__inner { padding: 10px 20px; }
+      .oeg-banner__lead { font-size: 14px; }
+      .oeg-banner__sep { display: none; }
+    }
+    @media (max-width: 560px) {
+      /* on phones, keep the offer and drop the supporting proof so it stays one tidy line */
+      .oeg-banner__item--trim { display: none; }
+      .oeg-banner__cta { padding: 6px 14px; font-size: 12px; }
+    }
+  </style>
+
+  <div class="oeg-banner__inner">
+    <div class="oeg-banner__items">
+      <span class="oeg-banner__lead">First month free</span>
+
+      <span class="oeg-banner__sep" aria-hidden="true"></span>
+
+      <span class="oeg-banner__item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        No credit card required
+      </span>
+
+      <span class="oeg-banner__sep" aria-hidden="true"></span>
+
+      <span class="oeg-banner__item oeg-banner__item--trim">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        No gimmicks, just better lessons
+      </span>
+    </div>
+
+    <!-- Signup link. Points at the app, not the pricing anchor — a visitor
+         who clicks "Start free" should land in the product, not scroll to a
+         table and have to decide again. -->
+    <a class="oeg-banner__cta" href="https://app.gettangram.com">Start free &rarr;</a>
+  </div>
+
+  <script>
+  /* Offsets the site's fixed nav so this banner is actually visible.
+     Self-contained, runs once, no dependencies, safe to paste twice. */
+  (function () {
+    if (window.__oegBannerInit) return;
+    window.__oegBannerInit = true;
+
+    function start() {
+      var banner = document.querySelector('.oeg-banner');
+      var nav = document.querySelector('nav.nav, #nav, header nav, nav');
+      if (!banner || !nav) return;
+
+      /* If the nav is sticky or static, the browser already handles it. */
+      var pos = getComputedStyle(nav).position;
+      if (pos !== 'fixed') return;
+
+      /* The site's nav has `transition: all .4s`, which would animate this
+         offset on every scroll frame and lag behind the page. Keep the
+         colour/shadow transitions, drop the transform from them. */
+      nav.style.willChange = 'transform';
+      nav.style.transition =
+        'background .4s cubic-bezier(.4,0,.2,1), border-color .4s cubic-bezier(.4,0,.2,1), box-shadow .4s cubic-bezier(.4,0,.2,1)';
+
+      /* Offset is the banner's bottom edge relative to the viewport, clamped
+         at zero. At the top of the page that equals the banner height; as the
+         banner scrolls away it falls to zero and the nav pins to the top.
+         Measuring the live edge rather than a cached height means this also
+         survives the banner wrapping to two lines, fonts loading late, or
+         anything else being inserted above it. */
+      var ticking = false;
+      function apply() {
+        var offset = Math.max(0, banner.getBoundingClientRect().bottom);
+        nav.style.transform = offset ? 'translate3d(0,' + offset + 'px,0)' : '';
+        ticking = false;
+      }
+      function measure() { apply(); }
+      function onScroll() {
+        if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+      }
+
+      measure();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', measure);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', start);
+    } else { start(); }
+  })();
+  </script>
+</div>
+<!-- ===== end 00 ===== -->
+
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
@@ -1160,29 +1325,265 @@ footer a:hover { color: var(--mint); }
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <a href="https://www.mosaicip.com" class="hero-badge" target="_blank">
-        Built by the founders of Mosaic IP
-      </a>
-      <h1>
-        Every class is different.<br>Now your lessons <em>can be too.</em>
-      </h1>
-      <p class="hero-sub">
-        Build one lesson with Tan — our AI planning partner powered by a methodology our founders developed through research and practice in hundreds of districts. Then watch it adapt for each class you teach.
-      </p>
-      <div class="hero-actions">
-        <a href="https://app.gettangram.com" class="btn-primary">Start Free →</a>
-        <a href="#how" class="btn-secondary">See How It Works</a>
+<!-- ===== 01 · Hero with the Why Tangram video (One Eleven Group, corrected) ===== -->
+<section class="oeg-hero">
+  <style>
+    .oeg-hero {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: var(--ink);
+      background: linear-gradient(165deg,#FDFCFE 0%,#F9F7FC 40%,#F3EEF8 80%,#EDE6F3 100%);
+      padding: clamp(64px, 10vw, 150px) 0 clamp(56px, 8vw, 110px);
+    }
+    .oeg-hero *, .oeg-hero *::before, .oeg-hero *::after { box-sizing: border-box; }
+
+    .oeg-hero__container {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 64px); align-items: center;
+    }
+
+    .oeg-hero__badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 26px; }
+    .oeg-hero__badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255,255,255,.9); color: var(--p);
+      font-size: 13px; font-weight: 500; font-family: var(--fb);
+      padding: 10px 20px; border-radius: 100px;
+      box-shadow: 0 2px 12px rgba(64,31,125,.06); margin: 0;
+    }
+    .oeg-hero__badge--tagline {
+      background: var(--orchid-light, rgba(177,79,197,0.08));
+      border: 1px solid rgba(177,79,197,.22);
+      color: var(--m); font-weight: 600; box-shadow: none;
+    }
+    .oeg-hero__dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: var(--green); }
+
+    .oeg-hero__title {
+      font-family: var(--fh); font-size: clamp(38px, 5vw, 62px);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
+      color: var(--p); margin: 0 0 22px;
+    }
+    .oeg-hero__title span { color: var(--m); }
+
+    .oeg-hero__copy {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
+      color: var(--ink); margin: 0 0 30px; max-width: 46ch;
+    }
+
+    .oeg-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 22px; }
+    .oeg-hero__btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500;
+      text-decoration: none; padding: 16px 32px; border-radius: var(--btn);
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+    .oeg-hero__btn--primary {
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      color: #fff; box-shadow: 0 4px 16px rgba(177,79,197,.25);
+    }
+    .oeg-hero__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
+    .oeg-hero__btn--secondary {
+      background: rgba(255,255,255,.8); color: var(--p);
+      border: 2px solid rgba(64,31,125,.12);
+    }
+    .oeg-hero__btn--secondary:hover { border-color: rgba(64,31,125,.28); transform: translateY(-2px); }
+
+    .oeg-hero__fine { font-size: 14px; line-height: 1.7; color: var(--muted); margin: 0; }
+    .oeg-hero__fine strong {
+      color: var(--p); font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
+    }
+
+    /* ---------- video ---------- */
+    .oeg-hero__label {
+      display: flex; align-items: center; gap: 14px;
+      font-family: var(--fb); font-size: 12px; font-weight: 600;
+      letter-spacing: 1.44px; text-transform: uppercase;
+      color: var(--m); margin: 0 0 14px;
+    }
+    .oeg-hero__label::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-hero__frame {
+      position: relative; width: 100%; aspect-ratio: 16 / 9;
+      border-radius: var(--rad); overflow: hidden;
+      background: linear-gradient(135deg, #5B2E9E 0%, var(--m) 100%);
+      box-shadow: 0 18px 48px rgba(64,31,125,.20);
+      border: 1px solid var(--line);
+    }
+    .oeg-hero__frame > video, .oeg-hero__frame > iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      border: 0; display: block; object-fit: cover;
+    }
+
+    /* placeholder: play button and two words, nothing else */
+    .oeg-hero__ph {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 20px;
+      text-align: center; padding: 24px; color: #fff;
+      text-decoration: none; cursor: pointer;
+    }
+    .oeg-hero__play {
+      width: 78px; height: 78px; flex: none; border-radius: 50%;
+      background: rgba(255,255,255,.18); border: 2px solid rgba(255,255,255,.65);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .oeg-hero__ph:hover .oeg-hero__play { transform: scale(1.06); background: rgba(255,255,255,.28); }
+    .oeg-hero__play svg { margin-left: 5px; }
+    .oeg-hero__ph-label {
+      font-family: var(--fh); font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 800; letter-spacing: -0.01em; margin: 0; color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .oeg-hero__container { grid-template-columns: 1fr; }
+      .oeg-hero__media { order: -1; }
+      .oeg-hero__copy { max-width: none; }
+    }
+    @media (max-width: 560px) {
+      .oeg-hero__btn { width: 100%; }
+      .oeg-hero__play { width: 58px; height: 58px; }
+      .oeg-hero__play svg { width: 20px; height: 23px; }
+      .oeg-hero__ph-label { font-size: 22px; }
+    }
+  </style>
+
+  <style>
+    /* fills the frame the same way the placeholder did, so nothing shifts */
+    .oeg-hero__video {
+      display: block; width: 100%; height: 100%;
+      object-fit: cover; background: #2D1659; border: 0;
+    }
+  </style>
+
+  <div class="oeg-hero__container">
+
+    <div class="oeg-hero__content">
+      <div class="oeg-hero__badges">
+        <span class="oeg-hero__badge"><span class="oeg-hero__dot"></span>Built by the founders of Mosaic IP</span>
+        <span class="oeg-hero__badge oeg-hero__badge--tagline">Built for teachers, by teachers</span>
       </div>
-      <p class="hero-proof">
-        <span>From $5.99/mo</span> after your free trial · No credit card to start · <span>Cancel anytime</span>
+
+      <h1 class="oeg-hero__title">Every class is different.<br>Now your lessons <span>can be too.</span></h1>
+
+      <p class="oeg-hero__copy">
+        Build one lesson with Tan, our AI planning partner powered by Shared Space Teaching &mdash;
+        the methodology our founders built in their own classrooms and refined coaching in
+        650+ districts. Then watch it adapt for every class you teach.
+      </p>
+
+      <div class="oeg-hero__actions">
+        <!-- Signup goes straight into the app, matching the nav CTA. -->
+        <a class="oeg-hero__btn oeg-hero__btn--primary" href="https://app.gettangram.com">Start Free &rarr;</a>
+        <!-- TEACHER booking calendar (15 min). This is a DIFFERENT calendar from
+             the district one on the "For Schools" block further down the page
+             (calendar.app.google/THyRt4fbd7Z3DDE97). Keep them separate — a
+             teacher asking "does this fit my classroom" and a principal asking
+             "what does this cost for 45 staff" need different calls. -->
+        <a class="oeg-hero__btn oeg-hero__btn--secondary" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call</a>
+      </div>
+
+      <p class="oeg-hero__fine">
+        <strong>First month free</strong> &middot; From $5.99/mo after &middot; No credit card to start &middot; Cancel anytime
       </p>
     </div>
+
+    <div class="oeg-hero__media">
+      <p class="oeg-hero__label">Tangram Explained</p>
+      <div class="oeg-hero__frame">
+
+        <!-- ==================== VIDEO ====================
+             Click-to-load YouTube facade.
+
+             Video: "Tangram Website Informational Header"
+             https://youtu.be/uEPDv9R-q0g
+
+             The id lives in two places below, data-yt and href. To swap
+             videos later, find-and-replace the id — the handler validates
+             the format rather than comparing against a placeholder, so a
+             replace-all cannot break it.
+
+             WHY A FACADE INSTEAD OF A PLAIN IFRAME:
+
+             A YouTube <iframe> loads roughly a megabyte of player code on
+             every page view whether or not anyone presses play, and it sets
+             third-party cookies on arrival. In the hero that cost lands on
+             the slowest, most important moment of the page.
+
+             This version renders the branded panel instead and only builds
+             the iframe when someone actually clicks. Until then there is no
+             YouTube request at all — which also means no YouTube cookie on a
+             site that markets itself as privacy-first.
+
+             It uses youtube-nocookie.com, so even after playback starts
+             YouTube's tracking cookies are not set.
+
+             It is also a real link. With JavaScript off, on a school network
+             that blocks YouTube, or if the embed is ever disabled, clicking
+             opens the video on youtube.com in a new tab rather than
+             presenting a dead grey box.
+        ================================================= -->
+
+        <a class="oeg-hero__ph"
+           id="oeg-hero-play"
+           data-yt="uEPDv9R-q0g"
+           href="https://www.youtube.com/watch?v=uEPDv9R-q0g"
+           target="_blank" rel="noopener"
+           aria-label="Play: Why Tangram?">
+          <span class="oeg-hero__play" aria-hidden="true">
+            <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M25 15L0.999999 29.2894L1 0.710581L25 15Z" fill="#ffffff"/>
+            </svg>
+          </span>
+          <p class="oeg-hero__ph-label">Why Tangram?</p>
+        </a>
+
+        <script>
+        (function () {
+          var a = document.getElementById('oeg-hero-play');
+          if (!a) return;
+          a.addEventListener('click', function (e) {
+            var id = a.getAttribute('data-yt');
+            /* A YouTube id is exactly 11 chars of [A-Za-z0-9_-]. Anything else
+               means it was never filled in, so fall through to the plain link
+               rather than building a broken embed. Deliberately not comparing
+               against the placeholder string — a find-and-replace-all would
+               rewrite the comparison too and silently disable this handler. */
+            if (!id || !/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+            e.preventDefault();
+            var f = document.createElement('iframe');
+            f.src = 'https://www.youtube-nocookie.com/embed/' + id +
+                    '?autoplay=1&rel=0&playsinline=1&modestbranding=1&color=white';
+            f.title = 'Why Tangram?';
+            f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            f.setAttribute('allowfullscreen', '');
+            a.parentNode.replaceChild(f, a);
+          });
+        })();
+        </script>
+
+      </div>
+    </div>
+
   </div>
 </section>
+<!-- ===== end 01 ===== -->
 
 <!-- HOW IT WORKS -->
 <section class="how-strip" id="how">
@@ -1235,6 +1636,147 @@ footer a:hover { color: var(--mint); }
     </div>
   </div>
 </section>
+
+<!-- ===== 02 · See Tan in action (One Eleven Group, corrected) ===== -->
+<section class="oeg-reel">
+  <style>
+    .oeg-reel {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: var(--ink);
+      background: linear-gradient(#FFFFFF 0%, #F5F4F7 100%);
+      padding: clamp(48px, 6.5vw, 92px) 0;
+    }
+    .oeg-reel *, .oeg-reel *::before, .oeg-reel *::after { box-sizing: border-box; }
+
+    .oeg-reel__container {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1.1fr .9fr;
+      gap: clamp(30px, 5vw, 66px); align-items: center;
+    }
+
+    .oeg-reel__tag {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
+    }
+    .oeg-reel__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-reel__title {
+      font-family: var(--fh); font-size: clamp(30px, 4.2vw, 48px);
+      font-weight: 800; line-height: 1.06; letter-spacing: -0.025em;
+      color: var(--p); margin: 0 0 18px;
+    }
+    .oeg-reel__title span { color: var(--m); }
+
+    .oeg-reel__copy {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
+      color: var(--ink); margin: 0 0 14px; max-width: 46ch;
+    }
+    .oeg-reel__copy:last-of-type { margin-bottom: 0; }
+
+    .oeg-reel__points { list-style: none; margin: 24px 0 0; padding: 0; }
+    .oeg-reel__points li {
+      display: flex; align-items: flex-start; gap: 11px;
+      font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 12px;
+    }
+    .oeg-reel__points svg { flex: none; margin-top: 4px; color: var(--m); }
+
+    .oeg-reel__media { display: flex; justify-content: center; }
+    .oeg-reel__embed {
+      width: 100%; max-width: 360px;
+      border-radius: var(--rad); overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 48px rgba(64,31,125,.16);
+      background: #fff;
+    }
+    .oeg-reel__embed iframe {
+      display: block; width: 100%; height: 700px; border: 0;
+    }
+
+    @media (max-width: 900px) {
+      .oeg-reel__container { grid-template-columns: 1fr; }
+      .oeg-reel__copy { max-width: none; }
+    }
+    @media (max-width: 480px) {
+      .oeg-reel__embed iframe { height: 660px; }
+    }
+  </style>
+
+  <style>
+    .oeg-reel__fallback {
+      margin: 12px 0 0; text-align: center;
+      font-size: 13px; font-family: var(--font-body, 'Work Sans', sans-serif);
+    }
+    .oeg-reel__fallback a {
+      color: var(--tg-magenta, #B14FC5);
+      text-decoration: none; font-weight: 600;
+    }
+    .oeg-reel__fallback a:hover { text-decoration: underline; }
+  </style>
+
+  <div class="oeg-reel__container">
+
+    <div class="oeg-reel__content">
+      <p class="oeg-reel__tag">Real lessons, real classrooms</p>
+      <h2 class="oeg-reel__title">See Tan <span>in action.</span></h2>
+
+      <p class="oeg-reel__copy">
+        One lesson, built once, then rebuilt for every period you teach. Same standard, same
+        outcome, a different route in for each group of kids sitting in front of you.
+      </p>
+
+      <ul class="oeg-reel__points">
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Five classes, five ways in &mdash; not one generic lesson fixed five times
+        </li>
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          IEPs, ELLs and reading levels built in, not bolted on at the end
+        </li>
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Already in the language of Danielson, Marzano and UbD
+        </li>
+      </ul>
+    </div>
+
+    <div class="oeg-reel__media">
+      <div class="oeg-reel__embed">
+        <!-- SWAP: change the reel code to embed a different post -->
+        <iframe src="https://www.instagram.com/reel/DbdpOj2EW_A/embed"
+                title="Tangram on Instagram"
+                scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+      </div>
+
+      <!-- Fallback for anyone whose browser blocks the Instagram frame. -->
+      <p class="oeg-reel__fallback">
+        <a href="https://www.instagram.com/reel/DbdpOj2EW_A/" target="_blank" rel="noopener">
+          Reel not loading? Watch it on Instagram &rarr;
+        </a>
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 02 ===== -->
 
 <!-- COMPARISON (KG Creative) -->
 <section class="tg-compare" id="comparison">
@@ -1426,6 +1968,227 @@ footer a:hover { color: var(--mint); }
   </div>
 </section>
 
+<!-- ===== 07 · Built for teachers, by teachers (One Eleven Group, corrected) ===== -->
+<section class="oeg-team">
+  <style>
+    .oeg-team {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: var(--ink);
+      background: #FFFFFF;
+      padding: clamp(56px, 8vw, 110px) 0;
+      overflow: hidden;
+    }
+    .oeg-team *, .oeg-team *::before, .oeg-team *::after { box-sizing: border-box; }
+
+    .oeg-team__container {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: .92fr 1.08fr;
+      gap: clamp(28px, 4vw, 60px); align-items: center;
+    }
+
+    .oeg-team__tag {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
+    }
+    .oeg-team__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-team__title {
+      font-family: var(--fh); font-size: clamp(32px, 4.4vw, 52px);
+      font-weight: 800; line-height: 1.04; letter-spacing: -0.028em;
+      color: var(--p); margin: 0 0 18px;
+    }
+    .oeg-team__title span { color: var(--m); }
+
+    .oeg-team__copy {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
+      color: var(--ink); margin: 0 0 16px; max-width: 50ch;
+    }
+    .oeg-team__copy:last-of-type { margin-bottom: 0; }
+    .oeg-team__copy strong { color: var(--p); font-weight: 600; }
+
+    .oeg-team__stats {
+      display: flex; flex-wrap: wrap; gap: clamp(20px, 3vw, 40px);
+      margin-top: 28px; padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .oeg-team__stat-num {
+      display: block; font-family: var(--fh);
+      font-size: clamp(26px, 3vw, 34px); font-weight: 800;
+      letter-spacing: -0.02em; color: var(--m); line-height: 1;
+    }
+    .oeg-team__stat-label {
+      display: block; font-size: 13px; line-height: 1.5;
+      color: var(--muted); margin-top: 6px;
+    }
+
+    .oeg-team__media {
+      position: relative; display: flex;
+      align-items: flex-end; justify-content: center;
+      isolation: isolate;
+    }
+    .oeg-team__glow {
+      position: absolute; left: 50%; top: 47%;
+      width: min(400px, 86%); aspect-ratio: 1;
+      transform: translate(-50%,-50%);
+      background: radial-gradient(closest-side circle,
+        rgba(95,208,255,.26) 0%, rgba(177,79,197,.18) 46%, rgba(177,79,197,0) 78%);
+      filter: blur(40px);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+    }
+    .oeg-team__shadow {
+      position: absolute; left: 50%; bottom: 4px;
+      width: 44%; height: 22px; transform: translateX(-50%);
+      background: radial-gradient(closest-side ellipse,
+        rgba(64,31,125,.20) 0%, rgba(64,31,125,0) 100%);
+      filter: blur(6px); border-radius: 50%; z-index: 0;
+      animation: oeg-team-shadow 6.5s ease-in-out infinite;
+    }
+    .oeg-team__figure {
+      position: relative; z-index: 1; line-height: 0;
+      filter: drop-shadow(0 20px 28px rgba(64,31,125,.18));
+      animation: oeg-team-float 6.5s ease-in-out infinite;
+    }
+    .oeg-team__portrait {
+      display: block; width: auto; height: clamp(310px, 38vw, 450px);
+      max-width: 100%; object-fit: contain;
+      -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+              mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+    }
+    @keyframes oeg-team-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-15px); }
+    }
+    @keyframes oeg-team-shadow {
+      0%, 100% { transform: translateX(-50%) scale(1);   opacity: .8; }
+      50%      { transform: translateX(-50%) scale(.86); opacity: .5; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .oeg-team__figure, .oeg-team__shadow { animation: none; }
+    }
+
+    .oeg-team__media { min-height: 400px; }
+
+    .oeg-team__plates {
+      position: absolute; left: 50%; bottom: 1%;
+      transform: translateX(-50%);
+      width: max-content; max-width: 100%;
+      display: flex; gap: 10px; flex-wrap: nowrap; justify-content: center;
+      z-index: 2;
+    }
+    .oeg-team__plate {
+      background: rgba(255,255,255,.94); border: 1px solid var(--line);
+      border-radius: 14px; padding: 9px 16px;
+      box-shadow: 0 8px 26px rgba(64,31,125,.14);
+      white-space: nowrap; display: flex; flex-direction: column; gap: 2px;
+    }
+    .oeg-team__plate-name {
+      font-family: var(--fh); font-size: 16px; font-weight: 700;
+      letter-spacing: -0.01em; color: var(--p);
+    }
+    .oeg-team__plate-role {
+      font-family: var(--fb); font-size: 11px; font-weight: 600;
+      letter-spacing: 1.1px; text-transform: uppercase; color: var(--m);
+    }
+
+    @media (max-width: 900px) {
+      .oeg-team__container { grid-template-columns: 1fr; }
+      .oeg-team__media { order: -1; min-height: 350px; }
+      .oeg-team__copy { max-width: none; }
+    }
+    @media (max-width: 520px) {
+      .oeg-team__plates { position: static; transform: none; margin-top: 14px; flex-wrap: wrap; }
+      .oeg-team__media { flex-direction: column; align-items: center; }
+      .oeg-team__stats { gap: 20px; }
+    }
+  </style>
+
+  <style>
+    /* Full names are wider than the initials the plates were sized for.
+       Let the pair wrap before it can overflow the portrait column. */
+    .oeg-team__plates { flex-wrap: wrap; row-gap: 8px; }
+    @media (max-width: 1080px) {
+      .oeg-team__plate { padding: 8px 13px; }
+      .oeg-team__plate-name { font-size: 14px; }
+    }
+  </style>
+
+  <div class="oeg-team__container">
+
+    <div class="oeg-team__media">
+      <div class="oeg-team__glow" aria-hidden="true"></div>
+      <div class="oeg-team__shadow" aria-hidden="true"></div>
+      <div class="oeg-team__figure">
+        <img class="oeg-team__portrait"
+             alt="Dr. Nicole Galante and Izzy Galante, the sister and brother who founded Tangram"
+             src="tangram-founders.webp" width="643" height="680" decoding="async">
+      </div>
+      <div class="oeg-team__plates">
+        <div class="oeg-team__plate">
+          <span class="oeg-team__plate-name">Dr. Nicole Galante</span>
+          <span class="oeg-team__plate-role">Co-Founder</span>
+        </div>
+        <div class="oeg-team__plate">
+          <span class="oeg-team__plate-name">Izzy Galante</span>
+          <span class="oeg-team__plate-role">Co-Founder</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="oeg-team__content">
+      <p class="oeg-team__tag">The founding team</p>
+
+      <h2 class="oeg-team__title">Built for teachers.<br><span>By teachers.</span></h2>
+
+      <p class="oeg-team__copy">
+        Every AI tool in education says teachers built it. Ours was built by
+        <strong>Nicole and Izzy Galante</strong>, a sister and brother who spent their careers in
+        classrooms long before either of them thought about software &mdash; hers teaching high
+        school English, his teaching middle school math as a National Board Certified Teacher.
+      </p>
+      <p class="oeg-team__copy">
+        They do not just talk the talk. They coached in more than 650 districts, trained
+        thousands of teachers, and co-authored New York State's framework for quality remote
+        teaching. Then they built the planning partner they wished they had at 9pm on a Sunday.
+      </p>
+
+      <div class="oeg-team__stats">
+        <div>
+          <span class="oeg-team__stat-num">50+</span>
+          <span class="oeg-team__stat-label">Years in education,<br>combined</span>
+        </div>
+        <div>
+          <span class="oeg-team__stat-num">650+</span>
+          <span class="oeg-team__stat-label">Districts<br>coached</span>
+        </div>
+        <div>
+          <span class="oeg-team__stat-num">2</span>
+          <span class="oeg-team__stat-label">Siblings who still answer<br>their own emails</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 07 ===== -->
+
 <!-- CREDIBILITY -->
 <section class="credibility" id="credibility">
   <div class="container">
@@ -1461,7 +2224,7 @@ footer a:hover { color: var(--mint); }
     <div class="tg-head">
       <p class="tg-eyebrow">Simple Pricing</p>
       <h2>Start free. Choose your level when you're ready.</h2>
-      <p class="tg-sub">Get full access for 30 days — no credit card. Then keep the features you love.</p>
+      <p class="tg-sub">Your first month free &mdash; no credit card. Then keep the features you love.</p>
     </div>
 
     <div class="tg-toggle-row">
@@ -1481,10 +2244,10 @@ footer a:hover { color: var(--mint); }
         <div class="tg-price">
           <span class="tg-amount">Free</span>
         </div>
-        <p class="tg-note">30 days of full access</p>
+        <p class="tg-note">Your first month, free</p>
         <a href="https://app.gettangram.com/signup" class="tg-cta">Start Free</a>
         <ul class="tg-feats">
-          <li>Every feature unlocked for 30 days</li>
+          <li>Every feature unlocked for your first month</li>
           <li>Build real, differentiated lessons</li>
           <li>Meet Tan, your planning partner</li>
           <li>No credit card required</li>
@@ -1583,6 +2346,591 @@ footer a:hover { color: var(--mint); }
   </script>
 </section>
 
+<!-- ===== 05 · First month free (One Eleven Group, corrected) ===== -->
+<section class="oeg-offer">
+  <style>
+    .oeg-offer {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: var(--ink);
+      background: linear-gradient(165deg,#FDFCFE 0%,#F7F5FB 50%,#F1E9F8 100%);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: clamp(48px, 6.5vw, 88px) 0 0;
+      overflow: hidden;
+    }
+    .oeg-offer *, .oeg-offer *::before, .oeg-offer *::after { box-sizing: border-box; }
+
+    .oeg-offer__container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+    .oeg-offer__head { text-align: center; margin-bottom: clamp(24px, 3vw, 36px); }
+    .oeg-offer__title {
+      font-family: var(--fh); font-size: clamp(34px, 5.4vw, 62px);
+      font-weight: 800; line-height: 1.02; letter-spacing: -0.03em;
+      color: var(--p); margin: 0 0 12px;
+    }
+    .oeg-offer__title span { color: var(--m); }
+    .oeg-offer__sub {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.7;
+      color: var(--ink); margin: 0 auto; max-width: 48ch;
+    }
+
+    .oeg-offer__row {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: clamp(20px, 3vw, 48px); align-items: end;
+    }
+
+    .oeg-offer__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .oeg-offer__btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500; text-decoration: none;
+      padding: 16px 32px; border-radius: var(--btn);
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+      white-space: nowrap;
+    }
+    .oeg-offer__btn--primary {
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      color: #fff; box-shadow: 0 4px 16px rgba(177,79,197,.25);
+    }
+    .oeg-offer__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
+    .oeg-offer__btn--secondary {
+      background: rgba(255,255,255,.85); color: var(--p);
+      border: 2px solid rgba(64,31,125,.12);
+    }
+    .oeg-offer__btn--secondary:hover { border-color: rgba(64,31,125,.28); transform: translateY(-2px); }
+
+    .oeg-offer__list { list-style: none; margin: 0 0 26px; padding: 0; }
+    .oeg-offer__list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 11px;
+    }
+    .oeg-offer__list svg { flex: none; color: var(--green); }
+
+    .oeg-offer__content { padding-bottom: clamp(30px, 5vw, 56px); }
+
+    .oeg-offer__media {
+      position: relative; display: flex;
+      align-items: flex-end; justify-content: center;
+      isolation: isolate;
+    }
+    .oeg-offer__glow {
+      position: absolute; left: 50%; top: 47%;
+      width: min(400px, 86%); aspect-ratio: 1;
+      transform: translate(-50%,-50%);
+      background: radial-gradient(closest-side circle,
+        rgba(177,79,197,.30) 0%, rgba(95,208,255,.16) 46%, rgba(177,79,197,0) 78%);
+      filter: blur(34px);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+    }
+    .oeg-offer__shadow {
+      position: absolute; left: 50%; bottom: 4px;
+      width: 44%; height: 22px; transform: translateX(-50%);
+      background: radial-gradient(closest-side ellipse,
+        rgba(64,31,125,.20) 0%, rgba(64,31,125,0) 100%);
+      filter: blur(6px); border-radius: 50%; z-index: 0;
+      animation: oeg-offer-shadow 6.5s ease-in-out infinite;
+    }
+    .oeg-offer__figure {
+      position: relative; z-index: 1; line-height: 0;
+      filter: drop-shadow(0 20px 28px rgba(64,31,125,.18));
+      animation: oeg-offer-float 6.5s ease-in-out infinite;
+    }
+    .oeg-offer__portrait {
+      display: block; width: auto; height: clamp(250px, 30vw, 360px);
+      max-width: 100%; object-fit: contain;
+      -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+              mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+    }
+    @keyframes oeg-offer-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-15px); }
+    }
+    @keyframes oeg-offer-shadow {
+      0%, 100% { transform: translateX(-50%) scale(1);   opacity: .8; }
+      50%      { transform: translateX(-50%) scale(.86); opacity: .5; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .oeg-offer__figure, .oeg-offer__shadow { animation: none; }
+    }
+
+    @media (max-width: 900px) {
+      .oeg-offer__row { grid-template-columns: 1fr; }
+      .oeg-offer__media { order: -1; }
+      .oeg-offer__content { padding-bottom: 40px; }
+    }
+    @media (max-width: 520px) {
+      .oeg-offer__btn { width: 100%; }
+    }
+  </style>
+
+  <div class="oeg-offer__container">
+
+    <div class="oeg-offer__head">
+      <h2 class="oeg-offer__title"><span>First month free.</span> Then from $5.99.</h2>
+      <p class="oeg-offer__sub">Everything unlocked for your first month. Build one real lesson and see if it holds up.</p>
+    </div>
+
+    <div class="oeg-offer__row">
+
+      <div class="oeg-offer__content">
+        <ul class="oeg-offer__list">
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Every feature unlocked, not a stripped-down sample
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            No credit card to start &mdash; nothing charges automatically when it ends
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Pick your plan when you are ready, from $5.99/mo. Cancel anytime.
+          </li>
+        </ul>
+
+        <div class="oeg-offer__actions">
+          <!-- Signup goes straight into the app, matching the nav CTA. -->
+          <a class="oeg-offer__btn oeg-offer__btn--primary" href="https://app.gettangram.com">Start Free &rarr;</a>
+          <!-- TEACHER booking calendar (15 min) — see the note in section 01
+               about keeping this separate from the district calendar. -->
+          <a class="oeg-offer__btn oeg-offer__btn--secondary" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call</a>
+        </div>
+      </div>
+
+      <div class="oeg-offer__media">
+        <div class="oeg-offer__glow" aria-hidden="true"></div>
+        <div class="oeg-offer__figure">
+          <!-- Decorative — the headline above carries the meaning, so this is
+               hidden from screen readers rather than given redundant alt text. -->
+          <img class="oeg-offer__portrait" alt="" aria-hidden="true"
+               src="nicole-pointing.webp" width="620" height="600" decoding="async">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===== end 05 ===== -->
+
+<!-- ===== 04 · Creator Partner Program (One Eleven Group, corrected) ===== -->
+<section class="oeg-creator" id="creator-program">
+  <style>
+    .oeg-creator {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: #fff;
+      background: linear-gradient(135deg, #2D1659 0%, #401F7D 50%, #88229D 100%);
+      padding: clamp(56px, 8vw, 110px) 0;
+    }
+    .oeg-creator *, .oeg-creator *::before, .oeg-creator *::after { box-sizing: border-box; }
+
+    .oeg-creator__container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+    .oeg-creator__head { text-align: center; margin-bottom: clamp(32px, 5vw, 52px); }
+
+    .oeg-creator__tag {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--green); margin: 0 0 20px;
+    }
+    .oeg-creator__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--green); border-radius: 2px;
+    }
+
+    .oeg-creator__title {
+      font-family: var(--fh); font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 800; line-height: 1.12; letter-spacing: -0.02em;
+      color: #fff; margin: 0 auto 18px; max-width: none;
+      text-wrap: balance;
+    }
+    .oeg-creator__title span { color: var(--green); }
+
+    .oeg-creator__copy {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
+      color: rgba(255,255,255,.82); margin: 0 auto; max-width: 58ch;
+    }
+
+    .oeg-creator__rate {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
+      border-radius: var(--rad); padding: clamp(28px, 4vw, 40px) 28px;
+      text-align: center; margin-bottom: clamp(28px, 4vw, 44px);
+    }
+    .oeg-creator__rate-row {
+      display: flex; flex-wrap: wrap; align-items: baseline;
+      justify-content: center; gap: 6px 16px;
+    }
+    .oeg-creator__rate-num {
+      font-family: var(--fh); font-size: clamp(48px, 7vw, 78px);
+      font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: #fff;
+    }
+    .oeg-creator__rate-label {
+      font-family: var(--fh); font-size: clamp(17px, 1.9vw, 22px);
+      font-weight: 700; letter-spacing: -0.01em; color: var(--green);
+    }
+    .oeg-creator__rate-sub {
+      font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.78);
+      margin: 14px auto 0; max-width: 56ch;
+    }
+
+    .oeg-creator__steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(16px, 2.4vw, 24px); margin-bottom: clamp(32px, 5vw, 48px);
+    }
+    .oeg-creator__step {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--rad); padding: clamp(24px, 3vw, 30px) clamp(22px, 2.6vw, 28px);
+    }
+    .oeg-creator__step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
+      font-family: var(--fh); font-size: 16px; font-weight: 700; color: #fff;
+      margin-bottom: 16px;
+    }
+    .oeg-creator__step h3 {
+      font-family: var(--fh); font-size: 20px; font-weight: 700;
+      letter-spacing: -0.01em; margin: 0 0 9px; color: #fff;
+    }
+    .oeg-creator__step p {
+      font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.78); margin: 0;
+    }
+
+    .oeg-creator__cta { text-align: center; }
+    .oeg-creator__btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500;
+      text-decoration: none; background: #fff; color: var(--p);
+      padding: 16px 34px; border-radius: var(--btn);
+      box-shadow: 0 6px 22px rgba(0,0,0,.20);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .oeg-creator__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.26); }
+    .oeg-creator__note {
+      font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.62); margin: 16px 0 0;
+    }
+
+    @media (max-width: 860px) { .oeg-creator__steps { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .oeg-creator__btn { width: 100%; } }
+  </style>
+
+  <style>
+    .oeg-creator__rate-terms {
+      margin: 10px 0 0; font-size: 12.5px; line-height: 1.5;
+      color: rgba(255,255,255,.6);
+      font-family: var(--font-body, 'Work Sans', sans-serif);
+    }
+  </style>
+
+  <div class="oeg-creator__container">
+
+    <div class="oeg-creator__head">
+      <p class="oeg-creator__tag">Creator Partner Program</p>
+      <h2 class="oeg-creator__title">We are not looking for influencers.<br>We are looking for <span>real teachers.</span></h2>
+      <p class="oeg-creator__copy">
+        Follower count is not the filter. If you teach, and you talk about teaching, we will
+        give you a free Elevate account for twelve months and pay you every month for the
+        teachers you send our way. Teach with it, talk about it, get paid for it.
+      </p>
+    </div>
+
+    <div class="oeg-creator__rate">
+      <div class="oeg-creator__rate-row">
+        <span class="oeg-creator__rate-num">30%</span>
+        <span class="oeg-creator__rate-label">of what your referrals pay, every month</span>
+      </div>
+      <p class="oeg-creator__rate-sub">
+        For as long as they stay subscribed. Your first payment lands once a referral has been
+        paying for sixty days, then it runs monthly.
+      </p>
+      <p class="oeg-creator__rate-terms">
+        Referrals who cancel or refund stop earning from that point. Full terms come with your
+        acceptance email.
+      </p>
+    </div>
+
+    <div class="oeg-creator__steps">
+      <div class="oeg-creator__step">
+        <span class="oeg-creator__step-num">1</span>
+        <h3>Apply</h3>
+        <p>Tell us what you teach and where you post. Classroom teachers, instructional coaches, and people who review tools for educators. That is the list.</p>
+      </div>
+      <div class="oeg-creator__step">
+        <span class="oeg-creator__step-num">2</span>
+        <h3>Get your account</h3>
+        <p>Free Elevate access for twelve months, plus your own discount code that tracks everyone you send.</p>
+      </div>
+      <div class="oeg-creator__step">
+        <span class="oeg-creator__step-num">3</span>
+        <h3>Post and earn</h3>
+        <p>Show a real lesson you actually built. Two pieces of content to start, then earn on every teacher who subscribes through your code.</p>
+      </div>
+    </div>
+
+    <div class="oeg-creator__cta">
+      <!-- APPLICATION LINK — replace with the real form URL when it exists.
+           mailto fallback so the button is never dead. -->
+      <a class="oeg-creator__btn"
+         href="mailto:hello@gettangram.com?subject=Creator%20Partner%20Program%20application&amp;body=What%20I%20teach%20(subject%20and%20grade)%3A%0A%0AWhere%20I%20post%20(handles%20and%20links)%3A%0A%0AWhy%20I%20want%20to%20use%20Tangram%20with%20my%20classes%3A%0A%0A">Apply to the Creator Program &rarr;</a>
+      <p class="oeg-creator__note">Takes about two minutes. We read every application ourselves.</p>
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 04 ===== -->
+
+<!-- ===== 06 · Book a free call with a founder (One Eleven Group, corrected) ===== -->
+<section class="oeg-call">
+  <style>
+    .oeg-call {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb);
+      color: var(--ink);
+      background: linear-gradient(165deg,#FDFCFE 0%,#F8F5FC 45%,#F1E9F8 100%);
+      padding: clamp(56px, 8vw, 104px) 0;
+      overflow: hidden;
+    }
+    .oeg-call *, .oeg-call *::before, .oeg-call *::after { box-sizing: border-box; }
+
+    .oeg-call__container {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1.05fr .95fr;
+      gap: clamp(28px, 4vw, 60px); align-items: center;
+    }
+
+    .oeg-call__tag {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
+    }
+    .oeg-call__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-call__title {
+      font-family: var(--fh);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 800; line-height: 1.06;
+      letter-spacing: -0.025em; color: var(--p); margin: 0 0 18px;
+    }
+    .oeg-call__title span { color: var(--m); }
+
+    .oeg-call__copy {
+      font-size: clamp(16px, 1.4vw, 18px);
+      line-height: 1.72; color: var(--ink);
+      margin: 0 0 28px; max-width: 44ch;
+    }
+
+    .oeg-call__btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500; text-decoration: none;
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      color: #fff; padding: 16px 32px; border-radius: var(--btn);
+      box-shadow: 0 4px 16px rgba(177,79,197,.25);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .oeg-call__btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
+
+    .oeg-call__reassure {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 14px; color: var(--muted); margin: 18px 0 0;
+    }
+    .oeg-call__reassure svg { flex: none; color: var(--green); }
+
+    /* ---------- floating portrait ---------- */
+    .oeg-call__media {
+      position: relative; display: flex;
+      align-items: flex-end; justify-content: center;
+      min-height: 420px; isolation: isolate;
+    }
+    .oeg-call__glow {
+      position: absolute; left: 50%; top: 46%;
+      width: min(410px, 88%); aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(closest-side circle,
+        rgba(177,79,197,.28) 0%, rgba(95,208,255,.15) 46%, rgba(177,79,197,0) 78%);
+      filter: blur(36px);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+    }
+    .oeg-call__shadow {
+      position: absolute; left: 50%; bottom: 4px;
+      width: 44%; height: 22px; transform: translateX(-50%);
+      background: radial-gradient(closest-side ellipse,
+        rgba(64,31,125,.20) 0%, rgba(64,31,125,0) 100%);
+      filter: blur(6px); border-radius: 50%; z-index: 0;
+      animation: oeg-call-shadow 6s ease-in-out infinite;
+    }
+    /* drop-shadow sits on the wrapper, not the masked image. Putting both on
+       one element makes some browsers draw the un-masked box shadow, which is
+       what caused the visible square edge. */
+    .oeg-call__figure {
+      position: relative; z-index: 1; line-height: 0;
+      filter: drop-shadow(0 20px 28px rgba(64,31,125,.18));
+      animation: oeg-call-float 6s ease-in-out infinite;
+    }
+    .oeg-call__portrait {
+      display: block; width: auto; height: clamp(320px, 40vw, 480px);
+      max-width: 100%; object-fit: contain;
+      -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+              mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+    }
+    @keyframes oeg-call-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-16px); }
+    }
+    @keyframes oeg-call-shadow {
+      0%, 100% { transform: translateX(-50%) scale(1);   opacity: .8; }
+      50%      { transform: translateX(-50%) scale(.86); opacity: .5; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .oeg-call__figure, .oeg-call__shadow { animation: none; }
+    }
+
+    /* the little name plate */
+    .oeg-call__plate {
+      position: absolute; left: 50%; bottom: 8%;
+      transform: translateX(-58%);
+      display: flex; flex-direction: column; gap: 2px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 20px;
+      box-shadow: 0 8px 26px rgba(64,31,125,.14);
+      white-space: nowrap; z-index: 2;
+    }
+    .oeg-call__plate-name {
+      font-family: var(--fh); font-size: 17px; font-weight: 700;
+      letter-spacing: -0.01em; color: var(--p);
+    }
+    .oeg-call__plate-role {
+      font-family: var(--fb); font-size: 12px; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase; color: var(--m);
+    }
+
+    @media (max-width: 900px) {
+      .oeg-call__container { grid-template-columns: 1fr; }
+      .oeg-call__media { order: -1; min-height: 340px; }
+      .oeg-call__copy { max-width: none; }
+      .oeg-call__plate { transform: translateX(-64%); }
+    }
+    @media (max-width: 520px) {
+      .oeg-call__btn { width: 100%; }
+      .oeg-call__portrait { height: 300px; }
+      .oeg-call__plate { bottom: 2%; padding: 10px 16px; }
+      .oeg-call__plate-name { font-size: 15px; }
+    }
+  </style>
+
+  <style>
+    /* The plate is white-space:nowrap so the name and title stay on one
+       line. The credential line has to be allowed to wrap, and the plate
+       needs a ceiling so it cannot run off the edge of the card. */
+    .oeg-call__plate {
+      white-space: normal;
+      max-width: min(320px, 78vw);
+    }
+    .oeg-call__plate-name { white-space: nowrap; }
+    /* The full title is wider than the plate was sized for. Let it wrap and
+       tighten the tracking slightly rather than pushing past the edge. */
+    .oeg-call__plate-role {
+      white-space: normal; letter-spacing: .9px; font-size: 11.5px; line-height: 1.35;
+    }
+    .oeg-call__plate-cred {
+      display: block; margin-top: 6px;
+      font-family: var(--font-body, 'Work Sans', sans-serif);
+      font-size: 11.5px; line-height: 1.45; font-weight: 500;
+      color: var(--tg-muted, #6f6b7d);
+      white-space: normal;
+    }
+    @media (max-width: 520px) {
+      .oeg-call__plate-cred { display: none; }
+    }
+  </style>
+
+  <div class="oeg-call__container">
+
+    <div class="oeg-call__content">
+      <p class="oeg-call__tag">Talk to a human</p>
+
+      <h2 class="oeg-call__title">Yes, you can actually <span>talk to one of our founders.</span></h2>
+
+      <p class="oeg-call__copy">
+        Not a sales rep, not a chatbot, not a form that disappears into an inbox. Book fifteen
+        minutes with one of the people who actually built Tangram and ask her anything. Whether it fits your
+        classroom, what it does with IEPs, whether it makes sense for your whole school.
+      </p>
+
+      <!-- SWAP: Google Appointments booking link -->
+      <a class="oeg-call__btn" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call &rarr;</a>
+
+      <p class="oeg-call__reassure">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        Fifteen minutes, no pitch, no pressure
+      </p>
+    </div>
+
+    <div class="oeg-call__media">
+      <div class="oeg-call__glow" aria-hidden="true"></div>
+      <div class="oeg-call__shadow" aria-hidden="true"></div>
+
+      <div class="oeg-call__figure">
+      <img class="oeg-call__portrait"
+           alt="Dr. Nicole Galante, co-founder of Tangram"
+           src="nicole-founder.webp" width="459" height="720" decoding="async">
+      </div>
+
+      <div class="oeg-call__plate">
+        <span class="oeg-call__plate-name">Dr. Nicole Galante</span>
+        <span class="oeg-call__plate-role">Co-Founder &amp; Chief Strategy Officer</span>
+        <span class="oeg-call__plate-cred">PhD &middot; Stony Brook University &middot; Co-authored New York State&rsquo;s framework for quality remote teaching</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 06 ===== -->
+
 <!-- CAMPUS / DISTRICT INQUIRE (KG Creative) -->
 <section class="tg-campus" id="campus-inquire">
   <div class="tg-wrap">
@@ -1663,11 +3011,176 @@ footer a:hover { color: var(--mint); }
 <section class="final-cta" id="signup">
   <div class="container">
     <h2>Your students aren't generic. Your lessons shouldn't be either.</h2>
-    <p>Full access free for 30 days. No credit card. See what a real methodology feels like.</p>
+    <p>Your first month free. No credit card. See what a real methodology feels like.</p>
     <a href="https://app.gettangram.com" class="final-cta-btn">Start Free →</a>
     <p class="kit-subtext">150 students. 5 class periods. 1 workflow. Zero compromises.</p>
   </div>
 </section>
+
+<!-- ===== 03 · Instagram feed — live Elfsight widget (One Eleven Group, corrected) ===== -->
+<section class="oeg-social">
+  <style>
+    .oeg-social {
+      --p:  var(--tg-purple, #401F7D);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb);
+      color: var(--ink);
+      background: #FFFFFF;
+      padding: clamp(56px, 8vw, 110px) 0;
+    }
+    .oeg-social *, .oeg-social *::before, .oeg-social *::after { box-sizing: border-box; }
+
+    .oeg-social__container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+    .oeg-social__head {
+      display: flex; flex-wrap: wrap; align-items: flex-end;
+      justify-content: space-between; gap: 24px;
+      margin-bottom: clamp(28px, 4vw, 44px);
+    }
+
+    .oeg-social__tag {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
+    }
+    .oeg-social__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-social__title {
+      font-family: var(--fh);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.02em; color: var(--p); margin: 0 0 14px;
+    }
+
+    .oeg-social__copy {
+      font-size: clamp(15px, 1.35vw, 17px);
+      line-height: 1.72; color: var(--ink); margin: 0; max-width: 50ch;
+    }
+
+    .oeg-social__follow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500;
+      text-decoration: none; color: #fff;
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      padding: 16px 32px; border-radius: var(--btn);
+      box-shadow: 0 4px 16px rgba(177,79,197,.25);
+      transition: transform .16s ease, box-shadow .16s ease;
+      white-space: nowrap;
+    }
+    .oeg-social__follow:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
+
+    .oeg-social__embed { border-radius: var(--rad); overflow: hidden; min-height: 300px; }
+
+    /* Only ever rendered if the Elfsight widget fails to load. */
+    .oeg-social__fallback {
+      border: 1px solid var(--line); border-radius: var(--rad);
+      background: var(--tg-soft, #F7F5FB);
+      padding: clamp(40px, 6vw, 64px) 24px; text-align: center;
+    }
+    .oeg-social__fallback svg { color: var(--m); margin-bottom: 16px; }
+    .oeg-social__fallback h3 {
+      font-family: var(--fh); font-size: 21px; font-weight: 700;
+      letter-spacing: -0.01em; color: var(--p); margin: 0 0 8px;
+    }
+    .oeg-social__fallback p {
+      font-size: 15px; line-height: 1.65; color: var(--muted); margin: 0 0 22px;
+    }
+    .oeg-social__fallback a {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 600; text-decoration: none; color: #fff;
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      padding: 13px 28px; border-radius: var(--btn);
+      box-shadow: 0 4px 16px rgba(177,79,197,.25);
+    }
+
+    @media (max-width: 700px) {
+      .oeg-social__head { flex-direction: column; align-items: stretch; }
+      .oeg-social__follow { width: 100%; justify-content: center; }
+    }
+  </style>
+
+  <div class="oeg-social__container">
+
+    <div class="oeg-social__head">
+      <div>
+        <p class="oeg-social__tag">From the classroom</p>
+        <h2 class="oeg-social__title">See Tangram in real classrooms.</h2>
+        <p class="oeg-social__copy">
+          Teachers building real lessons, sharing what is working, and showing what the tool
+          actually does on a Tuesday morning.
+        </p>
+      </div>
+
+      <a class="oeg-social__follow" href="https://www.instagram.com/gettangram/" target="_blank" rel="noopener">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        Follow along
+      </a>
+    </div>
+
+    <div class="oeg-social__embed">
+
+      <!-- ==================== ELFSIGHT EMBED ====================
+           Live. This is the @gettangram Instagram Feed widget from
+           the Tangram Elfsight account. Nothing to swap.
+
+           To change the layout later (posts shown, columns, etc.),
+           edit the widget inside Elfsight. The change is live on the
+           site instantly, no code edit needed.
+      ======================================================== -->
+
+      <!-- Elfsight Instagram Feed | @gettangram -->
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-2e4aad9a-237d-4889-927d-633b0ec8ee9e" data-elfsight-app-lazy></div>
+
+      <!-- Shown only if the Elfsight script never renders. See header note. -->
+      <template id="oeg-social-fb-tpl">
+        <div class="oeg-social__fallback">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <h3>The feed lives on Instagram.</h3>
+          <p>Real lessons, real classrooms, posted as they happen.</p>
+          <a href="https://www.instagram.com/gettangram/" target="_blank" rel="noopener">Follow @gettangram &rarr;</a>
+        </div>
+      </template>
+      <script>
+      (function () {
+        var host = document.querySelector('.elfsight-app-2e4aad9a-237d-4889-927d-633b0ec8ee9e');
+        if (!host) return;
+        setTimeout(function () {
+          /* Elfsight injects its own DOM into the host div. Nothing injected
+             and no height means the script never ran or never rendered. */
+          if (host.childElementCount > 0 && host.offsetHeight > 80) return;
+          var tpl = document.getElementById('oeg-social-fb-tpl');
+          if (tpl && host.parentNode) host.parentNode.replaceChild(tpl.content.cloneNode(true), host);
+        }, 4000);
+      })();
+      </script>
+
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 03 ===== -->
 
 <!-- FOOTER -->
 <footer>
