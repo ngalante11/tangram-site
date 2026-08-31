@@ -14,6 +14,16 @@
       "source": "/c/:slug",
       "destination": "https://app.gettangram.com/r/:slug",
       "permanent": false
+    },
+    {
+      "source": "/creators/apply",
+      "destination": "https://app.gettangram.com/creators/apply",
+      "permanent": false
+    },
+    {
+      "source": "/creators",
+      "destination": "https://app.gettangram.com/creators/apply",
+      "permanent": false
     }
   ]
 }
