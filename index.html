@@ -2721,10 +2721,14 @@ src="https://www.facebook.com/tr?id=1583545729905373&ev=PageView&noscript=1"
     </div>
 
     <div class="oeg-creator__cta">
-      <!-- APPLICATION LINK — replace with the real form URL when it exists.
-           mailto fallback so the button is never dead. -->
-      <a class="oeg-creator__btn"
-         href="mailto:hello@gettangram.com?subject=Creator%20Partner%20Program%20application&amp;body=What%20I%20teach%20(subject%20and%20grade)%3A%0A%0AWhere%20I%20post%20(handles%20and%20links)%3A%0A%0AWhy%20I%20want%20to%20use%20Tangram%20with%20my%20classes%3A%0A%0A">Apply to the Creator Program &rarr;</a>
+      <!-- Application form. /creators/apply is a redirect defined in vercel.json
+           that forwards to app.gettangram.com/creators/apply.
+
+           Kept as the relative path rather than the app URL directly, so the
+           destination can be changed in vercel.json alone without editing the
+           page. It is also the same path used in the ads and the creator emails,
+           which keeps referral tracking in one place. -->
+      <a class="oeg-creator__btn" href="/creators/apply">Apply to the Creator Program &rarr;</a>
       <p class="oeg-creator__note">Takes about two minutes. We read every application ourselves.</p>
     </div>
 
