@@ -9,6 +9,11 @@
       "source": "/brandy",
       "destination": "https://app.gettangram.com/signup?ref=brandy",
       "permanent": false
+    },
+    {
+      "source": "/c/:slug",
+      "destination": "https://app.gettangram.com/r/:slug",
+      "permanent": false
     }
   ]
 }
