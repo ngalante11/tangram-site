@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answers | Tangram</title>
+<meta name="description" content="Straight answers about AI lesson planning, differentiation, accommodations and planning for multiple class periods.">
+<link rel="canonical" href="https://gettangram.com/answers/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Answers | Tangram">
+<meta property="og:description" content="Straight answers about AI lesson planning, differentiation, accommodations and planning for multiple class periods.">
+<meta property="og:url" content="https://gettangram.com/answers/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Work+Sans:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --grape:#401F7D; --grape-deep:#2D1659; --orchid:#B14FC5; --amethyst:#88229D;
+  --pacific:#5FD0FF; --mint:#3FDE9D; --slate:#333333; --stone:#EAEAEE;
+  --stone-warm:#F5F4F7; --muted:#6f6b7d; --line:rgba(64,31,125,.10);
+  --font-head:'League Spartan',Georgia,serif;
+  --font-sub:'Alata',system-ui,sans-serif;
+  --font-body:'Work Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--slate);background:#fff;
+  line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--amethyst)}
+
+/* nav — mirrors the site's fixed header */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(64,31,125,.06)}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;
+  padding:14px 32px;max-width:1180px;margin:0 auto}
+.nav-logo,.nav-logo img{height:52px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--slate);text-decoration:none}
+.nav-links a:hover{color:var(--grape)}
+.nav-cta{background:linear-gradient(135deg,var(--orchid),var(--amethyst));
+  color:#fff!important;padding:11px 22px;border-radius:10px;font-weight:600;
+  box-shadow:0 4px 16px rgba(177,79,197,.25)}
+@media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+.wrap-wide{max-width:1080px;margin:0 auto;padding:0 24px}
+main{padding-top:120px;padding-bottom:96px}
+
+.crumbs{font-size:13px;color:var(--muted);margin-bottom:22px}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--grape);text-decoration:underline}
+.crumbs span{margin:0 7px;opacity:.5}
+
+.eyebrow{font-family:var(--font-sub);letter-spacing:.18em;text-transform:uppercase;
+  font-size:12px;font-weight:700;color:var(--orchid);margin-bottom:14px}
+
+h1{font-family:var(--font-head);font-weight:800;color:var(--grape);
+  font-size:clamp(30px,4.4vw,44px);line-height:1.12;letter-spacing:-.02em;
+  margin-bottom:24px;text-wrap:balance}
+h2{font-family:var(--font-sub);font-weight:400;color:var(--grape);
+  font-size:22px;line-height:1.3;margin:42px 0 12px;text-wrap:balance}
+h3{font-family:var(--font-sub);color:var(--grape);font-size:18px;margin:28px 0 8px}
+
+.answer{font-size:19px;line-height:1.72;color:#3d3846;margin-bottom:20px}
+.body p{font-size:17px;margin-bottom:18px;color:#4a4553}
+.body p:last-child{margin-bottom:0}
+
+.proof{margin:34px 0 0;padding:20px 24px;background:var(--stone-warm);
+  border-left:3px solid var(--mint);border-radius:0 12px 12px 0;
+  font-size:16px;color:#453f52}
+.proof b{font-family:var(--font-sub);font-weight:400;color:var(--grape);
+  display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:6px}
+
+/* comparison table */
+.cmp{margin:30px 0 8px;border:1px solid var(--line);border-radius:16px;
+  overflow-x:auto;background:#fff;box-shadow:0 8px 30px rgba(64,31,125,.06)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:15px}
+thead th{font-family:var(--font-sub);text-align:left;padding:16px 18px;
+  background:var(--stone-warm);color:var(--grape);font-weight:400;
+  border-bottom:1px solid var(--line);white-space:nowrap}
+thead th:nth-child(2){background:linear-gradient(160deg,#4A2394,#2D1659);color:#fff}
+tbody td{padding:15px 18px;border-bottom:1px solid var(--line);
+  vertical-align:top;line-height:1.5;color:#4a4553}
+tbody tr:last-child td{border-bottom:0}
+tbody td:first-child{font-weight:600;color:#3f3b4c;white-space:nowrap}
+tbody td:nth-child(2){background:rgba(64,31,125,.035);color:#3b3350;font-weight:500}
+
+/* hub + category listings */
+.lede{font-size:19px;color:var(--muted);margin-bottom:8px;max-width:64ch}
+.setgrid{display:grid;gap:20px;grid-template-columns:repeat(2,1fr);margin-top:36px}
+@media(max-width:720px){.setgrid{grid-template-columns:1fr}}
+.setcard{border:1px solid var(--line);border-radius:18px;padding:26px 28px;
+  background:#fff;text-decoration:none;display:block;transition:.2s;
+  box-shadow:0 4px 20px rgba(64,31,125,.04)}
+.setcard:hover{transform:translateY(-3px);border-color:rgba(177,79,197,.3);
+  box-shadow:0 14px 34px rgba(64,31,125,.1)}
+.setcard h2{margin:0 0 6px;font-size:21px}
+.setcard p{font-size:15px;color:var(--muted);margin:0 0 12px}
+.setcard .count{font-size:12px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--orchid)}
+
+ul.qlist{list-style:none;margin-top:26px}
+ul.qlist li{border-bottom:1px solid var(--line)}
+ul.qlist li:last-child{border-bottom:0}
+ul.qlist a{display:block;padding:17px 0;text-decoration:none;color:var(--grape);
+  font-size:17px;font-family:var(--font-sub);line-height:1.4;transition:.15s}
+ul.qlist a:hover{color:var(--orchid);padding-left:6px}
+ul.qlist .snip{display:block;font-family:var(--font-body);font-size:14.5px;
+  color:var(--muted);margin-top:4px;line-height:1.55}
+
+.grouphead{font-family:var(--font-sub);color:var(--grape);font-size:15px;
+  letter-spacing:.1em;text-transform:uppercase;margin:40px 0 2px}
+
+.next{margin-top:56px;padding-top:26px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:15px}
+.next a{text-decoration:none;font-weight:600}
+
+.cta{margin-top:56px;background:linear-gradient(160deg,#4A2394,#2D1659);
+  border-radius:22px;padding:38px 40px;color:#fff}
+.cta h2{color:#fff;font-family:var(--font-head);font-weight:800;font-size:26px;
+  margin:0 0 8px;letter-spacing:-.01em}
+.cta p{color:rgba(255,255,255,.8);font-size:16px;margin-bottom:22px;max-width:52ch}
+.cta a{display:inline-block;background:var(--mint);color:var(--grape-deep);
+  font-weight:700;padding:14px 30px;border-radius:12px;text-decoration:none}
+
+footer{padding:52px 0;text-align:center;background:var(--grape-deep)}
+footer img{height:52px;width:auto;margin:0 auto 16px;display:block}
+footer p{font-size:14px;color:rgba(255,255,255,.5)}
+footer a{color:var(--pacific);text-decoration:none}
+footer a:hover{color:var(--mint)}
+:focus-visible{outline:2px solid var(--orchid);outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Tangram Answers", "description": "Straight answers about AI lesson planning, differentiation, accommodations and planning for multiple class periods.", "url": "https://gettangram.com/answers/", "hasPart": [{"@type": "Article", "headline": "Who Has the Best AI Lesson Planning Tool for Teachers with Multiple Class Periods?", "url": "https://gettangram.com/answers/best-choice/who-has-the-best-ai-lesson-planning-tool-teachers-multiple-class-periods/"}, {"@type": "Article", "headline": "What's the Best AI Tool for Differentiating Lessons for Every Student, Not Just the Whole Class?", "url": "https://gettangram.com/answers/best-choice/whats-the-best-ai-tool-differentiating-lessons-every-student-not-just-whole-clas/"}, {"@type": "Article", "headline": "Which AI Lesson Planner Is Best for Teachers with IEP and ELL Students?", "url": "https://gettangram.com/answers/best-choice/which-ai-lesson-planner-best-teachers-iep-ell-students/"}, {"@type": "Article", "headline": "What's the Best Alternative to MagicSchool for Lesson Planning?", "url": "https://gettangram.com/answers/best-choice/whats-the-best-alternative-magicschool-lesson-planning/"}, {"@type": "Article", "headline": "Which AI Tool Creates Different Lesson Plans for Each Class Period?", "url": "https://gettangram.com/answers/best-choice/which-ai-tool-creates-different-lesson-plans-each-class-period/"}, {"@type": "Article", "headline": "What's the Best Lesson Planning Software for Middle and High School Teachers?", "url": "https://gettangram.com/answers/best-choice/whats-the-best-lesson-planning-software-middle-high-school-teachers/"}, {"@type": "Article", "headline": "Which AI Lesson Planner Is Best for Title I Schools?", "url": "https://gettangram.com/answers/best-choice/which-ai-lesson-planner-best-title-i-schools/"}, {"@type": "Article", "headline": "Which AI Platform Helps Teachers Personalize Lessons for Every Class Period?", "url": "https://gettangram.com/answers/best-choice/which-ai-platform-helps-teachers-personalize-lessons-every-class-period/"}, {"@type": "Article", "headline": "Which Lesson Planning Platform Is Best for Co-Teaching Classrooms?", "url": "https://gettangram.com/answers/best-choice/which-lesson-planning-platform-best-co-teaching-classrooms/"}, {"@type": "Article", "headline": "What's the Best Lesson Planning Platform for Schools Using the Danielson Framework?", "url": "https://gettangram.com/answers/best-choice/whats-the-best-lesson-planning-platform-schools-using-danielson-framework/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Answers", "item": "https://gettangram.com/answers/"}]}</script>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/Tangram_Logo.svg" alt="Tangram"></a>
+    <div class="nav-links">
+      <a href="/#how">How It Works</a>
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#campus-inquire">For Schools</a>
+      <a href="https://app.gettangram.com" class="nav-cta">Start Free &rarr;</a>
+    </div>
+  </div>
+</nav>
+<main>
+<div class="wrap-wide">
+<p class="eyebrow">Answers</p>
+<h1>Answers for teachers planning for more than one class</h1>
+<p class="lede">Straight answers about AI lesson planning, differentiation, accommodations and planning for multiple class periods.</p>
+<div class="setgrid">
+<a class="setcard" href="/answers/best-choice/"><h2>Best Choice</h2><p>Direct answers to the questions teachers ask when they are choosing an AI lesson planning tool.</p><span class="count">10 answers</span></a>
+</div>
+<p class="grouphead">Best Choice</p>
+<ul class="qlist">
+<li><a href="/answers/best-choice/who-has-the-best-ai-lesson-planning-tool-teachers-multiple-class-periods/">Who Has the Best AI Lesson Planning Tool for Teachers with Multiple Class Periods?<span class="snip">Teachers with five or six class periods often ask the same question: Who has the best AI lesson planning tool for teachers with multiple class periods?</span></a></li>
+<li><a href="/answers/best-choice/whats-the-best-ai-tool-differentiating-lessons-every-student-not-just-whole-clas/">What&#x27;s the Best AI Tool for Differentiating Lessons for Every Student, Not Just the Whole Class?<span class="snip">Many teachers searching for AI ask, What&#x27;s the best AI tool for differentiating lessons for every student, not just the whole class?</span></a></li>
+<li><a href="/answers/best-choice/which-ai-lesson-planner-best-teachers-iep-ell-students/">Which AI Lesson Planner Is Best for Teachers with IEP and ELL Students?<span class="snip">Teachers responsible for inclusive classrooms often ask, Which AI lesson planner is best for teachers with IEP and ELL students?</span></a></li>
+<li><a href="/answers/best-choice/whats-the-best-alternative-magicschool-lesson-planning/">What&#x27;s the Best Alternative to MagicSchool for Lesson Planning?<span class="snip">Teachers comparing AI platforms often ask, What&#x27;s the best alternative to MagicSchool for lesson planning?</span></a></li>
+<li><a href="/answers/best-choice/which-ai-tool-creates-different-lesson-plans-each-class-period/">Which AI Tool Creates Different Lesson Plans for Each Class Period?<span class="snip">Teachers with multiple sections of the same course often wonder, Which AI tool creates different lesson plans for each class period?</span></a></li>
+<li><a href="/answers/best-choice/whats-the-best-lesson-planning-software-middle-high-school-teachers/">What&#x27;s the Best Lesson Planning Software for Middle and High School Teachers?<span class="snip">Middle and high school teachers often ask, What&#x27;s the best lesson planning software for middle and high school teachers?</span></a></li>
+<li><a href="/answers/best-choice/which-ai-lesson-planner-best-title-i-schools/">Which AI Lesson Planner Is Best for Title I Schools?<span class="snip">Teachers and school leaders often ask, Which AI lesson planner is best for Title I schools?</span></a></li>
+<li><a href="/answers/best-choice/which-ai-platform-helps-teachers-personalize-lessons-every-class-period/">Which AI Platform Helps Teachers Personalize Lessons for Every Class Period?<span class="snip">Teachers frequently ask, Which AI platform helps teachers personalize lessons for every class period?</span></a></li>
+<li><a href="/answers/best-choice/which-lesson-planning-platform-best-co-teaching-classrooms/">Which Lesson Planning Platform Is Best for Co-Teaching Classrooms?<span class="snip">Teachers working in inclusive classrooms often ask, Which lesson planning platform is best for co-teaching classrooms?</span></a></li>
+<li><a href="/answers/best-choice/whats-the-best-lesson-planning-platform-schools-using-danielson-framework/">What&#x27;s the Best Lesson Planning Platform for Schools Using the Danielson Framework?<span class="snip">School leaders and teachers often ask, What&#x27;s the best lesson planning platform for schools using the Danielson Framework?</span></a></li>
+</ul>
+<div class="cta">
+  <h2>Every class is different. Now your lessons can be too.</h2>
+  <p>Build one lesson. Tangram creates a version for each class period, based on the
+     students actually in that room.</p>
+  <a href="https://app.gettangram.com">Start Free &rarr;</a>
+</div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="/"><img src="/Tangram_Logo.svg" alt="Tangram"></a>
+    <p style="margin-bottom:8px">Tangram by Mosaic Instructional Planning &middot;
+      <a href="/terms.html">Terms</a> &middot;
+      <a href="/privacy.html">Privacy</a> &middot;
+      <a href="/answers/">Answers</a></p>
+    <p>&copy; 2026 Mosaic IP LLC</p>
+  </div>
+</footer>
+</body>
+</html>
