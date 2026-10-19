@@ -19,7 +19,7 @@ Status key: `draft` = written, in repo · `queued` = scheduled in tool · `live`
 | Wed | FB groups | Value post: "The 3-column trick for planning a mixed-ability class" (soft mention) | ④ | `draft` |
 | Thu | Blog | *Danielson Domain 3 Lesson Examples Your Evaluator Will Actually Recognize* | ③ | `live` → `blog/02` |
 | Fri | IG/TikTok | "Not trained on the internet" — the methodology explainer (talking head) | ② | `draft` |
-| Fri | Email | Broadcast: back-to-school "plan once" pitch to any existing list | ① | plan |
+| Fri | Email | Broadcast: back-to-school "plan once" pitch to any existing list | ① | `draft` → `email/sequences.md` (Sequence D) |
 
 ## WEEK 2 — "A Real Method" (trust + moat)
 

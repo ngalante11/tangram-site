@@ -171,6 +171,44 @@ urgency via the first-500 scarcity. **Send:** week 3, single email + a 48-hr rem
 
 ---
 
+## SEQUENCE D — Back-to-School Broadcast (one-time, Week 1 Fri)
+**Trigger:** none — one-time send. **Audience:** any existing list (newsletter/waitlist
+signups, teachers who haven't started a trial yet — not the active-trial nurture in
+Sequences A/B). **Goal:** reintroduce the "plan once" promise during back-to-school and
+push to a free trial start. **Pillar:** ① One build, every class.
+
+### D1
+**Subject:** Plan once. Teach every class this year.
+**Subject (alt):** The back-to-school fix for the Sunday-night lesson grind
+**Preview:** Build one lesson. Tangram makes the version for every class you teach.
+**Body:**
+> Hi {{ first_name | default: "there" }},
+>
+> New year, same Sunday night: one lesson, five classes, zero time to make it five
+> different ways.
+>
+> Tangram fixes that. Build one strong lesson with Tan — our AI planning partner — and
+> it adapts automatically for every group you teach: your ELLs, your IEP accommodations,
+> your honors kids, your reading levels. One build. Every class. $0 per adapted copy.
+>
+> It's observation-ready out of the box — Danielson, Marzano, UbD — so what you build
+> walks in ready, whichever framework your school uses.
+>
+> **[Try 3 lessons free — no credit card →]**
+>
+> Here's to getting your Sundays back this year.
+>
+> — Tan
+>
+> P.S. Tan isn't trained on the internet. It's built on an original methodology — 50+
+> years combined founder experience, hundreds of districts — not a patchwork of other
+> people's best practices.
+
+_Legal footer: physical address + one-click unsubscribe (Kit adds unsub automatically;
+confirm the address is set in Kit → Settings)._
+
+---
+
 ## A/B & optimization backlog
 - Test human founder sender vs. "Tan" persona on trust emails (B1, C1).
 - Test subject-line curiosity (alt) vs. direct (primary) — keep winners.
