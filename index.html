@@ -1,1146 +1,214 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tangram — Lessons That Fit Every Class</title>
-<meta name="description" content="Build one lesson with Tan. Get versions tailored for each class you teach. Powered by an original methodology developed through 50+ years of combined experience in hundreds of districts.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Lesson Planner That Differentiates for Every Class | Tangram</title>
+<meta name="description" content="Tangram is an AI lesson planner built by teachers. Build one lesson, get a differentiated version for every class, IEPs and ELLs included. First month free.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://www.gettangram.com/">
+<meta name="theme-color" content="#401F7D">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tangram">
+<meta property="og:title" content="Tangram | AI lesson planner that reaches every student in every class">
+<meta property="og:description" content="One lesson, rebuilt for every class period. First month free, no credit card.">
+<meta property="og:image" content="https://www.gettangram.com/tangram-founders.webp">
+<meta property="og:url" content="https://www.gettangram.com/">
+<meta property="og:image:alt" content="Tangram co-founders Dr. Nicole Galante and Izzy Galante">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tangram | AI lesson planner that reaches every student in every class">
+<meta name="twitter:description" content="Build one lesson, get a differentiated version for every class. IEPs and ELLs included. First month free, no credit card.">
+<meta name="twitter:image" content="https://www.gettangram.com/tangram-founders.webp">
+<link rel="icon" href="https://www.gettangram.com/Tangram_Logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alata&family=Work+Sans:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap" rel="stylesheet">
-<style>
-:root {
-  --grape: #401F7D;
-  --grape-deep: #2D1659;
-  --orchid: #B14FC5;
-  --orchid-light: rgba(177,79,197,0.08);
-  --amethyst: #88229D;
-  --pacific: #5FD0FF;
-  --mint: #3FDE9D;
-  --slate: #333333;
-  --stone: #EAEAEE;
-  --stone-warm: #F5F4F7;
-  --white: #FFFFFF;
-}
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+<!-- Structured data for Google rich results and AI answer engines. If you edit the FAQ on the page, update the matching answers here too.
+     (The VideoObject entry was removed: Google needs the video's uploadDate and duration. Add it back with those when the video is final.) -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.gettangram.com/#org",
+   "name": "Tangram",
+   "legalName": "Mosaic Instructional Planning",
+   "url": "https://www.gettangram.com/",
+   "logo": "https://www.gettangram.com/Tangram_Logo.svg",
+   "slogan": "Built for teachers, by teachers",
+   "sameAs": [
+    "https://www.instagram.com/gettangram/"
+   ],
+   "founder": [
+    {
+     "@type": "Person",
+     "name": "Dr. Nicole Galante",
+     "jobTitle": "Co-Founder and Chief Strategy Officer",
+     "alumniOf": "Stony Brook University"
+    },
+    {
+     "@type": "Person",
+     "name": "Izzy Galante",
+     "jobTitle": "Co-Founder"
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.gettangram.com/#site",
+   "url": "https://www.gettangram.com/",
+   "name": "Tangram",
+   "publisher": {
+    "@id": "https://www.gettangram.com/#org"
+   }
+  },
+  {
+   "@type": "SoftwareApplication",
+   "name": "Tangram",
+   "applicationCategory": "EducationalApplication",
+   "operatingSystem": "Web",
+   "url": "https://app.gettangram.com",
+   "description": "AI lesson planner built by teachers. Build one lesson and get a differentiated version for every class you teach, with IEP, ELL and reading level supports built in.",
+   "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "teacher"
+   },
+   "publisher": {
+    "@id": "https://www.gettangram.com/#org"
+   },
+   "featureList": [
+    "Differentiated versions of one lesson for every class",
+    "Supports for IEPs, English learners, reading levels and MTSS tiers",
+    "State standards for every state",
+    "Danielson, Marzano and Understanding by Design alignment",
+    "No student rosters required",
+    "Language translation for lessons and family communication",
+    "Google Classroom outputs",
+    "Learning progressions for any standard"
+   ],
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "Ideate (first month free)",
+     "price": "0",
+     "priceCurrency": "USD",
+     "description": "Every feature included for your first month. No credit card required.",
+     "url": "https://app.gettangram.com/signup"
+    },
+    {
+     "@type": "Offer",
+     "name": "Accelerate",
+     "price": "5.99",
+     "priceCurrency": "USD",
+     "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "5.99",
+      "priceCurrency": "USD",
+      "billingDuration": "P1M",
+      "unitText": "month"
+     },
+     "url": "https://app.gettangram.com/signup?plan=accelerate"
+    },
+    {
+     "@type": "Offer",
+     "name": "Elevate",
+     "price": "11.99",
+     "priceCurrency": "USD",
+     "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "11.99",
+      "priceCurrency": "USD",
+      "billingDuration": "P1M",
+      "unitText": "month"
+     },
+     "url": "https://app.gettangram.com/signup?plan=elevate"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is Tangram?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tangram is an AI lesson planning tool built by two career teachers. You build one lesson with Tan, Tangram's planning partner, and Tangram creates a differentiated version for each class you teach, with supports for IEPs, English learners and reading levels built in."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How does Tangram help me reach more of my students?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You build one lesson, then Tan builds a version for each class you teach, with supports for IEPs, ELLs, reading levels and MTSS tiers worked into every section. Same standard and outcome for everyone, a different way in for each group."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does Tangram help with IEPs and English learners?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Tell Tan who is in each class, including students with IEPs, English learners and different reading levels, and every section of the lesson adjusts. Elevate also translates lessons and family communication into students' home languages."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is the first month really free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Every feature is included in your first month, not a stripped-down sample. No credit card to start, and nothing charges automatically when it ends. Pick a plan when you're ready, from $5.99/mo."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I have to upload student data?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Tangram doesn't need student rosters. Name a class \"Period 2\" or \"Student A,\" tell Tan about the needs in the room, and your data stays yours."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will Tangram work with my evaluation framework?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Lessons are already in the language of Danielson, Marzano and Understanding by Design, and Tangram covers state standards in every state."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How is Tangram different from other AI lesson plan generators?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tan isn't trained on the internet. It runs on Shared Space Teaching, the methodology Tangram's founders built and refined across 650+ districts. On Elevate, you also get direct coaching calls with real educators."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much does Tangram cost?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your first month is free with every feature included. After that, Accelerate is $5.99/mo for 5 lessons a month and Elevate is $11.99/mo for unlimited lessons. Paying annually saves 44%. Schools and districts get custom Campus pricing."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can my whole school or district use Tangram?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Campus gives your whole staff everything in Elevate plus admin tools, rostering, custom onboarding and building-wide trainings. Use the Inquire for Pricing form or book a school call."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 
-body {
-  font-family: 'Work Sans', sans-serif;
-  color: var(--slate);
-  background: var(--white);
-  line-height: 1.65;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.015;
-  pointer-events: none;
-  z-index: 1000;
-}
-
-.container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
-
-/* NAV */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid transparent;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.nav.scrolled {
-  background: rgba(255,255,255,0.95);
-  border-bottom-color: rgba(64,31,125,0.06);
-  box-shadow: 0 4px 30px rgba(64,31,125,0.04);
-}
-.nav-inner {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 18px 32px; max-width: 1180px; margin: 0 auto;
-}
-.nav-logo { height: 64px; display: flex; align-items: center; text-decoration: none; }
-.nav-logo-img { height: 64px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: 40px; }
-.nav-links a {
-  font-size: 14px; font-weight: 500; color: var(--slate);
-  text-decoration: none; transition: color 0.3s;
-  letter-spacing: 0.01em;
-}
-.nav-links a:hover { color: var(--grape); }
-.nav-cta {
-  background: linear-gradient(135deg, var(--orchid) 0%, var(--amethyst) 100%);
-  color: #fff !important;
-  padding: 12px 24px; border-radius: 10px; font-weight: 600;
-  box-shadow: 0 4px 16px rgba(177,79,197,0.25);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.nav-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(177,79,197,0.35);
-}
-
-/* HERO */
-.hero {
-  padding: 160px 0 120px;
-  background: linear-gradient(165deg, #FDFCFE 0%, #F9F7FC 40%, #F3EEF8 80%, #EDE6F3 100%);
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(177,79,197,0.1) 0%, transparent 70%);
-  top: -200px; right: -150px;
-  animation: float 20s ease-in-out infinite;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(95,208,255,0.08) 0%, transparent 70%);
-  bottom: -100px; left: -100px;
-  animation: float 25s ease-in-out infinite reverse;
-}
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, -30px) scale(1.05); }
-}
-
-.hero-content { max-width: 720px; position: relative; z-index: 1; }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(177,79,197,0.12);
-  padding: 10px 20px; border-radius: 100px;
-  font-size: 13px; font-weight: 500; color: var(--grape);
-  margin-bottom: 32px; text-decoration: none;
-  box-shadow: 0 2px 12px rgba(64,31,125,0.06);
-  transition: all 0.3s;
-}
-.hero-badge:hover {
-  border-color: rgba(177,79,197,0.25);
-  box-shadow: 0 4px 20px rgba(64,31,125,0.1);
-}
-.hero-badge::before {
-  content: '';
-  width: 8px; height: 8px;
-  background: var(--mint);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.2); }
-}
-.hero h1 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(40px, 5.5vw, 62px);
-  font-weight: 800; line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: var(--grape); margin-bottom: 24px;
-}
-.hero h1 em {
-  font-style: normal;
-  background: linear-gradient(135deg, var(--orchid) 0%, var(--amethyst) 50%, var(--grape) 100%);
-  background-size: 200% 200%;
-  animation: shimmer 8s ease-in-out infinite;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-@keyframes shimmer {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-.hero-sub {
-  font-size: 19px; color: #555; margin-bottom: 40px;
-  max-width: 580px; line-height: 1.75;
-  letter-spacing: 0.005em;
-}
-.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: linear-gradient(135deg, var(--orchid) 0%, var(--amethyst) 100%);
-  color: #fff;
-  padding: 16px 32px; border-radius: 12px;
-  font-weight: 600; font-size: 16px; text-decoration: none;
-  box-shadow: 0 8px 28px rgba(177,79,197,0.3);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative; overflow: hidden;
-}
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.6s;
-}
-.btn-primary:hover::before { left: 100%; }
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(177,79,197,0.4);
-}
-.btn-secondary {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(10px);
-  color: var(--grape);
-  padding: 16px 32px; border-radius: 12px;
-  font-weight: 600; font-size: 16px; text-decoration: none;
-  border: 2px solid rgba(64,31,125,0.12);
-  transition: all 0.3s;
-}
-.btn-secondary:hover {
-  background: var(--grape);
-  color: #fff;
-  border-color: var(--grape);
-}
-.hero-proof {
-  display: flex; flex-wrap: wrap; gap: 8px 24px;
-  font-size: 14px; color: #666;
-}
-.hero-proof span { color: var(--grape); font-weight: 600; }
-
-/* HOW IT WORKS */
-.how-strip {
-  background: linear-gradient(135deg, var(--grape-deep) 0%, var(--grape) 50%, var(--amethyst) 100%);
-  padding: 80px 0;
-  position: relative; overflow: hidden;
-}
-.how-strip::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 40,0 0,40' fill='%23ffffff' fill-opacity='0.025'/%3E%3Cpolygon points='80,40 80,80 40,80' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
-  background-size: 80px 80px;
-}
-.how-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  position: relative; z-index: 1;
-}
-.how-step { text-align: center; color: #fff; }
-.how-num {
-  width: 56px; height: 56px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'League Spartan', sans-serif;
-  font-size: 20px; font-weight: 700;
-  margin: 0 auto 18px;
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-}
-.how-label {
-  font-family: 'Alata', sans-serif;
-  font-size: 17px; margin-bottom: 8px;
-  letter-spacing: 0.01em;
-}
-.how-detail {
-  font-size: 14px; opacity: 0.7; line-height: 1.6;
-}
-
-/* METHODOLOGY */
-.methodology {
-  padding: 140px 0;
-  background: linear-gradient(180deg, var(--white) 0%, var(--stone-warm) 100%);
-  position: relative; overflow: hidden;
-}
-.methodology-inner { max-width: 740px; }
-.methodology-content { max-width: 740px; }
-.section-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--orchid);
-  margin-bottom: 16px;
-}
-.section-tag::before {
-  content: '';
-  width: 24px; height: 2px;
-  background: linear-gradient(90deg, var(--orchid), var(--amethyst));
-  border-radius: 1px;
-}
-.methodology h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(32px, 4vw, 46px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--grape); margin-bottom: 28px;
-  line-height: 1.12;
-}
-.methodology p {
-  font-size: 18px; color: #555; line-height: 1.8;
-  margin-bottom: 20px;
-}
-.methodology-list {
-  list-style: none;
-  margin-top: 36px;
-}
-.methodology-list li {
-  font-size: 16px; padding: 16px 0;
-  display: flex; align-items: flex-start; gap: 16px;
-  color: var(--slate);
-  border-bottom: 1px solid rgba(64,31,125,0.06);
-}
-.methodology-list li:last-child { border-bottom: none; }
-.methodology-list li::before {
-  content: '';
-  width: 22px; height: 22px;
-  min-width: 22px;
-  background: linear-gradient(135deg, var(--mint) 0%, #2fc98a 100%);
-  border-radius: 50%;
-  margin-top: 2px;
-  box-shadow: 0 4px 12px rgba(63,222,157,0.3);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
-  background-size: 12px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* COMPARE */
-.compare {
-  padding: 140px 0;
-  background: linear-gradient(180deg, var(--stone-warm) 0%, #F9F7FC 50%, var(--white) 100%);
-  position: relative; overflow: hidden;
-}
-.compare .container { max-width: 1000px; }
-.compare-header {
-  text-align: center;
-  max-width: 660px;
-  margin: 0 auto 64px;
-}
-.compare h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--grape); margin-bottom: 16px;
-}
-.compare-sub {
-  font-size: 18px;
-  color: #555; line-height: 1.7;
-}
-.compare-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-.compare-card {
-  border-radius: 24px; padding: 44px;
-  position: relative; overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.compare-card:hover { transform: translateY(-6px); }
-.compare-card.them {
-  background: var(--white);
-  border: 1px solid rgba(64,31,125,0.08);
-  box-shadow: 0 4px 24px rgba(64,31,125,0.04);
-}
-.compare-card.us {
-  background: linear-gradient(145deg, var(--grape) 0%, var(--grape-deep) 100%);
-  color: #fff;
-  box-shadow: 0 20px 60px rgba(64,31,125,0.2), 0 0 60px rgba(177,79,197,0.1);
-}
-.compare-card.us::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 40,0 0,40' fill='%23ffffff' fill-opacity='0.035'/%3E%3Cpolygon points='80,40 80,80 40,80' fill='%23ffffff' fill-opacity='0.025'/%3E%3C/svg%3E");
-  background-size: 40px 40px;
-}
-.card-content { position: relative; z-index: 1; }
-.card-label {
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  opacity: 0.5; margin-bottom: 12px;
-}
-.card-brand {
-  font-family: 'Alata', sans-serif; font-size: 22px;
-  margin-bottom: 4px;
-}
-.card-brand.them { color: #999; }
-.card-price { font-size: 14px; opacity: 0.5; margin-bottom: 24px; }
-.card-role {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 26px; font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-bottom: 12px;
-}
-.card-role.them { color: #666; }
-.card-desc {
-  font-size: 15px; line-height: 1.7; margin-bottom: 28px;
-  opacity: 0.85;
-}
-.card-list { list-style: none; }
-.card-list li {
-  font-size: 14px; padding: 10px 0;
-  display: flex; align-items: center; gap: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.compare-card.them .card-list li {
-  border-bottom-color: rgba(64,31,125,0.06);
-}
-.card-list li:last-child { border-bottom: none; }
-.card-list li::before {
-  content: '✕'; font-weight: bold; color: #ccc; font-size: 12px;
-}
-.compare-card.us .card-list li::before {
-  content: '✓'; color: var(--mint); font-size: 14px;
-}
-
-/* PULLQUOTE */
-.pullquote {
-  padding: 100px 0;
-  background: var(--white);
-  position: relative;
-}
-.pullquote-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-}
-.pullquote-mark {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 140px;
-  font-weight: 800;
-  color: var(--orchid);
-  opacity: 0.08;
-  position: absolute;
-  top: -50px; left: 50%;
-  transform: translateX(-50%);
-  line-height: 1;
-}
-.pullquote blockquote {
-  font-family: 'Alata', sans-serif;
-  font-size: clamp(22px, 3vw, 30px);
-  color: var(--grape);
-  line-height: 1.5;
-  position: relative; z-index: 1;
-}
-.pullquote blockquote em {
-  font-style: normal;
-  color: var(--orchid);
-}
-
-/* FEATURES */
-.features {
-  padding: 140px 0;
-  background: linear-gradient(180deg, var(--white) 0%, var(--stone-warm) 100%);
-  position: relative; overflow: hidden;
-}
-.features-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 64px;
-}
-.features h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--grape); margin-bottom: 16px;
-}
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-.feature-card {
-  background: var(--white);
-  border: 1px solid rgba(64,31,125,0.06);
-  border-radius: 20px;
-  padding: 36px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative; overflow: hidden;
-}
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--orchid), var(--amethyst));
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.feature-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(64,31,125,0.1);
-  border-color: transparent;
-}
-.feature-card:hover::before { opacity: 1; }
-.feature-icon {
-  width: 56px; height: 56px;
-  border-radius: 16px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 26px; margin-bottom: 20px;
-  position: relative;
-}
-.feature-icon::after {
-  content: '';
-  position: absolute;
-  width: 100%; height: 100%;
-  border-radius: 16px;
-  background: inherit;
-  filter: blur(12px);
-  opacity: 0.4;
-  z-index: -1;
-}
-.fi-grape { background: linear-gradient(135deg, rgba(64,31,125,0.1), rgba(64,31,125,0.05)); }
-.fi-orchid { background: linear-gradient(135deg, rgba(177,79,197,0.1), rgba(177,79,197,0.05)); }
-.fi-pacific { background: linear-gradient(135deg, rgba(95,208,255,0.12), rgba(95,208,255,0.06)); }
-.fi-mint { background: linear-gradient(135deg, rgba(63,222,157,0.12), rgba(63,222,157,0.06)); }
-.fi-amethyst { background: linear-gradient(135deg, rgba(136,34,157,0.1), rgba(136,34,157,0.05)); }
-.feature-card h3 {
-  font-family: 'Alata', sans-serif;
-  font-size: 18px; color: var(--grape);
-  margin-bottom: 10px;
-  letter-spacing: 0.01em;
-}
-.feature-card p {
-  font-size: 15px; color: #666; line-height: 1.7;
-}
-
-/* CREDIBILITY */
-.credibility {
-  padding: 100px 0;
-  background: linear-gradient(135deg, var(--grape-deep) 0%, var(--grape) 50%, var(--amethyst) 100%);
-  position: relative; overflow: hidden;
-}
-.credibility::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 40,0 0,40' fill='%23ffffff' fill-opacity='0.025'/%3E%3Cpolygon points='80,40 80,80 40,80' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
-  background-size: 80px 80px;
-}
-.credibility .container { position: relative; z-index: 1; }
-.cred-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
-.cred-tag {
-  font-size: 12px; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--pacific);
-  margin-bottom: 12px;
-}
-.credibility h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(28px, 4vw, 42px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #fff;
-}
-.cred-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-.cred-stat {
-  text-align: center; color: #fff;
-  padding: 36px 24px;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: all 0.4s;
-}
-.cred-stat:hover {
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-4px);
-}
-.cred-num {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(40px, 5vw, 54px);
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--pacific), var(--mint));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 8px;
-}
-.cred-label {
-  font-size: 14px; opacity: 0.7; line-height: 1.4;
-}
-
-/* PRICING */
-.pricing {
-  padding: 140px 0;
-  background: linear-gradient(180deg, var(--stone-warm) 0%, var(--white) 50%, var(--stone-warm) 100%);
-  position: relative; overflow: hidden;
-}
-.pricing-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 64px;
-}
-.pricing h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--grape); margin-bottom: 12px;
-}
-.pricing-sub {
-  font-size: 18px; color: #555;
-}
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px; max-width: 1100px; margin: 0 auto;
-}
-.price-card {
-  background: var(--white);
-  border: 1px solid rgba(64,31,125,0.06);
-  border-radius: 24px;
-  padding: 40px 28px;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-.price-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 60px rgba(64,31,125,0.12);
-}
-.price-card.recommended {
-  background: linear-gradient(180deg, var(--white) 0%, #FAF7FC 100%);
-  border: 2px solid var(--orchid);
-  box-shadow: 0 12px 40px rgba(177,79,197,0.15);
-  transform: scale(1.03);
-  z-index: 2;
-}
-.price-card.recommended:hover {
-  transform: scale(1.03) translateY(-8px);
-  box-shadow: 0 28px 70px rgba(177,79,197,0.2);
-}
-.price-card.founding {
-  background: linear-gradient(180deg, #F0FDF4 0%, var(--white) 100%);
-  border: 2px solid var(--mint);
-}
-.price-badge {
-  position: absolute;
-  top: -14px; left: 50%; transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--orchid), var(--amethyst));
-  color: #fff;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.03em;
-  padding: 6px 18px; border-radius: 100px;
-  white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(177,79,197,0.3);
-}
-.price-badge.urgent {
-  background: linear-gradient(135deg, var(--mint), #2fc98a);
-  color: var(--grape);
-}
-.price-name {
-  font-family: 'Alata', sans-serif;
-  font-size: 20px; color: var(--grape);
-  margin-bottom: 8px;
-}
-.price-amount {
-  font-family: 'League Spartan', sans-serif;
-  font-size: 48px; font-weight: 700;
-  color: var(--grape);
-  line-height: 1.1;
-}
-.price-amount span {
-  font-size: 18px; font-weight: 500; color: #888;
-}
-.price-annual {
-  font-size: 13px; color: #888; margin-bottom: 28px;
-  margin-top: 4px;
-}
-.price-features {
-  list-style: none;
-  text-align: left;
-  margin-bottom: 28px;
-}
-.price-features li {
-  font-size: 14px; padding: 12px 0;
-  border-bottom: 1px solid rgba(64,31,125,0.06);
-  display: flex; align-items: center; gap: 10px;
-  color: #555;
-}
-.price-features li:last-child { border-bottom: none; }
-.price-features li::before {
-  content: '✓';
-  color: var(--mint);
-  font-weight: bold;
-  font-size: 14px;
-}
-.price-cta {
-  display: block; width: 100%;
-  padding: 14px 24px;
-  border-radius: 12px;
-  font-weight: 600; font-size: 15px;
-  text-decoration: none;
-  transition: all 0.3s;
-  border: 2px solid var(--grape);
-  color: var(--grape);
-  background: transparent;
-}
-.price-cta:hover {
-  background: var(--grape);
-  color: #fff;
-}
-.price-card.recommended .price-cta {
-  background: linear-gradient(135deg, var(--orchid), var(--amethyst));
-  border: none;
-  color: #fff;
-  box-shadow: 0 4px 20px rgba(177,79,197,0.3);
-}
-.price-card.recommended .price-cta:hover {
-  box-shadow: 0 8px 30px rgba(177,79,197,0.4);
-  transform: translateY(-2px);
-}
-.price-card.founding .price-cta {
-  background: var(--mint);
-  border-color: var(--mint);
-  color: var(--grape);
-}
-.price-card.founding .price-cta:hover {
-  background: #2fc98a;
-  border-color: #2fc98a;
-  transform: translateY(-2px);
-}
-
-/* FINAL CTA */
-.final-cta {
-  padding: 140px 0;
-  text-align: center;
-  background: linear-gradient(180deg, var(--stone-warm) 0%, #F3EEF8 100%);
-  position: relative; overflow: hidden;
-}
-.final-cta::before {
-  content: '';
-  position: absolute;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(177,79,197,0.06) 0%, transparent 70%);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-}
-.final-cta .container { position: relative; z-index: 1; }
-.final-cta h2 {
-  font-family: 'League Spartan', sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--grape);
-  margin-bottom: 16px;
-  max-width: 750px;
-  margin-left: auto; margin-right: auto;
-}
-.final-cta p {
-  font-size: 18px; color: #555;
-  margin-bottom: 40px;
-}
-.final-cta-btn {
-  display: inline-block;
-  background: #B14FC5;
-  color: #fff;
-  font-family: 'League Spartan', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  padding: 18px 48px;
-  border-radius: 8px;
-  text-decoration: none;
-  margin-top: 24px;
-  transition: background 0.2s, transform 0.2s;
-}
-.final-cta-btn:hover {
-  background: #88229D;
-  transform: translateY(-2px);
-}
-.kit-subtext {
-  font-size: 14px !important;
-  color: #888 !important;
-  margin-top: 20px !important;
-}
-
-/* FOOTER */
-footer {
-  padding: 60px 0;
-  text-align: center;
-  background: var(--grape-deep);
-}
-.footer-logo {
-  height: 64px;
-  margin: 0 auto 20px;
-  display: block;
-  text-decoration: none;
-}
-.footer-logo-img {
-  height: 64px;
-  width: auto;
-}
-footer p { font-size: 14px; color: rgba(255,255,255,0.5); }
-footer a { color: var(--pacific); text-decoration: none; transition: color 0.3s; }
-footer a:hover { color: var(--mint); }
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .how-grid { grid-template-columns: repeat(2, 1fr); }
-  .features-grid { grid-template-columns: repeat(2, 1fr); }
-  .cred-grid { grid-template-columns: repeat(2, 1fr); }
-  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-  .price-card.recommended { transform: scale(1); }
-  .price-card.recommended:hover { transform: translateY(-8px); }
-}
-@media (max-width: 640px) {
-  .container { padding: 0 24px; }
-  .nav-links a:not(.nav-cta) { display: none; }
-  .hero { padding: 140px 0 100px; }
-  .hero h1 { font-size: 36px; }
-  .compare-grid { grid-template-columns: 1fr; }
-  .how-grid { grid-template-columns: 1fr; }
-  .features-grid { grid-template-columns: 1fr; }
-  .cred-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .cred-stat { padding: 28px 16px; }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-  .hero-proof { flex-direction: column; gap: 8px; }
-  .methodology, .features, .pricing, .compare { padding: 100px 0; }
-  .pullquote { padding: 80px 0; }
-}
-</style>
-<style>
-/* === COMPARISON (KG Creative) === */
-.tg-compare{
-  --tg-purple:#401F7D;
-  --tg-purple-dark:#2D1659;
-  --tg-magenta:#B14FC5;
-  --tg-green:#3FDE9D;
-  --tg-ink:#333333;
-  --tg-muted:#6f6b7d;
-  --tg-line:rgba(64,31,125,0.10);
-  --tg-rad:24px;
-  --font-head:'League Spartan',sans-serif;
-  --font-sub:'Alata',sans-serif;
-  --font-body:'Work Sans',sans-serif;
-  font-family:var(--font-body);color:var(--tg-ink);
-  background:radial-gradient(1200px 600px at 50% -10%, #F3EEFB 0%, #ffffff 55%);
-  padding:88px 24px 96px;box-sizing:border-box;-webkit-font-smoothing:antialiased;
-}
-.tg-compare *{box-sizing:border-box;}
-.tg-compare .tg-wrap{max-width:960px;margin:0 auto;}
-.tg-compare .tg-head{text-align:center;max-width:640px;margin:0 auto 46px;}
-.tg-compare .tg-eyebrow{font-family:var(--font-sub);letter-spacing:.18em;text-transform:uppercase;font-size:13px;font-weight:700;color:var(--tg-magenta);margin:0 0 14px;}
-.tg-compare h2{font-family:var(--font-head);font-weight:800;color:var(--tg-purple);font-size:clamp(32px,5vw,46px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 14px;}
-.tg-compare .tg-sub{font-size:18px;color:var(--tg-muted);margin:0;line-height:1.55;}
-
-.tg-compare .tg-table{
-  background:#fff;border:1px solid var(--tg-line);border-radius:var(--tg-rad);
-  overflow:hidden;box-shadow:0 12px 40px rgba(64,31,125,.08);
-}
-.tg-compare .tg-row{display:grid;grid-template-columns:1.7fr 1fr 1fr;align-items:stretch;}
-.tg-compare .tg-row + .tg-row{border-top:1px solid var(--tg-line);}
-.tg-compare .tg-cell{padding:18px 22px;display:flex;align-items:center;font-size:15px;line-height:1.4;}
-.tg-compare .tg-crit{font-weight:600;color:#3f3b4c;}
-
-/* header row */
-.tg-compare .tg-row-head .tg-cell{padding:22px;}
-.tg-compare .tg-row-head{background:#fff;}
-.tg-compare .tg-h-generic{flex-direction:column;align-items:center;text-align:center;gap:2px;font-family:var(--font-sub);font-weight:700;color:var(--tg-muted);font-size:15px;}
-.tg-compare .tg-h-tan{
-  flex-direction:column;align-items:center;text-align:center;gap:2px;
-  font-family:var(--font-sub);font-weight:700;color:#fff;font-size:16px;
-  background:linear-gradient(160deg,#4A2394 0%,#2D1659 100%);border-radius:16px 16px 0 0;
-}
-.tg-compare .tg-h-tan small{font-weight:500;font-size:12px;color:rgba(255,255,255,.72);font-family:var(--font-body);}
-
-/* the Tangram column highlighted down the whole table */
-.tg-compare .tg-col-tan{background:rgba(64,31,125,.035);justify-content:center;}
-.tg-compare .tg-col-generic{justify-content:center;}
-
-.tg-compare .tg-mark{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;}
-.tg-compare .tg-yes{background:var(--tg-green);}
-.tg-compare .tg-yes svg{width:15px;height:15px;fill:var(--tg-purple-dark);}
-.tg-compare .tg-no{background:#EDE9F2;}
-.tg-compare .tg-no svg{width:12px;height:12px;fill:#9d97ab;}
-.tg-compare .tg-txt{font-size:13.5px;color:var(--tg-muted);text-align:center;font-weight:500;}
-.tg-compare .tg-col-tan .tg-txt{color:#4a3f66;font-weight:600;}
-
-.tg-compare .tg-foot{text-align:center;margin-top:34px;}
-.tg-compare .tg-btn{display:inline-block;font-family:var(--font-body);font-weight:700;font-size:16px;text-decoration:none;color:#fff;background:linear-gradient(135deg,#5B2E9E 0%,#B14FC5 100%);padding:16px 40px;border-radius:12px;box-shadow:0 10px 26px rgba(177,79,197,.30);transition:.2s;}
-.tg-compare .tg-btn:hover{filter:brightness(1.06);}
-
-/* mobile: stack each row as a labeled comparison */
-@media(max-width:640px){
-  .tg-compare .tg-row-head{display:none;}
-  .tg-compare .tg-row{grid-template-columns:1fr;}
-  .tg-compare .tg-crit{font-family:var(--font-sub);color:var(--tg-purple);font-size:16px;padding-bottom:6px;}
-  .tg-compare .tg-col-generic,.tg-compare .tg-col-tan{justify-content:space-between;background:transparent;padding-top:8px;padding-bottom:8px;}
-  .tg-compare .tg-col-generic::before{content:"Generic AI planners";font-size:13px;color:var(--tg-muted);font-weight:600;}
-  .tg-compare .tg-col-tan::before{content:"Tangram";font-size:13px;color:var(--tg-purple);font-weight:700;}
-  .tg-compare .tg-col-tan{border-top:1px dashed var(--tg-line);}
-}
-</style>
-<style>
-/* === FEATURES (KG Creative) === */
-.tg-features{
-  --tg-purple:#401F7D;
-  --tg-purple-dark:#2D1659;
-  --tg-magenta:#B14FC5;
-  --tg-green:#3FDE9D;
-  --tg-blue:#5FD0FF;
-  --tg-ink:#333333;
-  --tg-muted:#6f6b7d;
-  --tg-line:rgba(64,31,125,0.10);
-  --tg-rad:24px;
-  --font-head:'League Spartan',sans-serif;
-  --font-sub:'Alata',sans-serif;
-  --font-body:'Work Sans',sans-serif;
-  font-family:var(--font-body);color:var(--tg-ink);
-  background:#fff;padding:88px 24px 96px;box-sizing:border-box;-webkit-font-smoothing:antialiased;
-}
-.tg-features *{box-sizing:border-box;}
-.tg-features .tg-wrap{max-width:1160px;margin:0 auto;}
-.tg-features .tg-head{text-align:center;max-width:660px;margin:0 auto 52px;}
-.tg-features .tg-eyebrow{font-family:var(--font-sub);letter-spacing:.18em;text-transform:uppercase;font-size:13px;font-weight:700;color:var(--tg-magenta);margin:0 0 14px;}
-.tg-features h2{font-family:var(--font-head);font-weight:800;color:var(--tg-purple);font-size:clamp(34px,5vw,48px);line-height:1.04;letter-spacing:-0.02em;margin:0 0 14px;}
-.tg-features .tg-sub{font-size:18px;color:var(--tg-muted);margin:0;line-height:1.55;}
-
-.tg-features .tg-grid{display:grid;gap:22px;grid-template-columns:repeat(3,1fr);}
-@media(max-width:900px){.tg-features .tg-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){.tg-features .tg-grid{grid-template-columns:1fr;}}
-
-.tg-features .tg-card{
-  background:#fff;border:1px solid var(--tg-line);border-radius:var(--tg-rad);
-  padding:30px 28px;transition:.22s;box-shadow:0 4px 20px rgba(64,31,125,.04);
-}
-.tg-features .tg-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(64,31,125,.10);border-color:rgba(177,79,197,.25);}
-.tg-features .tg-ic{
-  width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;
-  font-size:26px;margin-bottom:18px;background:linear-gradient(135deg,#F3EEFB,#EAF6FF);
-}
-.tg-features .tg-card h3{font-family:var(--font-sub);font-weight:700;font-size:18.5px;color:var(--tg-purple);margin:0 0 9px;letter-spacing:.01em;}
-.tg-features .tg-card p{font-size:15px;line-height:1.55;color:#514c60;margin:0;}
-.tg-features .tg-pill{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--tg-purple);background:var(--tg-green);padding:4px 10px;border-radius:100px;}
-
-.tg-features .tg-cta-row{text-align:center;margin-top:52px;}
-.tg-features .tg-btn{
-  display:inline-block;font-family:var(--font-body);font-weight:700;font-size:16px;text-decoration:none;
-  color:#fff;background:linear-gradient(135deg,#5B2E9E 0%,#B14FC5 100%);
-  padding:16px 40px;border-radius:12px;box-shadow:0 10px 26px rgba(177,79,197,.30);transition:.2s;
-}
-.tg-features .tg-btn:hover{filter:brightness(1.06);}
-</style>
-<style>
-/* === PRICING (KG Creative) === */
-.tg-pricing{
-  --tg-purple:#401F7D;
-  --tg-purple-dark:#2D1659;
-  --tg-magenta:#B14FC5;
-  --tg-green:#3FDE9D;
-  --tg-blue:#5FD0FF;
-  --tg-ink:#333333;
-  --tg-muted:#6f6b7d;
-  --tg-line:rgba(64,31,125,0.10);
-  --tg-soft:#F7F5FB;
-  --tg-grad:linear-gradient(135deg,#5B2E9E 0%,#B14FC5 100%);
-  --tg-rad:24px;
-  --tg-btn:12px;
-  --font-head:'League Spartan',sans-serif;
-  --font-sub:'Alata',sans-serif;
-  --font-body:'Work Sans',sans-serif;
-  font-family:var(--font-body);
-  color:var(--tg-ink);
-  background:radial-gradient(1200px 600px at 50% -10%, #F3EEFB 0%, #ffffff 60%);
-  padding:88px 24px 96px;
-  box-sizing:border-box;
-  -webkit-font-smoothing:antialiased;
-}
-.tg-pricing *{box-sizing:border-box;}
-.tg-pricing .tg-wrap{max-width:1200px;margin:0 auto;}
-.tg-pricing .tg-head{text-align:center;max-width:640px;margin:0 auto 20px;}
-.tg-pricing .tg-eyebrow{
-  font-family:var(--font-sub);
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-size:13px;
-  font-weight:700;
-  color:var(--tg-magenta);
-  margin:0 0 14px;
-}
-.tg-pricing h2{
-  font-family:var(--font-head);
-  font-weight:800;
-  color:var(--tg-purple);
-  font-size:clamp(34px,5vw,48px);
-  line-height:1.04;
-  letter-spacing:-0.02em;
-  margin:0 0 14px;
-}
-.tg-pricing .tg-sub{font-size:18px;color:var(--tg-muted);margin:0;line-height:1.55;}
-
-/* toggle */
-.tg-pricing .tg-toggle{
-  display:inline-flex;align-items:center;gap:6px;
-  background:#fff;border:1px solid var(--tg-line);
-  border-radius:100px;padding:5px;margin:26px auto 4px;
-  box-shadow:0 4px 18px rgba(64,31,125,.06);
-}
-.tg-pricing .tg-toggle button{
-  font-family:var(--font-body);font-size:15px;font-weight:600;
-  border:0;background:transparent;color:var(--tg-muted);
-  padding:9px 20px;border-radius:100px;cursor:pointer;transition:.2s;
-}
-.tg-pricing .tg-toggle button.is-active{background:var(--tg-purple);color:#fff;}
-.tg-pricing .tg-save{
-  display:inline-block;margin-left:8px;font-size:12px;font-weight:700;
-  color:var(--tg-purple);background:var(--tg-green);
-  padding:3px 10px;border-radius:100px;font-family:var(--font-body);
-}
-.tg-pricing .tg-toggle-row{text-align:center;margin-bottom:40px;}
-
-/* grid */
-.tg-pricing .tg-grid{
-  display:grid;gap:22px;align-items:stretch;
-  grid-template-columns:repeat(4,1fr);
-}
-@media(max-width:1024px){.tg-pricing .tg-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:560px){.tg-pricing .tg-grid{grid-template-columns:1fr;}}
-
-.tg-pricing .tg-card{
-  background:#fff;border:1px solid var(--tg-line);border-radius:var(--tg-rad);
-  padding:30px 26px;display:flex;flex-direction:column;position:relative;
-  box-shadow:0 4px 24px rgba(64,31,125,.05);
-}
-.tg-pricing .tg-card.is-featured{
-  background:linear-gradient(160deg,#4A2394 0%,#2D1659 100%);
-  border-color:transparent;color:#fff;
-  box-shadow:0 20px 50px rgba(64,31,125,.30);
-}
-.tg-pricing .tg-badge{
-  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
-  background:var(--tg-green);color:var(--tg-purple-dark);
-  font-size:12px;font-weight:700;letter-spacing:.02em;
-  padding:6px 16px;border-radius:100px;white-space:nowrap;
-  box-shadow:0 6px 16px rgba(63,222,157,.4);
-}
-.tg-pricing .tg-badge.tg-badge-soft{
-  background:rgba(64,31,125,.08);color:var(--tg-purple);box-shadow:none;
-}
-.tg-pricing .tg-name{
-  font-family:var(--font-head);font-weight:700;font-size:24px;
-  color:var(--tg-purple);margin:6px 0 4px;letter-spacing:-0.01em;
-}
-.tg-pricing .is-featured .tg-name{color:#fff;}
-.tg-pricing .tg-tag{font-size:14px;color:var(--tg-muted);margin:0 0 20px;min-height:40px;line-height:1.4;}
-.tg-pricing .is-featured .tg-tag{color:rgba(255,255,255,.75);}
-
-.tg-pricing .tg-price{display:flex;align-items:baseline;gap:4px;margin-bottom:4px;}
-.tg-pricing .tg-amount{font-family:var(--font-head);font-weight:800;font-size:44px;line-height:1;color:var(--tg-purple);letter-spacing:-0.02em;}
-.tg-pricing .is-featured .tg-amount{color:#fff;}
-.tg-pricing .tg-per{font-size:15px;color:var(--tg-muted);font-weight:600;}
-.tg-pricing .is-featured .tg-per{color:rgba(255,255,255,.7);}
-.tg-pricing .tg-note{font-size:13px;color:var(--tg-muted);margin:0 0 22px;min-height:18px;}
-.tg-pricing .is-featured .tg-note{color:rgba(255,255,255,.65);}
-
-.tg-pricing .tg-cta{
-  font-family:var(--font-body);font-weight:700;font-size:15px;text-align:center;
-  text-decoration:none;display:block;padding:14px 18px;border-radius:var(--tg-btn);
-  cursor:pointer;transition:.2s;border:2px solid var(--tg-line);
-  color:var(--tg-purple);background:#fff;margin-bottom:24px;
-}
-.tg-pricing .tg-cta:hover{border-color:var(--tg-magenta);color:var(--tg-magenta);}
-.tg-pricing .tg-cta.tg-cta-primary{background:var(--tg-grad);color:#fff;border-color:transparent;box-shadow:0 8px 22px rgba(177,79,197,.3);}
-.tg-pricing .tg-cta.tg-cta-primary:hover{filter:brightness(1.06);color:#fff;}
-.tg-pricing .tg-cta.tg-cta-green{background:var(--tg-green);color:var(--tg-purple-dark);border-color:transparent;}
-.tg-pricing .tg-cta.tg-cta-green:hover{filter:brightness(1.04);color:var(--tg-purple-dark);}
-
-.tg-pricing .tg-feats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
-.tg-pricing .tg-feats li{position:relative;padding-left:28px;font-size:14.5px;line-height:1.45;color:#454152;}
-.tg-pricing .is-featured .tg-feats li{color:rgba(255,255,255,.9);}
-.tg-pricing .tg-feats li::before{
-  content:"";position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;
-  background:var(--tg-green);
-  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat;
-          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat;
-}
-.tg-pricing .tg-feats li strong{font-weight:700;color:inherit;}
-
-.tg-pricing .tg-foot{text-align:center;margin-top:34px;font-size:14px;color:var(--tg-muted);}
-.tg-pricing .tg-foot a{color:var(--tg-magenta);text-decoration:none;font-weight:600;}
-</style>
-<style>
-/* === CAMPUS (KG Creative) === */
-.tg-campus{
-  --tg-purple:#401F7D;
-  --tg-purple-dark:#2D1659;
-  --tg-magenta:#B14FC5;
-  --tg-green:#3FDE9D;
-  --tg-blue:#5FD0FF;
-  --tg-ink:#333333;
-  --tg-muted:#6f6b7d;
-  --tg-line:rgba(64,31,125,0.10);
-  --tg-rad:24px;
-  --font-head:'League Spartan',sans-serif;
-  --font-sub:'Alata',sans-serif;
-  --font-body:'Work Sans',sans-serif;
-  font-family:var(--font-body);color:var(--tg-ink);
-  padding:88px 24px 96px;box-sizing:border-box;-webkit-font-smoothing:antialiased;
-  background:#fff;
-}
-.tg-campus *{box-sizing:border-box;}
-.tg-campus .tg-wrap{
-  max-width:1080px;margin:0 auto;
-  background:linear-gradient(160deg,#4A2394 0%,#2D1659 100%);
-  border-radius:32px;padding:56px;color:#fff;position:relative;overflow:hidden;
-  box-shadow:0 24px 60px rgba(45,22,89,.35);
-}
-.tg-campus .tg-wrap::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;
-  background:radial-gradient(circle,rgba(177,79,197,.45),transparent 70%);top:-120px;right:-80px;pointer-events:none;}
-.tg-campus .tg-wrap::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;
-  background:radial-gradient(circle,rgba(63,222,157,.30),transparent 70%);bottom:-140px;left:-90px;pointer-events:none;}
-.tg-campus .tg-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;}
-@media(max-width:820px){.tg-campus .tg-wrap{padding:38px 26px;}.tg-campus .tg-inner{grid-template-columns:1fr;gap:32px;}}
-
-.tg-campus .tg-eyebrow{font-family:var(--font-sub);letter-spacing:.18em;text-transform:uppercase;font-size:13px;font-weight:700;color:var(--tg-green);margin:0 0 14px;}
-.tg-campus h2{font-family:var(--font-head);font-weight:800;font-size:clamp(32px,4.4vw,44px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 16px;color:#fff;}
-.tg-campus .tg-lead{font-size:17px;line-height:1.6;color:rgba(255,255,255,.82);margin:0 0 24px;}
-.tg-campus .tg-list{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-direction:column;gap:12px;}
-.tg-campus .tg-list li{position:relative;padding-left:30px;font-size:15.5px;line-height:1.45;color:rgba(255,255,255,.92);}
-.tg-campus .tg-list li::before{content:"";position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:var(--tg-green);
-  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat;
-          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat;}
-.tg-campus .tg-book{display:inline-block;font-family:var(--font-body);font-weight:700;font-size:16px;text-decoration:none;color:var(--tg-purple-dark);
-  background:var(--tg-green);padding:15px 34px;border-radius:12px;transition:.2s;box-shadow:0 10px 26px rgba(63,222,157,.28);}
-.tg-campus .tg-book:hover{filter:brightness(1.05);transform:translateY(-1px);}
-
-/* form card */
-.tg-campus .tg-form{background:#fff;border-radius:20px;padding:30px 28px;box-shadow:0 20px 44px rgba(20,10,45,.28);}
-.tg-campus .tg-form h3{font-family:var(--font-sub);font-weight:700;color:var(--tg-purple);font-size:20px;margin:0 0 4px;}
-.tg-campus .tg-form p.tg-fnote{font-size:13.5px;color:var(--tg-muted);margin:0 0 20px;}
-.tg-campus .tg-field{margin-bottom:14px;}
-.tg-campus .tg-field label{display:block;font-size:12.5px;font-weight:600;color:#4a4557;margin-bottom:6px;letter-spacing:.01em;}
-.tg-campus .tg-field input,.tg-campus .tg-field select,.tg-campus .tg-field textarea{
-  width:100%;font-family:var(--font-body);font-size:15px;color:var(--tg-ink);
-  border:1.5px solid var(--tg-line);border-radius:10px;padding:11px 13px;background:#fff;transition:.15s;}
-.tg-campus .tg-field input:focus,.tg-campus .tg-field select:focus,.tg-campus .tg-field textarea:focus{
-  outline:none;border-color:var(--tg-magenta);box-shadow:0 0 0 3px rgba(177,79,197,.12);}
-.tg-campus .tg-field textarea{resize:vertical;min-height:78px;}
-.tg-campus .tg-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-@media(max-width:420px){.tg-campus .tg-two{grid-template-columns:1fr;}}
-.tg-campus .tg-submit{width:100%;font-family:var(--font-body);font-weight:700;font-size:16px;color:#fff;cursor:pointer;
-  background:linear-gradient(135deg,#5B2E9E 0%,#B14FC5 100%);border:0;padding:15px;border-radius:12px;margin-top:6px;transition:.2s;box-shadow:0 10px 24px rgba(177,79,197,.3);}
-.tg-campus .tg-submit:hover{filter:brightness(1.06);}
-.tg-campus .tg-priv{font-size:12px;color:var(--tg-muted);text-align:center;margin:14px 0 0;}
-</style>
-<!-- Google Analytics 4 -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6KWMRMCGQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -1148,9 +216,8 @@ footer a:hover { color: var(--mint); }
   gtag('js', new Date());
   gtag('config', 'G-P6KWMRMCGQ');
 </script>
-<!-- End Google Analytics 4 -->
 
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code (kept from the previous homepage) -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -1168,2120 +235,702 @@ src="https://www.facebook.com/tr?id=1583545729905373&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
+<style>
+:root{
+  --purple:#401F7D; --deep:#2D1659; --magenta:#B14FC5; --amethyst:#88229D;
+  --blue:#5FD0FF; --mint:#3FDE9D; --ink:#333333; --muted:#5d5670;
+  --lav:#F5F0FC; --lav2:#EDE4FA; --line:#E4DBF2; --white:#fff;
+  --r-card:24px; --r-btn:12px;
+  --shadow:0 18px 50px -20px rgba(45,22,89,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Work Sans",system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:"League Spartan",sans-serif;color:var(--deep);line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,5.4vw,4.1rem);font-weight:800}
+h2{font-size:clamp(2rem,4vw,3rem);font-weight:800}
+h3{font-size:1.35rem;font-weight:700}
+.oeg-wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.oeg-sec{padding:96px 0}
+.oeg-eyebrow{display:inline-block;font-family:"League Spartan";font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amethyst);margin-bottom:14px}
+.oeg-lead{font-size:1.15rem;color:var(--muted);max-width:640px}
+.oeg-center{text-align:center}.oeg-center .oeg-lead{margin:16px auto 0}
+.oeg-grad{background:linear-gradient(90deg,var(--magenta),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* buttons */
+.oeg-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:"League Spartan";font-weight:700;font-size:1.05rem;padding:16px 26px;border-radius:var(--r-btn);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.oeg-btn:hover{transform:translateY(-2px)}
+.oeg-btn-primary{background:var(--mint);color:var(--deep);box-shadow:0 10px 24px -10px rgba(63,222,157,.9)}
+.oeg-btn-primary:hover{box-shadow:0 14px 30px -10px rgba(63,222,157,1)}
+.oeg-btn-purple{background:var(--purple);color:#fff}
+.oeg-btn-ghost{background:transparent;color:var(--purple);border-color:var(--purple)}
+.oeg-btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+.oeg-btn-sm{padding:10px 18px;font-size:.95rem}
+.oeg-checks{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;font-size:.95rem;color:var(--muted);list-style:none}
+.oeg-checks li::before{content:"✓";color:var(--mint);font-weight:800;margin-right:7px}
+
+/* top banner */
+.oeg-banner{background:var(--deep);color:#fff;text-align:center;font-family:"League Spartan";font-weight:700;letter-spacing:.12em;font-size:.82rem;padding:10px 12px}
+.oeg-banner span{color:var(--mint);margin:0 10px}
+.oeg-banner a{text-decoration:none}
+
+/* nav */
+.oeg-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.oeg-nav .oeg-wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.oeg-nav img{height:34px;width:auto}
+.oeg-nav-links{display:flex;gap:28px;list-style:none}
+.oeg-nav-links a{text-decoration:none;font-weight:500;color:var(--deep);font-size:.97rem}
+.oeg-nav-links a:hover{color:var(--amethyst)}
+.oeg-nav-cta{display:flex;gap:10px}
+
+/* hero */
+.oeg-hero{background:radial-gradient(1200px 500px at 85% -10%,var(--lav2),transparent 60%),radial-gradient(800px 400px at -10% 110%,#E8FBF3,transparent 60%);padding:64px 0 80px}
+.oeg-hero .oeg-wrap{display:grid;grid-template-columns:1fr 1.08fr;gap:56px;align-items:center}
+.oeg-hero h1 em{font-style:normal}
+.oeg-hero p.oeg-lead{margin:22px 0 30px;color:#4a4458}
+.oeg-hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.oeg-video{position:relative;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow);background:var(--deep);aspect-ratio:16/9;border:6px solid #fff}
+.oeg-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.oeg-video-cap{margin-top:16px;font-size:.95rem;color:#4a4458;line-height:1.55}
+.oeg-video-cap b{color:var(--deep)}
+.oeg-transcript{margin-top:10px;font-size:.9rem;color:var(--muted)}
+.oeg-transcript summary{cursor:pointer;color:var(--purple);font-weight:600}
+.oeg-sound{position:absolute;left:14px;bottom:14px;z-index:2;display:inline-flex;align-items:center;gap:8px;background:rgba(45,22,89,.88);color:#fff;border:0;border-radius:999px;padding:10px 16px;font-family:"League Spartan";font-weight:700;font-size:.9rem;cursor:pointer;animation:oeg-pulse 2.2s infinite}
+.oeg-sound.is-on{animation:none;background:rgba(45,22,89,.6)}
+@keyframes oeg-pulse{0%,100%{box-shadow:0 0 0 0 rgba(63,222,157,.7)}50%{box-shadow:0 0 0 10px rgba(63,222,157,0)}}
+
+/* proof strip */
+.oeg-proof{background:var(--purple);color:#fff;padding:34px 0}
+.oeg-proof .oeg-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.oeg-proof b{display:block;font-family:"League Spartan";font-size:2.3rem;font-weight:800;color:var(--mint);line-height:1}
+.oeg-proof span{font-size:.95rem;opacity:.9}
+
+/* problem */
+.oeg-problem{text-align:center}
+.oeg-problem h2{max-width:820px;margin:0 auto}
+.oeg-problem .oeg-lead{margin:22px auto 0;max-width:720px}
+.oeg-three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px;text-align:left}
+.oeg-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:30px}
+.oeg-card .oeg-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;margin-bottom:18px;background:var(--lav)}
+.oeg-card p{color:var(--muted);margin-top:8px}
+
+/* periods visual */
+.oeg-periods{background:var(--lav)}
+.oeg-periods .oeg-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.oeg-periods ul.oeg-bul{list-style:none;margin-top:26px;display:grid;gap:14px}
+.oeg-bul li{padding-left:34px;position:relative}
+.oeg-bul li::before{content:"✓";position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--mint);color:var(--deep);font-size:.8rem;font-weight:800;display:grid;place-items:center}
+.oeg-board{background:#fff;border-radius:var(--r-card);box-shadow:var(--shadow);padding:26px}
+.oeg-board-top{background:linear-gradient(120deg,var(--purple),var(--amethyst));color:#fff;border-radius:16px;padding:18px 20px;margin-bottom:14px}
+.oeg-board-top small{opacity:.8;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.oeg-board-top div{font-family:"League Spartan";font-weight:700;font-size:1.15rem;margin-top:4px}
+.oeg-period{display:grid;grid-template-columns:62px 1fr;gap:14px;align-items:center;padding:13px 12px;border-radius:14px;border:1px solid var(--line);margin-top:10px;opacity:0;transform:translateX(16px);transition:all .5s ease}
+.oeg-period.is-in{opacity:1;transform:none}
+.oeg-period .oeg-p{font-family:"League Spartan";font-weight:800;text-align:center;border-radius:10px;padding:8px 0;font-size:.95rem;color:var(--deep)}
+.oeg-period b{display:block;color:var(--deep);font-size:.98rem}
+.oeg-period span{font-size:.88rem;color:var(--muted)}
+.oeg-board-note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:14px}
+
+/* steps */
+.oeg-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:52px;counter-reset:s}
+.oeg-step{position:relative;padding:30px 26px;border-radius:var(--r-card);background:#fff;border:1px solid var(--line)}
+.oeg-step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--purple);color:#fff;font-family:"League Spartan";font-weight:800;font-size:1.2rem;margin-bottom:18px}
+.oeg-step p{color:var(--muted);margin-top:8px;font-size:.97rem}
+.oeg-mid-cta{text-align:center;margin-top:44px}
+
+/* demo */
+.oeg-demo .oeg-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.oeg-reel{max-width:400px;margin:0 auto;border-radius:var(--r-card);overflow:hidden;box-shadow:var(--shadow);background:#fff}
+.oeg-reel iframe{width:100%;height:640px;border:0;display:block}
+
+/* compare */
+.oeg-compare{background:var(--deep);color:#fff}
+.oeg-compare h2{color:#fff}
+.oeg-compare .oeg-lead{color:rgba(255,255,255,.8)}
+.oeg-compare .oeg-eyebrow{color:var(--blue)}
+.oeg-table{margin-top:44px;background:#fff;color:var(--ink);border-radius:var(--r-card);overflow:hidden}
+.oeg-table table{width:100%;border-collapse:collapse}
+.oeg-table th,.oeg-table td{padding:16px 22px;text-align:left;border-bottom:1px solid var(--line);font-size:.98rem}
+.oeg-table thead th{font-family:"League Spartan";font-size:1.05rem;color:var(--deep);background:var(--lav)}
+.oeg-table thead th.oeg-us{background:var(--purple);color:#fff}
+.oeg-table td.oeg-them{color:#8a8398}
+.oeg-table td.oeg-us{background:#F8F4FD;font-weight:700;color:var(--purple);text-align:center}
+.oeg-table th:nth-child(2),.oeg-table th:nth-child(3),.oeg-table td:nth-child(2){text-align:center}
+.oeg-table tr:last-child td{border-bottom:0}
+.oeg-quote{margin:40px auto 0;max-width:780px;text-align:center;font-family:"League Spartan";font-size:1.5rem;font-weight:600;line-height:1.3}
+
+/* features */
+.oeg-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.oeg-elevate{margin-top:26px;border-radius:var(--r-card);padding:26px 30px;background:linear-gradient(120deg,var(--lav),#E9FBF4);display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center}
+.oeg-elevate b{font-family:"League Spartan";color:var(--purple)}
+.oeg-elevate span{font-size:.95rem;color:var(--muted)}
+
+/* founders */
+.oeg-founders{background:var(--lav)}
+.oeg-founders .oeg-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.oeg-founders img{border-radius:var(--r-card);box-shadow:var(--shadow);width:100%}
+.oeg-founders p{margin-top:18px;color:#4a4458}
+.oeg-fstats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.oeg-fstats div{background:#fff;border-radius:16px;padding:16px;text-align:center}
+.oeg-fstats b{display:block;font-family:"League Spartan";font-size:1.8rem;color:var(--purple);line-height:1}
+.oeg-fstats span{font-size:.82rem;color:var(--muted)}
+
+/* pricing */
+.oeg-prices{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;align-items:stretch}
+.oeg-price{border:1px solid var(--line);border-radius:var(--r-card);padding:30px 24px;display:flex;flex-direction:column;background:#fff;position:relative}
+.oeg-price.is-pop{border:2px solid var(--purple);box-shadow:var(--shadow)}
+.oeg-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--purple);color:#fff;font-family:"League Spartan";font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;white-space:nowrap}
+.oeg-price.is-free .oeg-tag{background:var(--mint);color:var(--deep)}
+.oeg-price h3{font-size:1.5rem}
+.oeg-amt{font-family:"League Spartan";font-weight:800;font-size:2.4rem;color:var(--deep);margin:10px 0 2px;line-height:1}
+.oeg-amt small{font-size:1rem;font-weight:600;color:var(--muted)}
+.oeg-per{font-size:.88rem;color:var(--muted);min-height:22px}
+.oeg-price ul{list-style:none;margin:20px 0 26px;display:grid;align-content:start;gap:10px;font-size:.94rem;flex:1}
+.oeg-price li{padding-left:24px;position:relative}
+.oeg-price li::before{content:"✓";position:absolute;left:0;color:var(--amethyst);font-weight:800}
+.oeg-price .oeg-btn{width:100%}
+.oeg-annual{display:inline-block;margin-top:18px;background:#E9FBF4;color:#177a52;font-weight:600;padding:8px 16px;border-radius:999px;font-size:.95rem}
+.oeg-price-note{text-align:center;margin-top:28px;color:var(--muted)}
+.oeg-price-note a{color:var(--purple);font-weight:600}
+
+/* founder call */
+.oeg-call .oeg-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.oeg-call-card{background:#fff;border-radius:var(--r-card);box-shadow:var(--shadow);overflow:hidden;max-width:420px;margin:0 auto}
+.oeg-call-card img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top}
+.oeg-call-card div{padding:20px 24px}
+.oeg-call-card b{font-family:"League Spartan";font-size:1.2rem;color:var(--deep)}
+.oeg-call-card small{display:block;color:var(--muted);font-size:.88rem;margin-top:4px}
+.oeg-call p{margin:18px 0 28px;color:#4a4458}
+
+/* schools */
+.oeg-schools{background:linear-gradient(135deg,var(--deep),var(--purple));color:#fff}
+.oeg-schools .oeg-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.oeg-schools h2{color:#fff}
+.oeg-schools .oeg-eyebrow{color:var(--mint)}
+.oeg-schools p{color:rgba(255,255,255,.85);margin-top:18px}
+.oeg-schools .oeg-bul{list-style:none;margin:26px 0 30px;display:grid;gap:12px}
+.oeg-form{background:#fff;color:var(--ink);border-radius:var(--r-card);padding:32px}
+.oeg-form h3{margin-bottom:4px}
+.oeg-schools .oeg-form p{color:var(--muted)!important;margin:0 0 20px!important;font-size:.95rem}
+.oeg-form .oeg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.oeg-form label{display:block;font-size:.85rem;font-weight:600;color:var(--deep);margin:12px 0 6px}
+.oeg-form input,.oeg-form select,.oeg-form textarea{width:100%;font:inherit;font-size:.97rem;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#FBF9FE}
+.oeg-form input:focus,.oeg-form select:focus,.oeg-form textarea:focus{outline:2px solid var(--magenta);border-color:transparent}
+.oeg-form .oeg-btn{width:100%;margin-top:20px}
+.oeg-form small{display:block;text-align:center;color:var(--muted);margin-top:12px;font-size:.82rem}
+.oeg-form-ok{display:none;text-align:center;padding:40px 10px}
+.oeg-form-ok b{font-family:"League Spartan";font-size:1.5rem;color:var(--deep);display:block;margin-bottom:8px}
+
+/* faq */
+.oeg-faq{max-width:820px;margin:44px auto 0}
+.oeg-faq details{border-bottom:1px solid var(--line);padding:20px 4px}
+.oeg-faq summary{cursor:pointer;list-style:none;font-family:"League Spartan";font-weight:700;font-size:1.18rem;color:var(--deep);display:flex;justify-content:space-between;gap:20px}
+.oeg-faq summary::-webkit-details-marker{display:none}
+.oeg-faq summary::after{content:"+";color:var(--amethyst);font-size:1.5rem;line-height:1}
+.oeg-faq details[open] summary::after{content:"−"}
+.oeg-faq p{margin-top:12px;color:var(--muted)}
+
+/* creator */
+.oeg-creator{background:var(--lav)}
+.oeg-creator .oeg-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.oeg-creator img{border-radius:var(--r-card);width:100%;max-width:380px;margin:0 auto}
+.oeg-creator p{margin:16px 0 24px;color:#4a4458}
+.oeg-creator .oeg-pill{display:inline-block;background:#fff;border-radius:999px;padding:8px 16px;font-weight:600;color:var(--purple);margin-bottom:18px;font-size:.95rem}
+
+/* ig */
+.oeg-ig{text-align:center}
+.oeg-ig-slot{margin-top:36px}
+
+/* final */
+.oeg-final{background:radial-gradient(900px 400px at 50% 0%,var(--amethyst),var(--deep));color:#fff;text-align:center}
+.oeg-final h2{color:#fff;max-width:820px;margin:0 auto}
+.oeg-final p{color:rgba(255,255,255,.85);margin:18px auto 30px;max-width:620px;font-size:1.15rem}
+.oeg-final .oeg-checks{justify-content:center;color:rgba(255,255,255,.85)}
+.oeg-final .oeg-big{font-family:"League Spartan";font-weight:700;color:var(--mint);font-size:1.2rem;margin-bottom:18px;letter-spacing:.02em}
+
+/* footer */
+.oeg-foot{background:#1d0e3a;color:rgba(255,255,255,.7);padding:40px 0 110px;font-size:.92rem}
+.oeg-foot .oeg-wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.oeg-foot img{height:30px;filter:brightness(0) invert(1);opacity:.9}
+.oeg-foot nav{display:flex;gap:22px}
+.oeg-foot a{text-decoration:none}.oeg-foot a:hover{color:#fff}
+
+/* sticky mobile cta */
+.oeg-sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;gap:10px;background:#fff;border-radius:16px;padding:10px;box-shadow:0 10px 40px -8px rgba(45,22,89,.45);transform:translateY(140%);transition:transform .3s}
+.oeg-sticky.is-show{transform:none}
+.oeg-sticky .oeg-btn{flex:1;padding:14px 10px;font-size:.98rem}
+
+/* reveal */
+.oeg-rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.oeg-rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.oeg-rv,.oeg-period{opacity:1;transform:none;transition:none}.oeg-sound{animation:none}}
+
+/* responsive */
+@media (max-width:1024px){
+  .oeg-nav-links{display:none}
+  .oeg-prices{grid-template-columns:repeat(2,1fr);row-gap:30px}
+  .oeg-steps{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:880px){
+  .oeg-sec{padding:72px 0}
+  .oeg-hero{padding:36px 0 60px}
+  .oeg-hero .oeg-wrap,.oeg-periods .oeg-wrap,.oeg-demo .oeg-wrap,.oeg-founders .oeg-wrap,.oeg-call .oeg-wrap,.oeg-schools .oeg-wrap,.oeg-creator .oeg-wrap{grid-template-columns:1fr;gap:40px}
+  .oeg-hero-video{order:-1}
+  .oeg-three,.oeg-feats{grid-template-columns:1fr}
+  .oeg-proof .oeg-wrap{grid-template-columns:repeat(2,1fr);row-gap:26px}
+  .oeg-nav-cta .oeg-btn-ghost{display:none}
+  .oeg-sticky{display:flex}
+  .oeg-table th,.oeg-table td{padding:12px 12px;font-size:.88rem}
+  .oeg-creator img{max-width:300px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .oeg-prices,.oeg-steps{grid-template-columns:1fr}
+  .oeg-form .oeg-row{grid-template-columns:1fr}
+  .oeg-banner{font-size:.68rem;letter-spacing:.08em}
+  .oeg-banner span{margin:0 5px}
+  .oeg-hero-ctas .oeg-btn{width:100%}
+  .oeg-reel iframe{height:560px}
+  .oeg-table td.oeg-them{font-size:.8rem}
+}
+</style>
 </head>
 <body>
 
-<!-- ===== 00 · Top conversion banner (One Eleven Group, corrected) ===== -->
-<div class="oeg-banner">
-  <style>
-    .oeg-banner {
-      --p:  var(--tg-purple, #401F7D);
-      --pd: var(--tg-purple-dark, #2D1659);
-      --m:  var(--tg-magenta, #B14FC5);
-      --am: #88229D;
-      --green: var(--tg-green, #3FDE9D);
-      --fh: var(--font-head, 'League Spartan', sans-serif);
-      --fb: var(--font-body, 'Work Sans', sans-serif);
-
-      box-sizing: border-box;
-      font-family: var(--fb);
-      background: linear-gradient(135deg, #2D1659 0%, #401F7D 45%, #88229D 100%);
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-
-      /* The banner sits in normal document flow and scrolls away with the
-         page. The nav is offset beneath it by the script at the bottom
-         of this file. Do not set position:fixed here — that reintroduces
-         the overlap this file exists to solve. */
-    }
-    .oeg-banner *, .oeg-banner *::before, .oeg-banner *::after { box-sizing: border-box; }
-
-    /* faint diagonal texture, same family as the site's purple strips */
-    .oeg-banner::before {
-      content: ""; position: absolute; inset: 0;
-      background: repeating-linear-gradient(115deg,
-        rgba(255,255,255,.05) 0 1px, rgba(255,255,255,0) 1px 26px);
-      pointer-events: none;
-    }
-
-    .oeg-banner__inner {
-      position: relative;
-      max-width: 1180px; margin: 0 auto; padding: 11px 32px;
-      display: flex; align-items: center; justify-content: center;
-      gap: 10px 18px; flex-wrap: wrap; text-align: center;
-    }
-
-    .oeg-banner__items {
-      display: flex; align-items: center; flex-wrap: wrap;
-      justify-content: center; gap: 8px 14px;
-    }
-
-    .oeg-banner__lead {
-      font-family: var(--fh); font-size: 15px; font-weight: 800;
-      letter-spacing: .02em; text-transform: uppercase; color: #fff;
-    }
-
-    .oeg-banner__item {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 13px; font-weight: 500; letter-spacing: .02em;
-      color: rgba(255,255,255,.88);
-    }
-    .oeg-banner__item svg { flex: none; color: var(--green); }
-
-    .oeg-banner__sep {
-      width: 4px; height: 4px; border-radius: 50%;
-      background: rgba(255,255,255,.34); flex: none;
-    }
-
-    .oeg-banner__cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 13px; font-weight: 700; text-decoration: none;
-      color: #fff; background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.26);
-      padding: 7px 16px; border-radius: 100px;
-      transition: background .16s ease, transform .16s ease;
-      white-space: nowrap;
-    }
-    .oeg-banner__cta:hover { background: rgba(255,255,255,.24); transform: translateY(-1px); }
-
-    @media (max-width: 860px) {
-      .oeg-banner__inner { padding: 10px 20px; }
-      .oeg-banner__lead { font-size: 14px; }
-      .oeg-banner__sep { display: none; }
-    }
-    @media (max-width: 560px) {
-      /* on phones, keep the offer and drop the supporting proof so it stays one tidy line */
-      .oeg-banner__item--trim { display: none; }
-      .oeg-banner__cta { padding: 6px 14px; font-size: 12px; }
-    }
-  </style>
-
-  <div class="oeg-banner__inner">
-    <div class="oeg-banner__items">
-      <span class="oeg-banner__lead">First month free</span>
-
-      <span class="oeg-banner__sep" aria-hidden="true"></span>
-
-      <span class="oeg-banner__item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        No credit card required
-      </span>
-
-      <span class="oeg-banner__sep" aria-hidden="true"></span>
-
-      <span class="oeg-banner__item oeg-banner__item--trim">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        No gimmicks, just better lessons
-      </span>
-    </div>
-
-    <!-- Signup link. Points at the app, not the pricing anchor — a visitor
-         who clicks "Start free" should land in the product, not scroll to a
-         table and have to decide again. -->
-    <a class="oeg-banner__cta" href="https://app.gettangram.com">Start free &rarr;</a>
-  </div>
-
-  <script>
-  /* Offsets the site's fixed nav so this banner is actually visible.
-     Self-contained, runs once, no dependencies, safe to paste twice. */
-  (function () {
-    if (window.__oegBannerInit) return;
-    window.__oegBannerInit = true;
-
-    function start() {
-      var banner = document.querySelector('.oeg-banner');
-      var nav = document.querySelector('nav.nav, #nav, header nav, nav');
-      if (!banner || !nav) return;
-
-      /* If the nav is sticky or static, the browser already handles it. */
-      var pos = getComputedStyle(nav).position;
-      if (pos !== 'fixed') return;
-
-      /* The site's nav has `transition: all .4s`, which would animate this
-         offset on every scroll frame and lag behind the page. Keep the
-         colour/shadow transitions, drop the transform from them. */
-      nav.style.willChange = 'transform';
-      nav.style.transition =
-        'background .4s cubic-bezier(.4,0,.2,1), border-color .4s cubic-bezier(.4,0,.2,1), box-shadow .4s cubic-bezier(.4,0,.2,1)';
-
-      /* Offset is the banner's bottom edge relative to the viewport, clamped
-         at zero. At the top of the page that equals the banner height; as the
-         banner scrolls away it falls to zero and the nav pins to the top.
-         Measuring the live edge rather than a cached height means this also
-         survives the banner wrapping to two lines, fonts loading late, or
-         anything else being inserted above it. */
-      var ticking = false;
-      function apply() {
-        var offset = Math.max(0, banner.getBoundingClientRect().bottom);
-        nav.style.transform = offset ? 'translate3d(0,' + offset + 'px,0)' : '';
-        ticking = false;
-      }
-      function measure() { apply(); }
-      function onScroll() {
-        if (!ticking) { ticking = true; requestAnimationFrame(apply); }
-      }
-
-      measure();
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', measure);
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', start);
-    } else { start(); }
-  })();
-  </script>
-</div>
-<!-- ===== end 00 ===== -->
+<!-- TOP BANNER -->
+<div class="oeg-banner"><a href="https://app.gettangram.com/start?intent=free&src=hp_banner">FIRST MONTH FREE<span>•</span>NO CREDIT CARD REQUIRED<span>•</span>NO GIMMICKS</a></div>
 
 <!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <img src="Tangram_Logo.svg" alt="Tangram" class="nav-logo-img">
-    </a>
-    <div class="nav-links">
-      <a href="#how">How It Works</a>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#campus-inquire">For Schools</a>
-      <a href="/blog/">Blog</a>
-      <a href="https://app.gettangram.com" class="nav-cta">Start Free →</a>
+<header class="oeg-nav">
+  <div class="oeg-wrap">
+    <a href="#top" aria-label="Tangram home"><img src="https://www.gettangram.com/Tangram_Logo.svg" alt="Tangram" width="140" height="34"></a>
+    <ul class="oeg-nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#campus-inquire">For Schools</a></li>
+      <li><a href="https://www.gettangram.com/blog/">Blog</a></li>
+    </ul>
+    <div class="oeg-nav-cta">
+      <a class="oeg-btn oeg-btn-ghost oeg-btn-sm" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call</a>
+      <a class="oeg-btn oeg-btn-primary oeg-btn-sm" href="https://app.gettangram.com/start?intent=free&src=hp_nav">Start Free</a>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- ===== 01 · Hero with the Why Tangram video (One Eleven Group, corrected) ===== -->
+<main id="top">
+
+<!-- HERO -->
 <section class="oeg-hero">
-  <style>
-    .oeg-hero {
-      --p:  var(--tg-purple, #401F7D);
-      --pd: var(--tg-purple-dark, #2D1659);
-      --m:  var(--tg-magenta, #B14FC5);
-      --am: #88229D;
-      --green: var(--tg-green, #3FDE9D);
-      --blue: var(--tg-blue, #5FD0FF);
-      --ink: var(--tg-ink, #333333);
-      --muted: var(--tg-muted, #6f6b7d);
-      --line: var(--tg-line, rgba(64,31,125,0.10));
-      --rad: var(--tg-rad, 24px);
-      --btn: var(--tg-btn, 12px);
-      --fh: var(--font-head, 'League Spartan', sans-serif);
-      --fb: var(--font-body, 'Work Sans', sans-serif);
-
-      box-sizing: border-box;
-      font-family: var(--fb); color: var(--ink);
-      background: linear-gradient(165deg,#FDFCFE 0%,#F9F7FC 40%,#F3EEF8 80%,#EDE6F3 100%);
-      padding: clamp(64px, 10vw, 150px) 0 clamp(56px, 8vw, 110px);
-    }
-    .oeg-hero *, .oeg-hero *::before, .oeg-hero *::after { box-sizing: border-box; }
-
-    .oeg-hero__container {
-      max-width: 1180px; margin: 0 auto; padding: 0 32px;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: clamp(32px, 5vw, 64px); align-items: center;
-    }
-
-    .oeg-hero__badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 26px; }
-    .oeg-hero__badge {
-      display: inline-flex; align-items: center; gap: 9px;
-      background: rgba(255,255,255,.9); color: var(--p);
-      font-size: 13px; font-weight: 500; font-family: var(--fb);
-      padding: 10px 20px; border-radius: 100px;
-      box-shadow: 0 2px 12px rgba(64,31,125,.06); margin: 0;
-    }
-    .oeg-hero__badge--tagline {
-      background: var(--orchid-light, rgba(177,79,197,0.08));
-      border: 1px solid rgba(177,79,197,.22);
-      color: var(--m); font-weight: 600; box-shadow: none;
-    }
-    .oeg-hero__dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: var(--green); }
-
-    .oeg-hero__title {
-      font-family: var(--fh); font-size: clamp(38px, 5vw, 62px);
-      font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
-      color: var(--p); margin: 0 0 22px;
-    }
-    .oeg-hero__title span { color: var(--m); }
-
-    .oeg-hero__copy {
-      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
-      color: var(--ink); margin: 0 0 30px; max-width: 46ch;
-    }
-
-    .oeg-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 22px; }
-    .oeg-hero__btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      font-family: var(--fb); font-size: 16px; font-weight: 500;
-      text-decoration: none; padding: 16px 32px; border-radius: var(--btn);
-      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
-    }
-    .oeg-hero__btn--primary {
-      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
-      color: #fff; box-shadow: 0 4px 16px rgba(177,79,197,.25);
-    }
-    .oeg-hero__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
-    .oeg-hero__btn--secondary {
-      background: rgba(255,255,255,.8); color: var(--p);
-      border: 2px solid rgba(64,31,125,.12);
-    }
-    .oeg-hero__btn--secondary:hover { border-color: rgba(64,31,125,.28); transform: translateY(-2px); }
-
-    .oeg-hero__fine { font-size: 14px; line-height: 1.7; color: var(--muted); margin: 0; }
-    .oeg-hero__fine strong {
-      color: var(--p); font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
-    }
-
-    /* ---------- video ---------- */
-    .oeg-hero__label {
-      display: flex; align-items: center; gap: 14px;
-      font-family: var(--fb); font-size: 12px; font-weight: 600;
-      letter-spacing: 1.44px; text-transform: uppercase;
-      color: var(--m); margin: 0 0 14px;
-    }
-    .oeg-hero__label::before {
-      content: ""; width: 28px; height: 2px; flex: none;
-      background: var(--m); border-radius: 2px;
-    }
-
-    .oeg-hero__frame {
-      position: relative; width: 100%; aspect-ratio: 16 / 9;
-      border-radius: var(--rad); overflow: hidden;
-      background: linear-gradient(135deg, #5B2E9E 0%, var(--m) 100%);
-      box-shadow: 0 18px 48px rgba(64,31,125,.20);
-      border: 1px solid var(--line);
-    }
-    .oeg-hero__frame > video, .oeg-hero__frame > iframe {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      border: 0; display: block; object-fit: cover;
-    }
-
-    /* placeholder: play button and two words, nothing else */
-    .oeg-hero__ph {
-      position: absolute; inset: 0; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 20px;
-      text-align: center; padding: 24px; color: #fff;
-      text-decoration: none; cursor: pointer;
-    }
-    .oeg-hero__play {
-      width: 78px; height: 78px; flex: none; border-radius: 50%;
-      background: rgba(255,255,255,.18); border: 2px solid rgba(255,255,255,.65);
-      display: flex; align-items: center; justify-content: center;
-      transition: transform .18s ease, background .18s ease;
-    }
-    .oeg-hero__ph:hover .oeg-hero__play { transform: scale(1.06); background: rgba(255,255,255,.28); }
-    .oeg-hero__play svg { margin-left: 5px; }
-    .oeg-hero__ph-label {
-      font-family: var(--fh); font-size: clamp(22px, 2.6vw, 30px);
-      font-weight: 800; letter-spacing: -0.01em; margin: 0; color: #fff;
-    }
-
-    @media (max-width: 900px) {
-      .oeg-hero__container { grid-template-columns: 1fr; }
-      .oeg-hero__media { order: -1; }
-      .oeg-hero__copy { max-width: none; }
-    }
-    @media (max-width: 560px) {
-      .oeg-hero__btn { width: 100%; }
-      .oeg-hero__play { width: 58px; height: 58px; }
-      .oeg-hero__play svg { width: 20px; height: 23px; }
-      .oeg-hero__ph-label { font-size: 22px; }
-    }
-  </style>
-
-  <style>
-    /* fills the frame the same way the placeholder did, so nothing shifts */
-    .oeg-hero__video {
-      display: block; width: 100%; height: 100%;
-      object-fit: cover; background: #2D1659; border: 0;
-    }
-  </style>
-
-  <div class="oeg-hero__container">
-
-    <div class="oeg-hero__content">
-      <div class="oeg-hero__badges">
-        <span class="oeg-hero__badge"><span class="oeg-hero__dot"></span>Built by the founders of Mosaic IP</span>
-        <span class="oeg-hero__badge oeg-hero__badge--tagline">Built for teachers, by teachers</span>
+  <div class="oeg-wrap">
+    <div>
+      <span class="oeg-eyebrow">AI lesson planner · Built for teachers, by teachers</span>
+      <h1>Reach every student in <span class="oeg-grad">every class you teach.</span></h1>
+      <p class="oeg-lead">Build one lesson with Tan. Tangram rebuilds it for each class period, with IEPs, ELLs and reading levels built in. Same standard. A real way in for every kid sitting in front of you.</p>
+      <div class="oeg-hero-ctas">
+        <a class="oeg-btn oeg-btn-primary" href="https://app.gettangram.com/start?intent=free&src=hp_hero">Start Your Free Month →</a>
+        <a class="oeg-btn oeg-btn-ghost" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Talk to a Founder</a>
       </div>
-
-      <h1 class="oeg-hero__title">Every class is different.<br>Now your lessons <span>can be too.</span></h1>
-
-      <p class="oeg-hero__copy">
-        Build one lesson with Tan, our AI planning partner powered by Shared Space Teaching &mdash;
-        the methodology our founders built in their own classrooms and refined coaching in
-        650+ districts. Then watch it adapt for every class you teach.
-      </p>
-
-      <div class="oeg-hero__actions">
-        <!-- Signup goes straight into the app, matching the nav CTA. -->
-        <a class="oeg-hero__btn oeg-hero__btn--primary" href="https://app.gettangram.com">Start Free &rarr;</a>
-        <!-- TEACHER booking calendar (15 min). This is a DIFFERENT calendar from
-             the district one on the "For Schools" block further down the page
-             (calendar.app.google/THyRt4fbd7Z3DDE97). Keep them separate — a
-             teacher asking "does this fit my classroom" and a principal asking
-             "what does this cost for 45 staff" need different calls. -->
-        <a class="oeg-hero__btn oeg-hero__btn--secondary" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call</a>
-      </div>
-
-      <p class="oeg-hero__fine">
-        <strong>First month free</strong> &middot; From $5.99/mo after &middot; No credit card to start &middot; Cancel anytime
-      </p>
-    </div>
-
-    <div class="oeg-hero__media">
-      <p class="oeg-hero__label">Tangram Explained</p>
-      <div class="oeg-hero__frame">
-
-        <!-- ==================== VIDEO ====================
-             Click-to-load YouTube facade.
-
-             Video: "Tangram website informational header 1 2"
-             https://youtu.be/-L8hTcYJNWE
-
-             The id lives in two places below, data-yt and href. To swap
-             videos later, find-and-replace the id — the handler validates
-             the format rather than comparing against a placeholder, so a
-             replace-all cannot break it.
-
-             WHY A FACADE INSTEAD OF A PLAIN IFRAME:
-
-             A YouTube <iframe> loads roughly a megabyte of player code on
-             every page view whether or not anyone presses play, and it sets
-             third-party cookies on arrival. In the hero that cost lands on
-             the slowest, most important moment of the page.
-
-             This version renders the branded panel instead and only builds
-             the iframe when someone actually clicks. Until then there is no
-             YouTube request at all — which also means no YouTube cookie on a
-             site that markets itself as privacy-first.
-
-             It uses youtube-nocookie.com, so even after playback starts
-             YouTube's tracking cookies are not set.
-
-             It is also a real link. With JavaScript off, on a school network
-             that blocks YouTube, or if the embed is ever disabled, clicking
-             opens the video on youtube.com in a new tab rather than
-             presenting a dead grey box.
-        ================================================= -->
-
-        <a class="oeg-hero__ph"
-           id="oeg-hero-play"
-           data-yt="-L8hTcYJNWE"
-           href="https://www.youtube.com/watch?v=-L8hTcYJNWE"
-           target="_blank" rel="noopener"
-           aria-label="Play: Why Tangram?">
-          <span class="oeg-hero__play" aria-hidden="true">
-            <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M25 15L0.999999 29.2894L1 0.710581L25 15Z" fill="#ffffff"/>
-            </svg>
-          </span>
-          <p class="oeg-hero__ph-label">Why Tangram?</p>
-        </a>
-
-        <script>
-        (function () {
-          var a = document.getElementById('oeg-hero-play');
-          if (!a) return;
-          a.addEventListener('click', function (e) {
-            var id = a.getAttribute('data-yt');
-            /* A YouTube id is exactly 11 chars of [A-Za-z0-9_-]. Anything else
-               means it was never filled in, so fall through to the plain link
-               rather than building a broken embed. Deliberately not comparing
-               against the placeholder string — a find-and-replace-all would
-               rewrite the comparison too and silently disable this handler. */
-            if (!id || !/^[A-Za-z0-9_-]{11}$/.test(id)) return;
-            if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-            e.preventDefault();
-            var f = document.createElement('iframe');
-            f.src = 'https://www.youtube-nocookie.com/embed/' + id +
-                    '?autoplay=1&rel=0&playsinline=1&modestbranding=1&color=white';
-            f.title = 'Why Tangram?';
-            f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-            f.setAttribute('allowfullscreen', '');
-            a.parentNode.replaceChild(f, a);
-          });
-        })();
-        </script>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- ===== end 01 ===== -->
-
-<!-- HOW IT WORKS -->
-<section class="how-strip" id="how">
-  <div class="container">
-    <div class="how-grid">
-      <div class="how-step">
-        <div class="how-num">1</div>
-        <div class="how-label">Start where you are</div>
-        <div class="how-detail">Topic, objective, standard, curriculum — six ways to begin</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num">2</div>
-        <div class="how-label">Build with Tan</div>
-        <div class="how-detail">Seven guided pieces — each one shaped by our original methodology</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num">3</div>
-        <div class="how-label">Add your students</div>
-        <div class="how-detail">IEPs, ELLs, reading levels — tell Tan who's in each class</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num">4</div>
-        <div class="how-label">Teach with confidence</div>
-        <div class="how-detail">Each class gets a lesson built for the students in it</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- METHODOLOGY -->
-<section class="methodology" id="methodology">
-  <div class="container">
-    <div class="methodology-inner">
-      <div class="methodology-content">
-        <div class="section-tag">Why Tan Is Different</div>
-        <h2>Not just another AI generator. Your methodology partner.</h2>
-        <p>
-          Tan isn't trained on the internet — or on a patchwork of other people's frameworks. It's powered by an original methodology our founders developed through 50+ years of combined experience, refined across hundreds of districts and thousands of teachers coached.
-        </p>
-        <p>
-          We didn't curate best practices. We built something new — a way of planning that works because we've tested it, taught it, and watched it transform classrooms from the inside.
-        </p>
-        <ul class="methodology-list">
-          <li>Developed by practitioners who've worked from their own classrooms to state policy</li>
-          <li>Works with Danielson, Marzano, and UbD — but stands on its own</li>
-          <li>Battle-tested structures that survive observation season</li>
-          <li>The coaching we'd give you in person — now built into every lesson</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 02 · See Tan in action (One Eleven Group, corrected) ===== -->
-<section class="oeg-reel">
-  <style>
-    .oeg-reel {
-      --p:  var(--tg-purple, #401F7D);
-      --pd: var(--tg-purple-dark, #2D1659);
-      --m:  var(--tg-magenta, #B14FC5);
-      --am: #88229D;
-      --green: var(--tg-green, #3FDE9D);
-      --blue: var(--tg-blue, #5FD0FF);
-      --ink: var(--tg-ink, #333333);
-      --muted: var(--tg-muted, #6f6b7d);
-      --line: var(--tg-line, rgba(64,31,125,0.10));
-      --rad: var(--tg-rad, 24px);
-      --btn: var(--tg-btn, 12px);
-      --fh: var(--font-head, 'League Spartan', sans-serif);
-      --fb: var(--font-body, 'Work Sans', sans-serif);
-
-      box-sizing: border-box;
-      font-family: var(--fb); color: var(--ink);
-      background: linear-gradient(#FFFFFF 0%, #F5F4F7 100%);
-      padding: clamp(48px, 6.5vw, 92px) 0;
-    }
-    .oeg-reel *, .oeg-reel *::before, .oeg-reel *::after { box-sizing: border-box; }
-
-    .oeg-reel__container {
-      max-width: 1180px; margin: 0 auto; padding: 0 32px;
-      display: grid; grid-template-columns: 1.1fr .9fr;
-      gap: clamp(30px, 5vw, 66px); align-items: center;
-    }
-
-    .oeg-reel__tag {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
-      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
-    }
-    .oeg-reel__tag::before {
-      content: ""; width: 28px; height: 2px; flex: none;
-      background: var(--m); border-radius: 2px;
-    }
-
-    .oeg-reel__title {
-      font-family: var(--fh); font-size: clamp(30px, 4.2vw, 48px);
-      font-weight: 800; line-height: 1.06; letter-spacing: -0.025em;
-      color: var(--p); margin: 0 0 18px;
-    }
-    .oeg-reel__title span { color: var(--m); }
-
-    .oeg-reel__copy {
-      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
-      color: var(--ink); margin: 0 0 14px; max-width: 46ch;
-    }
-    .oeg-reel__copy:last-of-type { margin-bottom: 0; }
-
-    .oeg-reel__points { list-style: none; margin: 24px 0 0; padding: 0; }
-    .oeg-reel__points li {
-      display: flex; align-items: flex-start; gap: 11px;
-      font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 12px;
-    }
-    .oeg-reel__points svg { flex: none; margin-top: 4px; color: var(--m); }
-
-    .oeg-reel__media { display: flex; justify-content: center; }
-    .oeg-reel__embed {
-      width: 100%; max-width: 360px;
-      border-radius: var(--rad); overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: 0 18px 48px rgba(64,31,125,.16);
-      background: #fff;
-    }
-    .oeg-reel__embed iframe {
-      display: block; width: 100%; height: 700px; border: 0;
-    }
-
-    @media (max-width: 900px) {
-      .oeg-reel__container { grid-template-columns: 1fr; }
-      .oeg-reel__copy { max-width: none; }
-    }
-    @media (max-width: 480px) {
-      .oeg-reel__embed iframe { height: 660px; }
-    }
-  </style>
-
-  <style>
-    .oeg-reel__fallback {
-      margin: 12px 0 0; text-align: center;
-      font-size: 13px; font-family: var(--font-body, 'Work Sans', sans-serif);
-    }
-    .oeg-reel__fallback a {
-      color: var(--tg-magenta, #B14FC5);
-      text-decoration: none; font-weight: 600;
-    }
-    .oeg-reel__fallback a:hover { text-decoration: underline; }
-  </style>
-
-  <div class="oeg-reel__container">
-
-    <div class="oeg-reel__content">
-      <p class="oeg-reel__tag">Real lessons, real classrooms</p>
-      <h2 class="oeg-reel__title">See Tan <span>in action.</span></h2>
-
-      <p class="oeg-reel__copy">
-        One lesson, built once, then rebuilt for every period you teach. Same standard, same
-        outcome, a different route in for each group of kids sitting in front of you.
-      </p>
-
-      <ul class="oeg-reel__points">
-        <li>
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Five classes, five ways in &mdash; not one generic lesson fixed five times
-        </li>
-        <li>
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          IEPs, ELLs and reading levels built in, not bolted on at the end
-        </li>
-        <li>
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Already in the language of Danielson, Marzano and UbD
-        </li>
+      <ul class="oeg-checks">
+        <li>No credit card</li>
+        <li>Nothing charges automatically</li>
+        <li>From $5.99/mo after</li>
       </ul>
     </div>
-
-    <div class="oeg-reel__media">
-      <div class="oeg-reel__embed">
-        <!-- SWAP: change the reel code to embed a different post -->
-        <iframe src="https://www.instagram.com/reel/DbdpOj2EW_A/embed"
-                title="Tangram on Instagram"
-                scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+    <div class="oeg-hero-video">
+      <div class="oeg-video">
+        <!-- Hero video: the same YouTube video as the previous homepage (privacy-enhanced embed, muted autoplay loop).
+             To swap it, change data-yt to the new video's ID. -->
+        <div id="oeg-hero-vid" data-yt="-L8hTcYJNWE" aria-label="Why Tangram? Video overview of the Tangram AI lesson planner"></div>
+        <button class="oeg-sound" id="oeg-sound" type="button" aria-pressed="false">🔊 Tap for sound</button>
       </div>
-
-      <!-- Fallback for anyone whose browser blocks the Instagram frame. -->
-      <p class="oeg-reel__fallback">
-        <a href="https://www.instagram.com/reel/DbdpOj2EW_A/" target="_blank" rel="noopener">
-          Reel not loading? Watch it on Instagram &rarr;
-        </a>
-      </p>
-    </div>
-
-  </div>
-</section>
-<!-- ===== end 02 ===== -->
-
-<!-- COMPARISON (KG Creative) -->
-<section class="tg-compare" id="comparison">
-  <div class="tg-wrap">
-
-    <div class="tg-head">
-      <p class="tg-eyebrow">Why Tangram Is Different</p>
-      <h2>Not just another AI generator.</h2>
-      <p class="tg-sub">Most AI planners are trained on the open internet. Tangram is powered by an original methodology real educators built in real classrooms.</p>
-    </div>
-
-    <div class="tg-table" role="table" aria-label="Tangram compared to generic AI planners">
-
-      <div class="tg-row tg-row-head" role="row">
-        <div class="tg-cell tg-crit" role="columnheader">&nbsp;</div>
-        <div class="tg-cell tg-h-generic" role="columnheader">Generic AI Planners</div>
-        <div class="tg-cell tg-h-tan" role="columnheader">Tangram<small>Your methodology partner</small></div>
-      </div>
-
-      <div class="tg-row" role="row">
-        <div class="tg-cell tg-crit">Built on a proven teaching methodology</div>
-        <div class="tg-cell tg-col-generic"><span class="tg-txt">Trained on the internet</span></div>
-        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
-      </div>
-
-      <div class="tg-row" role="row">
-        <div class="tg-cell tg-crit">One lesson, auto-differentiated for every class</div>
-        <div class="tg-cell tg-col-generic"><span class="tg-txt">One-size output</span></div>
-        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
-      </div>
-
-      <div class="tg-row" role="row">
-        <div class="tg-cell tg-crit">Observation-ready (Danielson, Marzano, UbD)</div>
-        <div class="tg-cell tg-col-generic"><span class="tg-mark tg-no"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></span></div>
-        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
-      </div>
-
-      <div class="tg-row" role="row">
-        <div class="tg-cell tg-crit">Adapts to IEPs, ELLs, reading levels &amp; MTSS</div>
-        <div class="tg-cell tg-col-generic"><span class="tg-txt">Generic supports</span></div>
-        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
-      </div>
-
-      <div class="tg-row" role="row">
-        <div class="tg-cell tg-crit">No student rosters required — privacy-first</div>
-        <div class="tg-cell tg-col-generic"><span class="tg-txt">Wants your student data</span></div>
-        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
-      </div>
-
-      <div class="tg-row" role="row">
-        <div class="tg-cell tg-crit">Learning progressions for any standard</div>
-        <div class="tg-cell tg-col-generic"><span class="tg-mark tg-no"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></span></div>
-        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
-      </div>
-
-      <div class="tg-row" role="row">
-        <div class="tg-cell tg-crit">Human coaching from real educators</div>
-        <div class="tg-cell tg-col-generic"><span class="tg-mark tg-no"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></span></div>
-        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
-      </div>
-
-      <div class="tg-row" role="row">
-        <div class="tg-cell tg-crit">Built by classroom educators, not just engineers</div>
-        <div class="tg-cell tg-col-generic"><span class="tg-mark tg-no"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></span></div>
-        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
-      </div>
-
-      <div class="tg-row" role="row">
-        <div class="tg-cell tg-crit">Predictable pricing — no per-generation fees</div>
-        <div class="tg-cell tg-col-generic"><span class="tg-txt">Varies</span></div>
-        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
-      </div>
-
-    </div>
-
-    <div class="tg-foot">
-      <a href="#pricing" class="tg-btn">See What Tangram Can Do</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- PULLQUOTE -->
-<section class="pullquote">
-  <div class="container">
-    <div class="pullquote-inner">
-      <div class="pullquote-mark">"</div>
-      <blockquote>
-        Other tools give you a lesson for a class. Tangram gives you a lesson for <em>your</em> class — built on a methodology we created, not borrowed.
-      </blockquote>
+      <p class="oeg-video-cap"><b>Tangram is an AI lesson planning tool built by two career teachers.</b> Build one lesson with Tan and Tangram creates a differentiated version for every class you teach, with supports for IEPs, English learners and reading levels built in.</p>
     </div>
   </div>
 </section>
 
-<!-- FEATURES (KG Creative) -->
-<section class="tg-features" id="features">
-  <div class="tg-wrap">
-
-    <div class="tg-head">
-      <p class="tg-eyebrow">Built for Real Classrooms</p>
-      <h2>Everything Tangram does.</h2>
-      <p class="tg-sub">One planning partner that knows your standards, your frameworks, and your students — and never asks for their data.</p>
-    </div>
-
-    <div class="tg-grid">
-
-      <div class="tg-card">
-        <div class="tg-ic">📚</div>
-        <h3>Your State Standards</h3>
-        <p>Every framework, every state. See what comes before and after any standard you teach.</p>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">🎯</div>
-        <h3>Observation-Ready</h3>
-        <p>Danielson, Marzano, Understanding by Design — the frameworks your evaluators actually use.</p>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">👥</div>
-        <h3>Knows Your Students</h3>
-        <p>IEPs, ELLs, reading levels, MTSS tiers — Tan adjusts every section accordingly.</p>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">🔄</div>
-        <h3>One Lesson, Every Class</h3>
-        <p>Build once. Get versions tailored for each group you teach that day.</p>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">🔗</div>
-        <h3>Learning Progressions</h3>
-        <p>See where your lesson fits — prerequisites, extensions, and the bigger picture.</p>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">🔒</div>
-        <h3>Privacy-First by Design</h3>
-        <p>No student rosters required. Name a class "Student A" — your kids' data stays yours, always.</p>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">🌐</div>
-        <h3>Language Translation</h3>
-        <p>Deliver lessons and family communication in your students' home languages.</p>
-        <span class="tg-pill">Elevate</span>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">🎓</div>
-        <h3>Google Classroom Outputs</h3>
-        <p>Push finished, differentiated lessons straight into Google Classroom.</p>
-        <span class="tg-pill">Elevate</span>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">📊</div>
-        <h3>Extensive Reporting</h3>
-        <p>Track your planning and differentiation with reporting built for accountability.</p>
-        <span class="tg-pill">Elevate</span>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">🗂️</div>
-        <h3>Your Media Library</h3>
-        <p>Save your own materials in Tangram and pull from them as you plan.</p>
-        <span class="tg-pill">Elevate</span>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">🎥</div>
-        <h3>Live Trainings</h3>
-        <p>Access our growing library of live methodology trainings — learn the moves, not just the tool.</p>
-      </div>
-
-      <div class="tg-card">
-        <div class="tg-ic">⚡</div>
-        <h3>Our Coaching, Built In</h3>
-        <p>Every piece includes strategies we developed through decades of practice — plus a direct line to real educators.</p>
-      </div>
-
-    </div>
-
-    <div class="tg-cta-row">
-      <a href="#pricing" class="tg-btn">See Plans &amp; Pricing</a>
-    </div>
-
+<!-- PROOF STRIP -->
+<section class="oeg-proof" aria-label="Experience">
+  <div class="oeg-wrap">
+    <div><b>650+</b><span>districts coached</span></div>
+    <div><b>50+</b><span>years in classrooms, combined</span></div>
+    <div><b>1000s</b><span>of teachers trained</span></div>
+    <div><b>15 yrs</b><span>NYC DOE partner</span></div>
   </div>
 </section>
 
-<!-- ===== 07 · Built for teachers, by teachers (One Eleven Group, corrected) ===== -->
-<section class="oeg-team">
-  <style>
-    .oeg-team {
-      --p:  var(--tg-purple, #401F7D);
-      --pd: var(--tg-purple-dark, #2D1659);
-      --m:  var(--tg-magenta, #B14FC5);
-      --am: #88229D;
-      --green: var(--tg-green, #3FDE9D);
-      --blue: var(--tg-blue, #5FD0FF);
-      --ink: var(--tg-ink, #333333);
-      --muted: var(--tg-muted, #6f6b7d);
-      --line: var(--tg-line, rgba(64,31,125,0.10));
-      --rad: var(--tg-rad, 24px);
-      --btn: var(--tg-btn, 12px);
-      --fh: var(--font-head, 'League Spartan', sans-serif);
-      --fb: var(--font-body, 'Work Sans', sans-serif);
-
-      box-sizing: border-box;
-      font-family: var(--fb); color: var(--ink);
-      background: #FFFFFF;
-      padding: clamp(56px, 8vw, 110px) 0;
-      overflow: hidden;
-    }
-    .oeg-team *, .oeg-team *::before, .oeg-team *::after { box-sizing: border-box; }
-
-    .oeg-team__container {
-      max-width: 1180px; margin: 0 auto; padding: 0 32px;
-      display: grid; grid-template-columns: .92fr 1.08fr;
-      gap: clamp(28px, 4vw, 60px); align-items: center;
-    }
-
-    .oeg-team__tag {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
-      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
-    }
-    .oeg-team__tag::before {
-      content: ""; width: 28px; height: 2px; flex: none;
-      background: var(--m); border-radius: 2px;
-    }
-
-    .oeg-team__title {
-      font-family: var(--fh); font-size: clamp(32px, 4.4vw, 52px);
-      font-weight: 800; line-height: 1.04; letter-spacing: -0.028em;
-      color: var(--p); margin: 0 0 18px;
-    }
-    .oeg-team__title span { color: var(--m); }
-
-    .oeg-team__copy {
-      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
-      color: var(--ink); margin: 0 0 16px; max-width: 50ch;
-    }
-    .oeg-team__copy:last-of-type { margin-bottom: 0; }
-    .oeg-team__copy strong { color: var(--p); font-weight: 600; }
-
-    .oeg-team__stats {
-      display: flex; flex-wrap: wrap; gap: clamp(20px, 3vw, 40px);
-      margin-top: 28px; padding-top: 24px;
-      border-top: 1px solid var(--line);
-    }
-    .oeg-team__stat-num {
-      display: block; font-family: var(--fh);
-      font-size: clamp(26px, 3vw, 34px); font-weight: 800;
-      letter-spacing: -0.02em; color: var(--m); line-height: 1;
-    }
-    .oeg-team__stat-label {
-      display: block; font-size: 13px; line-height: 1.5;
-      color: var(--muted); margin-top: 6px;
-    }
-
-    .oeg-team__media {
-      position: relative; display: flex;
-      align-items: flex-end; justify-content: center;
-      isolation: isolate;
-    }
-    .oeg-team__glow {
-      position: absolute; left: 50%; top: 47%;
-      width: min(400px, 86%); aspect-ratio: 1;
-      transform: translate(-50%,-50%);
-      background: radial-gradient(closest-side circle,
-        rgba(95,208,255,.26) 0%, rgba(177,79,197,.18) 46%, rgba(177,79,197,0) 78%);
-      filter: blur(40px);
-      border-radius: 50%; pointer-events: none; z-index: 0;
-    }
-    .oeg-team__shadow {
-      position: absolute; left: 50%; bottom: 4px;
-      width: 44%; height: 22px; transform: translateX(-50%);
-      background: radial-gradient(closest-side ellipse,
-        rgba(64,31,125,.20) 0%, rgba(64,31,125,0) 100%);
-      filter: blur(6px); border-radius: 50%; z-index: 0;
-      animation: oeg-team-shadow 6.5s ease-in-out infinite;
-    }
-    .oeg-team__figure {
-      position: relative; z-index: 1; line-height: 0;
-      filter: drop-shadow(0 20px 28px rgba(64,31,125,.18));
-      animation: oeg-team-float 6.5s ease-in-out infinite;
-    }
-    .oeg-team__portrait {
-      display: block; width: auto; height: clamp(310px, 38vw, 450px);
-      max-width: 100%; object-fit: contain;
-      -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
-              mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
-    }
-    @keyframes oeg-team-float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-15px); }
-    }
-    @keyframes oeg-team-shadow {
-      0%, 100% { transform: translateX(-50%) scale(1);   opacity: .8; }
-      50%      { transform: translateX(-50%) scale(.86); opacity: .5; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .oeg-team__figure, .oeg-team__shadow { animation: none; }
-    }
-
-    .oeg-team__media { min-height: 400px; }
-
-    .oeg-team__plates {
-      position: absolute; left: 50%; bottom: 1%;
-      transform: translateX(-50%);
-      width: max-content; max-width: 100%;
-      display: flex; gap: 10px; flex-wrap: nowrap; justify-content: center;
-      z-index: 2;
-    }
-    .oeg-team__plate {
-      background: rgba(255,255,255,.94); border: 1px solid var(--line);
-      border-radius: 14px; padding: 9px 16px;
-      box-shadow: 0 8px 26px rgba(64,31,125,.14);
-      white-space: nowrap; display: flex; flex-direction: column; gap: 2px;
-    }
-    .oeg-team__plate-name {
-      font-family: var(--fh); font-size: 16px; font-weight: 700;
-      letter-spacing: -0.01em; color: var(--p);
-    }
-    .oeg-team__plate-role {
-      font-family: var(--fb); font-size: 11px; font-weight: 600;
-      letter-spacing: 1.1px; text-transform: uppercase; color: var(--m);
-    }
-
-    @media (max-width: 900px) {
-      .oeg-team__container { grid-template-columns: 1fr; }
-      .oeg-team__media { order: -1; min-height: 350px; }
-      .oeg-team__copy { max-width: none; }
-    }
-    @media (max-width: 520px) {
-      .oeg-team__plates { position: static; transform: none; margin-top: 14px; flex-wrap: wrap; }
-      .oeg-team__media { flex-direction: column; align-items: center; }
-      .oeg-team__stats { gap: 20px; }
-    }
-  </style>
-
-  <style>
-    /* Full names are wider than the initials the plates were sized for.
-       Let the pair wrap before it can overflow the portrait column. */
-    .oeg-team__plates { flex-wrap: wrap; row-gap: 8px; }
-    @media (max-width: 1080px) {
-      .oeg-team__plate { padding: 8px 13px; }
-      .oeg-team__plate-name { font-size: 14px; }
-    }
-  </style>
-
-  <div class="oeg-team__container">
-
-    <div class="oeg-team__media">
-      <div class="oeg-team__glow" aria-hidden="true"></div>
-      <div class="oeg-team__shadow" aria-hidden="true"></div>
-      <div class="oeg-team__figure">
-        <img class="oeg-team__portrait"
-             alt="Dr. Nicole Galante and Izzy Galante, the sister and brother who founded Tangram"
-             src="tangram-founders.webp" width="643" height="680" decoding="async">
-      </div>
-      <div class="oeg-team__plates">
-        <div class="oeg-team__plate">
-          <span class="oeg-team__plate-name">Dr. Nicole Galante</span>
-          <span class="oeg-team__plate-role">Co-Founder</span>
-        </div>
-        <div class="oeg-team__plate">
-          <span class="oeg-team__plate-name">Izzy Galante</span>
-          <span class="oeg-team__plate-role">Co-Founder</span>
-        </div>
-      </div>
+<!-- PROBLEM -->
+<section class="oeg-sec oeg-problem">
+  <div class="oeg-wrap">
+    <span class="oeg-eyebrow oeg-rv">The reach gap</span>
+    <h2 class="oeg-rv">150 students. 5 class periods. 1 lesson plan that fits none of them perfectly.</h2>
+    <p class="oeg-lead oeg-rv">You already know who gets lost in a one-size lesson. The ELLs in second period. The three IEPs in fourth. The group in sixth that's bored by minute ten. Writing five versions by hand at 9pm on a Sunday isn't realistic. So somebody ends up with the generic version. Tangram fixes that.</p>
+    <div class="oeg-three">
+      <div class="oeg-card oeg-rv"><div class="oeg-ico">🎯</div><h3>Every period gets its own lesson</h3><p>Build it once. Get a version for each group you teach that day, not one generic lesson you patch five times.</p></div>
+      <div class="oeg-card oeg-rv"><div class="oeg-ico">🧩</div><h3>Every learner gets a way in</h3><p>IEPs, ELLs, reading levels and MTSS tiers are built into every section, not bolted on at the end.</p></div>
+      <div class="oeg-card oeg-rv"><div class="oeg-ico">✅</div><h3>Every lesson holds up</h3><p>Already in the language of Danielson, Marzano and UbD. Ready for observation season.</p></div>
     </div>
-
-    <div class="oeg-team__content">
-      <p class="oeg-team__tag">The founding team</p>
-
-      <h2 class="oeg-team__title">Built for teachers.<br><span>By teachers.</span></h2>
-
-      <p class="oeg-team__copy">
-        Every AI tool in education says teachers built it. Ours was built by
-        <strong>Nicole and Izzy Galante</strong>, a sister and brother who spent their careers in
-        classrooms long before either of them thought about software &mdash; hers teaching high
-        school English, his teaching middle school math as a National Board Certified Teacher.
-      </p>
-      <p class="oeg-team__copy">
-        They do not just talk the talk. They coached in more than 650 districts, trained
-        thousands of teachers, and co-authored New York State's framework for quality remote
-        teaching. Then they built the planning partner they wished they had at 9pm on a Sunday.
-      </p>
-
-      <div class="oeg-team__stats">
-        <div>
-          <span class="oeg-team__stat-num">50+</span>
-          <span class="oeg-team__stat-label">Years in education,<br>combined</span>
-        </div>
-        <div>
-          <span class="oeg-team__stat-num">650+</span>
-          <span class="oeg-team__stat-label">Districts<br>coached</span>
-        </div>
-        <div>
-          <span class="oeg-team__stat-num">2</span>
-          <span class="oeg-team__stat-label">Siblings who still answer<br>their own emails</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
-<!-- ===== end 07 ===== -->
 
-<!-- CREDIBILITY -->
-<section class="credibility" id="credibility">
-  <div class="container">
-    <div class="cred-header">
-      <div class="cred-tag">From the Classroom to State Policy</div>
-      <h2>We didn't just study teaching. We did the work.</h2>
+<!-- ONE LESSON, FIVE WAYS IN -->
+<section class="oeg-sec oeg-periods">
+  <div class="oeg-wrap">
+    <div class="oeg-rv">
+      <span class="oeg-eyebrow">Differentiated lesson plans for every class</span>
+      <h2>Same standard. Five different ways in.</h2>
+      <p class="oeg-lead" style="margin-top:18px">Tell Tan who's in each class. Tan builds the route in for each group, so the kid in the back row gets the same shot at the objective as everyone else.</p>
+      <ul class="oeg-bul">
+        <li>No student rosters required. Call a class "Period 2" and your data stays yours.</li>
+        <li>Supports for IEPs, ELLs and reading levels shaped by our Shared Space Teaching methodology.</li>
+        <li>Language translation for lessons and family communication.</li>
+      </ul>
     </div>
-    <div class="cred-grid">
-      <div class="cred-stat">
-        <div class="cred-num">50+</div>
-        <div class="cred-label">Years combined experience</div>
-      </div>
-      <div class="cred-stat">
-        <div class="cred-num">100s</div>
-        <div class="cred-label">of districts coached</div>
-      </div>
-      <div class="cred-stat">
-        <div class="cred-num">1000s</div>
-        <div class="cred-label">of teachers trained</div>
-      </div>
-      <div class="cred-stat">
-        <div class="cred-num">15 yrs</div>
-        <div class="cred-label">NYC DOE partner</div>
+    <div class="oeg-board" id="oeg-board">
+      <div class="oeg-board-top"><small>Your lesson</small><div>Analyzing theme in a short story · 8th grade ELA</div></div>
+      <div class="oeg-period"><div class="oeg-p" style="background:#E3F7FF">P1</div><div><b>On-level</b><span>Discussion protocol plus a text-evidence organizer</span></div></div>
+      <div class="oeg-period"><div class="oeg-p" style="background:#E9FBF4">P2</div><div><b>6 English learners</b><span>Sentence frames and a home-language vocabulary preview</span></div></div>
+      <div class="oeg-period"><div class="oeg-p" style="background:#F6E8FA">P3</div><div><b>Ready for more</b><span>Extension into author's craft and a second text</span></div></div>
+      <div class="oeg-period"><div class="oeg-p" style="background:#FFF1E0">P4</div><div><b>3 students with IEPs</b><span>Chunked text with built-in check-ins</span></div></div>
+      <div class="oeg-period"><div class="oeg-p" style="background:#EDE4FA">P6</div><div><b>Mixed reading levels</b><span>Reading-level supports on the same core text</span></div></div>
+      <p class="oeg-board-note">Example only. Your classes, your students, your version.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="oeg-sec" id="how">
+  <div class="oeg-wrap oeg-center">
+    <span class="oeg-eyebrow">How it works</span>
+    <h2>How Tangram builds a differentiated lesson for every class.</h2>
+    <p class="oeg-lead">Four steps. No blank-page staring.</p>
+    <div class="oeg-steps" style="text-align:left">
+      <div class="oeg-step oeg-rv"><h3>Start where you are</h3><p>Topic, objective, standard or curriculum. Six ways to begin.</p></div>
+      <div class="oeg-step oeg-rv"><h3>Build with Tan</h3><p>Seven guided pieces, each one shaped by our original methodology.</p></div>
+      <div class="oeg-step oeg-rv"><h3>Add your students</h3><p>IEPs, ELLs, reading levels. Tell Tan who's in each class.</p></div>
+      <div class="oeg-step oeg-rv"><h3>Reach every class</h3><p>Each period gets a lesson built for the students actually in it.</p></div>
+    </div>
+    <div class="oeg-mid-cta"><a class="oeg-btn oeg-btn-purple" href="https://app.gettangram.com/start?intent=free&src=hp_how">Build Your First Lesson Free →</a></div>
+  </div>
+</section>
+
+<!-- SEE IT IN ACTION -->
+<section class="oeg-sec oeg-demo" style="padding-top:0">
+  <div class="oeg-wrap">
+    <div class="oeg-rv">
+      <span class="oeg-eyebrow">Real lessons, real classrooms</span>
+      <h2>See Tan in action.</h2>
+      <p class="oeg-lead" style="margin-top:18px">One lesson, built once, then rebuilt for every period you teach. Same outcome, a different route in for each group of kids.</p>
+      <ul class="oeg-bul" style="list-style:none;margin:26px 0 30px;display:grid;gap:14px">
+        <li>Five classes, five ways in</li>
+        <li>Supports built in from the start</li>
+        <li>Observation-ready language, every time</li>
+      </ul>
+      <a class="oeg-btn oeg-btn-primary" href="https://app.gettangram.com/start?intent=free&src=hp_demo">Try It Free for a Month →</a>
+    </div>
+    <div class="oeg-reel">
+      <iframe src="https://www.instagram.com/reel/DbdpOj2EW_A/embed" title="Tangram on Instagram" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="oeg-sec oeg-compare">
+  <div class="oeg-wrap oeg-center">
+    <span class="oeg-eyebrow">Why Tan is different</span>
+    <h2>Not another AI lesson plan generator. A methodology partner.</h2>
+    <p class="oeg-lead">Tan isn't trained on the internet or a patchwork of other people's frameworks. It runs on Shared Space Teaching, the methodology our founders built in their own classrooms and refined across 650+ districts.</p>
+    <div class="oeg-table oeg-rv">
+      <table>
+        <thead><tr><th></th><th>Generic AI planners</th><th class="oeg-us">Tangram</th></tr></thead>
+        <tbody>
+          <tr><td>Built on a proven teaching methodology</td><td class="oeg-them">Trained on the internet</td><td class="oeg-us">✓</td></tr>
+          <tr><td>One lesson, differentiated for every class</td><td class="oeg-them">One-size output</td><td class="oeg-us">✓</td></tr>
+          <tr><td>Adapts to IEPs, ELLs, reading levels and MTSS</td><td class="oeg-them">Generic supports</td><td class="oeg-us">✓</td></tr>
+          <tr><td>Observation-ready (Danielson, Marzano, UbD)</td><td class="oeg-them">✕</td><td class="oeg-us">✓</td></tr>
+          <tr><td>No student rosters required</td><td class="oeg-them">Wants your student data</td><td class="oeg-us">✓</td></tr>
+          <tr><td>Learning progressions for any standard</td><td class="oeg-them">✕</td><td class="oeg-us">✓</td></tr>
+          <tr><td>Human coaching from real educators</td><td class="oeg-them">✕</td><td class="oeg-us">✓</td></tr>
+          <tr><td>Predictable pricing, no per-generation fees</td><td class="oeg-them">Varies</td><td class="oeg-us">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="oeg-quote">"Other tools give you a lesson for a class. Tangram gives you a lesson for <span style="color:var(--mint)">your</span> class."</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="oeg-sec" id="features">
+  <div class="oeg-wrap oeg-center">
+    <span class="oeg-eyebrow">Everything Tangram does</span>
+    <h2>An AI lesson planner built to reach every kid.</h2>
+    <p class="oeg-lead">One planning partner that knows your standards, your frameworks and your students, and never asks for their data.</p>
+    <div class="oeg-feats" style="text-align:left">
+      <div class="oeg-card oeg-rv"><div class="oeg-ico">🔄</div><h3>One lesson, every class</h3><p>Build once. Get versions for each group you teach that day.</p></div>
+      <div class="oeg-card oeg-rv"><div class="oeg-ico">👥</div><h3>Knows your students</h3><p>IEPs, ELLs, reading levels, MTSS tiers. Tan adjusts every section.</p></div>
+      <div class="oeg-card oeg-rv"><div class="oeg-ico">🌐</div><h3>Language translation</h3><p>Lessons and family communication in students' home languages.</p></div>
+      <div class="oeg-card oeg-rv"><div class="oeg-ico">📚</div><h3>Your state standards</h3><p>Every framework, every state. See what comes before and after any standard.</p></div>
+      <div class="oeg-card oeg-rv"><div class="oeg-ico">🎯</div><h3>Observation-ready</h3><p>Danielson, Marzano and Understanding by Design, the frameworks evaluators use.</p></div>
+      <div class="oeg-card oeg-rv"><div class="oeg-ico">🔒</div><h3>Privacy-first</h3><p>No rosters required. Name a class "Student A" and your data stays yours.</p></div>
+    </div>
+    <div class="oeg-elevate oeg-rv">
+      <b>Plus on Elevate:</b>
+      <span>Google Classroom outputs</span><span>Reporting</span><span>Your media library</span><span>Live trainings</span><span>Direct human coaching</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="oeg-sec oeg-founders">
+  <div class="oeg-wrap">
+    <img class="oeg-rv" src="https://www.gettangram.com/tangram-founders.webp" alt="Dr. Nicole Galante and Izzy Galante, co-founders of Tangram" loading="lazy">
+    <div class="oeg-rv">
+      <span class="oeg-eyebrow">Built for teachers, by teachers</span>
+      <h2>Every AI tool says teachers built it. Ours actually were.</h2>
+      <p>Tangram was built by Dr. Nicole Galante and Izzy Galante, a sister and brother who spent their careers in classrooms long before either thought about software. Hers teaching middle and high school English, his teaching middle school math as a National Board Certified Teacher.</p>
+      <p>Together they coached in more than 650 districts and trained thousands of teachers, and Nicole led the New York State team behind its framework for quality remote teaching. Then they built the planning partner they wished they'd had at 9pm on a Sunday.</p>
+      <div class="oeg-fstats">
+        <div><b>50+</b><span>years in education</span></div>
+        <div><b>650+</b><span>districts coached</span></div>
+        <div><b>2</b><span>siblings who answer their own emails</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING (KG Creative) -->
-<section class="tg-pricing" id="pricing">
-  <div class="tg-wrap">
-
-    <div class="tg-head">
-      <p class="tg-eyebrow">Simple Pricing</p>
-      <h2>Start free. Choose your level when you're ready.</h2>
-      <p class="tg-sub">Your first month free &mdash; no credit card. Then keep the features you love.</p>
-    </div>
-
-    <div class="tg-toggle-row">
-      <div class="tg-toggle" role="tablist" aria-label="Billing period">
-        <button type="button" data-plan="monthly" class="is-active" aria-selected="true">Monthly</button>
-        <button type="button" data-plan="annual" aria-selected="false">Annual<span class="tg-save">Save 44%</span></button>
+<!-- PRICING -->
+<section class="oeg-sec" id="pricing">
+  <div class="oeg-wrap oeg-center">
+    <span class="oeg-eyebrow">Simple pricing</span>
+    <h2>Tangram pricing: start free, pick a plan when you're ready.</h2>
+    <p class="oeg-lead">Your first month comes with every feature included. No credit card, and nothing charges automatically when it ends.</p>
+    <span class="oeg-annual">Pay annually and save 44%</span>
+    <div class="oeg-prices" style="text-align:left">
+      <div class="oeg-price is-free">
+        <span class="oeg-tag">Start here</span>
+        <h3>Ideate</h3>
+        <div class="oeg-amt">Free</div>
+        <div class="oeg-per">your first month</div>
+        <ul><li>Every feature included</li><li>Build real, differentiated lessons</li><li>Meet Tan, your planning partner</li><li>No credit card required</li></ul>
+        <a class="oeg-btn oeg-btn-primary" href="https://app.gettangram.com/signup">Start Free</a>
+      </div>
+      <div class="oeg-price">
+        <h3>Accelerate</h3>
+        <div class="oeg-amt">$5.99<small>/mo</small></div>
+        <div class="oeg-per">billed monthly</div>
+        <ul><li>5 lessons per month</li><li>Chat with Tan</li><li>All 7 methodology pieces</li><li>State standards and frameworks</li><li>Tailored versions for every class</li></ul>
+        <a class="oeg-btn oeg-btn-ghost" href="https://app.gettangram.com/signup?plan=accelerate">Choose Accelerate</a>
+      </div>
+      <div class="oeg-price is-pop">
+        <span class="oeg-tag">Most popular</span>
+        <h3>Elevate</h3>
+        <div class="oeg-amt">$11.99<small>/mo</small></div>
+        <div class="oeg-per">billed monthly</div>
+        <ul><li>Unlimited lessons</li><li>Everything in Accelerate</li><li>Language translation for families</li><li>Google Classroom outputs</li><li>Shared libraries and one-click sharing</li><li>Personal media library</li><li>All live trainings</li><li>Priority feature requests</li><li>Direct human coaching calls</li></ul>
+        <a class="oeg-btn oeg-btn-purple" href="https://app.gettangram.com/signup?plan=elevate">Choose Elevate</a>
+      </div>
+      <div class="oeg-price">
+        <h3>Campus</h3>
+        <div class="oeg-amt" style="font-size:1.7rem;margin-top:16px">Custom</div>
+        <div class="oeg-per">for schools and districts</div>
+        <ul><li>Everything in Elevate, for your team</li><li>Admin and rostering at scale</li><li>Custom onboarding and PD</li><li>Building-wide live trainings</li><li>Dedicated support</li><li>Volume pricing</li></ul>
+        <a class="oeg-btn oeg-btn-ghost" href="#campus-inquire">Inquire for Pricing</a>
       </div>
     </div>
-
-    <div class="tg-grid">
-
-      <!-- IDEATE -->
-      <div class="tg-card">
-        <span class="tg-badge tg-badge-soft">Start here</span>
-        <h3 class="tg-name">Ideate</h3>
-        <p class="tg-tag">The full Tangram experience, free for your first month.</p>
-        <div class="tg-price">
-          <span class="tg-amount">Free</span>
-        </div>
-        <p class="tg-note">Your first month, free</p>
-        <a href="https://app.gettangram.com/signup" class="tg-cta">Start Free</a>
-        <ul class="tg-feats">
-          <li>Every feature unlocked for your first month</li>
-          <li>Build real, differentiated lessons</li>
-          <li>Meet Tan, your planning partner</li>
-          <li>No credit card required</li>
-        </ul>
-      </div>
-
-      <!-- ACCELERATE -->
-      <div class="tg-card">
-        <h3 class="tg-name">Accelerate</h3>
-        <p class="tg-tag">The essentials for your everyday planning.</p>
-        <div class="tg-price">
-          <span class="tg-amount" data-monthly="$5.99" data-annual="$3.33">$5.99</span>
-          <span class="tg-per" data-monthly="/mo" data-annual="/mo">/mo</span>
-        </div>
-        <p class="tg-note" data-monthly="Billed monthly" data-annual="$39.99 billed annually">Billed monthly</p>
-        <a href="https://app.gettangram.com/signup?plan=accelerate"
-           data-base-href="https://app.gettangram.com/signup?plan=accelerate"
-           class="tg-cta">Choose Accelerate</a>
-        <ul class="tg-feats">
-          <li><strong>5 lessons</strong> per month</li>
-          <li>Chat with Tan</li>
-          <li>All 7 methodology pieces</li>
-          <li>State standards &amp; frameworks</li>
-          <li>Tailored versions for every class</li>
-        </ul>
-      </div>
-
-      <!-- ELEVATE (featured) -->
-      <div class="tg-card is-featured">
-        <span class="tg-badge">Most Popular</span>
-        <h3 class="tg-name">Elevate</h3>
-        <p class="tg-tag">Everything unlocked — built to go all in.</p>
-        <div class="tg-price">
-          <span class="tg-amount" data-monthly="$11.99" data-annual="$6.67">$11.99</span>
-          <span class="tg-per" data-monthly="/mo" data-annual="/mo">/mo</span>
-        </div>
-        <p class="tg-note" data-monthly="Billed monthly" data-annual="$79.99 billed annually">Billed monthly</p>
-        <a href="https://app.gettangram.com/signup?plan=elevate"
-           data-base-href="https://app.gettangram.com/signup?plan=elevate"
-           class="tg-cta tg-cta-green">Choose Elevate</a>
-        <ul class="tg-feats">
-          <li><strong>Unlimited</strong> lessons</li>
-          <li>Everything in Accelerate</li>
-          <li>Language translation for families</li>
-          <li>Google Classroom outputs</li>
-          <li>Shared libraries &amp; one-click lesson sharing</li>
-          <li>Your personal media library</li>
-          <li>Access to all live trainings</li>
-          <li>Priority feature requests</li>
-          <li>Direct human coaching calls</li>
-        </ul>
-      </div>
-
-      <!-- CAMPUS -->
-      <div class="tg-card">
-        <h3 class="tg-name">Campus</h3>
-        <p class="tg-tag">Bring Tangram to your whole building or district.</p>
-        <div class="tg-price">
-          <span class="tg-amount" style="font-size:34px;">Let's talk</span>
-        </div>
-        <p class="tg-note">Custom pricing for schools &amp; districts</p>
-        <a href="#campus-inquire" class="tg-cta tg-cta-primary">Inquire for Pricing</a>
-        <ul class="tg-feats">
-          <li>Everything in Elevate, for your team</li>
-          <li>Admin &amp; rostering at scale</li>
-          <li>Custom onboarding &amp; PD</li>
-          <li>Building-wide live trainings</li>
-          <li>Dedicated support</li>
-          <li>Volume pricing</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <p class="tg-foot">Every plan is powered by our original methodology. Questions? <a href="#campus-inquire">Talk to a real educator</a>.</p>
-
+    <p class="oeg-price-note">Every plan runs on our original methodology. Questions? <a href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Talk to a real educator.</a></p>
   </div>
-
-  <script>
-  (function(){
-    var root=document.getElementById('pricing');
-    var btns=root.querySelectorAll('.tg-toggle button');
-    function setPlan(plan){
-      btns.forEach(function(b){var on=b.dataset.plan===plan;b.classList.toggle('is-active',on);b.setAttribute('aria-selected',on);});
-      root.querySelectorAll('[data-'+plan+']').forEach(function(el){
-        el.textContent=el.getAttribute('data-'+plan);
-      });
-      root.querySelectorAll('a[data-base-href]').forEach(function(a){
-        var base=a.getAttribute('data-base-href');
-        a.href = base + (base.indexOf('?')>-1?'&':'?') + 'billing=' + plan;
-      });
-    }
-    btns.forEach(function(b){b.addEventListener('click',function(){setPlan(b.dataset.plan);});});
-    setPlan('monthly');
-  })();
-  </script>
 </section>
 
-<!-- ===== 05 · First month free (One Eleven Group, corrected) ===== -->
-<section class="oeg-offer">
-  <style>
-    .oeg-offer {
-      --p:  var(--tg-purple, #401F7D);
-      --pd: var(--tg-purple-dark, #2D1659);
-      --m:  var(--tg-magenta, #B14FC5);
-      --am: #88229D;
-      --green: var(--tg-green, #3FDE9D);
-      --blue: var(--tg-blue, #5FD0FF);
-      --ink: var(--tg-ink, #333333);
-      --muted: var(--tg-muted, #6f6b7d);
-      --line: var(--tg-line, rgba(64,31,125,0.10));
-      --rad: var(--tg-rad, 24px);
-      --btn: var(--tg-btn, 12px);
-      --fh: var(--font-head, 'League Spartan', sans-serif);
-      --fb: var(--font-body, 'Work Sans', sans-serif);
-
-      box-sizing: border-box;
-      font-family: var(--fb); color: var(--ink);
-      background: linear-gradient(165deg,#FDFCFE 0%,#F7F5FB 50%,#F1E9F8 100%);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: clamp(48px, 6.5vw, 88px) 0 0;
-      overflow: hidden;
-    }
-    .oeg-offer *, .oeg-offer *::before, .oeg-offer *::after { box-sizing: border-box; }
-
-    .oeg-offer__container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
-
-    .oeg-offer__head { text-align: center; margin-bottom: clamp(24px, 3vw, 36px); }
-    .oeg-offer__title {
-      font-family: var(--fh); font-size: clamp(34px, 5.4vw, 62px);
-      font-weight: 800; line-height: 1.02; letter-spacing: -0.03em;
-      color: var(--p); margin: 0 0 12px;
-    }
-    .oeg-offer__title span { color: var(--m); }
-    .oeg-offer__sub {
-      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.7;
-      color: var(--ink); margin: 0 auto; max-width: 48ch;
-    }
-
-    .oeg-offer__row {
-      display: grid; grid-template-columns: 1fr auto;
-      gap: clamp(20px, 3vw, 48px); align-items: end;
-    }
-
-    .oeg-offer__actions { display: flex; flex-wrap: wrap; gap: 14px; }
-    .oeg-offer__btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      font-family: var(--fb); font-size: 16px; font-weight: 500; text-decoration: none;
-      padding: 16px 32px; border-radius: var(--btn);
-      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
-      white-space: nowrap;
-    }
-    .oeg-offer__btn--primary {
-      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
-      color: #fff; box-shadow: 0 4px 16px rgba(177,79,197,.25);
-    }
-    .oeg-offer__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
-    .oeg-offer__btn--secondary {
-      background: rgba(255,255,255,.85); color: var(--p);
-      border: 2px solid rgba(64,31,125,.12);
-    }
-    .oeg-offer__btn--secondary:hover { border-color: rgba(64,31,125,.28); transform: translateY(-2px); }
-
-    .oeg-offer__list { list-style: none; margin: 0 0 26px; padding: 0; }
-    .oeg-offer__list li {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 11px;
-    }
-    .oeg-offer__list svg { flex: none; color: var(--green); }
-
-    .oeg-offer__content { padding-bottom: clamp(30px, 5vw, 56px); }
-
-    .oeg-offer__media {
-      position: relative; display: flex;
-      align-items: flex-end; justify-content: center;
-      isolation: isolate;
-    }
-    .oeg-offer__glow {
-      position: absolute; left: 50%; top: 47%;
-      width: min(400px, 86%); aspect-ratio: 1;
-      transform: translate(-50%,-50%);
-      background: radial-gradient(closest-side circle,
-        rgba(177,79,197,.30) 0%, rgba(95,208,255,.16) 46%, rgba(177,79,197,0) 78%);
-      filter: blur(34px);
-      border-radius: 50%; pointer-events: none; z-index: 0;
-    }
-    .oeg-offer__shadow {
-      position: absolute; left: 50%; bottom: 4px;
-      width: 44%; height: 22px; transform: translateX(-50%);
-      background: radial-gradient(closest-side ellipse,
-        rgba(64,31,125,.20) 0%, rgba(64,31,125,0) 100%);
-      filter: blur(6px); border-radius: 50%; z-index: 0;
-      animation: oeg-offer-shadow 6.5s ease-in-out infinite;
-    }
-    .oeg-offer__figure {
-      position: relative; z-index: 1; line-height: 0;
-      filter: drop-shadow(0 20px 28px rgba(64,31,125,.18));
-      animation: oeg-offer-float 6.5s ease-in-out infinite;
-    }
-    .oeg-offer__portrait {
-      display: block; width: auto; height: clamp(250px, 30vw, 360px);
-      max-width: 100%; object-fit: contain;
-      -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
-              mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
-    }
-    @keyframes oeg-offer-float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-15px); }
-    }
-    @keyframes oeg-offer-shadow {
-      0%, 100% { transform: translateX(-50%) scale(1);   opacity: .8; }
-      50%      { transform: translateX(-50%) scale(.86); opacity: .5; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .oeg-offer__figure, .oeg-offer__shadow { animation: none; }
-    }
-
-    @media (max-width: 900px) {
-      .oeg-offer__row { grid-template-columns: 1fr; }
-      .oeg-offer__media { order: -1; }
-      .oeg-offer__content { padding-bottom: 40px; }
-    }
-    @media (max-width: 520px) {
-      .oeg-offer__btn { width: 100%; }
-    }
-  </style>
-
-  <div class="oeg-offer__container">
-
-    <div class="oeg-offer__head">
-      <h2 class="oeg-offer__title"><span>First month free.</span> Then from $5.99.</h2>
-      <p class="oeg-offer__sub">Everything unlocked for your first month. Build one real lesson and see if it holds up.</p>
+<!-- TALK TO A FOUNDER -->
+<section class="oeg-sec oeg-call" style="background:var(--lav)">
+  <div class="oeg-wrap">
+    <div class="oeg-rv">
+      <span class="oeg-eyebrow">Fifteen minutes, no pitch, no pressure</span>
+      <h2>Yes, you can actually talk to one of our founders.</h2>
+      <p>Not a sales rep, not a chatbot, not a form that disappears into an inbox. Book fifteen minutes with one of the people who built Tangram and ask anything. Whether it fits your classroom, what it does with IEPs, whether it makes sense for your whole school.</p>
+      <a class="oeg-btn oeg-btn-purple" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call →</a>
     </div>
-
-    <div class="oeg-offer__row">
-
-      <div class="oeg-offer__content">
-        <ul class="oeg-offer__list">
-          <li>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            Every feature unlocked, not a stripped-down sample
-          </li>
-          <li>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            No credit card to start &mdash; nothing charges automatically when it ends
-          </li>
-          <li>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            Pick your plan when you are ready, from $5.99/mo. Cancel anytime.
-          </li>
-        </ul>
-
-        <div class="oeg-offer__actions">
-          <!-- Signup goes straight into the app, matching the nav CTA. -->
-          <a class="oeg-offer__btn oeg-offer__btn--primary" href="https://app.gettangram.com">Start Free &rarr;</a>
-          <!-- TEACHER booking calendar (15 min) — see the note in section 01
-               about keeping this separate from the district calendar. -->
-          <a class="oeg-offer__btn oeg-offer__btn--secondary" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call</a>
-        </div>
-      </div>
-
-      <div class="oeg-offer__media">
-        <div class="oeg-offer__glow" aria-hidden="true"></div>
-        <div class="oeg-offer__figure">
-          <!-- Decorative — the headline above carries the meaning, so this is
-               hidden from screen readers rather than given redundant alt text. -->
-          <img class="oeg-offer__portrait" alt="" aria-hidden="true"
-               src="nicole-pointing.webp" width="620" height="600" decoding="async">
-        </div>
-      </div>
-
+    <div class="oeg-call-card oeg-rv">
+      <img src="https://www.gettangram.com/nicole-founder.webp" alt="Dr. Nicole Galante" loading="lazy">
+      <div><b>Dr. Nicole Galante</b><small>Co-Founder and Chief Strategy Officer · PhD, Stony Brook University · Led the NY State team behind its framework for quality remote teaching</small></div>
     </div>
   </div>
 </section>
-<!-- ===== end 05 ===== -->
 
-<!-- ===== 04 · Creator Partner Program (One Eleven Group, corrected) ===== -->
-<section class="oeg-creator" id="creator-program">
-  <style>
-    .oeg-creator {
-      --p:  var(--tg-purple, #401F7D);
-      --pd: var(--tg-purple-dark, #2D1659);
-      --m:  var(--tg-magenta, #B14FC5);
-      --am: #88229D;
-      --green: var(--tg-green, #3FDE9D);
-      --blue: var(--tg-blue, #5FD0FF);
-      --ink: var(--tg-ink, #333333);
-      --muted: var(--tg-muted, #6f6b7d);
-      --line: var(--tg-line, rgba(64,31,125,0.10));
-      --rad: var(--tg-rad, 24px);
-      --btn: var(--tg-btn, 12px);
-      --fh: var(--font-head, 'League Spartan', sans-serif);
-      --fb: var(--font-body, 'Work Sans', sans-serif);
-
-      box-sizing: border-box;
-      font-family: var(--fb); color: #fff;
-      background: linear-gradient(135deg, #2D1659 0%, #401F7D 50%, #88229D 100%);
-      padding: clamp(56px, 8vw, 110px) 0;
-    }
-    .oeg-creator *, .oeg-creator *::before, .oeg-creator *::after { box-sizing: border-box; }
-
-    .oeg-creator__container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
-    .oeg-creator__head { text-align: center; margin-bottom: clamp(32px, 5vw, 52px); }
-
-    .oeg-creator__tag {
-      display: inline-flex; align-items: center; gap: 14px;
-      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
-      text-transform: uppercase; color: var(--green); margin: 0 0 20px;
-    }
-    .oeg-creator__tag::before {
-      content: ""; width: 28px; height: 2px; flex: none;
-      background: var(--green); border-radius: 2px;
-    }
-
-    .oeg-creator__title {
-      font-family: var(--fh); font-size: clamp(26px, 3.5vw, 42px);
-      font-weight: 800; line-height: 1.12; letter-spacing: -0.02em;
-      color: #fff; margin: 0 auto 18px; max-width: none;
-      text-wrap: balance;
-    }
-    .oeg-creator__title span { color: var(--green); }
-
-    .oeg-creator__copy {
-      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
-      color: rgba(255,255,255,.82); margin: 0 auto; max-width: 58ch;
-    }
-
-    .oeg-creator__rate {
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
-      border-radius: var(--rad); padding: clamp(28px, 4vw, 40px) 28px;
-      text-align: center; margin-bottom: clamp(28px, 4vw, 44px);
-    }
-    .oeg-creator__rate-row {
-      display: flex; flex-wrap: wrap; align-items: baseline;
-      justify-content: center; gap: 6px 16px;
-    }
-    .oeg-creator__rate-num {
-      font-family: var(--fh); font-size: clamp(48px, 7vw, 78px);
-      font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: #fff;
-    }
-    .oeg-creator__rate-label {
-      font-family: var(--fh); font-size: clamp(17px, 1.9vw, 22px);
-      font-weight: 700; letter-spacing: -0.01em; color: var(--green);
-    }
-    .oeg-creator__rate-sub {
-      font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.78);
-      margin: 14px auto 0; max-width: 56ch;
-    }
-
-    .oeg-creator__steps {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: clamp(16px, 2.4vw, 24px); margin-bottom: clamp(32px, 5vw, 48px);
-    }
-    .oeg-creator__step {
-      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
-      border-radius: var(--rad); padding: clamp(24px, 3vw, 30px) clamp(22px, 2.6vw, 28px);
-    }
-    .oeg-creator__step-num {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
-      font-family: var(--fh); font-size: 16px; font-weight: 700; color: #fff;
-      margin-bottom: 16px;
-    }
-    .oeg-creator__step h3 {
-      font-family: var(--fh); font-size: 20px; font-weight: 700;
-      letter-spacing: -0.01em; margin: 0 0 9px; color: #fff;
-    }
-    .oeg-creator__step p {
-      font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.78); margin: 0;
-    }
-
-    .oeg-creator__cta { text-align: center; }
-    .oeg-creator__btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      font-family: var(--fb); font-size: 16px; font-weight: 500;
-      text-decoration: none; background: #fff; color: var(--p);
-      padding: 16px 34px; border-radius: var(--btn);
-      box-shadow: 0 6px 22px rgba(0,0,0,.20);
-      transition: transform .16s ease, box-shadow .16s ease;
-    }
-    .oeg-creator__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.26); }
-    .oeg-creator__note {
-      font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.62); margin: 16px 0 0;
-    }
-
-    @media (max-width: 860px) { .oeg-creator__steps { grid-template-columns: 1fr; } }
-    @media (max-width: 520px) { .oeg-creator__btn { width: 100%; } }
-  </style>
-
-  <style>
-    .oeg-creator__rate-terms {
-      margin: 10px 0 0; font-size: 12.5px; line-height: 1.5;
-      color: rgba(255,255,255,.6);
-      font-family: var(--font-body, 'Work Sans', sans-serif);
-    }
-  </style>
-
-  <div class="oeg-creator__container">
-
-    <div class="oeg-creator__head">
-      <p class="oeg-creator__tag">Creator Partner Program</p>
-      <h2 class="oeg-creator__title">We are not looking for influencers.<br>We are looking for <span>real teachers.</span></h2>
-      <p class="oeg-creator__copy">
-        Follower count is not the filter. If you teach, and you talk about teaching, we will
-        give you a free Elevate account for twelve months and pay you every month for the
-        teachers you send our way. Teach with it, talk about it, get paid for it.
-      </p>
+<!-- SCHOOLS -->
+<section class="oeg-sec oeg-schools" id="campus-inquire">
+  <div class="oeg-wrap">
+    <div>
+      <span class="oeg-eyebrow">For schools and districts</span>
+      <h2>Reach every student in your building.</h2>
+      <p>Give every teacher a planning partner that already knows your standards, your frameworks and your students, with onboarding and coaching built for your team.</p>
+      <ul class="oeg-bul">
+        <li>Everything in Elevate, for your entire staff</li>
+        <li>Admin dashboard and rostering at scale</li>
+        <li>Custom onboarding and professional development</li>
+        <li>Building-wide live trainings with our founders</li>
+        <li>Dedicated support and volume pricing</li>
+      </ul>
+      <a class="oeg-btn oeg-btn-primary" href="https://calendar.app.google/THyRt4fbd7Z3DDE97" target="_blank" rel="noopener">Book a School Call →</a>
     </div>
-
-    <div class="oeg-creator__rate">
-      <div class="oeg-creator__rate-row">
-        <span class="oeg-creator__rate-num">30%</span>
-        <span class="oeg-creator__rate-label">of what your referrals pay, every month</span>
-      </div>
-      <p class="oeg-creator__rate-sub">
-        For as long as they stay subscribed. Your first payment lands once a referral has been
-        paying for sixty days, then it runs monthly.
-      </p>
-      <p class="oeg-creator__rate-terms">
-        Referrals who cancel or refund stop earning from that point. Full terms come with your
-        acceptance email.
-      </p>
-    </div>
-
-    <div class="oeg-creator__steps">
-      <div class="oeg-creator__step">
-        <span class="oeg-creator__step-num">1</span>
-        <h3>Apply</h3>
-        <p>Tell us what you teach and where you post. Classroom teachers, instructional coaches, and people who review tools for educators. That is the list.</p>
-      </div>
-      <div class="oeg-creator__step">
-        <span class="oeg-creator__step-num">2</span>
-        <h3>Get your account</h3>
-        <p>Free Elevate access for twelve months, plus your own discount code that tracks everyone you send.</p>
-      </div>
-      <div class="oeg-creator__step">
-        <span class="oeg-creator__step-num">3</span>
-        <h3>Post and earn</h3>
-        <p>Show a real lesson you actually built. Two pieces of content to start, then earn on every teacher who subscribes through your code.</p>
-      </div>
-    </div>
-
-    <div class="oeg-creator__cta">
-      <!-- Application form. /creators/apply is a redirect defined in vercel.json
-           that forwards to app.gettangram.com/creators/apply.
-
-           Kept as the relative path rather than the app URL directly, so the
-           destination can be changed in vercel.json alone without editing the
-           page. It is also the same path used in the ads and the creator emails,
-           which keeps referral tracking in one place. -->
-      <a class="oeg-creator__btn" href="/creators/apply">Apply to the Creator Program &rarr;</a>
-      <p class="oeg-creator__note">Takes about two minutes. We read every application ourselves.</p>
-    </div>
-
-  </div>
-</section>
-<!-- ===== end 04 ===== -->
-
-<!-- ===== 06 · Book a free call with a founder (One Eleven Group, corrected) ===== -->
-<section class="oeg-call">
-  <style>
-    .oeg-call {
-      --p:  var(--tg-purple, #401F7D);
-      --pd: var(--tg-purple-dark, #2D1659);
-      --m:  var(--tg-magenta, #B14FC5);
-      --am: #88229D;
-      --green: var(--tg-green, #3FDE9D);
-      --ink: var(--tg-ink, #333333);
-      --muted: var(--tg-muted, #6f6b7d);
-      --line: var(--tg-line, rgba(64,31,125,0.10));
-      --rad: var(--tg-rad, 24px);
-      --btn: var(--tg-btn, 12px);
-      --fh: var(--font-head, 'League Spartan', sans-serif);
-      --fb: var(--font-body, 'Work Sans', sans-serif);
-
-      box-sizing: border-box;
-      font-family: var(--fb);
-      color: var(--ink);
-      background: linear-gradient(165deg,#FDFCFE 0%,#F8F5FC 45%,#F1E9F8 100%);
-      padding: clamp(56px, 8vw, 104px) 0;
-      overflow: hidden;
-    }
-    .oeg-call *, .oeg-call *::before, .oeg-call *::after { box-sizing: border-box; }
-
-    .oeg-call__container {
-      max-width: 1180px; margin: 0 auto; padding: 0 32px;
-      display: grid; grid-template-columns: 1.05fr .95fr;
-      gap: clamp(28px, 4vw, 60px); align-items: center;
-    }
-
-    .oeg-call__tag {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
-      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
-    }
-    .oeg-call__tag::before {
-      content: ""; width: 28px; height: 2px; flex: none;
-      background: var(--m); border-radius: 2px;
-    }
-
-    .oeg-call__title {
-      font-family: var(--fh);
-      font-size: clamp(30px, 4vw, 48px);
-      font-weight: 800; line-height: 1.06;
-      letter-spacing: -0.025em; color: var(--p); margin: 0 0 18px;
-    }
-    .oeg-call__title span { color: var(--m); }
-
-    .oeg-call__copy {
-      font-size: clamp(16px, 1.4vw, 18px);
-      line-height: 1.72; color: var(--ink);
-      margin: 0 0 28px; max-width: 44ch;
-    }
-
-    .oeg-call__btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      font-family: var(--fb); font-size: 16px; font-weight: 500; text-decoration: none;
-      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
-      color: #fff; padding: 16px 32px; border-radius: var(--btn);
-      box-shadow: 0 4px 16px rgba(177,79,197,.25);
-      transition: transform .16s ease, box-shadow .16s ease;
-    }
-    .oeg-call__btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
-
-    .oeg-call__reassure {
-      display: flex; align-items: center; gap: 9px;
-      font-size: 14px; color: var(--muted); margin: 18px 0 0;
-    }
-    .oeg-call__reassure svg { flex: none; color: var(--green); }
-
-    /* ---------- floating portrait ---------- */
-    .oeg-call__media {
-      position: relative; display: flex;
-      align-items: flex-end; justify-content: center;
-      min-height: 420px; isolation: isolate;
-    }
-    .oeg-call__glow {
-      position: absolute; left: 50%; top: 46%;
-      width: min(410px, 88%); aspect-ratio: 1;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(closest-side circle,
-        rgba(177,79,197,.28) 0%, rgba(95,208,255,.15) 46%, rgba(177,79,197,0) 78%);
-      filter: blur(36px);
-      border-radius: 50%; pointer-events: none; z-index: 0;
-    }
-    .oeg-call__shadow {
-      position: absolute; left: 50%; bottom: 4px;
-      width: 44%; height: 22px; transform: translateX(-50%);
-      background: radial-gradient(closest-side ellipse,
-        rgba(64,31,125,.20) 0%, rgba(64,31,125,0) 100%);
-      filter: blur(6px); border-radius: 50%; z-index: 0;
-      animation: oeg-call-shadow 6s ease-in-out infinite;
-    }
-    /* drop-shadow sits on the wrapper, not the masked image. Putting both on
-       one element makes some browsers draw the un-masked box shadow, which is
-       what caused the visible square edge. */
-    .oeg-call__figure {
-      position: relative; z-index: 1; line-height: 0;
-      filter: drop-shadow(0 20px 28px rgba(64,31,125,.18));
-      animation: oeg-call-float 6s ease-in-out infinite;
-    }
-    .oeg-call__portrait {
-      display: block; width: auto; height: clamp(320px, 40vw, 480px);
-      max-width: 100%; object-fit: contain;
-      -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
-              mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
-    }
-    @keyframes oeg-call-float {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-16px); }
-    }
-    @keyframes oeg-call-shadow {
-      0%, 100% { transform: translateX(-50%) scale(1);   opacity: .8; }
-      50%      { transform: translateX(-50%) scale(.86); opacity: .5; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .oeg-call__figure, .oeg-call__shadow { animation: none; }
-    }
-
-    /* the little name plate */
-    .oeg-call__plate {
-      position: absolute; left: 50%; bottom: 8%;
-      transform: translateX(-58%);
-      display: flex; flex-direction: column; gap: 2px;
-      background: rgba(255,255,255,.94);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px 20px;
-      box-shadow: 0 8px 26px rgba(64,31,125,.14);
-      white-space: nowrap; z-index: 2;
-    }
-    .oeg-call__plate-name {
-      font-family: var(--fh); font-size: 17px; font-weight: 700;
-      letter-spacing: -0.01em; color: var(--p);
-    }
-    .oeg-call__plate-role {
-      font-family: var(--fb); font-size: 12px; font-weight: 600;
-      letter-spacing: 1.2px; text-transform: uppercase; color: var(--m);
-    }
-
-    @media (max-width: 900px) {
-      .oeg-call__container { grid-template-columns: 1fr; }
-      .oeg-call__media { order: -1; min-height: 340px; }
-      .oeg-call__copy { max-width: none; }
-      .oeg-call__plate { transform: translateX(-64%); }
-    }
-    @media (max-width: 520px) {
-      .oeg-call__btn { width: 100%; }
-      .oeg-call__portrait { height: 300px; }
-      .oeg-call__plate { bottom: 2%; padding: 10px 16px; }
-      .oeg-call__plate-name { font-size: 15px; }
-    }
-  </style>
-
-  <style>
-    /* The plate is white-space:nowrap so the name and title stay on one
-       line. The credential line has to be allowed to wrap, and the plate
-       needs a ceiling so it cannot run off the edge of the card. */
-    .oeg-call__plate {
-      white-space: normal;
-      max-width: min(320px, 78vw);
-    }
-    .oeg-call__plate-name { white-space: nowrap; }
-    /* The full title is wider than the plate was sized for. Let it wrap and
-       tighten the tracking slightly rather than pushing past the edge. */
-    .oeg-call__plate-role {
-      white-space: normal; letter-spacing: .9px; font-size: 11.5px; line-height: 1.35;
-    }
-    .oeg-call__plate-cred {
-      display: block; margin-top: 6px;
-      font-family: var(--font-body, 'Work Sans', sans-serif);
-      font-size: 11.5px; line-height: 1.45; font-weight: 500;
-      color: var(--tg-muted, #6f6b7d);
-      white-space: normal;
-    }
-    @media (max-width: 520px) {
-      .oeg-call__plate-cred { display: none; }
-    }
-  </style>
-
-  <div class="oeg-call__container">
-
-    <div class="oeg-call__content">
-      <p class="oeg-call__tag">Talk to a human</p>
-
-      <h2 class="oeg-call__title">Yes, you can actually <span>talk to one of our founders.</span></h2>
-
-      <p class="oeg-call__copy">
-        Not a sales rep, not a chatbot, not a form that disappears into an inbox. Book fifteen
-        minutes with one of the people who actually built Tangram and ask her anything. Whether it fits your
-        classroom, what it does with IEPs, whether it makes sense for your whole school.
-      </p>
-
-      <!-- SWAP: Google Appointments booking link -->
-      <a class="oeg-call__btn" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call &rarr;</a>
-
-      <p class="oeg-call__reassure">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
-        Fifteen minutes, no pitch, no pressure
-      </p>
-    </div>
-
-    <div class="oeg-call__media">
-      <div class="oeg-call__glow" aria-hidden="true"></div>
-      <div class="oeg-call__shadow" aria-hidden="true"></div>
-
-      <div class="oeg-call__figure">
-      <img class="oeg-call__portrait"
-           alt="Dr. Nicole Galante, co-founder of Tangram"
-           src="nicole-founder.webp" width="459" height="720" decoding="async">
-      </div>
-
-      <div class="oeg-call__plate">
-        <span class="oeg-call__plate-name">Dr. Nicole Galante</span>
-        <span class="oeg-call__plate-role">Co-Founder &amp; Chief Strategy Officer</span>
-        <span class="oeg-call__plate-cred">PhD &middot; Stony Brook University &middot; Co-authored New York State&rsquo;s framework for quality remote teaching</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- ===== end 06 ===== -->
-
-<!-- CAMPUS / DISTRICT INQUIRE (KG Creative) -->
-<section class="tg-campus" id="campus-inquire">
-  <div class="tg-wrap">
-    <div class="tg-inner">
-
-      <div class="tg-copy">
-        <p class="tg-eyebrow">For Schools &amp; Districts</p>
-        <h2>Bring Tangram to your whole building.</h2>
-        <p class="tg-lead">Give every teacher a planning partner that already knows your standards, your frameworks, and your students — with onboarding and coaching built for your team.</p>
-        <ul class="tg-list">
-          <li>Everything in Elevate, for your entire staff</li>
-          <li>Admin dashboard &amp; rostering at scale</li>
-          <li>Custom onboarding and professional development</li>
-          <li>Building-wide live trainings with our founders</li>
-          <li>Dedicated support &amp; volume pricing</li>
-        </ul>
-        <!-- Booking link is live (Google Calendar appointment scheduling) -->
-        <a class="tg-book" href="https://calendar.app.google/THyRt4fbd7Z3DDE97" target="_blank" rel="noopener">Book a Call →</a>
-      </div>
-
-      <!-- OPTION 2: point action at your form handler; mailto fallback works out of the box -->
-      <form class="tg-form" action="mailto:hello@gettangram.com" method="post" enctype="text/plain">
+    <!-- Submissions open a pre-filled email to hello@gettangram.com (same address as the previous form).
+         To use a form service instead, paste its URL into data-endpoint. -->
+    <form class="oeg-form" id="oeg-form" data-endpoint="" data-fallback-email="hello@gettangram.com" novalidate>
+      <div id="oeg-form-fields">
         <h3>Inquire for pricing</h3>
-        <p class="tg-fnote">Tell us about your school or district and we'll be in touch.</p>
-
-        <div class="tg-two">
-          <div class="tg-field">
-            <label for="tg-fname">First name</label>
-            <input id="tg-fname" name="First name" type="text" autocomplete="given-name" required>
-          </div>
-          <div class="tg-field">
-            <label for="tg-lname">Last name</label>
-            <input id="tg-lname" name="Last name" type="text" autocomplete="family-name" required>
-          </div>
+        <p>Tell us about your school or district and we'll be in touch.</p>
+        <div class="oeg-row">
+          <div><label for="f-first">First name</label><input id="f-first" name="first_name" required autocomplete="given-name"></div>
+          <div><label for="f-last">Last name</label><input id="f-last" name="last_name" required autocomplete="family-name"></div>
         </div>
-
-        <div class="tg-field">
-          <label for="tg-email">Work email</label>
-          <input id="tg-email" name="Email" type="email" autocomplete="email" required>
+        <label for="f-email">Work email</label><input id="f-email" name="email" type="email" required autocomplete="email">
+        <label for="f-school">School / District</label><input id="f-school" name="school" required autocomplete="organization">
+        <div class="oeg-row">
+          <div><label for="f-role">Your role</label>
+            <select id="f-role" name="role" required>
+              <option value="">Select…</option><option>Teacher</option><option>Instructional Coach</option><option>Principal / AP</option><option>District Administrator</option><option>Other</option>
+            </select></div>
+          <div><label for="f-count">Approx. number of teachers</label><input id="f-count" name="teacher_count" inputmode="numeric"></div>
         </div>
+        <label for="f-notes">Anything else? (optional)</label><textarea id="f-notes" name="notes" rows="3"></textarea>
+        <button class="oeg-btn oeg-btn-purple" type="submit">Request Pricing</button>
+        <small>We'll only use your info to talk about Tangram. No spam, ever.</small>
+      </div>
+      <div class="oeg-form-ok" id="oeg-form-ok"><b>Got it. Thank you!</b><p>One of our founders will be in touch soon.</p></div>
+    </form>
+  </div>
+</section>
 
-        <div class="tg-two">
-          <div class="tg-field">
-            <label for="tg-school">School / District</label>
-            <input id="tg-school" name="School or District" type="text" required>
-          </div>
-          <div class="tg-field">
-            <label for="tg-role">Your role</label>
-            <select id="tg-role" name="Role">
-              <option>Teacher</option>
-              <option>Instructional Coach</option>
-              <option>Principal / AP</option>
-              <option>District Administrator</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="tg-field">
-          <label for="tg-size">Approx. number of teachers</label>
-          <input id="tg-size" name="Number of teachers" type="text" placeholder="e.g. 45">
-        </div>
-
-        <div class="tg-field">
-          <label for="tg-msg">Anything else? (optional)</label>
-          <textarea id="tg-msg" name="Message" placeholder="What are you hoping Tangram can help your team with?"></textarea>
-        </div>
-
-        <button class="tg-submit" type="submit">Request Pricing</button>
-        <p class="tg-priv">We'll only use your info to talk about Tangram. No spam, ever.</p>
-      </form>
-
+<!-- FAQ -->
+<section class="oeg-sec">
+  <div class="oeg-wrap oeg-center">
+    <span class="oeg-eyebrow">Questions teachers ask</span>
+    <h2>Tangram FAQ</h2>
+    <div class="oeg-faq" style="text-align:left">
+      <details open><summary>What is Tangram?</summary><p>Tangram is an AI lesson planning tool built by two career teachers. You build one lesson with Tan, Tangram's planning partner, and Tangram creates a differentiated version for each class you teach, with supports for IEPs, English learners and reading levels built in.</p></details>
+      <details><summary>How does Tangram help me reach more of my students?</summary><p>You build one lesson, then Tan builds a version for each class you teach, with supports for IEPs, ELLs, reading levels and MTSS tiers worked into every section. Same standard and outcome for everyone, a different way in for each group.</p></details>
+      <details><summary>Does Tangram help with IEPs and English learners?</summary><p>Yes. Tell Tan who is in each class, including students with IEPs, English learners and different reading levels, and every section of the lesson adjusts. Elevate also translates lessons and family communication into students' home languages.</p></details>
+      <details><summary>Is the first month really free?</summary><p>Yes. Every feature is included in your first month, not a stripped-down sample. No credit card to start, and nothing charges automatically when it ends. Pick a plan when you're ready, from $5.99/mo.</p></details>
+      <details><summary>Do I have to upload student data?</summary><p>No. Tangram doesn't need student rosters. Name a class &quot;Period 2&quot; or "Student A," tell Tan about the needs in the room, and your data stays yours.</p></details>
+      <details><summary>Will Tangram work with my evaluation framework?</summary><p>Yes. Lessons are already in the language of Danielson, Marzano and Understanding by Design, and Tangram covers state standards in every state.</p></details>
+      <details><summary>How is Tangram different from other AI lesson plan generators?</summary><p>Tan isn't trained on the internet. It runs on Shared Space Teaching, the methodology Tangram's founders built and refined across 650+ districts. On Elevate, you also get direct coaching calls with real educators.</p></details>
+      <details><summary>How much does Tangram cost?</summary><p>Your first month is free with every feature included. After that, Accelerate is $5.99/mo for 5 lessons a month and Elevate is $11.99/mo for unlimited lessons. Paying annually saves 44%. Schools and districts get custom Campus pricing.</p></details>
+      <details><summary>Can my whole school or district use Tangram?</summary><p>Yes. Campus gives your whole staff everything in Elevate plus admin tools, rostering, custom onboarding and building-wide trainings. Use the Inquire for Pricing form or book a school call.</p></details>
     </div>
+  </div>
+</section>
+
+<!-- CREATOR PROGRAM -->
+<section class="oeg-sec oeg-creator">
+  <div class="oeg-wrap">
+    <img class="oeg-rv" src="https://www.gettangram.com/nicole-pointing.webp" alt="Dr. Nicole Galante" loading="lazy">
+    <div class="oeg-rv">
+      <span class="oeg-eyebrow">Creator Partner Program</span>
+      <h2>We're not looking for influencers. We're looking for real teachers.</h2>
+      <p>Follower count isn't the filter. If you teach and you talk about teaching, we'll give you a free Elevate account for twelve months and pay you every month for the teachers you send our way.</p>
+      <span class="oeg-pill">30% of what your referrals pay, every month</span><br>
+      <a class="oeg-btn oeg-btn-purple" href="https://www.gettangram.com/creators/apply">Apply to the Creator Program →</a>
+      <p style="font-size:.9rem;margin-top:12px;color:var(--muted)">Takes about two minutes. We read every application ourselves.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="oeg-sec oeg-ig">
+  <div class="oeg-wrap">
+    <span class="oeg-eyebrow">From the classroom</span>
+    <h2>See Tangram in real classrooms.</h2>
+    <p class="oeg-lead" style="margin:16px auto 0">Teachers building real lessons and showing what the tool actually does on a Tuesday morning.</p>
+    <!-- To add a live Instagram feed later, paste the Elfsight embed here. -->
+    <a class="oeg-btn oeg-btn-ghost" href="https://www.instagram.com/gettangram/" target="_blank" rel="noopener" style="margin-top:28px">Follow @gettangram</a>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta" id="signup">
-  <div class="container">
+<section class="oeg-sec oeg-final">
+  <div class="oeg-wrap">
+    <div class="oeg-big">150 students. 5 class periods. 1 workflow.</div>
     <h2>Your students aren't generic. Your lessons shouldn't be either.</h2>
-    <p>Your first month free. No credit card. See what a real methodology feels like.</p>
-    <a href="https://app.gettangram.com" class="final-cta-btn">Start Free →</a>
-    <p class="kit-subtext">150 students. 5 class periods. 1 workflow. Zero compromises.</p>
+    <p>Build one real lesson this week and watch it reach every class you teach. Your first month is on us.</p>
+    <a class="oeg-btn oeg-btn-primary" href="https://app.gettangram.com/start?intent=free&src=hp_signup">Start Your Free Month →</a>
+    <ul class="oeg-checks"><li>No credit card</li><li>Nothing charges automatically</li><li>Cancel anytime</li></ul>
   </div>
 </section>
 
-<!-- ===== 03 · Instagram feed — live Elfsight widget (One Eleven Group, corrected) ===== -->
-<section class="oeg-social">
-  <style>
-    .oeg-social {
-      --p:  var(--tg-purple, #401F7D);
-      --m:  var(--tg-magenta, #B14FC5);
-      --am: #88229D;
-      --ink: var(--tg-ink, #333333);
-      --muted: var(--tg-muted, #6f6b7d);
-      --line: var(--tg-line, rgba(64,31,125,0.10));
-      --rad: var(--tg-rad, 24px);
-      --btn: var(--tg-btn, 12px);
-      --fh: var(--font-head, 'League Spartan', sans-serif);
-      --fb: var(--font-body, 'Work Sans', sans-serif);
+</main>
 
-      box-sizing: border-box;
-      font-family: var(--fb);
-      color: var(--ink);
-      background: #FFFFFF;
-      padding: clamp(56px, 8vw, 110px) 0;
-    }
-    .oeg-social *, .oeg-social *::before, .oeg-social *::after { box-sizing: border-box; }
-
-    .oeg-social__container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
-
-    .oeg-social__head {
-      display: flex; flex-wrap: wrap; align-items: flex-end;
-      justify-content: space-between; gap: 24px;
-      margin-bottom: clamp(28px, 4vw, 44px);
-    }
-
-    .oeg-social__tag {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
-      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
-    }
-    .oeg-social__tag::before {
-      content: ""; width: 28px; height: 2px; flex: none;
-      background: var(--m); border-radius: 2px;
-    }
-
-    .oeg-social__title {
-      font-family: var(--fh);
-      font-size: clamp(30px, 4vw, 46px);
-      font-weight: 800; line-height: 1.08;
-      letter-spacing: -0.02em; color: var(--p); margin: 0 0 14px;
-    }
-
-    .oeg-social__copy {
-      font-size: clamp(15px, 1.35vw, 17px);
-      line-height: 1.72; color: var(--ink); margin: 0; max-width: 50ch;
-    }
-
-    .oeg-social__follow {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--fb); font-size: 16px; font-weight: 500;
-      text-decoration: none; color: #fff;
-      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
-      padding: 16px 32px; border-radius: var(--btn);
-      box-shadow: 0 4px 16px rgba(177,79,197,.25);
-      transition: transform .16s ease, box-shadow .16s ease;
-      white-space: nowrap;
-    }
-    .oeg-social__follow:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
-
-    .oeg-social__embed { border-radius: var(--rad); overflow: hidden; min-height: 300px; }
-
-    /* Only ever rendered if the Elfsight widget fails to load. */
-    .oeg-social__fallback {
-      border: 1px solid var(--line); border-radius: var(--rad);
-      background: var(--tg-soft, #F7F5FB);
-      padding: clamp(40px, 6vw, 64px) 24px; text-align: center;
-    }
-    .oeg-social__fallback svg { color: var(--m); margin-bottom: 16px; }
-    .oeg-social__fallback h3 {
-      font-family: var(--fh); font-size: 21px; font-weight: 700;
-      letter-spacing: -0.01em; color: var(--p); margin: 0 0 8px;
-    }
-    .oeg-social__fallback p {
-      font-size: 15px; line-height: 1.65; color: var(--muted); margin: 0 0 22px;
-    }
-    .oeg-social__fallback a {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 15px; font-weight: 600; text-decoration: none; color: #fff;
-      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
-      padding: 13px 28px; border-radius: var(--btn);
-      box-shadow: 0 4px 16px rgba(177,79,197,.25);
-    }
-
-    @media (max-width: 700px) {
-      .oeg-social__head { flex-direction: column; align-items: stretch; }
-      .oeg-social__follow { width: 100%; justify-content: center; }
-    }
-  </style>
-
-  <div class="oeg-social__container">
-
-    <div class="oeg-social__head">
-      <div>
-        <p class="oeg-social__tag">From the classroom</p>
-        <h2 class="oeg-social__title">See Tangram in real classrooms.</h2>
-        <p class="oeg-social__copy">
-          Teachers building real lessons, sharing what is working, and showing what the tool
-          actually does on a Tuesday morning.
-        </p>
-      </div>
-
-      <a class="oeg-social__follow" href="https://www.instagram.com/gettangram/" target="_blank" rel="noopener">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-        </svg>
-        Follow along
-      </a>
-    </div>
-
-    <div class="oeg-social__embed">
-
-      <!-- ==================== ELFSIGHT EMBED ====================
-           Live. This is the @gettangram Instagram Feed widget from
-           the Tangram Elfsight account. Nothing to swap.
-
-           To change the layout later (posts shown, columns, etc.),
-           edit the widget inside Elfsight. The change is live on the
-           site instantly, no code edit needed.
-      ======================================================== -->
-
-      <!-- Elfsight Instagram Feed | @gettangram -->
-      <script src="https://elfsightcdn.com/platform.js" async></script>
-      <div class="elfsight-app-2e4aad9a-237d-4889-927d-633b0ec8ee9e" data-elfsight-app-lazy></div>
-
-      <!-- Shown only if the Elfsight script never renders. See header note. -->
-      <template id="oeg-social-fb-tpl">
-        <div class="oeg-social__fallback">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-          </svg>
-          <h3>The feed lives on Instagram.</h3>
-          <p>Real lessons, real classrooms, posted as they happen.</p>
-          <a href="https://www.instagram.com/gettangram/" target="_blank" rel="noopener">Follow @gettangram &rarr;</a>
-        </div>
-      </template>
-      <script>
-      (function () {
-        var host = document.querySelector('.elfsight-app-2e4aad9a-237d-4889-927d-633b0ec8ee9e');
-        if (!host) return;
-        setTimeout(function () {
-          /* Elfsight injects its own DOM into the host div. Nothing injected
-             and no height means the script never ran or never rendered. */
-          if (host.childElementCount > 0 && host.offsetHeight > 80) return;
-          var tpl = document.getElementById('oeg-social-fb-tpl');
-          if (tpl && host.parentNode) host.parentNode.replaceChild(tpl.content.cloneNode(true), host);
-        }, 4000);
-      })();
-      </script>
-
-    </div>
-
-  </div>
-</section>
-<!-- ===== end 03 ===== -->
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <a href="#" class="footer-logo">
-      <img src="Tangram_Logo.svg" alt="Tangram" class="footer-logo-img">
-    </a>
-    <p style="margin-bottom:8px">Tangram by Mosaic Instructional Planning &middot;
-  <a href="terms.html">Terms</a> &middot;
-  <a href="privacy.html">Privacy</a> &middot;
-  <a href="/answers/">Answers</a></p>
+<footer class="oeg-foot">
+  <div class="oeg-wrap">
+    <img src="https://www.gettangram.com/Tangram_Logo.svg" alt="Tangram">
+    <span>Tangram by Mosaic Instructional Planning</span>
+    <nav><a href="https://www.gettangram.com/terms.html">Terms</a><a href="https://www.gettangram.com/privacy.html">Privacy</a><a href="https://www.gettangram.com/answers/">Answers</a><a href="https://www.gettangram.com/blog/">Blog</a></nav>
   </div>
 </footer>
 
+<!-- MOBILE STICKY CTA -->
+<div class="oeg-sticky" id="oeg-sticky">
+  <a class="oeg-btn oeg-btn-primary" href="https://app.gettangram.com/start?intent=free&src=hp_sticky">Start Free</a>
+  <a class="oeg-btn oeg-btn-ghost" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Call</a>
+</div>
+
 <script>
-// Nav scroll effect
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
-});
+(function(){
+  // Hero video: YouTube (privacy-enhanced), muted autoplay loop; sound toggle via iframe API messages
+  var holder=document.getElementById('oeg-hero-vid'), btn=document.getElementById('oeg-sound');
+  var id=holder.getAttribute('data-yt'), muted=true;
+  var iframe=document.createElement('iframe');
+  iframe.src='https://www.youtube-nocookie.com/embed/'+id+'?'+['autoplay=1','mute=1','loop=1','playlist='+id,'controls=0','rel=0','modestbranding=1','playsinline=1','iv_load_policy=3','disablekb=1','enablejsapi=1','origin='+encodeURIComponent(location.origin)].join('&');
+  iframe.title=holder.getAttribute('aria-label');
+  iframe.allow='autoplay; encrypted-media; picture-in-picture';
+  iframe.setAttribute('allowfullscreen','');
+  holder.replaceWith(iframe);
+  function yt(f){iframe.contentWindow.postMessage(JSON.stringify({event:'command',func:f,args:[]}),'*');}
+  btn.addEventListener('click',function(){
+    muted=!muted;
+    if(!muted){yt('unMute');yt('seekTo');yt('playVideo');btn.textContent='🔇 Mute';btn.classList.add('is-on');btn.setAttribute('aria-pressed','true');}
+    else{yt('mute');btn.textContent='🔊 Tap for sound';btn.classList.remove('is-on');btn.setAttribute('aria-pressed','false');}
+  });
 
-// Intersection Observer for scroll animations
-const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -60px 0px'
-};
+  // GA events: signup + booking clicks
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a||typeof gtag!=='function')return;
+    var h=a.href||'';
+    if(h.indexOf('app.gettangram.com')>-1)gtag('event','sign_up_click',{link_url:h,link_text:a.textContent.trim()});
+    else if(h.indexOf('calendar.app.google')>-1)gtag('event','book_call_click',{link_url:h,link_text:a.textContent.trim()});
+    else if(h.indexOf('/creators/apply')>-1)gtag('event','creator_apply_click',{link_url:h});
+  });
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = entry.target.dataset.transform || 'translateY(0)';
-      observer.unobserve(entry.target);
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});},{threshold:.15});
+  document.querySelectorAll('.oeg-rv').forEach(function(el){io.observe(el);});
+
+  // Period cards stagger in
+  var board=document.getElementById('oeg-board');
+  new IntersectionObserver(function(es,o){if(es[0].isIntersecting){board.querySelectorAll('.oeg-period').forEach(function(p,i){setTimeout(function(){p.classList.add('is-in');},150+i*220);});o.disconnect();}},{threshold:.3}).observe(board);
+
+  // Mobile sticky CTA after hero
+  var sticky=document.getElementById('oeg-sticky'), hero=document.querySelector('.oeg-hero');
+  new IntersectionObserver(function(es){sticky.classList.toggle('is-show',!es[0].isIntersecting);}).observe(hero);
+
+  // School inquiry form
+  var form=document.getElementById('oeg-form');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var bad=false;form.querySelectorAll('[required]').forEach(function(f){var ok=f.value.trim()&&(f.type!=='email'||/.+@.+\..+/.test(f.value));f.style.borderColor=ok?'':'#B14FC5';if(!ok)bad=true;});
+    if(bad)return;
+    if(typeof gtag==='function')gtag('event','generate_lead',{form:'campus_inquiry'});
+    var data=new FormData(form), ep=form.dataset.endpoint;
+    function done(){document.getElementById('oeg-form-fields').style.display='none';document.getElementById('oeg-form-ok').style.display='block';}
+    if(ep){fetch(ep,{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(done).catch(done);}
+    else{
+      var body='';data.forEach(function(v,k){body+=k.replace('_',' ')+': '+v+'\n';});
+      window.location.href='mailto:'+form.dataset.fallbackEmail+'?subject='+encodeURIComponent('Campus pricing inquiry: '+data.get('school'))+'&body='+encodeURIComponent(body);
+      done();
     }
   });
-}, observerOptions);
-
-// Animate elements on scroll
-document.querySelectorAll('.how-step, .compare-card, .feature-card, .cred-stat, .price-card').forEach((el, i) => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(40px)';
-  el.style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
-  observer.observe(el);
-});
-
-// Stagger animations within grids
-document.querySelectorAll('.how-grid, .features-grid, .cred-grid, .compare-grid, .pricing-grid').forEach(grid => {
-  Array.from(grid.children).forEach((child, i) => {
-    child.style.transitionDelay = `${i * 0.1}s`;
-  });
-});
-
-// Methodology section animation
-const methodologyObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      methodologyObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('.methodology-content, .pullquote-inner').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(40px)';
-  el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-  methodologyObserver.observe(el);
-});
+})();
 </script>
 </body>
 </html>
