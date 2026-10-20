@@ -1,0 +1,3252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tangram — Lessons That Fit Every Class</title>
+<meta name="description" content="Build one lesson with Tan. Get versions tailored for each class you teach. Powered by an original methodology developed through 50+ years of combined experience in hundreds of districts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Work+Sans:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --grape: #401F7D;
+  --grape-deep: #2D1659;
+  --orchid: #B14FC5;
+  --orchid-light: rgba(177,79,197,0.08);
+  --amethyst: #88229D;
+  --pacific: #5FD0FF;
+  --mint: #3FDE9D;
+  --slate: #333333;
+  --stone: #EAEAEE;
+  --stone-warm: #F5F4F7;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  color: var(--slate);
+  background: var(--white);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.015;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav.scrolled {
+  background: rgba(255,255,255,0.95);
+  border-bottom-color: rgba(64,31,125,0.06);
+  box-shadow: 0 4px 30px rgba(64,31,125,0.04);
+}
+.nav-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 32px; max-width: 1180px; margin: 0 auto;
+}
+.nav-logo { height: 64px; display: flex; align-items: center; text-decoration: none; }
+.nav-logo-img { height: 64px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 40px; }
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--slate);
+  text-decoration: none; transition: color 0.3s;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--grape); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--orchid) 0%, var(--amethyst) 100%);
+  color: #fff !important;
+  padding: 12px 24px; border-radius: 10px; font-weight: 600;
+  box-shadow: 0 4px 16px rgba(177,79,197,0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(177,79,197,0.35);
+}
+
+/* HERO */
+.hero {
+  padding: 160px 0 120px;
+  background: linear-gradient(165deg, #FDFCFE 0%, #F9F7FC 40%, #F3EEF8 80%, #EDE6F3 100%);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(177,79,197,0.1) 0%, transparent 70%);
+  top: -200px; right: -150px;
+  animation: float 20s ease-in-out infinite;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(95,208,255,0.08) 0%, transparent 70%);
+  bottom: -100px; left: -100px;
+  animation: float 25s ease-in-out infinite reverse;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.05); }
+}
+
+.hero-content { max-width: 720px; position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(177,79,197,0.12);
+  padding: 10px 20px; border-radius: 100px;
+  font-size: 13px; font-weight: 500; color: var(--grape);
+  margin-bottom: 32px; text-decoration: none;
+  box-shadow: 0 2px 12px rgba(64,31,125,0.06);
+  transition: all 0.3s;
+}
+.hero-badge:hover {
+  border-color: rgba(177,79,197,0.25);
+  box-shadow: 0 4px 20px rgba(64,31,125,0.1);
+}
+.hero-badge::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--mint);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+.hero h1 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(40px, 5.5vw, 62px);
+  font-weight: 800; line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--grape); margin-bottom: 24px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--orchid) 0%, var(--amethyst) 50%, var(--grape) 100%);
+  background-size: 200% 200%;
+  animation: shimmer 8s ease-in-out infinite;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.hero-sub {
+  font-size: 19px; color: #555; margin-bottom: 40px;
+  max-width: 580px; line-height: 1.75;
+  letter-spacing: 0.005em;
+}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, var(--orchid) 0%, var(--amethyst) 100%);
+  color: #fff;
+  padding: 16px 32px; border-radius: 12px;
+  font-weight: 600; font-size: 16px; text-decoration: none;
+  box-shadow: 0 8px 28px rgba(177,79,197,0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s;
+}
+.btn-primary:hover::before { left: 100%; }
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(177,79,197,0.4);
+}
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  color: var(--grape);
+  padding: 16px 32px; border-radius: 12px;
+  font-weight: 600; font-size: 16px; text-decoration: none;
+  border: 2px solid rgba(64,31,125,0.12);
+  transition: all 0.3s;
+}
+.btn-secondary:hover {
+  background: var(--grape);
+  color: #fff;
+  border-color: var(--grape);
+}
+.hero-proof {
+  display: flex; flex-wrap: wrap; gap: 8px 24px;
+  font-size: 14px; color: #666;
+}
+.hero-proof span { color: var(--grape); font-weight: 600; }
+
+/* HOW IT WORKS */
+.how-strip {
+  background: linear-gradient(135deg, var(--grape-deep) 0%, var(--grape) 50%, var(--amethyst) 100%);
+  padding: 80px 0;
+  position: relative; overflow: hidden;
+}
+.how-strip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 40,0 0,40' fill='%23ffffff' fill-opacity='0.025'/%3E%3Cpolygon points='80,40 80,80 40,80' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  position: relative; z-index: 1;
+}
+.how-step { text-align: center; color: #fff; }
+.how-num {
+  width: 56px; height: 56px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 20px; font-weight: 700;
+  margin: 0 auto 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.how-label {
+  font-family: 'Alata', sans-serif;
+  font-size: 17px; margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+.how-detail {
+  font-size: 14px; opacity: 0.7; line-height: 1.6;
+}
+
+/* METHODOLOGY */
+.methodology {
+  padding: 140px 0;
+  background: linear-gradient(180deg, var(--white) 0%, var(--stone-warm) 100%);
+  position: relative; overflow: hidden;
+}
+.methodology-inner { max-width: 740px; }
+.methodology-content { max-width: 740px; }
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--orchid);
+  margin-bottom: 16px;
+}
+.section-tag::before {
+  content: '';
+  width: 24px; height: 2px;
+  background: linear-gradient(90deg, var(--orchid), var(--amethyst));
+  border-radius: 1px;
+}
+.methodology h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape); margin-bottom: 28px;
+  line-height: 1.12;
+}
+.methodology p {
+  font-size: 18px; color: #555; line-height: 1.8;
+  margin-bottom: 20px;
+}
+.methodology-list {
+  list-style: none;
+  margin-top: 36px;
+}
+.methodology-list li {
+  font-size: 16px; padding: 16px 0;
+  display: flex; align-items: flex-start; gap: 16px;
+  color: var(--slate);
+  border-bottom: 1px solid rgba(64,31,125,0.06);
+}
+.methodology-list li:last-child { border-bottom: none; }
+.methodology-list li::before {
+  content: '';
+  width: 22px; height: 22px;
+  min-width: 22px;
+  background: linear-gradient(135deg, var(--mint) 0%, #2fc98a 100%);
+  border-radius: 50%;
+  margin-top: 2px;
+  box-shadow: 0 4px 12px rgba(63,222,157,0.3);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* COMPARE */
+.compare {
+  padding: 140px 0;
+  background: linear-gradient(180deg, var(--stone-warm) 0%, #F9F7FC 50%, var(--white) 100%);
+  position: relative; overflow: hidden;
+}
+.compare .container { max-width: 1000px; }
+.compare-header {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 64px;
+}
+.compare h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape); margin-bottom: 16px;
+}
+.compare-sub {
+  font-size: 18px;
+  color: #555; line-height: 1.7;
+}
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.compare-card {
+  border-radius: 24px; padding: 44px;
+  position: relative; overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.compare-card:hover { transform: translateY(-6px); }
+.compare-card.them {
+  background: var(--white);
+  border: 1px solid rgba(64,31,125,0.08);
+  box-shadow: 0 4px 24px rgba(64,31,125,0.04);
+}
+.compare-card.us {
+  background: linear-gradient(145deg, var(--grape) 0%, var(--grape-deep) 100%);
+  color: #fff;
+  box-shadow: 0 20px 60px rgba(64,31,125,0.2), 0 0 60px rgba(177,79,197,0.1);
+}
+.compare-card.us::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 40,0 0,40' fill='%23ffffff' fill-opacity='0.035'/%3E%3Cpolygon points='80,40 80,80 40,80' fill='%23ffffff' fill-opacity='0.025'/%3E%3C/svg%3E");
+  background-size: 40px 40px;
+}
+.card-content { position: relative; z-index: 1; }
+.card-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  opacity: 0.5; margin-bottom: 12px;
+}
+.card-brand {
+  font-family: 'Alata', sans-serif; font-size: 22px;
+  margin-bottom: 4px;
+}
+.card-brand.them { color: #999; }
+.card-price { font-size: 14px; opacity: 0.5; margin-bottom: 24px; }
+.card-role {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 26px; font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.card-role.them { color: #666; }
+.card-desc {
+  font-size: 15px; line-height: 1.7; margin-bottom: 28px;
+  opacity: 0.85;
+}
+.card-list { list-style: none; }
+.card-list li {
+  font-size: 14px; padding: 10px 0;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.compare-card.them .card-list li {
+  border-bottom-color: rgba(64,31,125,0.06);
+}
+.card-list li:last-child { border-bottom: none; }
+.card-list li::before {
+  content: '✕'; font-weight: bold; color: #ccc; font-size: 12px;
+}
+.compare-card.us .card-list li::before {
+  content: '✓'; color: var(--mint); font-size: 14px;
+}
+
+/* PULLQUOTE */
+.pullquote {
+  padding: 100px 0;
+  background: var(--white);
+  position: relative;
+}
+.pullquote-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.pullquote-mark {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 140px;
+  font-weight: 800;
+  color: var(--orchid);
+  opacity: 0.08;
+  position: absolute;
+  top: -50px; left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+}
+.pullquote blockquote {
+  font-family: 'Alata', sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--grape);
+  line-height: 1.5;
+  position: relative; z-index: 1;
+}
+.pullquote blockquote em {
+  font-style: normal;
+  color: var(--orchid);
+}
+
+/* FEATURES */
+.features {
+  padding: 140px 0;
+  background: linear-gradient(180deg, var(--white) 0%, var(--stone-warm) 100%);
+  position: relative; overflow: hidden;
+}
+.features-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 64px;
+}
+.features h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape); margin-bottom: 16px;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.feature-card {
+  background: var(--white);
+  border: 1px solid rgba(64,31,125,0.06);
+  border-radius: 20px;
+  padding: 36px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative; overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orchid), var(--amethyst));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(64,31,125,0.1);
+  border-color: transparent;
+}
+.feature-card:hover::before { opacity: 1; }
+.feature-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin-bottom: 20px;
+  position: relative;
+}
+.feature-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%; height: 100%;
+  border-radius: 16px;
+  background: inherit;
+  filter: blur(12px);
+  opacity: 0.4;
+  z-index: -1;
+}
+.fi-grape { background: linear-gradient(135deg, rgba(64,31,125,0.1), rgba(64,31,125,0.05)); }
+.fi-orchid { background: linear-gradient(135deg, rgba(177,79,197,0.1), rgba(177,79,197,0.05)); }
+.fi-pacific { background: linear-gradient(135deg, rgba(95,208,255,0.12), rgba(95,208,255,0.06)); }
+.fi-mint { background: linear-gradient(135deg, rgba(63,222,157,0.12), rgba(63,222,157,0.06)); }
+.fi-amethyst { background: linear-gradient(135deg, rgba(136,34,157,0.1), rgba(136,34,157,0.05)); }
+.feature-card h3 {
+  font-family: 'Alata', sans-serif;
+  font-size: 18px; color: var(--grape);
+  margin-bottom: 10px;
+  letter-spacing: 0.01em;
+}
+.feature-card p {
+  font-size: 15px; color: #666; line-height: 1.7;
+}
+
+/* CREDIBILITY */
+.credibility {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--grape-deep) 0%, var(--grape) 50%, var(--amethyst) 100%);
+  position: relative; overflow: hidden;
+}
+.credibility::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 40,0 0,40' fill='%23ffffff' fill-opacity='0.025'/%3E%3Cpolygon points='80,40 80,80 40,80' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+.credibility .container { position: relative; z-index: 1; }
+.cred-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.cred-tag {
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--pacific);
+  margin-bottom: 12px;
+}
+.credibility h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.cred-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.cred-stat {
+  text-align: center; color: #fff;
+  padding: 36px 24px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.4s;
+}
+.cred-stat:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-4px);
+}
+.cred-num {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(40px, 5vw, 54px);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--pacific), var(--mint));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+.cred-label {
+  font-size: 14px; opacity: 0.7; line-height: 1.4;
+}
+
+/* PRICING */
+.pricing {
+  padding: 140px 0;
+  background: linear-gradient(180deg, var(--stone-warm) 0%, var(--white) 50%, var(--stone-warm) 100%);
+  position: relative; overflow: hidden;
+}
+.pricing-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 64px;
+}
+.pricing h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape); margin-bottom: 12px;
+}
+.pricing-sub {
+  font-size: 18px; color: #555;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px; max-width: 1100px; margin: 0 auto;
+}
+.price-card {
+  background: var(--white);
+  border: 1px solid rgba(64,31,125,0.06);
+  border-radius: 24px;
+  padding: 40px 28px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+.price-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(64,31,125,0.12);
+}
+.price-card.recommended {
+  background: linear-gradient(180deg, var(--white) 0%, #FAF7FC 100%);
+  border: 2px solid var(--orchid);
+  box-shadow: 0 12px 40px rgba(177,79,197,0.15);
+  transform: scale(1.03);
+  z-index: 2;
+}
+.price-card.recommended:hover {
+  transform: scale(1.03) translateY(-8px);
+  box-shadow: 0 28px 70px rgba(177,79,197,0.2);
+}
+.price-card.founding {
+  background: linear-gradient(180deg, #F0FDF4 0%, var(--white) 100%);
+  border: 2px solid var(--mint);
+}
+.price-badge {
+  position: absolute;
+  top: -14px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--orchid), var(--amethyst));
+  color: #fff;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 6px 18px; border-radius: 100px;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(177,79,197,0.3);
+}
+.price-badge.urgent {
+  background: linear-gradient(135deg, var(--mint), #2fc98a);
+  color: var(--grape);
+}
+.price-name {
+  font-family: 'Alata', sans-serif;
+  font-size: 20px; color: var(--grape);
+  margin-bottom: 8px;
+}
+.price-amount {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 48px; font-weight: 700;
+  color: var(--grape);
+  line-height: 1.1;
+}
+.price-amount span {
+  font-size: 18px; font-weight: 500; color: #888;
+}
+.price-annual {
+  font-size: 13px; color: #888; margin-bottom: 28px;
+  margin-top: 4px;
+}
+.price-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 28px;
+}
+.price-features li {
+  font-size: 14px; padding: 12px 0;
+  border-bottom: 1px solid rgba(64,31,125,0.06);
+  display: flex; align-items: center; gap: 10px;
+  color: #555;
+}
+.price-features li:last-child { border-bottom: none; }
+.price-features li::before {
+  content: '✓';
+  color: var(--mint);
+  font-weight: bold;
+  font-size: 14px;
+}
+.price-cta {
+  display: block; width: 100%;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 600; font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 2px solid var(--grape);
+  color: var(--grape);
+  background: transparent;
+}
+.price-cta:hover {
+  background: var(--grape);
+  color: #fff;
+}
+.price-card.recommended .price-cta {
+  background: linear-gradient(135deg, var(--orchid), var(--amethyst));
+  border: none;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(177,79,197,0.3);
+}
+.price-card.recommended .price-cta:hover {
+  box-shadow: 0 8px 30px rgba(177,79,197,0.4);
+  transform: translateY(-2px);
+}
+.price-card.founding .price-cta {
+  background: var(--mint);
+  border-color: var(--mint);
+  color: var(--grape);
+}
+.price-card.founding .price-cta:hover {
+  background: #2fc98a;
+  border-color: #2fc98a;
+  transform: translateY(-2px);
+}
+
+/* FINAL CTA */
+.final-cta {
+  padding: 140px 0;
+  text-align: center;
+  background: linear-gradient(180deg, var(--stone-warm) 0%, #F3EEF8 100%);
+  position: relative; overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(177,79,197,0.06) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.final-cta .container { position: relative; z-index: 1; }
+.final-cta h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--grape);
+  margin-bottom: 16px;
+  max-width: 750px;
+  margin-left: auto; margin-right: auto;
+}
+.final-cta p {
+  font-size: 18px; color: #555;
+  margin-bottom: 40px;
+}
+.final-cta-btn {
+  display: inline-block;
+  background: #B14FC5;
+  color: #fff;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 18px 48px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: background 0.2s, transform 0.2s;
+}
+.final-cta-btn:hover {
+  background: #88229D;
+  transform: translateY(-2px);
+}
+.kit-subtext {
+  font-size: 14px !important;
+  color: #888 !important;
+  margin-top: 20px !important;
+}
+
+/* FOOTER */
+footer {
+  padding: 60px 0;
+  text-align: center;
+  background: var(--grape-deep);
+}
+.footer-logo {
+  height: 64px;
+  margin: 0 auto 20px;
+  display: block;
+  text-decoration: none;
+}
+.footer-logo-img {
+  height: 64px;
+  width: auto;
+}
+footer p { font-size: 14px; color: rgba(255,255,255,0.5); }
+footer a { color: var(--pacific); text-decoration: none; transition: color 0.3s; }
+footer a:hover { color: var(--mint); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .how-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .cred-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .price-card.recommended { transform: scale(1); }
+  .price-card.recommended:hover { transform: translateY(-8px); }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 24px; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero { padding: 140px 0 100px; }
+  .hero h1 { font-size: 36px; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .cred-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .cred-stat { padding: 28px 16px; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .hero-proof { flex-direction: column; gap: 8px; }
+  .methodology, .features, .pricing, .compare { padding: 100px 0; }
+  .pullquote { padding: 80px 0; }
+}
+</style>
+<style>
+/* === COMPARISON (KG Creative) === */
+.tg-compare{
+  --tg-purple:#401F7D;
+  --tg-purple-dark:#2D1659;
+  --tg-magenta:#B14FC5;
+  --tg-green:#3FDE9D;
+  --tg-ink:#333333;
+  --tg-muted:#6f6b7d;
+  --tg-line:rgba(64,31,125,0.10);
+  --tg-rad:24px;
+  --font-head:'League Spartan',sans-serif;
+  --font-sub:'Alata',sans-serif;
+  --font-body:'Work Sans',sans-serif;
+  font-family:var(--font-body);color:var(--tg-ink);
+  background:radial-gradient(1200px 600px at 50% -10%, #F3EEFB 0%, #ffffff 55%);
+  padding:88px 24px 96px;box-sizing:border-box;-webkit-font-smoothing:antialiased;
+}
+.tg-compare *{box-sizing:border-box;}
+.tg-compare .tg-wrap{max-width:960px;margin:0 auto;}
+.tg-compare .tg-head{text-align:center;max-width:640px;margin:0 auto 46px;}
+.tg-compare .tg-eyebrow{font-family:var(--font-sub);letter-spacing:.18em;text-transform:uppercase;font-size:13px;font-weight:700;color:var(--tg-magenta);margin:0 0 14px;}
+.tg-compare h2{font-family:var(--font-head);font-weight:800;color:var(--tg-purple);font-size:clamp(32px,5vw,46px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 14px;}
+.tg-compare .tg-sub{font-size:18px;color:var(--tg-muted);margin:0;line-height:1.55;}
+
+.tg-compare .tg-table{
+  background:#fff;border:1px solid var(--tg-line);border-radius:var(--tg-rad);
+  overflow:hidden;box-shadow:0 12px 40px rgba(64,31,125,.08);
+}
+.tg-compare .tg-row{display:grid;grid-template-columns:1.7fr 1fr 1fr;align-items:stretch;}
+.tg-compare .tg-row + .tg-row{border-top:1px solid var(--tg-line);}
+.tg-compare .tg-cell{padding:18px 22px;display:flex;align-items:center;font-size:15px;line-height:1.4;}
+.tg-compare .tg-crit{font-weight:600;color:#3f3b4c;}
+
+/* header row */
+.tg-compare .tg-row-head .tg-cell{padding:22px;}
+.tg-compare .tg-row-head{background:#fff;}
+.tg-compare .tg-h-generic{flex-direction:column;align-items:center;text-align:center;gap:2px;font-family:var(--font-sub);font-weight:700;color:var(--tg-muted);font-size:15px;}
+.tg-compare .tg-h-tan{
+  flex-direction:column;align-items:center;text-align:center;gap:2px;
+  font-family:var(--font-sub);font-weight:700;color:#fff;font-size:16px;
+  background:linear-gradient(160deg,#4A2394 0%,#2D1659 100%);border-radius:16px 16px 0 0;
+}
+.tg-compare .tg-h-tan small{font-weight:500;font-size:12px;color:rgba(255,255,255,.72);font-family:var(--font-body);}
+
+/* the Tangram column highlighted down the whole table */
+.tg-compare .tg-col-tan{background:rgba(64,31,125,.035);justify-content:center;}
+.tg-compare .tg-col-generic{justify-content:center;}
+
+.tg-compare .tg-mark{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;}
+.tg-compare .tg-yes{background:var(--tg-green);}
+.tg-compare .tg-yes svg{width:15px;height:15px;fill:var(--tg-purple-dark);}
+.tg-compare .tg-no{background:#EDE9F2;}
+.tg-compare .tg-no svg{width:12px;height:12px;fill:#9d97ab;}
+.tg-compare .tg-txt{font-size:13.5px;color:var(--tg-muted);text-align:center;font-weight:500;}
+.tg-compare .tg-col-tan .tg-txt{color:#4a3f66;font-weight:600;}
+
+.tg-compare .tg-foot{text-align:center;margin-top:34px;}
+.tg-compare .tg-btn{display:inline-block;font-family:var(--font-body);font-weight:700;font-size:16px;text-decoration:none;color:#fff;background:linear-gradient(135deg,#5B2E9E 0%,#B14FC5 100%);padding:16px 40px;border-radius:12px;box-shadow:0 10px 26px rgba(177,79,197,.30);transition:.2s;}
+.tg-compare .tg-btn:hover{filter:brightness(1.06);}
+
+/* mobile: stack each row as a labeled comparison */
+@media(max-width:640px){
+  .tg-compare .tg-row-head{display:none;}
+  .tg-compare .tg-row{grid-template-columns:1fr;}
+  .tg-compare .tg-crit{font-family:var(--font-sub);color:var(--tg-purple);font-size:16px;padding-bottom:6px;}
+  .tg-compare .tg-col-generic,.tg-compare .tg-col-tan{justify-content:space-between;background:transparent;padding-top:8px;padding-bottom:8px;}
+  .tg-compare .tg-col-generic::before{content:"Generic AI planners";font-size:13px;color:var(--tg-muted);font-weight:600;}
+  .tg-compare .tg-col-tan::before{content:"Tangram";font-size:13px;color:var(--tg-purple);font-weight:700;}
+  .tg-compare .tg-col-tan{border-top:1px dashed var(--tg-line);}
+}
+</style>
+<style>
+/* === FEATURES (KG Creative) === */
+.tg-features{
+  --tg-purple:#401F7D;
+  --tg-purple-dark:#2D1659;
+  --tg-magenta:#B14FC5;
+  --tg-green:#3FDE9D;
+  --tg-blue:#5FD0FF;
+  --tg-ink:#333333;
+  --tg-muted:#6f6b7d;
+  --tg-line:rgba(64,31,125,0.10);
+  --tg-rad:24px;
+  --font-head:'League Spartan',sans-serif;
+  --font-sub:'Alata',sans-serif;
+  --font-body:'Work Sans',sans-serif;
+  font-family:var(--font-body);color:var(--tg-ink);
+  background:#fff;padding:88px 24px 96px;box-sizing:border-box;-webkit-font-smoothing:antialiased;
+}
+.tg-features *{box-sizing:border-box;}
+.tg-features .tg-wrap{max-width:1160px;margin:0 auto;}
+.tg-features .tg-head{text-align:center;max-width:660px;margin:0 auto 52px;}
+.tg-features .tg-eyebrow{font-family:var(--font-sub);letter-spacing:.18em;text-transform:uppercase;font-size:13px;font-weight:700;color:var(--tg-magenta);margin:0 0 14px;}
+.tg-features h2{font-family:var(--font-head);font-weight:800;color:var(--tg-purple);font-size:clamp(34px,5vw,48px);line-height:1.04;letter-spacing:-0.02em;margin:0 0 14px;}
+.tg-features .tg-sub{font-size:18px;color:var(--tg-muted);margin:0;line-height:1.55;}
+
+.tg-features .tg-grid{display:grid;gap:22px;grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.tg-features .tg-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.tg-features .tg-grid{grid-template-columns:1fr;}}
+
+.tg-features .tg-card{
+  background:#fff;border:1px solid var(--tg-line);border-radius:var(--tg-rad);
+  padding:30px 28px;transition:.22s;box-shadow:0 4px 20px rgba(64,31,125,.04);
+}
+.tg-features .tg-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(64,31,125,.10);border-color:rgba(177,79,197,.25);}
+.tg-features .tg-ic{
+  width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-size:26px;margin-bottom:18px;background:linear-gradient(135deg,#F3EEFB,#EAF6FF);
+}
+.tg-features .tg-card h3{font-family:var(--font-sub);font-weight:700;font-size:18.5px;color:var(--tg-purple);margin:0 0 9px;letter-spacing:.01em;}
+.tg-features .tg-card p{font-size:15px;line-height:1.55;color:#514c60;margin:0;}
+.tg-features .tg-pill{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--tg-purple);background:var(--tg-green);padding:4px 10px;border-radius:100px;}
+
+.tg-features .tg-cta-row{text-align:center;margin-top:52px;}
+.tg-features .tg-btn{
+  display:inline-block;font-family:var(--font-body);font-weight:700;font-size:16px;text-decoration:none;
+  color:#fff;background:linear-gradient(135deg,#5B2E9E 0%,#B14FC5 100%);
+  padding:16px 40px;border-radius:12px;box-shadow:0 10px 26px rgba(177,79,197,.30);transition:.2s;
+}
+.tg-features .tg-btn:hover{filter:brightness(1.06);}
+</style>
+<style>
+/* === PRICING (KG Creative) === */
+.tg-pricing{
+  --tg-purple:#401F7D;
+  --tg-purple-dark:#2D1659;
+  --tg-magenta:#B14FC5;
+  --tg-green:#3FDE9D;
+  --tg-blue:#5FD0FF;
+  --tg-ink:#333333;
+  --tg-muted:#6f6b7d;
+  --tg-line:rgba(64,31,125,0.10);
+  --tg-soft:#F7F5FB;
+  --tg-grad:linear-gradient(135deg,#5B2E9E 0%,#B14FC5 100%);
+  --tg-rad:24px;
+  --tg-btn:12px;
+  --font-head:'League Spartan',sans-serif;
+  --font-sub:'Alata',sans-serif;
+  --font-body:'Work Sans',sans-serif;
+  font-family:var(--font-body);
+  color:var(--tg-ink);
+  background:radial-gradient(1200px 600px at 50% -10%, #F3EEFB 0%, #ffffff 60%);
+  padding:88px 24px 96px;
+  box-sizing:border-box;
+  -webkit-font-smoothing:antialiased;
+}
+.tg-pricing *{box-sizing:border-box;}
+.tg-pricing .tg-wrap{max-width:1200px;margin:0 auto;}
+.tg-pricing .tg-head{text-align:center;max-width:640px;margin:0 auto 20px;}
+.tg-pricing .tg-eyebrow{
+  font-family:var(--font-sub);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:700;
+  color:var(--tg-magenta);
+  margin:0 0 14px;
+}
+.tg-pricing h2{
+  font-family:var(--font-head);
+  font-weight:800;
+  color:var(--tg-purple);
+  font-size:clamp(34px,5vw,48px);
+  line-height:1.04;
+  letter-spacing:-0.02em;
+  margin:0 0 14px;
+}
+.tg-pricing .tg-sub{font-size:18px;color:var(--tg-muted);margin:0;line-height:1.55;}
+
+/* toggle */
+.tg-pricing .tg-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--tg-line);
+  border-radius:100px;padding:5px;margin:26px auto 4px;
+  box-shadow:0 4px 18px rgba(64,31,125,.06);
+}
+.tg-pricing .tg-toggle button{
+  font-family:var(--font-body);font-size:15px;font-weight:600;
+  border:0;background:transparent;color:var(--tg-muted);
+  padding:9px 20px;border-radius:100px;cursor:pointer;transition:.2s;
+}
+.tg-pricing .tg-toggle button.is-active{background:var(--tg-purple);color:#fff;}
+.tg-pricing .tg-save{
+  display:inline-block;margin-left:8px;font-size:12px;font-weight:700;
+  color:var(--tg-purple);background:var(--tg-green);
+  padding:3px 10px;border-radius:100px;font-family:var(--font-body);
+}
+.tg-pricing .tg-toggle-row{text-align:center;margin-bottom:40px;}
+
+/* grid */
+.tg-pricing .tg-grid{
+  display:grid;gap:22px;align-items:stretch;
+  grid-template-columns:repeat(4,1fr);
+}
+@media(max-width:1024px){.tg-pricing .tg-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.tg-pricing .tg-grid{grid-template-columns:1fr;}}
+
+.tg-pricing .tg-card{
+  background:#fff;border:1px solid var(--tg-line);border-radius:var(--tg-rad);
+  padding:30px 26px;display:flex;flex-direction:column;position:relative;
+  box-shadow:0 4px 24px rgba(64,31,125,.05);
+}
+.tg-pricing .tg-card.is-featured{
+  background:linear-gradient(160deg,#4A2394 0%,#2D1659 100%);
+  border-color:transparent;color:#fff;
+  box-shadow:0 20px 50px rgba(64,31,125,.30);
+}
+.tg-pricing .tg-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--tg-green);color:var(--tg-purple-dark);
+  font-size:12px;font-weight:700;letter-spacing:.02em;
+  padding:6px 16px;border-radius:100px;white-space:nowrap;
+  box-shadow:0 6px 16px rgba(63,222,157,.4);
+}
+.tg-pricing .tg-badge.tg-badge-soft{
+  background:rgba(64,31,125,.08);color:var(--tg-purple);box-shadow:none;
+}
+.tg-pricing .tg-name{
+  font-family:var(--font-head);font-weight:700;font-size:24px;
+  color:var(--tg-purple);margin:6px 0 4px;letter-spacing:-0.01em;
+}
+.tg-pricing .is-featured .tg-name{color:#fff;}
+.tg-pricing .tg-tag{font-size:14px;color:var(--tg-muted);margin:0 0 20px;min-height:40px;line-height:1.4;}
+.tg-pricing .is-featured .tg-tag{color:rgba(255,255,255,.75);}
+
+.tg-pricing .tg-price{display:flex;align-items:baseline;gap:4px;margin-bottom:4px;}
+.tg-pricing .tg-amount{font-family:var(--font-head);font-weight:800;font-size:44px;line-height:1;color:var(--tg-purple);letter-spacing:-0.02em;}
+.tg-pricing .is-featured .tg-amount{color:#fff;}
+.tg-pricing .tg-per{font-size:15px;color:var(--tg-muted);font-weight:600;}
+.tg-pricing .is-featured .tg-per{color:rgba(255,255,255,.7);}
+.tg-pricing .tg-note{font-size:13px;color:var(--tg-muted);margin:0 0 22px;min-height:18px;}
+.tg-pricing .is-featured .tg-note{color:rgba(255,255,255,.65);}
+
+.tg-pricing .tg-cta{
+  font-family:var(--font-body);font-weight:700;font-size:15px;text-align:center;
+  text-decoration:none;display:block;padding:14px 18px;border-radius:var(--tg-btn);
+  cursor:pointer;transition:.2s;border:2px solid var(--tg-line);
+  color:var(--tg-purple);background:#fff;margin-bottom:24px;
+}
+.tg-pricing .tg-cta:hover{border-color:var(--tg-magenta);color:var(--tg-magenta);}
+.tg-pricing .tg-cta.tg-cta-primary{background:var(--tg-grad);color:#fff;border-color:transparent;box-shadow:0 8px 22px rgba(177,79,197,.3);}
+.tg-pricing .tg-cta.tg-cta-primary:hover{filter:brightness(1.06);color:#fff;}
+.tg-pricing .tg-cta.tg-cta-green{background:var(--tg-green);color:var(--tg-purple-dark);border-color:transparent;}
+.tg-pricing .tg-cta.tg-cta-green:hover{filter:brightness(1.04);color:var(--tg-purple-dark);}
+
+.tg-pricing .tg-feats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+.tg-pricing .tg-feats li{position:relative;padding-left:28px;font-size:14.5px;line-height:1.45;color:#454152;}
+.tg-pricing .is-featured .tg-feats li{color:rgba(255,255,255,.9);}
+.tg-pricing .tg-feats li::before{
+  content:"";position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;
+  background:var(--tg-green);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat;
+}
+.tg-pricing .tg-feats li strong{font-weight:700;color:inherit;}
+
+.tg-pricing .tg-foot{text-align:center;margin-top:34px;font-size:14px;color:var(--tg-muted);}
+.tg-pricing .tg-foot a{color:var(--tg-magenta);text-decoration:none;font-weight:600;}
+</style>
+<style>
+/* === CAMPUS (KG Creative) === */
+.tg-campus{
+  --tg-purple:#401F7D;
+  --tg-purple-dark:#2D1659;
+  --tg-magenta:#B14FC5;
+  --tg-green:#3FDE9D;
+  --tg-blue:#5FD0FF;
+  --tg-ink:#333333;
+  --tg-muted:#6f6b7d;
+  --tg-line:rgba(64,31,125,0.10);
+  --tg-rad:24px;
+  --font-head:'League Spartan',sans-serif;
+  --font-sub:'Alata',sans-serif;
+  --font-body:'Work Sans',sans-serif;
+  font-family:var(--font-body);color:var(--tg-ink);
+  padding:88px 24px 96px;box-sizing:border-box;-webkit-font-smoothing:antialiased;
+  background:#fff;
+}
+.tg-campus *{box-sizing:border-box;}
+.tg-campus .tg-wrap{
+  max-width:1080px;margin:0 auto;
+  background:linear-gradient(160deg,#4A2394 0%,#2D1659 100%);
+  border-radius:32px;padding:56px;color:#fff;position:relative;overflow:hidden;
+  box-shadow:0 24px 60px rgba(45,22,89,.35);
+}
+.tg-campus .tg-wrap::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(177,79,197,.45),transparent 70%);top:-120px;right:-80px;pointer-events:none;}
+.tg-campus .tg-wrap::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(63,222,157,.30),transparent 70%);bottom:-140px;left:-90px;pointer-events:none;}
+.tg-campus .tg-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;}
+@media(max-width:820px){.tg-campus .tg-wrap{padding:38px 26px;}.tg-campus .tg-inner{grid-template-columns:1fr;gap:32px;}}
+
+.tg-campus .tg-eyebrow{font-family:var(--font-sub);letter-spacing:.18em;text-transform:uppercase;font-size:13px;font-weight:700;color:var(--tg-green);margin:0 0 14px;}
+.tg-campus h2{font-family:var(--font-head);font-weight:800;font-size:clamp(32px,4.4vw,44px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 16px;color:#fff;}
+.tg-campus .tg-lead{font-size:17px;line-height:1.6;color:rgba(255,255,255,.82);margin:0 0 24px;}
+.tg-campus .tg-list{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-direction:column;gap:12px;}
+.tg-campus .tg-list li{position:relative;padding-left:30px;font-size:15.5px;line-height:1.45;color:rgba(255,255,255,.92);}
+.tg-campus .tg-list li::before{content:"";position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:var(--tg-green);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/></svg>") center/12px no-repeat;}
+.tg-campus .tg-book{display:inline-block;font-family:var(--font-body);font-weight:700;font-size:16px;text-decoration:none;color:var(--tg-purple-dark);
+  background:var(--tg-green);padding:15px 34px;border-radius:12px;transition:.2s;box-shadow:0 10px 26px rgba(63,222,157,.28);}
+.tg-campus .tg-book:hover{filter:brightness(1.05);transform:translateY(-1px);}
+
+/* form card */
+.tg-campus .tg-form{background:#fff;border-radius:20px;padding:30px 28px;box-shadow:0 20px 44px rgba(20,10,45,.28);}
+.tg-campus .tg-form h3{font-family:var(--font-sub);font-weight:700;color:var(--tg-purple);font-size:20px;margin:0 0 4px;}
+.tg-campus .tg-form p.tg-fnote{font-size:13.5px;color:var(--tg-muted);margin:0 0 20px;}
+.tg-campus .tg-field{margin-bottom:14px;}
+.tg-campus .tg-field label{display:block;font-size:12.5px;font-weight:600;color:#4a4557;margin-bottom:6px;letter-spacing:.01em;}
+.tg-campus .tg-field input,.tg-campus .tg-field select,.tg-campus .tg-field textarea{
+  width:100%;font-family:var(--font-body);font-size:15px;color:var(--tg-ink);
+  border:1.5px solid var(--tg-line);border-radius:10px;padding:11px 13px;background:#fff;transition:.15s;}
+.tg-campus .tg-field input:focus,.tg-campus .tg-field select:focus,.tg-campus .tg-field textarea:focus{
+  outline:none;border-color:var(--tg-magenta);box-shadow:0 0 0 3px rgba(177,79,197,.12);}
+.tg-campus .tg-field textarea{resize:vertical;min-height:78px;}
+.tg-campus .tg-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:420px){.tg-campus .tg-two{grid-template-columns:1fr;}}
+.tg-campus .tg-submit{width:100%;font-family:var(--font-body);font-weight:700;font-size:16px;color:#fff;cursor:pointer;
+  background:linear-gradient(135deg,#5B2E9E 0%,#B14FC5 100%);border:0;padding:15px;border-radius:12px;margin-top:6px;transition:.2s;box-shadow:0 10px 24px rgba(177,79,197,.3);}
+.tg-campus .tg-submit:hover{filter:brightness(1.06);}
+.tg-campus .tg-priv{font-size:12px;color:var(--tg-muted);text-align:center;margin:14px 0 0;}
+</style>
+</head>
+<body>
+
+<!-- ===== 00 · Top conversion banner (One Eleven Group, corrected) ===== -->
+<div class="oeg-banner">
+  <style>
+    .oeg-banner {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb);
+      background: linear-gradient(135deg, #2D1659 0%, #401F7D 45%, #88229D 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+
+      /* The banner sits in normal document flow and scrolls away with the
+         page. The nav is offset beneath it by the script at the bottom
+         of this file. Do not set position:fixed here — that reintroduces
+         the overlap this file exists to solve. */
+    }
+    .oeg-banner *, .oeg-banner *::before, .oeg-banner *::after { box-sizing: border-box; }
+
+    /* faint diagonal texture, same family as the site's purple strips */
+    .oeg-banner::before {
+      content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(115deg,
+        rgba(255,255,255,.05) 0 1px, rgba(255,255,255,0) 1px 26px);
+      pointer-events: none;
+    }
+
+    .oeg-banner__inner {
+      position: relative;
+      max-width: 1180px; margin: 0 auto; padding: 11px 32px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px 18px; flex-wrap: wrap; text-align: center;
+    }
+
+    .oeg-banner__items {
+      display: flex; align-items: center; flex-wrap: wrap;
+      justify-content: center; gap: 8px 14px;
+    }
+
+    .oeg-banner__lead {
+      font-family: var(--fh); font-size: 15px; font-weight: 800;
+      letter-spacing: .02em; text-transform: uppercase; color: #fff;
+    }
+
+    .oeg-banner__item {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 13px; font-weight: 500; letter-spacing: .02em;
+      color: rgba(255,255,255,.88);
+    }
+    .oeg-banner__item svg { flex: none; color: var(--green); }
+
+    .oeg-banner__sep {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,.34); flex: none;
+    }
+
+    .oeg-banner__cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      color: #fff; background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.26);
+      padding: 7px 16px; border-radius: 100px;
+      transition: background .16s ease, transform .16s ease;
+      white-space: nowrap;
+    }
+    .oeg-banner__cta:hover { background: rgba(255,255,255,.24); transform: translateY(-1px); }
+
+    @media (max-width: 860px) {
+      .oeg-banner__inner { padding: 10px 20px; }
+      .oeg-banner__lead { font-size: 14px; }
+      .oeg-banner__sep { display: none; }
+    }
+    @media (max-width: 560px) {
+      /* on phones, keep the offer and drop the supporting proof so it stays one tidy line */
+      .oeg-banner__item--trim { display: none; }
+      .oeg-banner__cta { padding: 6px 14px; font-size: 12px; }
+    }
+  </style>
+
+  <div class="oeg-banner__inner">
+    <div class="oeg-banner__items">
+      <span class="oeg-banner__lead">First month free</span>
+
+      <span class="oeg-banner__sep" aria-hidden="true"></span>
+
+      <span class="oeg-banner__item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        No credit card required
+      </span>
+
+      <span class="oeg-banner__sep" aria-hidden="true"></span>
+
+      <span class="oeg-banner__item oeg-banner__item--trim">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        No gimmicks, just better lessons
+      </span>
+    </div>
+
+    <!-- Signup link. Points at the app, not the pricing anchor — a visitor
+         who clicks "Start free" should land in the product, not scroll to a
+         table and have to decide again. -->
+    <a class="oeg-banner__cta" href="https://app.gettangram.com">Start free &rarr;</a>
+  </div>
+
+  <script>
+  /* Offsets the site's fixed nav so this banner is actually visible.
+     Self-contained, runs once, no dependencies, safe to paste twice. */
+  (function () {
+    if (window.__oegBannerInit) return;
+    window.__oegBannerInit = true;
+
+    function start() {
+      var banner = document.querySelector('.oeg-banner');
+      var nav = document.querySelector('nav.nav, #nav, header nav, nav');
+      if (!banner || !nav) return;
+
+      /* If the nav is sticky or static, the browser already handles it. */
+      var pos = getComputedStyle(nav).position;
+      if (pos !== 'fixed') return;
+
+      /* The site's nav has `transition: all .4s`, which would animate this
+         offset on every scroll frame and lag behind the page. Keep the
+         colour/shadow transitions, drop the transform from them. */
+      nav.style.willChange = 'transform';
+      nav.style.transition =
+        'background .4s cubic-bezier(.4,0,.2,1), border-color .4s cubic-bezier(.4,0,.2,1), box-shadow .4s cubic-bezier(.4,0,.2,1)';
+
+      /* Offset is the banner's bottom edge relative to the viewport, clamped
+         at zero. At the top of the page that equals the banner height; as the
+         banner scrolls away it falls to zero and the nav pins to the top.
+         Measuring the live edge rather than a cached height means this also
+         survives the banner wrapping to two lines, fonts loading late, or
+         anything else being inserted above it. */
+      var ticking = false;
+      function apply() {
+        var offset = Math.max(0, banner.getBoundingClientRect().bottom);
+        nav.style.transform = offset ? 'translate3d(0,' + offset + 'px,0)' : '';
+        ticking = false;
+      }
+      function measure() { apply(); }
+      function onScroll() {
+        if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+      }
+
+      measure();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', measure);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', start);
+    } else { start(); }
+  })();
+  </script>
+</div>
+<!-- ===== end 00 ===== -->
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="Tangram_Logo.svg" alt="Tangram" class="nav-logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#campus-inquire">For Schools</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://app.gettangram.com" class="nav-cta">Start Free →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== 01 · Hero with Tangram Explained video (One Eleven Group, corrected) ===== -->
+<section class="oeg-hero">
+  <style>
+    .oeg-hero {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: var(--ink);
+      background: linear-gradient(165deg,#FDFCFE 0%,#F9F7FC 40%,#F3EEF8 80%,#EDE6F3 100%);
+      padding: clamp(64px, 10vw, 150px) 0 clamp(56px, 8vw, 110px);
+    }
+    .oeg-hero *, .oeg-hero *::before, .oeg-hero *::after { box-sizing: border-box; }
+
+    .oeg-hero__container {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 64px); align-items: center;
+    }
+
+    .oeg-hero__badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 26px; }
+    .oeg-hero__badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255,255,255,.9); color: var(--p);
+      font-size: 13px; font-weight: 500; font-family: var(--fb);
+      padding: 10px 20px; border-radius: 100px;
+      box-shadow: 0 2px 12px rgba(64,31,125,.06); margin: 0;
+    }
+    .oeg-hero__badge--tagline {
+      background: var(--orchid-light, rgba(177,79,197,0.08));
+      border: 1px solid rgba(177,79,197,.22);
+      color: var(--m); font-weight: 600; box-shadow: none;
+    }
+    .oeg-hero__dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: var(--green); }
+
+    .oeg-hero__title {
+      font-family: var(--fh); font-size: clamp(38px, 5vw, 62px);
+      font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
+      color: var(--p); margin: 0 0 22px;
+    }
+    .oeg-hero__title span { color: var(--m); }
+
+    .oeg-hero__copy {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
+      color: var(--ink); margin: 0 0 30px; max-width: 46ch;
+    }
+
+    .oeg-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 22px; }
+    .oeg-hero__btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500;
+      text-decoration: none; padding: 16px 32px; border-radius: var(--btn);
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+    .oeg-hero__btn--primary {
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      color: #fff; box-shadow: 0 4px 16px rgba(177,79,197,.25);
+    }
+    .oeg-hero__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
+    .oeg-hero__btn--secondary {
+      background: rgba(255,255,255,.8); color: var(--p);
+      border: 2px solid rgba(64,31,125,.12);
+    }
+    .oeg-hero__btn--secondary:hover { border-color: rgba(64,31,125,.28); transform: translateY(-2px); }
+
+    .oeg-hero__fine { font-size: 14px; line-height: 1.7; color: var(--muted); margin: 0; }
+    .oeg-hero__fine strong {
+      color: var(--p); font-weight: 600; text-transform: uppercase; letter-spacing: .04em;
+    }
+
+    /* ---------- video ---------- */
+    .oeg-hero__label {
+      display: flex; align-items: center; gap: 14px;
+      font-family: var(--fb); font-size: 12px; font-weight: 600;
+      letter-spacing: 1.44px; text-transform: uppercase;
+      color: var(--m); margin: 0 0 14px;
+    }
+    .oeg-hero__label::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-hero__frame {
+      position: relative; width: 100%; aspect-ratio: 16 / 9;
+      border-radius: var(--rad); overflow: hidden;
+      background: linear-gradient(135deg, #5B2E9E 0%, var(--m) 100%);
+      box-shadow: 0 18px 48px rgba(64,31,125,.20);
+      border: 1px solid var(--line);
+    }
+    .oeg-hero__frame > video, .oeg-hero__frame > iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      border: 0; display: block; object-fit: cover;
+    }
+
+    /* placeholder: play button and two words, nothing else */
+    .oeg-hero__ph {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 20px;
+      text-align: center; padding: 24px; color: #fff;
+      text-decoration: none; cursor: pointer;
+    }
+    .oeg-hero__play {
+      width: 78px; height: 78px; flex: none; border-radius: 50%;
+      background: rgba(255,255,255,.18); border: 2px solid rgba(255,255,255,.65);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .oeg-hero__ph:hover .oeg-hero__play { transform: scale(1.06); background: rgba(255,255,255,.28); }
+    .oeg-hero__play svg { margin-left: 5px; }
+    .oeg-hero__ph-label {
+      font-family: var(--fh); font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 800; letter-spacing: -0.01em; margin: 0; color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .oeg-hero__container { grid-template-columns: 1fr; }
+      .oeg-hero__media { order: -1; }
+      .oeg-hero__copy { max-width: none; }
+    }
+    @media (max-width: 560px) {
+      .oeg-hero__btn { width: 100%; }
+      .oeg-hero__play { width: 58px; height: 58px; }
+      .oeg-hero__play svg { width: 20px; height: 23px; }
+      .oeg-hero__ph-label { font-size: 22px; }
+    }
+  </style>
+
+  <style>
+    /* fills the frame the same way the placeholder did, so nothing shifts */
+    .oeg-hero__video {
+      display: block; width: 100%; height: 100%;
+      object-fit: cover; background: #2D1659; border: 0;
+    }
+  </style>
+
+  <div class="oeg-hero__container">
+
+    <div class="oeg-hero__content">
+      <div class="oeg-hero__badges">
+        <span class="oeg-hero__badge"><span class="oeg-hero__dot"></span>Built by the founders of Mosaic IP</span>
+        <span class="oeg-hero__badge oeg-hero__badge--tagline">Built for teachers, by teachers</span>
+      </div>
+
+      <h1 class="oeg-hero__title">Every class is different.<br>Now your lessons <span>can be too.</span></h1>
+
+      <p class="oeg-hero__copy">
+        Build one lesson with Tan, our AI planning partner powered by Shared Space Teaching &mdash;
+        the methodology our founders built in their own classrooms and refined coaching in
+        650+ districts. Then watch it adapt for every class you teach.
+      </p>
+
+      <div class="oeg-hero__actions">
+        <!-- Signup goes straight into the app, matching the nav CTA. -->
+        <a class="oeg-hero__btn oeg-hero__btn--primary" href="https://app.gettangram.com">Start Free &rarr;</a>
+        <!-- TEACHER booking calendar (15 min). This is a DIFFERENT calendar from
+             the district one on the "For Schools" block further down the page
+             (calendar.app.google/THyRt4fbd7Z3DDE97). Keep them separate — a
+             teacher asking "does this fit my classroom" and a principal asking
+             "what does this cost for 45 staff" need different calls. -->
+        <a class="oeg-hero__btn oeg-hero__btn--secondary" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call</a>
+      </div>
+
+      <p class="oeg-hero__fine">
+        <strong>First month free</strong> &middot; From $5.99/mo after &middot; No credit card to start &middot; Cancel anytime
+      </p>
+    </div>
+
+    <div class="oeg-hero__media">
+      <p class="oeg-hero__label">Tangram Explained</p>
+      <div class="oeg-hero__frame">
+
+        <!-- ==================== VIDEO ====================
+             Wired for a self-hosted MP4. Set the two paths below:
+
+               src    = the video file
+               poster = a still frame shown before play (optional but
+                        worth it — without one the panel is black until
+                        the user clicks)
+
+             Hosting it elsewhere instead? Delete the <video> block and
+             uncomment ONE of these:
+
+             YOUTUBE:
+             <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Why Tangram?"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+               allowfullscreen></iframe>
+
+             VIMEO:
+             <iframe src="https://player.vimeo.com/video/VIDEO_ID" title="Why Tangram?"
+               allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        ================================================= -->
+
+        <video
+          class="oeg-hero__video"
+          id="oeg-hero-video"
+          controls
+          playsinline
+          preload="metadata"
+          poster="tangram-explained-poster.jpg"
+          aria-label="Why Tangram? — Tangram explained in two minutes">
+          <source src="tangram-explained.mp4" type="video/mp4">
+          Your browser can&rsquo;t play this video.
+          <a href="tangram-explained.mp4">Download it instead.</a>
+        </video>
+
+        <!-- If the video file has not been uploaded yet (or fails to load),
+             the panel falls back to the original play-button placeholder
+             rather than showing an empty black player. Harmless to leave in
+             once the video is live — it never fires. -->
+        <template id="oeg-hero-ph-tpl">
+          <div class="oeg-hero__ph">
+            <div class="oeg-hero__play" aria-hidden="true">
+              <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 15L0.999999 29.2894L1 0.710581L25 15Z" fill="#ffffff"/>
+              </svg>
+            </div>
+            <p class="oeg-hero__ph-label">Why Tangram?</p>
+          </div>
+        </template>
+        <script>
+        (function () {
+          var v = document.getElementById('oeg-hero-video');
+          if (!v) return;
+          var swapped = false;
+          function fallback() {
+            if (swapped) return;
+            swapped = true;
+            var tpl = document.getElementById('oeg-hero-ph-tpl');
+            if (tpl && v.parentNode) v.parentNode.replaceChild(tpl.content.cloneNode(true), v);
+          }
+          var src = v.querySelector('source');
+          if (src) src.addEventListener('error', fallback);
+          v.addEventListener('error', fallback);
+          /* Safari reports a missing file as networkState NO_SOURCE without
+             always firing an error event on the <source>. */
+          setTimeout(function () {
+            if (v.networkState === 3 /* NETWORK_NO_SOURCE */) fallback();
+          }, 2500);
+        })();
+        </script>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 01 ===== -->
+
+<!-- HOW IT WORKS -->
+<section class="how-strip" id="how">
+  <div class="container">
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-label">Start where you are</div>
+        <div class="how-detail">Topic, objective, standard, curriculum — six ways to begin</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-label">Build with Tan</div>
+        <div class="how-detail">Seven guided pieces — each one shaped by our original methodology</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-label">Add your students</div>
+        <div class="how-detail">IEPs, ELLs, reading levels — tell Tan who's in each class</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <div class="how-label">Teach with confidence</div>
+        <div class="how-detail">Each class gets a lesson built for the students in it</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="methodology" id="methodology">
+  <div class="container">
+    <div class="methodology-inner">
+      <div class="methodology-content">
+        <div class="section-tag">Why Tan Is Different</div>
+        <h2>Not just another AI generator. Your methodology partner.</h2>
+        <p>
+          Tan isn't trained on the internet — or on a patchwork of other people's frameworks. It's powered by an original methodology our founders developed through 50+ years of combined experience, refined across hundreds of districts and thousands of teachers coached.
+        </p>
+        <p>
+          We didn't curate best practices. We built something new — a way of planning that works because we've tested it, taught it, and watched it transform classrooms from the inside.
+        </p>
+        <ul class="methodology-list">
+          <li>Developed by practitioners who've worked from their own classrooms to state policy</li>
+          <li>Works with Danielson, Marzano, and UbD — but stands on its own</li>
+          <li>Battle-tested structures that survive observation season</li>
+          <li>The coaching we'd give you in person — now built into every lesson</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 · See Tan in action (One Eleven Group, corrected) ===== -->
+<section class="oeg-reel">
+  <style>
+    .oeg-reel {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: var(--ink);
+      background: linear-gradient(#FFFFFF 0%, #F5F4F7 100%);
+      padding: clamp(48px, 6.5vw, 92px) 0;
+    }
+    .oeg-reel *, .oeg-reel *::before, .oeg-reel *::after { box-sizing: border-box; }
+
+    .oeg-reel__container {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1.1fr .9fr;
+      gap: clamp(30px, 5vw, 66px); align-items: center;
+    }
+
+    .oeg-reel__tag {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
+    }
+    .oeg-reel__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-reel__title {
+      font-family: var(--fh); font-size: clamp(30px, 4.2vw, 48px);
+      font-weight: 800; line-height: 1.06; letter-spacing: -0.025em;
+      color: var(--p); margin: 0 0 18px;
+    }
+    .oeg-reel__title span { color: var(--m); }
+
+    .oeg-reel__copy {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
+      color: var(--ink); margin: 0 0 14px; max-width: 46ch;
+    }
+    .oeg-reel__copy:last-of-type { margin-bottom: 0; }
+
+    .oeg-reel__points { list-style: none; margin: 24px 0 0; padding: 0; }
+    .oeg-reel__points li {
+      display: flex; align-items: flex-start; gap: 11px;
+      font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 12px;
+    }
+    .oeg-reel__points svg { flex: none; margin-top: 4px; color: var(--m); }
+
+    .oeg-reel__media { display: flex; justify-content: center; }
+    .oeg-reel__embed {
+      width: 100%; max-width: 360px;
+      border-radius: var(--rad); overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 48px rgba(64,31,125,.16);
+      background: #fff;
+    }
+    .oeg-reel__embed iframe {
+      display: block; width: 100%; height: 700px; border: 0;
+    }
+
+    @media (max-width: 900px) {
+      .oeg-reel__container { grid-template-columns: 1fr; }
+      .oeg-reel__copy { max-width: none; }
+    }
+    @media (max-width: 480px) {
+      .oeg-reel__embed iframe { height: 660px; }
+    }
+  </style>
+
+  <style>
+    .oeg-reel__fallback {
+      margin: 12px 0 0; text-align: center;
+      font-size: 13px; font-family: var(--font-body, 'Work Sans', sans-serif);
+    }
+    .oeg-reel__fallback a {
+      color: var(--tg-magenta, #B14FC5);
+      text-decoration: none; font-weight: 600;
+    }
+    .oeg-reel__fallback a:hover { text-decoration: underline; }
+  </style>
+
+  <div class="oeg-reel__container">
+
+    <div class="oeg-reel__content">
+      <p class="oeg-reel__tag">Real lessons, real classrooms</p>
+      <h2 class="oeg-reel__title">See Tan <span>in action.</span></h2>
+
+      <p class="oeg-reel__copy">
+        One lesson, built once, then rebuilt for every period you teach. Same standard, same
+        outcome, a different route in for each group of kids sitting in front of you.
+      </p>
+
+      <ul class="oeg-reel__points">
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Five classes, five ways in &mdash; not one generic lesson fixed five times
+        </li>
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          IEPs, ELLs and reading levels built in, not bolted on at the end
+        </li>
+        <li>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Already in the language of Danielson, Marzano and UbD
+        </li>
+      </ul>
+    </div>
+
+    <div class="oeg-reel__media">
+      <div class="oeg-reel__embed">
+        <!-- SWAP: change the reel code to embed a different post -->
+        <iframe src="https://www.instagram.com/reel/DbdpOj2EW_A/embed"
+                title="Tangram on Instagram"
+                scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+      </div>
+
+      <!-- Fallback for anyone whose browser blocks the Instagram frame. -->
+      <p class="oeg-reel__fallback">
+        <a href="https://www.instagram.com/reel/DbdpOj2EW_A/" target="_blank" rel="noopener">
+          Reel not loading? Watch it on Instagram &rarr;
+        </a>
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 02 ===== -->
+
+<!-- COMPARISON (KG Creative) -->
+<section class="tg-compare" id="comparison">
+  <div class="tg-wrap">
+
+    <div class="tg-head">
+      <p class="tg-eyebrow">Why Tangram Is Different</p>
+      <h2>Not just another AI generator.</h2>
+      <p class="tg-sub">Most AI planners are trained on the open internet. Tangram is powered by an original methodology real educators built in real classrooms.</p>
+    </div>
+
+    <div class="tg-table" role="table" aria-label="Tangram compared to generic AI planners">
+
+      <div class="tg-row tg-row-head" role="row">
+        <div class="tg-cell tg-crit" role="columnheader">&nbsp;</div>
+        <div class="tg-cell tg-h-generic" role="columnheader">Generic AI Planners</div>
+        <div class="tg-cell tg-h-tan" role="columnheader">Tangram<small>Your methodology partner</small></div>
+      </div>
+
+      <div class="tg-row" role="row">
+        <div class="tg-cell tg-crit">Built on a proven teaching methodology</div>
+        <div class="tg-cell tg-col-generic"><span class="tg-txt">Trained on the internet</span></div>
+        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      </div>
+
+      <div class="tg-row" role="row">
+        <div class="tg-cell tg-crit">One lesson, auto-differentiated for every class</div>
+        <div class="tg-cell tg-col-generic"><span class="tg-txt">One-size output</span></div>
+        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      </div>
+
+      <div class="tg-row" role="row">
+        <div class="tg-cell tg-crit">Observation-ready (Danielson, Marzano, UbD)</div>
+        <div class="tg-cell tg-col-generic"><span class="tg-mark tg-no"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></span></div>
+        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      </div>
+
+      <div class="tg-row" role="row">
+        <div class="tg-cell tg-crit">Adapts to IEPs, ELLs, reading levels &amp; MTSS</div>
+        <div class="tg-cell tg-col-generic"><span class="tg-txt">Generic supports</span></div>
+        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      </div>
+
+      <div class="tg-row" role="row">
+        <div class="tg-cell tg-crit">No student rosters required — privacy-first</div>
+        <div class="tg-cell tg-col-generic"><span class="tg-txt">Wants your student data</span></div>
+        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      </div>
+
+      <div class="tg-row" role="row">
+        <div class="tg-cell tg-crit">Learning progressions for any standard</div>
+        <div class="tg-cell tg-col-generic"><span class="tg-mark tg-no"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></span></div>
+        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      </div>
+
+      <div class="tg-row" role="row">
+        <div class="tg-cell tg-crit">Human coaching from real educators</div>
+        <div class="tg-cell tg-col-generic"><span class="tg-mark tg-no"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></span></div>
+        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      </div>
+
+      <div class="tg-row" role="row">
+        <div class="tg-cell tg-crit">Built by classroom educators, not just engineers</div>
+        <div class="tg-cell tg-col-generic"><span class="tg-mark tg-no"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></span></div>
+        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      </div>
+
+      <div class="tg-row" role="row">
+        <div class="tg-cell tg-crit">Predictable pricing — no per-generation fees</div>
+        <div class="tg-cell tg-col-generic"><span class="tg-txt">Varies</span></div>
+        <div class="tg-cell tg-col-tan"><span class="tg-mark tg-yes"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span></div>
+      </div>
+
+    </div>
+
+    <div class="tg-foot">
+      <a href="#pricing" class="tg-btn">See What Tangram Can Do</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- PULLQUOTE -->
+<section class="pullquote">
+  <div class="container">
+    <div class="pullquote-inner">
+      <div class="pullquote-mark">"</div>
+      <blockquote>
+        Other tools give you a lesson for a class. Tangram gives you a lesson for <em>your</em> class — built on a methodology we created, not borrowed.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES (KG Creative) -->
+<section class="tg-features" id="features">
+  <div class="tg-wrap">
+
+    <div class="tg-head">
+      <p class="tg-eyebrow">Built for Real Classrooms</p>
+      <h2>Everything Tangram does.</h2>
+      <p class="tg-sub">One planning partner that knows your standards, your frameworks, and your students — and never asks for their data.</p>
+    </div>
+
+    <div class="tg-grid">
+
+      <div class="tg-card">
+        <div class="tg-ic">📚</div>
+        <h3>Your State Standards</h3>
+        <p>Every framework, every state. See what comes before and after any standard you teach.</p>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">🎯</div>
+        <h3>Observation-Ready</h3>
+        <p>Danielson, Marzano, Understanding by Design — the frameworks your evaluators actually use.</p>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">👥</div>
+        <h3>Knows Your Students</h3>
+        <p>IEPs, ELLs, reading levels, MTSS tiers — Tan adjusts every section accordingly.</p>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">🔄</div>
+        <h3>One Lesson, Every Class</h3>
+        <p>Build once. Get versions tailored for each group you teach that day.</p>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">🔗</div>
+        <h3>Learning Progressions</h3>
+        <p>See where your lesson fits — prerequisites, extensions, and the bigger picture.</p>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">🔒</div>
+        <h3>Privacy-First by Design</h3>
+        <p>No student rosters required. Name a class "Student A" — your kids' data stays yours, always.</p>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">🌐</div>
+        <h3>Language Translation</h3>
+        <p>Deliver lessons and family communication in your students' home languages.</p>
+        <span class="tg-pill">Elevate</span>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">🎓</div>
+        <h3>Google Classroom Outputs</h3>
+        <p>Push finished, differentiated lessons straight into Google Classroom.</p>
+        <span class="tg-pill">Elevate</span>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">📊</div>
+        <h3>Extensive Reporting</h3>
+        <p>Track your planning and differentiation with reporting built for accountability.</p>
+        <span class="tg-pill">Elevate</span>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">🗂️</div>
+        <h3>Your Media Library</h3>
+        <p>Save your own materials in Tangram and pull from them as you plan.</p>
+        <span class="tg-pill">Elevate</span>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">🎥</div>
+        <h3>Live Trainings</h3>
+        <p>Access our growing library of live methodology trainings — learn the moves, not just the tool.</p>
+      </div>
+
+      <div class="tg-card">
+        <div class="tg-ic">⚡</div>
+        <h3>Our Coaching, Built In</h3>
+        <p>Every piece includes strategies we developed through decades of practice — plus a direct line to real educators.</p>
+      </div>
+
+    </div>
+
+    <div class="tg-cta-row">
+      <a href="#pricing" class="tg-btn">See Plans &amp; Pricing</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 07 · Built for teachers, by teachers (One Eleven Group, corrected) ===== -->
+<section class="oeg-team">
+  <style>
+    .oeg-team {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: var(--ink);
+      background: #FFFFFF;
+      padding: clamp(56px, 8vw, 110px) 0;
+      overflow: hidden;
+    }
+    .oeg-team *, .oeg-team *::before, .oeg-team *::after { box-sizing: border-box; }
+
+    .oeg-team__container {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: .92fr 1.08fr;
+      gap: clamp(28px, 4vw, 60px); align-items: center;
+    }
+
+    .oeg-team__tag {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
+    }
+    .oeg-team__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-team__title {
+      font-family: var(--fh); font-size: clamp(32px, 4.4vw, 52px);
+      font-weight: 800; line-height: 1.04; letter-spacing: -0.028em;
+      color: var(--p); margin: 0 0 18px;
+    }
+    .oeg-team__title span { color: var(--m); }
+
+    .oeg-team__copy {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
+      color: var(--ink); margin: 0 0 16px; max-width: 50ch;
+    }
+    .oeg-team__copy:last-of-type { margin-bottom: 0; }
+    .oeg-team__copy strong { color: var(--p); font-weight: 600; }
+
+    .oeg-team__stats {
+      display: flex; flex-wrap: wrap; gap: clamp(20px, 3vw, 40px);
+      margin-top: 28px; padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .oeg-team__stat-num {
+      display: block; font-family: var(--fh);
+      font-size: clamp(26px, 3vw, 34px); font-weight: 800;
+      letter-spacing: -0.02em; color: var(--m); line-height: 1;
+    }
+    .oeg-team__stat-label {
+      display: block; font-size: 13px; line-height: 1.5;
+      color: var(--muted); margin-top: 6px;
+    }
+
+    .oeg-team__media {
+      position: relative; display: flex;
+      align-items: flex-end; justify-content: center;
+      isolation: isolate;
+    }
+    .oeg-team__glow {
+      position: absolute; left: 50%; top: 47%;
+      width: min(400px, 86%); aspect-ratio: 1;
+      transform: translate(-50%,-50%);
+      background: radial-gradient(closest-side circle,
+        rgba(95,208,255,.26) 0%, rgba(177,79,197,.18) 46%, rgba(177,79,197,0) 78%);
+      filter: blur(40px);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+    }
+    .oeg-team__shadow {
+      position: absolute; left: 50%; bottom: 4px;
+      width: 44%; height: 22px; transform: translateX(-50%);
+      background: radial-gradient(closest-side ellipse,
+        rgba(64,31,125,.20) 0%, rgba(64,31,125,0) 100%);
+      filter: blur(6px); border-radius: 50%; z-index: 0;
+      animation: oeg-team-shadow 6.5s ease-in-out infinite;
+    }
+    .oeg-team__figure {
+      position: relative; z-index: 1; line-height: 0;
+      filter: drop-shadow(0 20px 28px rgba(64,31,125,.18));
+      animation: oeg-team-float 6.5s ease-in-out infinite;
+    }
+    .oeg-team__portrait {
+      display: block; width: auto; height: clamp(310px, 38vw, 450px);
+      max-width: 100%; object-fit: contain;
+      -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+              mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+    }
+    @keyframes oeg-team-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-15px); }
+    }
+    @keyframes oeg-team-shadow {
+      0%, 100% { transform: translateX(-50%) scale(1);   opacity: .8; }
+      50%      { transform: translateX(-50%) scale(.86); opacity: .5; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .oeg-team__figure, .oeg-team__shadow { animation: none; }
+    }
+
+    .oeg-team__media { min-height: 400px; }
+
+    .oeg-team__plates {
+      position: absolute; left: 50%; bottom: 1%;
+      transform: translateX(-50%);
+      width: max-content; max-width: 100%;
+      display: flex; gap: 10px; flex-wrap: nowrap; justify-content: center;
+      z-index: 2;
+    }
+    .oeg-team__plate {
+      background: rgba(255,255,255,.94); border: 1px solid var(--line);
+      border-radius: 14px; padding: 9px 16px;
+      box-shadow: 0 8px 26px rgba(64,31,125,.14);
+      white-space: nowrap; display: flex; flex-direction: column; gap: 2px;
+    }
+    .oeg-team__plate-name {
+      font-family: var(--fh); font-size: 16px; font-weight: 700;
+      letter-spacing: -0.01em; color: var(--p);
+    }
+    .oeg-team__plate-role {
+      font-family: var(--fb); font-size: 11px; font-weight: 600;
+      letter-spacing: 1.1px; text-transform: uppercase; color: var(--m);
+    }
+
+    @media (max-width: 900px) {
+      .oeg-team__container { grid-template-columns: 1fr; }
+      .oeg-team__media { order: -1; min-height: 350px; }
+      .oeg-team__copy { max-width: none; }
+    }
+    @media (max-width: 520px) {
+      .oeg-team__plates { position: static; transform: none; margin-top: 14px; flex-wrap: wrap; }
+      .oeg-team__media { flex-direction: column; align-items: center; }
+      .oeg-team__stats { gap: 20px; }
+    }
+  </style>
+
+  <style>
+    /* Full names are wider than the initials the plates were sized for.
+       Let the pair wrap before it can overflow the portrait column. */
+    .oeg-team__plates { flex-wrap: wrap; row-gap: 8px; }
+    @media (max-width: 1080px) {
+      .oeg-team__plate { padding: 8px 13px; }
+      .oeg-team__plate-name { font-size: 14px; }
+    }
+  </style>
+
+  <div class="oeg-team__container">
+
+    <div class="oeg-team__media">
+      <div class="oeg-team__glow" aria-hidden="true"></div>
+      <div class="oeg-team__shadow" aria-hidden="true"></div>
+      <div class="oeg-team__figure">
+        <img class="oeg-team__portrait"
+             alt="Dr. Nicole Galante and Izzy Galante, the sister and brother who founded Tangram"
+             src="tangram-founders.webp" width="643" height="680" decoding="async">
+      </div>
+      <div class="oeg-team__plates">
+        <div class="oeg-team__plate">
+          <span class="oeg-team__plate-name">Dr. Nicole Galante</span>
+          <span class="oeg-team__plate-role">Co-Founder</span>
+        </div>
+        <div class="oeg-team__plate">
+          <span class="oeg-team__plate-name">Izzy Galante</span>
+          <span class="oeg-team__plate-role">Co-Founder</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="oeg-team__content">
+      <p class="oeg-team__tag">The founding team</p>
+
+      <h2 class="oeg-team__title">Built for teachers.<br><span>By teachers.</span></h2>
+
+      <p class="oeg-team__copy">
+        Every AI tool in education says teachers built it. Ours was built by
+        <strong>Nicole and Izzy Galante</strong>, a sister and brother who spent their careers in
+        classrooms long before either of them thought about software &mdash; hers teaching high
+        school English, his teaching middle school math as a National Board Certified Teacher.
+      </p>
+      <p class="oeg-team__copy">
+        They do not just talk the talk. They coached in more than 650 districts, trained
+        thousands of teachers, and co-authored New York State's framework for quality remote
+        teaching. Then they built the planning partner they wished they had at 9pm on a Sunday.
+      </p>
+
+      <div class="oeg-team__stats">
+        <div>
+          <span class="oeg-team__stat-num">50+</span>
+          <span class="oeg-team__stat-label">Years in education,<br>combined</span>
+        </div>
+        <div>
+          <span class="oeg-team__stat-num">650+</span>
+          <span class="oeg-team__stat-label">Districts<br>coached</span>
+        </div>
+        <div>
+          <span class="oeg-team__stat-num">2</span>
+          <span class="oeg-team__stat-label">Siblings who still answer<br>their own emails</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 07 ===== -->
+
+<!-- CREDIBILITY -->
+<section class="credibility" id="credibility">
+  <div class="container">
+    <div class="cred-header">
+      <div class="cred-tag">From the Classroom to State Policy</div>
+      <h2>We didn't just study teaching. We did the work.</h2>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-stat">
+        <div class="cred-num">50+</div>
+        <div class="cred-label">Years combined experience</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">100s</div>
+        <div class="cred-label">of districts coached</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">1000s</div>
+        <div class="cred-label">of teachers trained</div>
+      </div>
+      <div class="cred-stat">
+        <div class="cred-num">15 yrs</div>
+        <div class="cred-label">NYC DOE partner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING (KG Creative) -->
+<section class="tg-pricing" id="pricing">
+  <div class="tg-wrap">
+
+    <div class="tg-head">
+      <p class="tg-eyebrow">Simple Pricing</p>
+      <h2>Start free. Choose your level when you're ready.</h2>
+      <p class="tg-sub">Your first month free &mdash; no credit card. Then keep the features you love.</p>
+    </div>
+
+    <div class="tg-toggle-row">
+      <div class="tg-toggle" role="tablist" aria-label="Billing period">
+        <button type="button" data-plan="monthly" class="is-active" aria-selected="true">Monthly</button>
+        <button type="button" data-plan="annual" aria-selected="false">Annual<span class="tg-save">Save 44%</span></button>
+      </div>
+    </div>
+
+    <div class="tg-grid">
+
+      <!-- IDEATE -->
+      <div class="tg-card">
+        <span class="tg-badge tg-badge-soft">Start here</span>
+        <h3 class="tg-name">Ideate</h3>
+        <p class="tg-tag">The full Tangram experience, free for your first month.</p>
+        <div class="tg-price">
+          <span class="tg-amount">Free</span>
+        </div>
+        <p class="tg-note">Your first month, free</p>
+        <a href="https://app.gettangram.com/signup" class="tg-cta">Start Free</a>
+        <ul class="tg-feats">
+          <li>Every feature unlocked for your first month</li>
+          <li>Build real, differentiated lessons</li>
+          <li>Meet Tan, your planning partner</li>
+          <li>No credit card required</li>
+        </ul>
+      </div>
+
+      <!-- ACCELERATE -->
+      <div class="tg-card">
+        <h3 class="tg-name">Accelerate</h3>
+        <p class="tg-tag">The essentials for your everyday planning.</p>
+        <div class="tg-price">
+          <span class="tg-amount" data-monthly="$5.99" data-annual="$3.33">$5.99</span>
+          <span class="tg-per" data-monthly="/mo" data-annual="/mo">/mo</span>
+        </div>
+        <p class="tg-note" data-monthly="Billed monthly" data-annual="$39.99 billed annually">Billed monthly</p>
+        <a href="https://app.gettangram.com/signup?plan=accelerate"
+           data-base-href="https://app.gettangram.com/signup?plan=accelerate"
+           class="tg-cta">Choose Accelerate</a>
+        <ul class="tg-feats">
+          <li><strong>5 lessons</strong> per month</li>
+          <li>Chat with Tan</li>
+          <li>All 7 methodology pieces</li>
+          <li>State standards &amp; frameworks</li>
+          <li>Tailored versions for every class</li>
+        </ul>
+      </div>
+
+      <!-- ELEVATE (featured) -->
+      <div class="tg-card is-featured">
+        <span class="tg-badge">Most Popular</span>
+        <h3 class="tg-name">Elevate</h3>
+        <p class="tg-tag">Everything unlocked — built to go all in.</p>
+        <div class="tg-price">
+          <span class="tg-amount" data-monthly="$11.99" data-annual="$6.67">$11.99</span>
+          <span class="tg-per" data-monthly="/mo" data-annual="/mo">/mo</span>
+        </div>
+        <p class="tg-note" data-monthly="Billed monthly" data-annual="$79.99 billed annually">Billed monthly</p>
+        <a href="https://app.gettangram.com/signup?plan=elevate"
+           data-base-href="https://app.gettangram.com/signup?plan=elevate"
+           class="tg-cta tg-cta-green">Choose Elevate</a>
+        <ul class="tg-feats">
+          <li><strong>Unlimited</strong> lessons</li>
+          <li>Everything in Accelerate</li>
+          <li>Language translation for families</li>
+          <li>Google Classroom outputs</li>
+          <li>Shared libraries &amp; one-click lesson sharing</li>
+          <li>Your personal media library</li>
+          <li>Access to all live trainings</li>
+          <li>Priority feature requests</li>
+          <li>Direct human coaching calls</li>
+        </ul>
+      </div>
+
+      <!-- CAMPUS -->
+      <div class="tg-card">
+        <h3 class="tg-name">Campus</h3>
+        <p class="tg-tag">Bring Tangram to your whole building or district.</p>
+        <div class="tg-price">
+          <span class="tg-amount" style="font-size:34px;">Let's talk</span>
+        </div>
+        <p class="tg-note">Custom pricing for schools &amp; districts</p>
+        <a href="#campus-inquire" class="tg-cta tg-cta-primary">Inquire for Pricing</a>
+        <ul class="tg-feats">
+          <li>Everything in Elevate, for your team</li>
+          <li>Admin &amp; rostering at scale</li>
+          <li>Custom onboarding &amp; PD</li>
+          <li>Building-wide live trainings</li>
+          <li>Dedicated support</li>
+          <li>Volume pricing</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="tg-foot">Every plan is powered by our original methodology. Questions? <a href="#campus-inquire">Talk to a real educator</a>.</p>
+
+  </div>
+
+  <script>
+  (function(){
+    var root=document.getElementById('pricing');
+    var btns=root.querySelectorAll('.tg-toggle button');
+    function setPlan(plan){
+      btns.forEach(function(b){var on=b.dataset.plan===plan;b.classList.toggle('is-active',on);b.setAttribute('aria-selected',on);});
+      root.querySelectorAll('[data-'+plan+']').forEach(function(el){
+        el.textContent=el.getAttribute('data-'+plan);
+      });
+      root.querySelectorAll('a[data-base-href]').forEach(function(a){
+        var base=a.getAttribute('data-base-href');
+        a.href = base + (base.indexOf('?')>-1?'&':'?') + 'billing=' + plan;
+      });
+    }
+    btns.forEach(function(b){b.addEventListener('click',function(){setPlan(b.dataset.plan);});});
+    setPlan('monthly');
+  })();
+  </script>
+</section>
+
+<!-- ===== 05 · First month free (One Eleven Group, corrected) ===== -->
+<section class="oeg-offer">
+  <style>
+    .oeg-offer {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: var(--ink);
+      background: linear-gradient(165deg,#FDFCFE 0%,#F7F5FB 50%,#F1E9F8 100%);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: clamp(48px, 6.5vw, 88px) 0 0;
+      overflow: hidden;
+    }
+    .oeg-offer *, .oeg-offer *::before, .oeg-offer *::after { box-sizing: border-box; }
+
+    .oeg-offer__container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+    .oeg-offer__head { text-align: center; margin-bottom: clamp(24px, 3vw, 36px); }
+    .oeg-offer__title {
+      font-family: var(--fh); font-size: clamp(34px, 5.4vw, 62px);
+      font-weight: 800; line-height: 1.02; letter-spacing: -0.03em;
+      color: var(--p); margin: 0 0 12px;
+    }
+    .oeg-offer__title span { color: var(--m); }
+    .oeg-offer__sub {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.7;
+      color: var(--ink); margin: 0 auto; max-width: 48ch;
+    }
+
+    .oeg-offer__row {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: clamp(20px, 3vw, 48px); align-items: end;
+    }
+
+    .oeg-offer__actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .oeg-offer__btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500; text-decoration: none;
+      padding: 16px 32px; border-radius: var(--btn);
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+      white-space: nowrap;
+    }
+    .oeg-offer__btn--primary {
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      color: #fff; box-shadow: 0 4px 16px rgba(177,79,197,.25);
+    }
+    .oeg-offer__btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
+    .oeg-offer__btn--secondary {
+      background: rgba(255,255,255,.85); color: var(--p);
+      border: 2px solid rgba(64,31,125,.12);
+    }
+    .oeg-offer__btn--secondary:hover { border-color: rgba(64,31,125,.28); transform: translateY(-2px); }
+
+    .oeg-offer__list { list-style: none; margin: 0 0 26px; padding: 0; }
+    .oeg-offer__list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 11px;
+    }
+    .oeg-offer__list svg { flex: none; color: var(--green); }
+
+    .oeg-offer__content { padding-bottom: clamp(30px, 5vw, 56px); }
+
+    .oeg-offer__media {
+      position: relative; display: flex;
+      align-items: flex-end; justify-content: center;
+      isolation: isolate;
+    }
+    .oeg-offer__glow {
+      position: absolute; left: 50%; top: 47%;
+      width: min(400px, 86%); aspect-ratio: 1;
+      transform: translate(-50%,-50%);
+      background: radial-gradient(closest-side circle,
+        rgba(177,79,197,.30) 0%, rgba(95,208,255,.16) 46%, rgba(177,79,197,0) 78%);
+      filter: blur(34px);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+    }
+    .oeg-offer__shadow {
+      position: absolute; left: 50%; bottom: 4px;
+      width: 44%; height: 22px; transform: translateX(-50%);
+      background: radial-gradient(closest-side ellipse,
+        rgba(64,31,125,.20) 0%, rgba(64,31,125,0) 100%);
+      filter: blur(6px); border-radius: 50%; z-index: 0;
+      animation: oeg-offer-shadow 6.5s ease-in-out infinite;
+    }
+    .oeg-offer__figure {
+      position: relative; z-index: 1; line-height: 0;
+      filter: drop-shadow(0 20px 28px rgba(64,31,125,.18));
+      animation: oeg-offer-float 6.5s ease-in-out infinite;
+    }
+    .oeg-offer__portrait {
+      display: block; width: auto; height: clamp(250px, 30vw, 360px);
+      max-width: 100%; object-fit: contain;
+      -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+              mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+    }
+    @keyframes oeg-offer-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-15px); }
+    }
+    @keyframes oeg-offer-shadow {
+      0%, 100% { transform: translateX(-50%) scale(1);   opacity: .8; }
+      50%      { transform: translateX(-50%) scale(.86); opacity: .5; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .oeg-offer__figure, .oeg-offer__shadow { animation: none; }
+    }
+
+    @media (max-width: 900px) {
+      .oeg-offer__row { grid-template-columns: 1fr; }
+      .oeg-offer__media { order: -1; }
+      .oeg-offer__content { padding-bottom: 40px; }
+    }
+    @media (max-width: 520px) {
+      .oeg-offer__btn { width: 100%; }
+    }
+  </style>
+
+  <div class="oeg-offer__container">
+
+    <div class="oeg-offer__head">
+      <h2 class="oeg-offer__title"><span>First month free.</span> Then from $5.99.</h2>
+      <p class="oeg-offer__sub">Everything unlocked for your first month. Build one real lesson and see if it holds up.</p>
+    </div>
+
+    <div class="oeg-offer__row">
+
+      <div class="oeg-offer__content">
+        <ul class="oeg-offer__list">
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Every feature unlocked, not a stripped-down sample
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            No credit card to start &mdash; nothing charges automatically when it ends
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Pick your plan when you are ready, from $5.99/mo. Cancel anytime.
+          </li>
+        </ul>
+
+        <div class="oeg-offer__actions">
+          <!-- Signup goes straight into the app, matching the nav CTA. -->
+          <a class="oeg-offer__btn oeg-offer__btn--primary" href="https://app.gettangram.com">Start Free &rarr;</a>
+          <!-- TEACHER booking calendar (15 min) — see the note in section 01
+               about keeping this separate from the district calendar. -->
+          <a class="oeg-offer__btn oeg-offer__btn--secondary" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call</a>
+        </div>
+      </div>
+
+      <div class="oeg-offer__media">
+        <div class="oeg-offer__glow" aria-hidden="true"></div>
+        <div class="oeg-offer__figure">
+          <!-- Decorative — the headline above carries the meaning, so this is
+               hidden from screen readers rather than given redundant alt text. -->
+          <img class="oeg-offer__portrait" alt="" aria-hidden="true"
+               src="nicole-pointing.webp" width="620" height="600" decoding="async">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===== end 05 ===== -->
+
+<!-- ===== 04 · Creator Partner Program (One Eleven Group, corrected) ===== -->
+<section class="oeg-creator" id="creator-program">
+  <style>
+    .oeg-creator {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --blue: var(--tg-blue, #5FD0FF);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb); color: #fff;
+      background: linear-gradient(135deg, #2D1659 0%, #401F7D 50%, #88229D 100%);
+      padding: clamp(56px, 8vw, 110px) 0;
+    }
+    .oeg-creator *, .oeg-creator *::before, .oeg-creator *::after { box-sizing: border-box; }
+
+    .oeg-creator__container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+    .oeg-creator__head { text-align: center; margin-bottom: clamp(32px, 5vw, 52px); }
+
+    .oeg-creator__tag {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--green); margin: 0 0 20px;
+    }
+    .oeg-creator__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--green); border-radius: 2px;
+    }
+
+    .oeg-creator__title {
+      font-family: var(--fh); font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 800; line-height: 1.12; letter-spacing: -0.02em;
+      color: #fff; margin: 0 auto 18px; max-width: none;
+      text-wrap: balance;
+    }
+    .oeg-creator__title span { color: var(--green); }
+
+    .oeg-creator__copy {
+      font-size: clamp(16px, 1.4vw, 18px); line-height: 1.72;
+      color: rgba(255,255,255,.82); margin: 0 auto; max-width: 58ch;
+    }
+
+    .oeg-creator__rate {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
+      border-radius: var(--rad); padding: clamp(28px, 4vw, 40px) 28px;
+      text-align: center; margin-bottom: clamp(28px, 4vw, 44px);
+    }
+    .oeg-creator__rate-row {
+      display: flex; flex-wrap: wrap; align-items: baseline;
+      justify-content: center; gap: 6px 16px;
+    }
+    .oeg-creator__rate-num {
+      font-family: var(--fh); font-size: clamp(48px, 7vw, 78px);
+      font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: #fff;
+    }
+    .oeg-creator__rate-label {
+      font-family: var(--fh); font-size: clamp(17px, 1.9vw, 22px);
+      font-weight: 700; letter-spacing: -0.01em; color: var(--green);
+    }
+    .oeg-creator__rate-sub {
+      font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.78);
+      margin: 14px auto 0; max-width: 56ch;
+    }
+
+    .oeg-creator__steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(16px, 2.4vw, 24px); margin-bottom: clamp(32px, 5vw, 48px);
+    }
+    .oeg-creator__step {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--rad); padding: clamp(24px, 3vw, 30px) clamp(22px, 2.6vw, 28px);
+    }
+    .oeg-creator__step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
+      font-family: var(--fh); font-size: 16px; font-weight: 700; color: #fff;
+      margin-bottom: 16px;
+    }
+    .oeg-creator__step h3 {
+      font-family: var(--fh); font-size: 20px; font-weight: 700;
+      letter-spacing: -0.01em; margin: 0 0 9px; color: #fff;
+    }
+    .oeg-creator__step p {
+      font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.78); margin: 0;
+    }
+
+    .oeg-creator__cta { text-align: center; }
+    .oeg-creator__btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500;
+      text-decoration: none; background: #fff; color: var(--p);
+      padding: 16px 34px; border-radius: var(--btn);
+      box-shadow: 0 6px 22px rgba(0,0,0,.20);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .oeg-creator__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.26); }
+    .oeg-creator__note {
+      font-size: 14px; line-height: 1.7; color: rgba(255,255,255,.62); margin: 16px 0 0;
+    }
+
+    @media (max-width: 860px) { .oeg-creator__steps { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .oeg-creator__btn { width: 100%; } }
+  </style>
+
+  <style>
+    .oeg-creator__rate-terms {
+      margin: 10px 0 0; font-size: 12.5px; line-height: 1.5;
+      color: rgba(255,255,255,.6);
+      font-family: var(--font-body, 'Work Sans', sans-serif);
+    }
+  </style>
+
+  <div class="oeg-creator__container">
+
+    <div class="oeg-creator__head">
+      <p class="oeg-creator__tag">Creator Partner Program</p>
+      <h2 class="oeg-creator__title">We are not looking for influencers.<br>We are looking for <span>real teachers.</span></h2>
+      <p class="oeg-creator__copy">
+        Follower count is not the filter. If you teach, and you talk about teaching, we will
+        give you a free Elevate account for twelve months and pay you every month for the
+        teachers you send our way. Teach with it, talk about it, get paid for it.
+      </p>
+    </div>
+
+    <div class="oeg-creator__rate">
+      <div class="oeg-creator__rate-row">
+        <span class="oeg-creator__rate-num">30%</span>
+        <span class="oeg-creator__rate-label">of what your referrals pay, every month</span>
+      </div>
+      <p class="oeg-creator__rate-sub">
+        For as long as they stay subscribed. Your first payment lands once a referral has been
+        paying for sixty days, then it runs monthly.
+      </p>
+      <p class="oeg-creator__rate-terms">
+        Referrals who cancel or refund stop earning from that point. Full terms come with your
+        acceptance email.
+      </p>
+    </div>
+
+    <div class="oeg-creator__steps">
+      <div class="oeg-creator__step">
+        <span class="oeg-creator__step-num">1</span>
+        <h3>Apply</h3>
+        <p>Tell us what you teach and where you post. Classroom teachers, instructional coaches, and people who review tools for educators. That is the list.</p>
+      </div>
+      <div class="oeg-creator__step">
+        <span class="oeg-creator__step-num">2</span>
+        <h3>Get your account</h3>
+        <p>Free Elevate access for twelve months, plus your own discount code that tracks everyone you send.</p>
+      </div>
+      <div class="oeg-creator__step">
+        <span class="oeg-creator__step-num">3</span>
+        <h3>Post and earn</h3>
+        <p>Show a real lesson you actually built. Two pieces of content to start, then earn on every teacher who subscribes through your code.</p>
+      </div>
+    </div>
+
+    <div class="oeg-creator__cta">
+      <!-- APPLICATION LINK — replace with the real form URL when it exists.
+           mailto fallback so the button is never dead. -->
+      <a class="oeg-creator__btn"
+         href="mailto:hello@gettangram.com?subject=Creator%20Partner%20Program%20application&amp;body=What%20I%20teach%20(subject%20and%20grade)%3A%0A%0AWhere%20I%20post%20(handles%20and%20links)%3A%0A%0AWhy%20I%20want%20to%20use%20Tangram%20with%20my%20classes%3A%0A%0A">Apply to the Creator Program &rarr;</a>
+      <p class="oeg-creator__note">Takes about two minutes. We read every application ourselves.</p>
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 04 ===== -->
+
+<!-- ===== 06 · Book a free call with a founder (One Eleven Group, corrected) ===== -->
+<section class="oeg-call">
+  <style>
+    .oeg-call {
+      --p:  var(--tg-purple, #401F7D);
+      --pd: var(--tg-purple-dark, #2D1659);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --green: var(--tg-green, #3FDE9D);
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb);
+      color: var(--ink);
+      background: linear-gradient(165deg,#FDFCFE 0%,#F8F5FC 45%,#F1E9F8 100%);
+      padding: clamp(56px, 8vw, 104px) 0;
+      overflow: hidden;
+    }
+    .oeg-call *, .oeg-call *::before, .oeg-call *::after { box-sizing: border-box; }
+
+    .oeg-call__container {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1.05fr .95fr;
+      gap: clamp(28px, 4vw, 60px); align-items: center;
+    }
+
+    .oeg-call__tag {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
+    }
+    .oeg-call__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-call__title {
+      font-family: var(--fh);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 800; line-height: 1.06;
+      letter-spacing: -0.025em; color: var(--p); margin: 0 0 18px;
+    }
+    .oeg-call__title span { color: var(--m); }
+
+    .oeg-call__copy {
+      font-size: clamp(16px, 1.4vw, 18px);
+      line-height: 1.72; color: var(--ink);
+      margin: 0 0 28px; max-width: 44ch;
+    }
+
+    .oeg-call__btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500; text-decoration: none;
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      color: #fff; padding: 16px 32px; border-radius: var(--btn);
+      box-shadow: 0 4px 16px rgba(177,79,197,.25);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .oeg-call__btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
+
+    .oeg-call__reassure {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 14px; color: var(--muted); margin: 18px 0 0;
+    }
+    .oeg-call__reassure svg { flex: none; color: var(--green); }
+
+    /* ---------- floating portrait ---------- */
+    .oeg-call__media {
+      position: relative; display: flex;
+      align-items: flex-end; justify-content: center;
+      min-height: 420px; isolation: isolate;
+    }
+    .oeg-call__glow {
+      position: absolute; left: 50%; top: 46%;
+      width: min(410px, 88%); aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(closest-side circle,
+        rgba(177,79,197,.28) 0%, rgba(95,208,255,.15) 46%, rgba(177,79,197,0) 78%);
+      filter: blur(36px);
+      border-radius: 50%; pointer-events: none; z-index: 0;
+    }
+    .oeg-call__shadow {
+      position: absolute; left: 50%; bottom: 4px;
+      width: 44%; height: 22px; transform: translateX(-50%);
+      background: radial-gradient(closest-side ellipse,
+        rgba(64,31,125,.20) 0%, rgba(64,31,125,0) 100%);
+      filter: blur(6px); border-radius: 50%; z-index: 0;
+      animation: oeg-call-shadow 6s ease-in-out infinite;
+    }
+    /* drop-shadow sits on the wrapper, not the masked image. Putting both on
+       one element makes some browsers draw the un-masked box shadow, which is
+       what caused the visible square edge. */
+    .oeg-call__figure {
+      position: relative; z-index: 1; line-height: 0;
+      filter: drop-shadow(0 20px 28px rgba(64,31,125,.18));
+      animation: oeg-call-float 6s ease-in-out infinite;
+    }
+    .oeg-call__portrait {
+      display: block; width: auto; height: clamp(320px, 40vw, 480px);
+      max-width: 100%; object-fit: contain;
+      -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+              mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,0) 99%);
+    }
+    @keyframes oeg-call-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-16px); }
+    }
+    @keyframes oeg-call-shadow {
+      0%, 100% { transform: translateX(-50%) scale(1);   opacity: .8; }
+      50%      { transform: translateX(-50%) scale(.86); opacity: .5; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .oeg-call__figure, .oeg-call__shadow { animation: none; }
+    }
+
+    /* the little name plate */
+    .oeg-call__plate {
+      position: absolute; left: 50%; bottom: 8%;
+      transform: translateX(-58%);
+      display: flex; flex-direction: column; gap: 2px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 20px;
+      box-shadow: 0 8px 26px rgba(64,31,125,.14);
+      white-space: nowrap; z-index: 2;
+    }
+    .oeg-call__plate-name {
+      font-family: var(--fh); font-size: 17px; font-weight: 700;
+      letter-spacing: -0.01em; color: var(--p);
+    }
+    .oeg-call__plate-role {
+      font-family: var(--fb); font-size: 12px; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase; color: var(--m);
+    }
+
+    @media (max-width: 900px) {
+      .oeg-call__container { grid-template-columns: 1fr; }
+      .oeg-call__media { order: -1; min-height: 340px; }
+      .oeg-call__copy { max-width: none; }
+      .oeg-call__plate { transform: translateX(-64%); }
+    }
+    @media (max-width: 520px) {
+      .oeg-call__btn { width: 100%; }
+      .oeg-call__portrait { height: 300px; }
+      .oeg-call__plate { bottom: 2%; padding: 10px 16px; }
+      .oeg-call__plate-name { font-size: 15px; }
+    }
+  </style>
+
+  <style>
+    /* The plate is white-space:nowrap so the name and title stay on one
+       line. The credential line has to be allowed to wrap, and the plate
+       needs a ceiling so it cannot run off the edge of the card. */
+    .oeg-call__plate {
+      white-space: normal;
+      max-width: min(320px, 78vw);
+    }
+    .oeg-call__plate-name { white-space: nowrap; }
+    /* The full title is wider than the plate was sized for. Let it wrap and
+       tighten the tracking slightly rather than pushing past the edge. */
+    .oeg-call__plate-role {
+      white-space: normal; letter-spacing: .9px; font-size: 11.5px; line-height: 1.35;
+    }
+    .oeg-call__plate-cred {
+      display: block; margin-top: 6px;
+      font-family: var(--font-body, 'Work Sans', sans-serif);
+      font-size: 11.5px; line-height: 1.45; font-weight: 500;
+      color: var(--tg-muted, #6f6b7d);
+      white-space: normal;
+    }
+    @media (max-width: 520px) {
+      .oeg-call__plate-cred { display: none; }
+    }
+  </style>
+
+  <div class="oeg-call__container">
+
+    <div class="oeg-call__content">
+      <p class="oeg-call__tag">Talk to a human</p>
+
+      <h2 class="oeg-call__title">Yes, you can actually <span>talk to one of our founders.</span></h2>
+
+      <p class="oeg-call__copy">
+        Not a sales rep, not a chatbot, not a form that disappears into an inbox. Book fifteen
+        minutes with one of the people who actually built Tangram and ask her anything. Whether it fits your
+        classroom, what it does with IEPs, whether it makes sense for your whole school.
+      </p>
+
+      <!-- SWAP: Google Appointments booking link -->
+      <a class="oeg-call__btn" href="https://calendar.app.google/KbwtcTjy3ZySbmrq7" target="_blank" rel="noopener">Book a Free Call &rarr;</a>
+
+      <p class="oeg-call__reassure">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        Fifteen minutes, no pitch, no pressure
+      </p>
+    </div>
+
+    <div class="oeg-call__media">
+      <div class="oeg-call__glow" aria-hidden="true"></div>
+      <div class="oeg-call__shadow" aria-hidden="true"></div>
+
+      <div class="oeg-call__figure">
+      <img class="oeg-call__portrait"
+           alt="Dr. Nicole Galante, co-founder of Tangram"
+           src="nicole-founder.webp" width="459" height="720" decoding="async">
+      </div>
+
+      <div class="oeg-call__plate">
+        <span class="oeg-call__plate-name">Dr. Nicole Galante</span>
+        <span class="oeg-call__plate-role">Co-Founder &amp; Chief Strategy Officer</span>
+        <span class="oeg-call__plate-cred">PhD &middot; Stony Brook University &middot; Co-authored New York State&rsquo;s framework for quality remote teaching</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 06 ===== -->
+
+<!-- CAMPUS / DISTRICT INQUIRE (KG Creative) -->
+<section class="tg-campus" id="campus-inquire">
+  <div class="tg-wrap">
+    <div class="tg-inner">
+
+      <div class="tg-copy">
+        <p class="tg-eyebrow">For Schools &amp; Districts</p>
+        <h2>Bring Tangram to your whole building.</h2>
+        <p class="tg-lead">Give every teacher a planning partner that already knows your standards, your frameworks, and your students — with onboarding and coaching built for your team.</p>
+        <ul class="tg-list">
+          <li>Everything in Elevate, for your entire staff</li>
+          <li>Admin dashboard &amp; rostering at scale</li>
+          <li>Custom onboarding and professional development</li>
+          <li>Building-wide live trainings with our founders</li>
+          <li>Dedicated support &amp; volume pricing</li>
+        </ul>
+        <!-- Booking link is live (Google Calendar appointment scheduling) -->
+        <a class="tg-book" href="https://calendar.app.google/THyRt4fbd7Z3DDE97" target="_blank" rel="noopener">Book a Call →</a>
+      </div>
+
+      <!-- OPTION 2: point action at your form handler; mailto fallback works out of the box -->
+      <form class="tg-form" action="mailto:hello@gettangram.com" method="post" enctype="text/plain">
+        <h3>Inquire for pricing</h3>
+        <p class="tg-fnote">Tell us about your school or district and we'll be in touch.</p>
+
+        <div class="tg-two">
+          <div class="tg-field">
+            <label for="tg-fname">First name</label>
+            <input id="tg-fname" name="First name" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="tg-field">
+            <label for="tg-lname">Last name</label>
+            <input id="tg-lname" name="Last name" type="text" autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <div class="tg-field">
+          <label for="tg-email">Work email</label>
+          <input id="tg-email" name="Email" type="email" autocomplete="email" required>
+        </div>
+
+        <div class="tg-two">
+          <div class="tg-field">
+            <label for="tg-school">School / District</label>
+            <input id="tg-school" name="School or District" type="text" required>
+          </div>
+          <div class="tg-field">
+            <label for="tg-role">Your role</label>
+            <select id="tg-role" name="Role">
+              <option>Teacher</option>
+              <option>Instructional Coach</option>
+              <option>Principal / AP</option>
+              <option>District Administrator</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="tg-field">
+          <label for="tg-size">Approx. number of teachers</label>
+          <input id="tg-size" name="Number of teachers" type="text" placeholder="e.g. 45">
+        </div>
+
+        <div class="tg-field">
+          <label for="tg-msg">Anything else? (optional)</label>
+          <textarea id="tg-msg" name="Message" placeholder="What are you hoping Tangram can help your team with?"></textarea>
+        </div>
+
+        <button class="tg-submit" type="submit">Request Pricing</button>
+        <p class="tg-priv">We'll only use your info to talk about Tangram. No spam, ever.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="signup">
+  <div class="container">
+    <h2>Your students aren't generic. Your lessons shouldn't be either.</h2>
+    <p>Your first month free. No credit card. See what a real methodology feels like.</p>
+    <a href="https://app.gettangram.com" class="final-cta-btn">Start Free →</a>
+    <p class="kit-subtext">150 students. 5 class periods. 1 workflow. Zero compromises.</p>
+  </div>
+</section>
+
+<!-- ===== 03 · Instagram feed — LIVE Elfsight widget (One Eleven Group, corrected) ===== -->
+<section class="oeg-social">
+  <style>
+    .oeg-social {
+      --p:  var(--tg-purple, #401F7D);
+      --m:  var(--tg-magenta, #B14FC5);
+      --am: #88229D;
+      --ink: var(--tg-ink, #333333);
+      --muted: var(--tg-muted, #6f6b7d);
+      --line: var(--tg-line, rgba(64,31,125,0.10));
+      --rad: var(--tg-rad, 24px);
+      --btn: var(--tg-btn, 12px);
+      --fh: var(--font-head, 'League Spartan', sans-serif);
+      --fb: var(--font-body, 'Work Sans', sans-serif);
+
+      box-sizing: border-box;
+      font-family: var(--fb);
+      color: var(--ink);
+      background: #FFFFFF;
+      padding: clamp(56px, 8vw, 110px) 0;
+    }
+    .oeg-social *, .oeg-social *::before, .oeg-social *::after { box-sizing: border-box; }
+
+    .oeg-social__container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+    .oeg-social__head {
+      display: flex; flex-wrap: wrap; align-items: flex-end;
+      justify-content: space-between; gap: 24px;
+      margin-bottom: clamp(28px, 4vw, 44px);
+    }
+
+    .oeg-social__tag {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.44px;
+      text-transform: uppercase; color: var(--m); margin: 0 0 18px;
+    }
+    .oeg-social__tag::before {
+      content: ""; width: 28px; height: 2px; flex: none;
+      background: var(--m); border-radius: 2px;
+    }
+
+    .oeg-social__title {
+      font-family: var(--fh);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.02em; color: var(--p); margin: 0 0 14px;
+    }
+
+    .oeg-social__copy {
+      font-size: clamp(15px, 1.35vw, 17px);
+      line-height: 1.72; color: var(--ink); margin: 0; max-width: 50ch;
+    }
+
+    .oeg-social__follow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--fb); font-size: 16px; font-weight: 500;
+      text-decoration: none; color: #fff;
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      padding: 16px 32px; border-radius: var(--btn);
+      box-shadow: 0 4px 16px rgba(177,79,197,.25);
+      transition: transform .16s ease, box-shadow .16s ease;
+      white-space: nowrap;
+    }
+    .oeg-social__follow:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(177,79,197,.34); }
+
+    .oeg-social__embed { border-radius: var(--rad); overflow: hidden; min-height: 300px; }
+
+    /* Only ever rendered if the Elfsight widget fails to load. */
+    .oeg-social__fallback {
+      border: 1px solid var(--line); border-radius: var(--rad);
+      background: var(--tg-soft, #F7F5FB);
+      padding: clamp(40px, 6vw, 64px) 24px; text-align: center;
+    }
+    .oeg-social__fallback svg { color: var(--m); margin-bottom: 16px; }
+    .oeg-social__fallback h3 {
+      font-family: var(--fh); font-size: 21px; font-weight: 700;
+      letter-spacing: -0.01em; color: var(--p); margin: 0 0 8px;
+    }
+    .oeg-social__fallback p {
+      font-size: 15px; line-height: 1.65; color: var(--muted); margin: 0 0 22px;
+    }
+    .oeg-social__fallback a {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 600; text-decoration: none; color: #fff;
+      background: linear-gradient(135deg, var(--m) 0%, var(--am) 100%);
+      padding: 13px 28px; border-radius: var(--btn);
+      box-shadow: 0 4px 16px rgba(177,79,197,.25);
+    }
+
+    @media (max-width: 700px) {
+      .oeg-social__head { flex-direction: column; align-items: stretch; }
+      .oeg-social__follow { width: 100%; justify-content: center; }
+    }
+  </style>
+
+  <div class="oeg-social__container">
+
+    <div class="oeg-social__head">
+      <div>
+        <p class="oeg-social__tag">From the classroom</p>
+        <h2 class="oeg-social__title">See Tangram in real classrooms.</h2>
+        <p class="oeg-social__copy">
+          Teachers building real lessons, sharing what is working, and showing what the tool
+          actually does on a Tuesday morning.
+        </p>
+      </div>
+
+      <a class="oeg-social__follow" href="https://www.instagram.com/gettangram/" target="_blank" rel="noopener">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        Follow along
+      </a>
+    </div>
+
+    <div class="oeg-social__embed">
+
+      <!-- ==================== ELFSIGHT EMBED ====================
+           Live. This is the @gettangram Instagram Feed widget from
+           the Tangram Elfsight account. Nothing to swap.
+
+           To change the layout later (posts shown, columns, etc.),
+           edit the widget inside Elfsight. The change is live on the
+           site instantly, no code edit needed.
+      ======================================================== -->
+
+      <!-- Elfsight Instagram Feed | @gettangram -->
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-2e4aad9a-237d-4889-927d-633b0ec8ee9e" data-elfsight-app-lazy></div>
+
+      <!-- Shown only if the Elfsight script never renders. See header note. -->
+      <template id="oeg-social-fb-tpl">
+        <div class="oeg-social__fallback">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <h3>The feed lives on Instagram.</h3>
+          <p>Real lessons, real classrooms, posted as they happen.</p>
+          <a href="https://www.instagram.com/gettangram/" target="_blank" rel="noopener">Follow @gettangram &rarr;</a>
+        </div>
+      </template>
+      <script>
+      (function () {
+        var host = document.querySelector('.elfsight-app-2e4aad9a-237d-4889-927d-633b0ec8ee9e');
+        if (!host) return;
+        setTimeout(function () {
+          /* Elfsight injects its own DOM into the host div. Nothing injected
+             and no height means the script never ran or never rendered. */
+          if (host.childElementCount > 0 && host.offsetHeight > 80) return;
+          var tpl = document.getElementById('oeg-social-fb-tpl');
+          if (tpl && host.parentNode) host.parentNode.replaceChild(tpl.content.cloneNode(true), host);
+        }, 4000);
+      })();
+      </script>
+
+    </div>
+
+  </div>
+</section>
+<!-- ===== end 03 ===== -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <a href="#" class="footer-logo">
+      <img src="Tangram_Logo.svg" alt="Tangram" class="footer-logo-img">
+    </a>
+    <p style="margin-bottom:8px">Tangram by Mosaic Instructional Planning · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
+    <p>© 2026 Mosaic IP LLC</p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -60px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = entry.target.dataset.transform || 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Animate elements on scroll
+document.querySelectorAll('.how-step, .compare-card, .feature-card, .cred-stat, .price-card').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(40px)';
+  el.style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+  observer.observe(el);
+});
+
+// Stagger animations within grids
+document.querySelectorAll('.how-grid, .features-grid, .cred-grid, .compare-grid, .pricing-grid').forEach(grid => {
+  Array.from(grid.children).forEach((child, i) => {
+    child.style.transitionDelay = `${i * 0.1}s`;
+  });
+});
+
+// Methodology section animation
+const methodologyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      methodologyObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.methodology-content, .pullquote-inner').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(40px)';
+  el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+  methodologyObserver.observe(el);
+});
+</script>
+</body>
+</html>
