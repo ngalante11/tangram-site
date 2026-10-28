@@ -964,5 +964,16 @@ h3{font-size:1.35rem;font-weight:700}
   });
 })();
 </script>
+<script>
+/* Attribution handoff: if this page was reached with ?src=…, carry it onto every
+   app.gettangram.com/start link so the signup records the real source (an ad, a post)
+   instead of the generic hp_* slot. Only [A-Za-z0-9_.:-], max 64 — the app's own rule. */
+(function(){try{
+  var src=new URLSearchParams(location.search).get('src');
+  if(!src||!/^[A-Za-z0-9_.:-]{1,64}$/.test(src))return;
+  document.querySelectorAll('a[href*="app.gettangram.com/start"]').forEach(function(a){
+    var u=new URL(a.href);u.searchParams.set('src',src);a.href=u.toString();});
+}catch(e){}})();
+</script>
 </body>
 </html>
