@@ -1,4 +1,4 @@
-# Buffer Posting Queue — Tangram Ad Kit
+# Blotato Posting Queue — Tangram Ad Kit
 
 All graphics are built in the **real Tangram design system** (`adkit/`), not Canva.
 Each concept exists in **square (1080×1080, feed)** and **story (1080×1920)**.
@@ -74,8 +74,8 @@ Observation season is coming. Walk in ready — every time. Questioning, checks 
 
 ## How to post
 1. Open the PNG from `adkit/` (or re-render from the HTML).
-2. Paste into Buffer with the caption above + a rotated hashtag set.
-3. Buffer auto-publishes to IG + TikTok (both Business/Creator accounts). Load the batch once.
+2. Paste into Blotato with the caption above + a rotated hashtag set.
+3. Blotato auto-publishes to IG + TikTok (both Business/Creator accounts). Load the batch once.
 
 ## Notes
 - Story versions are auto-generated from the square sources; hand-tune spacing in the

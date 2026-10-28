@@ -25,13 +25,13 @@ gen-ed teachers.**
 
 ## The real channel stack (what we actually have)
 
-No Klaviyo/HubSpot/Ahrefs/social scheduler. Here's how each channel actually ships:
+No Klaviyo/HubSpot/Ahrefs. Here's how each channel actually ships:
 
 | Channel | How it goes live | Status |
 |---|---|---|
 | **Blog** | Convert the markdown posts to on-brand HTML pages, add to the Vercel site (`/blog/`), push → auto-deploys. **No external service needed — fully in our control.** | Ready to publish |
-| **Social graphics** | **Canva** (connected) — routine auto-drafts branded designs; Nicole exports. | Live |
-| **Social posting** | No scheduler → **native/manual**. Machine prepares a copy-paste-ready queue + the Canva graphic per post. | Manual |
+| **Social graphics** | **In-repo ad kit** (`social/adkit/`) — real design system, rendered to PNG via headless Chrome. Canva is retired. | Ready to render |
+| **Social posting** | **Blotato** (Nicole's scheduler) — paste the caption + ad-kit PNG from the queue in `social/posting-queue.md`; Blotato publishes to IG + TikTok. | Manual queue → Blotato |
 | **Email** | ESP = **Kit (ConvertKit)**. Sequences restructured for Kit in `email/kit-setup.md` (paste-ready + click-by-click). No Claude↔Kit connector, so setup is manual/API. | Ready to build in Kit |
 | **SEO data** | No Ahrefs → use free signals (Google autocomplete, Search Console once verified). Drafts don't need it. | Free-tier |
 
