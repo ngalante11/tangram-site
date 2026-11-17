@@ -1,6 +1,21 @@
 {
   "redirects": [
     {
+      "source": "/terms",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "https://app.gettangram.com/pricing",
+      "permanent": false
+    },
+    {
       "source": "/sarah",
       "destination": "https://app.gettangram.com/signup?ref=sarah",
       "permanent": false
