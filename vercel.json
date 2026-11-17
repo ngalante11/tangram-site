@@ -2,7 +2,12 @@
   "redirects": [
     {
       "source": "/terms",
-      "destination": "/terms.html",
+      "destination": "https://app.gettangram.com/terms.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "https://app.gettangram.com/terms.html",
       "permanent": true
     },
     {
